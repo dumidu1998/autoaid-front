@@ -1,6 +1,7 @@
 .App{
   font-size: 30px;
-  color: red;
+  color: rgb(20, 15, 15);
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
