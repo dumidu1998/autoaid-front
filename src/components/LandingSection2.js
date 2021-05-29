@@ -1,12 +1,11 @@
 import React from 'react'
+import SectionHeading from './SectionHeading'
 
 export default function LandingSection2() {
     return (
-        <div className="w-screen bg-third-0 pt-52 pb-48 flex items-center justify-center">
-            <div className="w-10/12 md:w-1/3 mx-auto ">
-                <h1 className="font-primary text-center md:text-3xl text-2xl text-white font-semibold">Why you <span className="font-secondary text-3xl text-primary-0">Choose</span> Us</h1>
-                <p className="font-primary text-center md:text-xl text-md text-white font-light mt-5">We are the best Repair center in the  city we provide most <br/>promissing and best quality service</p>
-
+        <div className="w-screen bg-third-0 pt-52 md:pb-48 pb-20 flex items-center justify-center">
+            <div className="w-10/12 md:w-1/3 mx-auto text-white ">
+                <SectionHeading heading1="Why you " heading2="Us" span=" Choose" caption1="We are the best Repair center in the  city we provide most " caption2="promissing and best quality service" />
                 <div className="flex items-center justify-center md:justify-between mt-10">
                     <div className="text-primary-0 m-10">
 
