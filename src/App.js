@@ -1,9 +1,12 @@
 import './App.css';
+import Header_Grid from './components/Header_Grid';
 
 function App() {
   return (
-    <div className=" text-3xl font-bold italic text-red-500">
-      This is the first Page. 2
+    <div>
+      
+      <Header_Grid />
+      
     </div>
   );
 }
