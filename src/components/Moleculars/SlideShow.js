@@ -19,7 +19,7 @@ export default function SlideShow() {
 
                         </div>
                         <div className="z-50 absolute bottom-1/4 left-1/2 ml-3 text-white">
-                            <ButtonOutline txt="register"/>
+                            <ButtonOutline txt="Register"/>
                         </div>
                     
 
@@ -36,7 +36,7 @@ export default function SlideShow() {
                             <ButtonHover txt="Book Now"/>
                         </div>
                         <div className="z-50 absolute bottom-1/4 left-1/2 ml-3 text-white">
-                            <ButtonOutline txt="register"/>
+                            <ButtonOutline txt="Register"/>
                         </div>
 
 
@@ -54,7 +54,7 @@ export default function SlideShow() {
 
                         </div>
                         <div className="z-50 absolute bottom-1/4 left-1/2 ml-3 text-white">
-                            <ButtonOutline txt="register"/>
+                            <ButtonOutline txt="Register"/>
                         </div>
 
                         <h1 className="absolute top-1/4 left-24 text-white z-50 font-primary text-6xl ">Come Today And Witeness Best Service</h1>
