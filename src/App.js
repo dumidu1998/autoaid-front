@@ -6,6 +6,7 @@ import LandingSection3 from './components/Organs/LandingSection3';
 import LandingSection4 from './components/Organs/LandingSection4';
 import NavBar from './components/Moleculars/NavBar';
 import LandingSection5 from './components/Organs/LandingSection5';
+import LandingSection6 from './components/Organs/LandingSection6';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <LandingSection3/>
       <LandingSection4/>
       <LandingSection5/>
+      <LandingSection6/>
     </div>
   );
 }

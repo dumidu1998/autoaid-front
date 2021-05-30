@@ -6,12 +6,12 @@ export default function LandingSection5() {
     return (
         <div className="mt-10 w-10/12 mx-auto">
             <SectionHeading heading1="How to place an " span="Appointment "/>
-            <div className=" flex flex-row ">
-                <div className="w-1/2">
+            <div className="flex flex-col md:flex-row items-center ">
+                <div className="md:w-1/2">
                     <img src="/imgs/header3.jpg"/>
 
                 </div>
-                <div className="w-1/2">
+                <div className="md:w-1/2">
                     <div className="w-10/12 mx-auto flex flex-col items-center justify-center">
                         <div>
 

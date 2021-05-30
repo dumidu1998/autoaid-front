@@ -1,14 +1,18 @@
 import React from 'react'
 import Header_Grid from '../Moleculars/Header_Grid'
 import SlideShow from '../Moleculars/SlideShow'
+import ButtonHover from '../Atoms/ButtonHover'
 
 export default function Header() {
     return (
         <div>
-            <div className="relative md:flex items-center justify-center">
-                {/* <SlideShow/> */}
-                <img src="/imgs/header1.jpg " className="w-full h-screen z-20"/>
-                <div className="w-full h-screen bg-black absolute opacity-70 top-0 z-20"></div>
+            <div>
+                <SlideShow/>
+
+
+            </div>
+            <div className="relative flex  items-center justify-center">
+
 
                 <div  className="md:absolute md:-bottom-32 z-40" >
                     <Header_Grid/>
