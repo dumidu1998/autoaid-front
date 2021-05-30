@@ -1,5 +1,5 @@
 import React from 'react'
-import SectionHeading from './SectionHeading'
+import SectionHeading from '../Atoms/SectionHeading'
 
 export default function LandingSection2() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import Card_services from './Card_services'
+import Card_services from '../Atoms/Card_services'
 
 export default function Header_Grid() {
     return (
