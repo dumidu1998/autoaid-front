@@ -10,7 +10,8 @@ module.exports = {
       colors : {
         primary:['#FF4E3C'],
         Secondary : ['#FF9C06'],
-        third:['#2F3D46']
+        third:['#2F3D46'],
+        forth :['#1C252C']
       }
     },
   },
