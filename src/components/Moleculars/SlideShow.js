@@ -3,6 +3,7 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import ButtonHover from '../Atoms/ButtonHover';
 import ButtonOutline from '../Atoms/ButtonOutline';
+import Jump from 'react-reveal/Jump';
 
 export default function SlideShow() {
     return (
@@ -19,7 +20,10 @@ export default function SlideShow() {
 
                         </div>
                         <div className="z-50 absolute bottom-1/4 left-1/2 ml-3 text-white">
+                            <Jump>
+
                             <ButtonOutline txt="Register"/>
+                            </Jump>
                         </div>
                     
 
@@ -36,7 +40,10 @@ export default function SlideShow() {
                             <ButtonHover txt="Book Now"/>
                         </div>
                         <div className="z-50 absolute bottom-1/4 left-1/2 ml-3 text-white">
+                            <Jump>
+
                             <ButtonOutline txt="Register"/>
+                            </Jump>
                         </div>
 
 
@@ -54,7 +61,10 @@ export default function SlideShow() {
 
                         </div>
                         <div className="z-50 absolute bottom-1/4 left-1/2 ml-3 text-white">
+                            <Jump>
+
                             <ButtonOutline txt="Register"/>
+                            </Jump>
                         </div>
 
                         <h1 className="absolute top-1/4 left-24 text-white z-50 font-primary text-6xl ">Come Today And Witeness Best Service</h1>
