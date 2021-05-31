@@ -19,8 +19,8 @@ function App() {
       <LandingSection4/>
       <LandingSection5/>
       <LandingSection6/>
-      <CallContainer />
-      <CallContainer />
+      <CallContainer/>
+      
     </div>
   );
 }

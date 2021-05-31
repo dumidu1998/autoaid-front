@@ -7,7 +7,7 @@ import ButtonOutline from '../Atoms/ButtonOutline';
 export default function SlideShow() {
     return (
         <div>
-            <div className="slide-container">
+            <div className="slide-container w-screen">
                 <Fade>
                     <div className="each-fade">
                     <div className="image-container relative">
