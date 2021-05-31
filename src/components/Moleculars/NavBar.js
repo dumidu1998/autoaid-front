@@ -4,7 +4,7 @@ import ButtonOutline from '../Atoms/ButtonOutline'
 
 export default function NavBar() {
     return (
-        <div className="w-full bg-forth-0 fixed z-50">
+        <div className="w-screen bg-forth-0 fixed z-50">
             <div className="w-10/12 mx-auto flex justify-between items-center">
                 <div>
 
