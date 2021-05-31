@@ -11,7 +11,7 @@ export default function Header() {
 
 
             </div>
-            <div className="relative flex  items-center justify-center">
+            <div className="relative flex  items-center justify-center bg-third-0 md:bg-transparent">
 
 
                 <div  className="md:absolute md:-bottom-32 z-40" >
