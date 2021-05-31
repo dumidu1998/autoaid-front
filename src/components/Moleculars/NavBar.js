@@ -12,10 +12,10 @@ export default function NavBar() {
                     <h1 className="font-secondary font-bold text-4xl text-Secondary-0">Aid</h1>
                 </div>
 
-                <div className="text-white md:flex items-center justify-center hidden">
-                    <h1 className="m-4 font-primary text-semibold hover:text-primary-0">Home</h1>
-                    <h1 className="m-4 font-primary text-semibold hover:text-primary-0">Pricing</h1>
-                    <h1 className="m-4 font-primary text-semibold hover:text-primary-0">About</h1>
+                <div className="text-white md:flex items-center justify-center hidden ">
+                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">Home</h1>
+                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">Pricing</h1>
+                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">About</h1>
                     <div className="m-4">
                         <Button txt="Log in" />
                     </div>
