@@ -17,9 +17,12 @@ export default function NavBar() {
                     <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">Pricing</h1>
                     <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">About</h1>
                     <div className="m-4">
-                        <Button txt="Log in" />
+                        <a href="/login">
+                            <Button txt="Log in" />
+
+                        </a>
                     </div>
-                    <ButtonOutline txt= "Register" />
+                    <a href="/signup"><ButtonOutline txt= "Register" /></a>
                 </div>
 
                 <div className="md:hidden text-white ">
