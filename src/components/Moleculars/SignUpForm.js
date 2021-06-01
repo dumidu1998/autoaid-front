@@ -20,7 +20,7 @@ export default function SignUpForm() {
                         <FormInput lable=" Email "/>
 
                     </div>
-                    <div className="lg:ml-24 mt-7">
+                    <div className="lg:ml-24 ">
                         <FormInput lable=" Tel. No."/>
 
                     </div>
@@ -32,7 +32,7 @@ export default function SignUpForm() {
                             <FormInput lable=" VIN "/>
 
                         </div>
-                        <div className="lg:ml-24 mt-7">
+                        <div className="lg:ml-24 ">
                             <FormInput lable="Engine No"/>
 
                         </div>
@@ -52,7 +52,7 @@ export default function SignUpForm() {
                             <FormInput lable=" Address Line 1 "/>
 
                         </div>
-                        <div className="lg:ml-24 mt-7">
+                        <div className="lg:ml-24">
                             <FormInput lable="Address Line 2 "/>
 
                         </div>
@@ -78,7 +78,7 @@ export default function SignUpForm() {
                             <FormInput lable="Password"/>
 
                         </div>
-                        <div className="lg:ml-24 mt-7">
+                        <div className="lg:ml-24">
                             <FormInput lable="Re-check Password"/>
 
                         </div>
