@@ -7,7 +7,7 @@ export default function TestominialContainer(props) {
             <div className="w-72 h-80 bg-forth-0 p-7 rounded-lg">
                 <div className="text-white">
 
-                    <RoundContainer heading={props.heading} paragraph={props.paragraph} />
+                    <RoundContainer heading={props.heading} paragraph={props.paragraph} img="/imgs/hasa.png" />
                 </div>
             </div>
         </div>
