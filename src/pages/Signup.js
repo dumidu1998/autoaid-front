@@ -19,11 +19,11 @@ export default function Signup() {
 
     var submit = () => {
         axios.post('http://localhost:9000/register', {
-            "firstname": "dumidu",
-            "lastname": "bandara",
-            "email": "dumi@gmail.com",
-            "contactNo": "0256344989",
-            "password": "199810",
+            "firstname": firstname,
+            "lastname": lastname,
+            "email": email,
+            "contactNo": contactno,
+            "password": password,
             "profile_state": "1"
         })
             .then(function (response) {
@@ -51,7 +51,8 @@ export default function Signup() {
                     <h1 className="font-primary text-center md:text-5xl text-4xl text-current font-semibold mt-7 mb-7">Sign Up</h1>
                     <form className="h-screen">
                         <div className="md:w-10/12 w-screen mx-auto flex flex-col items-center overflow-auto h-1/3 lg:h-1/2 shadow-md rounded-lg">
-                            <SignUpForm firstname={firstname} lastname={lastname} email={email} contactNo={contactno} password={password} />
+                            <SignUpForm firstname={firstname} onChangefirstname={setfirstname} lastname={lastname} onChangelastname={setlastname}
+                                email={email} onChangeemail={setemail} contactNo={contactno} onChangecontact={setcontactno} password={password} onChangepassword={setpassword} />
                         </div>
                         <div className="text-white mt-7 flex items-center justify-center">
                             <div className="m-4" >
