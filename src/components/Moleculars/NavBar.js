@@ -6,10 +6,9 @@ export default function NavBar() {
     return (
         <div className="w-screen bg-forth-0 fixed z-50">
             <div className="w-10/12 mx-auto flex justify-between items-center">
-                <div>
+                <div className="flex items-center justify-center">
 
-                    <h1 className="font-primary font-semibold text-3xl text-primary-0">Auto</h1>
-                    <h1 className="font-secondary font-bold text-4xl text-Secondary-0">Aid</h1>
+                    <img className=" w-44 mt-2" src="/imgs/Logo.png" />
                 </div>
 
                 <div className="text-white md:flex items-center justify-center hidden ">
