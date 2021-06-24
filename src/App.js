@@ -5,6 +5,7 @@ import Landing from './pages/Landing'
 import Signup from './pages/Signup'
 import Login from './pages/Login';
 import Service from './pages/serviceAdvisor/Dashboard'
+import Test from './pages/serviceAdvisor/Test'
 
 
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/signup" exact component={Signup} />
             <Route path="/login" exact component={Login} />
             <Route path="/serviceadvisor" exact component={Service} />
+            <Route path="/test" exact component={Test} />
 
 
           </Switch>

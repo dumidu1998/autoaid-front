@@ -1,5 +1,6 @@
 import React from 'react'
 import AppointmentContainer from '../../components/Atoms/serviceAdvisor/AppointmentContainer'
+import Register from '../../components/Atoms/serviceAdvisor/Register'
 import SubSectionHeading from '../../components/Atoms/serviceAdvisor/SubSectionHeading'
 import TopContainer from '../../components/Atoms/serviceAdvisor/TopContainer'
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
@@ -22,7 +23,8 @@ export default function Dashboard() {
                         </div>
 
                     </div>
-                </div>    
+                </div>  
+                <Register/>  
 
             </div>
         </div>
