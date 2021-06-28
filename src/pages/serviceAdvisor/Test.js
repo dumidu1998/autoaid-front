@@ -9,7 +9,7 @@ export default function Test() {
                 <h1 className="font-secondary">hello world</h1>
                 <h1 className="font-secondary">hello hello world</h1>
 
-                <div className="w-9/12 flex absolute -bottom-12 left-2">
+                <div className="md:w-9/12 flex absolute -bottom-12 left-2">
                     <RoundContainer img="/imgs/icons/repair.png"/>
                     <RoundContainer img="/imgs/icons/repair.png"/>
                     <RoundContainer img="/imgs/icons/repair.png"/>
