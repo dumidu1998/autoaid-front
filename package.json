@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
     "firebase": "^8.6.3",
-    "postcss": "^7.0.35",
+    "postcss": "^7.0.36",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-floaterjs": "^1.0.6",
