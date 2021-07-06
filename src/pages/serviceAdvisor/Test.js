@@ -7,7 +7,7 @@ export default function Test() {
             <div className="w-9/12  bg-forth-0 h-48 rounded-lg shadow-lg flex flex-col items-center text-white relative ">
                 <h1 className="font-secondary">hello</h1>
                 <h1 className="font-secondary">hello world</h1>
-                <h1 className="font-secondary">hello hello world</h1>
+                <h1 className="font-secondary">hello hello hello world</h1>
 
                 <div className="w-9/12 flex absolute -bottom-12 left-2">
                     <RoundContainer img="/imgs/icons/repair.png"/>
