@@ -3,9 +3,9 @@ import SectionHeading from '../Atoms/SectionHeading'
 
 export default function LandingSection2() {
     return (
-        <div className="w-screen bg-third-0 pt-52 md:pb-48 pb-20 flex items-center justify-center" id="start">
+        <div className="w-screen bg-third-0 pt-52 pb-7 flex items-center justify-center" id="start">
             <div className="w-10/12 md:w-1/3 mx-auto text-white ">
-                <SectionHeading heading1="Why you " heading2="Us" span=" Choose" caption1="We are the best Repair center in the  city we provide most " caption2="promissing and best quality service" />
+                <SectionHeading heading1="Why you " heading2=" Us" span=" Choose" caption1="We are the best Repair center in the  city we provide most " caption2="promissing and best quality service" />
                 <div className="flex items-center justify-center md:justify-between mt-10">
                     <div className="text-primary-0 m-10">
 

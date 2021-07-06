@@ -6,20 +6,22 @@ export default function NavBar() {
     return (
         <div className="w-screen bg-forth-0 fixed z-50">
             <div className="w-10/12 mx-auto flex justify-between items-center">
-                <div>
+                <div className="flex items-center justify-center">
 
-                    <h1 className="font-primary font-semibold text-3xl text-primary-0">Auto</h1>
-                    <h1 className="font-secondary font-bold text-4xl text-Secondary-0">Aid</h1>
+                    <img className=" w-44 mt-2" src="/imgs/Logo.png" />
                 </div>
 
-                <div className="text-white md:flex items-center justify-center hidden">
-                    <h1 className="m-4 font-primary text-semibold hover:text-primary-0">Home</h1>
-                    <h1 className="m-4 font-primary text-semibold hover:text-primary-0">Pricing</h1>
-                    <h1 className="m-4 font-primary text-semibold hover:text-primary-0">About</h1>
+                <div className="text-white md:flex items-center justify-center hidden ">
+                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">Home</h1>
+                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">Pricing</h1>
+                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">About</h1>
                     <div className="m-4">
-                        <Button txt="Log in" />
+                        <a href="/login">
+                            <Button txt="Log in" />
+
+                        </a>
                     </div>
-                    <ButtonOutline txt= "Register" />
+                    <a href="/signup"><ButtonOutline txt= "Register" /></a>
                 </div>
 
                 <div className="md:hidden text-white ">
