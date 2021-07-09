@@ -9,10 +9,12 @@ export default function Test() {
     return (
         <div className="flex items-center justify-center bg-Secondary-0 h-screen ">
             <div className="w-6/12  bg-forth-0 h-96 rounded-lg shadow-lg flex flex-col items-center justify-center text-white relative ">
-                <Heading/>
-                <InputBox1 lable=" Username"/>
-                <InputBox2 lable=" Passward"/>
-                <Button/>
+                
+                    <Heading/>
+                    <InputBox1 lable=" Username"/>
+                    <InputBox2 lable=" Passward"/>
+                    <Button/>
+                
             </div>
         </div>
     )
