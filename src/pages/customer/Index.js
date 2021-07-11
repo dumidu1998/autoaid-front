@@ -5,6 +5,7 @@ import HeadingPRimary from '../../components/Atoms/customer/HeadingPRimary'
 import DetailsShowing from '../../components/Moleculars/customer/DetailsShowing'
 import SideLink from '../../components/Atoms/customer/SideLink'
 import VehicleContainer from '../../components/Moleculars/customer/VehicleContainer'
+import StatusViewer from '../../components/Moleculars/customer/StatusViewer'
 export default function Index() {
     return (
         <div>
@@ -14,6 +15,9 @@ export default function Index() {
                 <div className="flex justify-center">
 
                     <Addnew txt="Book NOW"/>
+                </div>
+                <div>
+                    <StatusViewer/>
                 </div>
                 <div className="flex justify-between">
                     <HeadingPRimary heading="Expenses" />
