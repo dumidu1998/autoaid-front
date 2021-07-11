@@ -6,6 +6,8 @@ import Signup from './pages/Signup'
 import Login from './pages/Login';
 import Service from './pages/serviceAdvisor/Dashboard'
 import Test from './pages/serviceAdvisor/Test'
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminStaff from './pages/admin/AdminStaff';
 
 
 
@@ -22,6 +24,8 @@ function App() {
             <Route path="/login" exact component={Login} />
             <Route path="/serviceadvisor" exact component={Service} />
             <Route path="/test" exact component={Test} />
+            <Route path="/admin" exact component={AdminDashboard} />
+            <Route path="/adminstaff" exact component={AdminStaff} />
 
 
           </Switch>
