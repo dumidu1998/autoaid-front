@@ -5,7 +5,9 @@ import SignUpForm from '../components/Moleculars/SignUpForm'
 import ButtonHover from '../components/Atoms/ButtonHover'
 import ButtonSecondary from '../components/Atoms/ButtonSecondary'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Signup() {
 
@@ -18,31 +20,46 @@ export default function Signup() {
 
 
     var submit = () => {
-        axios.post('http://localhost:9000/register', {
-            "firstname": firstname,
-            "lastname": lastname,
+        axios.post('http://localhost:9000/auth/signup', {
+            "firstName": firstname,
+            "lastName": lastname,
+            "userName": "dumidu1",
             "email": email,
             "contactNo": contactno,
             "password": password,
-            "profile_state": "1"
+            // "profile_state": "1"
         })
             .then(function (response) {
                 // handle success
                 console.log(response);
                 alert(response.data);
+
             })
             .catch(function (error) {
                 // handle error
-                console.log(error);
-                alert("Server Error! Try Again!");
+                toast.error('❌ ' + error.response.data);
+                // alert(error.response.data);
             })
             .then(function () {
                 // always executed
+
             });
     }
 
     return (
+
         <div className="md:flex w-screen">
+            <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className="hidden md:block md:w-1/2 ">
                 <SideImg img="/imgs/header2.jpg" />
             </div>

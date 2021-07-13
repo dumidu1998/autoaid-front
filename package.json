@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
     "firebase": "^8.6.3",
     "postcss": "^7.0.35",
     "react": "^17.0.2",
@@ -19,6 +20,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-slideshow-image": "^3.4.6",
+    "react-toastify": "^7.0.4",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2",
     "web-vitals": "^1.0.1"
   },

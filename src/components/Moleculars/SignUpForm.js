@@ -8,7 +8,7 @@ export default function SignUpForm(props) {
         <div className="flex flex-col items-center p-7 ">
             <div className="lg:flex">
                 <div className="">
-                    {/* <FormInput lable=" First Name" value={props.firstname} /> */}
+                    {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                     <h1 className="font-primary  text-md">  First Name</h1>
                     <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right"
                         onChange={(event) => props.onChangefirstname(event.target.value)}
@@ -63,22 +63,15 @@ export default function SignUpForm(props) {
             <div>
                 <div className="lg:flex mt-7">
                     <div className="">
-                        {/* <FormInput lable="Username" /> */}
-                        <h1 className="font-primary  text-md">  Username</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.username} />
-                    </div>
-                </div>
-                <div className="lg:flex mt-7">
-                    <div className="">
                         {/* <FormInput lable="Password" /> */}
                         <h1 className="font-primary  text-md">  Password</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.password}
+                        <input type="password" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.password}
                             onChange={(event) => props.onChangepassword(event.target.value)} />
                     </div>
                     <div className="lg:ml-24 mt-0">
                         {/* <FormInput lable="Re-check Password" /> */}
-                        <h1 className="font-primary  text-md">  Re-chech Password</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.rcpwd} />
+                        <h1 className="font-primary  text-md">  Confirm Password</h1>
+                        <input type="password" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.rcpwd} />
                     </div>
 
                 </div>
