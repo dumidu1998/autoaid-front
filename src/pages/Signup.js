@@ -9,9 +9,15 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+require('dotenv').config();
+
 export default function Signup() {
 
+    // console.log(process.env.REACT_APP_API_KEY + "/auth/signup");
+    console.log(`${process.env.REACT_APP_API_KEY}/auth/signup`);
+
     const [firstname, setfirstname] = useState('');
+    const [username, setusername] = useState('');
     const [lastname, setlastname] = useState('');
     const [email, setemail] = useState('');
     const [contactno, setcontactno] = useState('');
@@ -20,10 +26,10 @@ export default function Signup() {
 
 
     var submit = () => {
-        axios.post('http://localhost:9000/auth/signup', {
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/signup`, {
             "firstName": firstname,
             "lastName": lastname,
-            "userName": "dumidu1",
+            "userName": username, //TODO Username 
             "email": email,
             "contactNo": contactno,
             "password": password,
@@ -45,6 +51,7 @@ export default function Signup() {
 
             });
     }
+
 
     return (
 
@@ -68,7 +75,7 @@ export default function Signup() {
                     <h1 className="font-primary text-center md:text-5xl text-4xl text-current font-semibold mt-7 mb-7">Sign Up</h1>
                     <form className="h-screen">
                         <div className="md:w-10/12 w-screen mx-auto flex flex-col items-center overflow-auto h-1/3 lg:h-1/2 shadow-md rounded-lg">
-                            <SignUpForm firstname={firstname} onChangefirstname={setfirstname} lastname={lastname} onChangelastname={setlastname}
+                            <SignUpForm firstname={firstname} onChangefirstname={setfirstname} lastname={lastname} onChangelastname={setlastname} username={username} onChangeusername={setusername}
                                 email={email} onChangeemail={setemail} contactNo={contactno} onChangecontact={setcontactno} password={password} onChangepassword={setpassword} />
                         </div>
                         <div className="text-white mt-7 flex items-center justify-center">
