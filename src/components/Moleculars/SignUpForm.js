@@ -21,23 +21,34 @@ export default function SignUpForm(props) {
                         onChange={(event) => props.onChangelastname(event.target.value)} />
                 </div>
             </div>
+            <div>
 
-            <div className="lg:flex mt-7">
-                <div className="">
-                    {/* <FormInput lable=" Email " id="email" value={props.email} /> */}
-                    <h1 className="font-primary  text-md">  Email</h1>
-                    <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.email}
-                        onChange={(event) => props.onChangeemail(event.target.value)} />
+                <div className="lg:flex mt-7">
+                    <div className="">
+                        {/* <FormInput lable=" Email " id="email" value={props.email} /> */}
+                        <h1 className="font-primary  text-md">  Email</h1>
+                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.email}
+                            onChange={(event) => props.onChangeemail(event.target.value)} />
+
+                    </div>
+                    <div className="lg:ml-24 mt-0">
+                        {/* <FormInput lable=" Tel. No." value={props.contactNo} /> */}
+                        <h1 className="font-primary  text-md">  Mobile No.</h1>
+                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.contactno}
+                            onChange={(event) => props.onChangecontact(event.target.value)} />
+                    </div>
 
                 </div>
-                <div className="lg:ml-24 mt-0">
-                    {/* <FormInput lable=" Tel. No." value={props.contactNo} /> */}
-                    <h1 className="font-primary  text-md">  Mobile No.</h1>
-                    <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.contactno}
-                        onChange={(event) => props.onChangecontact(event.target.value)} />
+                <div className="lg:flex mt-7">
+                    <div className="">
+                        {/* <FormInput lable="City" /> */}
+                        <h1 className="font-primary  text-md">  Username</h1>
+                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.username}
+                            onChange={(event) => props.onChangeusername(event.target.value)} />
+                    </div>
                 </div>
-
             </div>
+
             <div>
                 <div className="lg:flex mt-7">
                     <div className="">
@@ -50,6 +61,7 @@ export default function SignUpForm(props) {
                         <h1 className="font-primary  text-md">  Address Line 2</h1>
                         <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.addl2} />
                     </div>
+                    {/* //TODO Address line to database and below city */}
 
 
                 </div>
