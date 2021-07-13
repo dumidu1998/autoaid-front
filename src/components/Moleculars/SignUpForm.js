@@ -28,6 +28,7 @@ export default function SignUpForm(props) {
                     <h1 className="font-primary  text-md">  Email</h1>
                     <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.email}
                         onChange={(event) => props.onChangeemail(event.target.value)} />
+
                 </div>
                 <div className="lg:ml-24 mt-0">
                     {/* <FormInput lable=" Tel. No." value={props.contactNo} /> */}
@@ -49,6 +50,7 @@ export default function SignUpForm(props) {
                         <h1 className="font-primary  text-md">  Address Line 2</h1>
                         <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.addl2} />
                     </div>
+
 
                 </div>
                 <div className="lg:flex mt-7">
@@ -73,6 +75,7 @@ export default function SignUpForm(props) {
                         <h1 className="font-primary  text-md">  Confirm Password</h1>
                         <input type="password" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.rcpwd} />
                     </div>
+
 
                 </div>
 
