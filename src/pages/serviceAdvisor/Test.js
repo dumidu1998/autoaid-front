@@ -8,7 +8,7 @@ import Button from '../../components/Atoms/staffLogin/Button'
 export default function Test() {
     return (
         <div className="flex items-center justify-center bg-Secondary-0 h-screen ">
-            <div className="w-6/12  bg-forth-0 h-3/4 rounded-lg shadow-lg flex flex-col items-center justify-center text-white relative ">
+            <div className="h-96 w-6/12  bg-forth-0 sm:h-3/4 rounded-lg shadow-lg flex flex-col items-center justify-center text-white relative ">
                 
                     <Heading/>  
                     <InputBox2 lable=" Username" name=" Name"/>
