@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Service from './pages/serviceAdvisor/Dashboard'
 import Test from './pages/serviceAdvisor/Test'
 import Customer from './pages/customer/Index'
-
+import VehicleDetails from './pages/customer/VehicleProfile'
 
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
             <Route path="/serviceadvisor" exact component={Service} />
             <Route path="/test" exact component={Test} />
             <Route path="/customer" exact component={Customer} />
+            <Route path="/customer/vehicle" exact component={VehicleDetails} />
 
 
           </Switch>
