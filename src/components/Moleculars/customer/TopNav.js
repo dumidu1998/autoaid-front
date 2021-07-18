@@ -17,6 +17,10 @@ export default function TopNav() {
 
                 </div>
             </div>
+            <div className=" w-screen p-1 flex shadow-lg justify-center md:hidden bg-forth-0">
+                <img src="/imgs/Logo.png"  className="w-40 mt-2"/>
+
+            </div>
         </div>
     )
 }
