@@ -21,17 +21,23 @@ export default function Signup() {
     const [lastname, setlastname] = useState('');
     const [email, setemail] = useState('');
     const [contactno, setcontactno] = useState('');
+    const [address, setaddress] = useState('');
+    const [address2, setaddress2] = useState('');
+    const [city, setcity] = useState('');
     const [password, setpassword] = useState('');
     const [profile_State, setprofile_State] = useState('1');
 
 
     var submit = () => {
+        let finalAddress= address+','+address2;
         axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/signup`, {
             "firstName": firstname,
             "lastName": lastname,
             "userName": username, //TODO Username 
             "email": email,
             "contactNo": contactno,
+            "address":finalAddress,
+            "city":city,
             "password": password,
             // "profile_state": "1"
         })
@@ -76,7 +82,7 @@ export default function Signup() {
                     <form className="h-screen">
                         <div className="md:w-10/12 w-screen mx-auto flex flex-col items-center overflow-auto h-1/3 lg:h-1/2 shadow-md rounded-lg">
                             <SignUpForm firstname={firstname} onChangefirstname={setfirstname} lastname={lastname} onChangelastname={setlastname} username={username} onChangeusername={setusername}
-                                email={email} onChangeemail={setemail} contactNo={contactno} onChangecontact={setcontactno} password={password} onChangepassword={setpassword} />
+                                email={email} onChangeemail={setemail} contactNo={contactno} onChangecontact={setcontactno} address={address} onChangeaddress={setaddress} address2={address2} onChangeaddress2={setaddress2} city={city} onChangecity={setcity} password={password} onChangepassword={setpassword} />
                         </div>
                         <div className="text-white mt-7 flex items-center justify-center">
                             <div className="m-4" >

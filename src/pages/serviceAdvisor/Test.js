@@ -1,21 +1,20 @@
 import React from 'react'
+import FormInput from '../../components/Atoms/FormInput'
 import RoundContainer from '../../components/Atoms/RoundContainer'
-import Heading from '../../components/Atoms/staffLogin/Heading'
-import InputBox1 from '../../components/Atoms/staffLogin/InputBox1'
-import InputBox2 from '../../components/Atoms/staffLogin/InputBox2'
-import Button from '../../components/Atoms/staffLogin/Button'
+import Addnew from '../../components/Atoms/serviceAdvisor/Addnew'
 
 export default function Test() {
     return (
-        <div className="flex items-center justify-center bg-Secondary-0 h-screen ">
-            <div className="h-96 w-6/12  bg-forth-0 sm:h-3/4 rounded-lg shadow-lg flex flex-col items-center justify-center text-white relative ">
-                
-                    <Heading/>  
-                    <InputBox2 lable=" Username" name=" Name"/>
-                    <InputBox2 lable=" Passward" name=" Passward"/>
-                    <Button/>
-                
+        <div className="bg-Secondary-0 h-screen flex items-center justify-center">
+            <div className="bg-primary-0 h-72 w-1/2 flex flex-col item-center justify-center">
+                <h1 className="font-primary font-bold text-lg mt-10">
+                     Log in
+                </h1>
+                <input type="text" placeholder="name" className=" w-24"/>
+                <FormInput/>
+                <Addnew/>
             </div>
+            
         </div>
     )
 }
