@@ -13,6 +13,7 @@ import VehicleDetails from './pages/customer/VehicleProfile'
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminStaff from './pages/admin/AdminStaff';
 import Dashboard from './pages/technician/Dashboard';
+import ServiceSummary from './pages/technician/ServiceSummary';
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/admin" exact component={AdminDashboard} />
           <Route path="/adminstaff" exact component={AdminStaff} />
           <Route path="/technician/dashboard" exact component={Dashboard} />
+          <Route path="/technician/summary" exact component={ServiceSummary} />
         </Switch>
       </Router>
 
