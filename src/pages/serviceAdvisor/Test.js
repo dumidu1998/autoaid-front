@@ -1,20 +1,20 @@
 import React from 'react'
+import FormInput from '../../components/Atoms/FormInput'
 import RoundContainer from '../../components/Atoms/RoundContainer'
+import Addnew from '../../components/Atoms/serviceStation/Addnew'
 
 export default function Test() {
     return (
-        <div className="flex items-center justify-center bg-Secondary-0 h-screen ">
-            <div className="w-9/12  bg-forth-0 h-48 rounded-lg shadow-lg flex flex-col items-center text-white relative ">
-                <h1 className="font-secondary">hello</h1>
-                <h1 className="font-secondary">hello world</h1>
-                <h1 className="font-secondary">hello hello world</h1>
-
-                <div className="w-9/12 flex absolute -bottom-12 left-2">
-                    <RoundContainer img="/imgs/icons/repair.png"/>
-                    <RoundContainer img="/imgs/icons/repair.png"/>
-                    <RoundContainer img="/imgs/icons/repair.png"/>
-                </div>
+        <div className="bg-Secondary-0 h-screen flex items-center justify-center">
+            <div className="bg-primary-0 h-72 w-1/2 flex flex-col item-center justify-center">
+                <h1 className="font-primary font-bold text-lg mt-10">
+                    Log in
+                </h1>
+                <input type="text" placeholder="name" className=" w-24" />
+                <FormInput />
+                <Addnew />
             </div>
+
         </div>
     )
 }
