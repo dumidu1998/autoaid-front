@@ -88,7 +88,8 @@ export default function SignUpForm(props) {
                     <div className="lg:ml-24 mt-0">
                         {/* <FormInput lable="Re-check Password" /> */}
                         <h1 className="font-primary  text-md">  Confirm Password</h1>
-                        <input type="password" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.rcpwd} />
+                        <input type="password" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.rcpwd} 
+                            onChange={(event)=> props.onChangercpwd(event.target.value)}/>
                     </div>
 
 

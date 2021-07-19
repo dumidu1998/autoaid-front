@@ -12,7 +12,9 @@ import VehicleDetails from './pages/customer/VehicleProfile'
 
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminStaff from './pages/admin/AdminStaff';
+import VehicleInfo from './pages/serviceAdvisor/VehicleInfo';
 import Dashboard from './pages/technician/Dashboard';
+
 
 
 
@@ -28,6 +30,7 @@ function App() {
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
           <Route path="/serviceadvisor" exact component={Service} />
+          <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
           <Route path="/customer/vehicle" exact component={VehicleDetails} />
