@@ -54,12 +54,14 @@ export default function SignUpForm(props) {
                     <div className="">
                         {/* <FormInput lable=" Address Line 1 " /> */}
                         <h1 className="font-primary  text-md">  Address Line 1</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.addl1} />
+                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.address} 
+                            onChange={(event) => props.onChangeaddress(event.target.value)} />
                     </div>
                     <div className="lg:ml-24 mt-0">
                         {/* <FormInput lable="Address Line 2 " /> */}
                         <h1 className="font-primary  text-md">  Address Line 2</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.addl2} />
+                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.address2}
+                            onChange={(event)=> props.onChangeaddress2(event.target.value)} />
                     </div>
                     {/* //TODO Address line to database and below city */}
 
@@ -69,7 +71,8 @@ export default function SignUpForm(props) {
                     <div className="">
                         {/* <FormInput lable="City" /> */}
                         <h1 className="font-primary  text-md">  City</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.city} />
+                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.city}
+                            onChange={(event) => props.onChangecity(event.target.value)} />
                     </div>
                 </div>
 
