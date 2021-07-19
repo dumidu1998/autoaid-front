@@ -29,15 +29,15 @@ export default function Signup() {
 
 
     var submit = () => {
-        let finalAddress= address+','+address2;
+        let finalAddress = address + ',' + address2;
         axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/signup`, {
             "firstName": firstname,
             "lastName": lastname,
             "userName": username, //TODO Username 
             "email": email,
             "contactNo": contactno,
-            "address":finalAddress,
-            "city":city,
+            "address": finalAddress,
+            "city": city,
             "password": password,
             // "profile_state": "1"
         })
