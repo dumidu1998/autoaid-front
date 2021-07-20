@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AlertText from '../components/Atoms/AlertText'
+import { Redirect } from 'react-router';
 
 require('dotenv').config();
 
@@ -30,16 +32,20 @@ export default function Signup() {
     const [passwordMatch, setpasswordMatch] = useState(false);
     const [disable, setDisable] = useState(true);
     const [visibility, setVisibility] = useState('invisible');
+    const [fieldCheckVisibility, setFieldCheckVisibility] = useState('invisible');
+
 
     useEffect(() => {
         if(firstname=='' || lastname=='' || username==''||email==''||contactno==''||password==''){
             setDisable(true);
+            setFieldCheckVisibility("visible");
         }else if(password !== rcpwd) {
             setVisibility("visible");
             setDisable(true);
         } else {
             setVisibility("invisible");
             setDisable(false);
+            setFieldCheckVisibility("invisible");
         }
     }, [password, rcpwd, firstname, lastname, username, email, contactno]);
     //this array useState will only effect to this function
@@ -61,13 +67,15 @@ export default function Signup() {
                 .then(function (response) {
                     // handle success
                     console.log(response);
+                    // TODO make alert styles for success response
                     alert(response.data);
+                    {window.location.href="login"}
 
                 })
                 .catch(function (error) {
                     // handle error
                     toast.error('❌ ' + error.response.data);
-                    alert(error.response.data);
+                    //alert(error.response.data);
                 })
                 .then(function () {
                     // always executed
@@ -101,8 +109,10 @@ export default function Signup() {
                                 email={email} onChangeemail={setemail} contactNo={contactno} onChangecontact={setcontactno} address={address} onChangeaddress={setaddress} 
                                 address2={address2} onChangeaddress2={setaddress2} city={city} onChangecity={setcity} password={password} onChangepassword={setpassword} rcpwd={rcpwd} onChangercpwd={setrcpwd} />
                         </div>
-                        {/* alert of password not matching. need to check with atoms */}
-                        <div className={"font-primary font-bold text-red-500 text-center "+(visibility)}><p>Password does not match</p></div>
+                        {/* alert style of password not matching.*/}
+                        <AlertText text="Password does not match" visibility={visibility}/>
+                        {/* TODO Modify the styles and the msg */}
+                        <AlertText text="All fields need to be filled !" visibility={fieldCheckVisibility}/>
                         <div className="text-white mt-7 flex items-center justify-center">
                             <div className="m-4" >
                                 <ButtonHover disableBtn={disable} txt="Sign Up" clickaction={submit} />
@@ -112,9 +122,9 @@ export default function Signup() {
                             </div>
                         </div>
                     </form>
-                    <div className="text-center">
+                    {/* <div className="text-center">
                         <h1 className="font-primary font-extralight text-sm">Already Have an Account <br /><span className="text-blue-800"> Sign in</span> </h1>
-                    </div>
+                    </div> */}
 
                 </div>
 
