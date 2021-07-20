@@ -9,6 +9,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AlertText from '../components/Atoms/AlertText'
+import { Redirect } from 'react-router';
 
 require('dotenv').config();
 
@@ -66,13 +67,15 @@ export default function Signup() {
                 .then(function (response) {
                     // handle success
                     console.log(response);
+                    // TODO make alert styles for success response
                     alert(response.data);
+                    {window.location.href="login"}
 
                 })
                 .catch(function (error) {
                     // handle error
                     toast.error('❌ ' + error.response.data);
-                    alert(error.response.data);
+                    //alert(error.response.data);
                 })
                 .then(function () {
                     // always executed
