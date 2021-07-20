@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FormInput from '../components/Atoms/FormInput'
 import SideImg from '../components/Atoms/SideImg'
 import SignUpForm from '../components/Moleculars/SignUpForm'
@@ -14,7 +14,7 @@ require('dotenv').config();
 export default function Signup() {
 
     // console.log(process.env.REACT_APP_API_KEY + "/auth/signup");
-    console.log(`${process.env.REACT_APP_API_KEY}/auth/signup`);
+    //console.log(`${process.env.REACT_APP_API_KEY}/auth/signup`);
 
     const [firstname, setfirstname] = useState('');
     const [username, setusername] = useState('');
@@ -27,15 +27,25 @@ export default function Signup() {
     const [password, setpassword] = useState('');
     const [rcpwd, setrcpwd] = useState('');
     const [profile_State, setprofile_State] = useState('1');
-    let passwordMatch=false;
+    const [passwordMatch, setpasswordMatch] = useState(false);
+    const [disable, setDisable] = useState(true);
+    const [visibility, setVisibility] = useState('invisible');
+
+    useEffect(() => {
+        if(firstname=='' || lastname=='' || username==''||email==''||contactno==''||password==''){
+            setDisable(true);
+        }else if(password !== rcpwd) {
+            setVisibility("visible");
+            setDisable(true);
+        } else {
+            setVisibility("invisible");
+            setDisable(false);
+        }
+    }, [password, rcpwd, firstname, lastname, username, email, contactno]);
+    //this array useState will only effect to this function
     
-    if(rcpwd != password){
-        console.log("not match");
-    }else{
-       passwordMatch=true;
-    }
+    
     var submit = () => {
-        if(passwordMatch){
             let finalAddress = address + ',' + address2;
             axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/signup`, {
                 "firstName": firstname,
@@ -57,14 +67,12 @@ export default function Signup() {
                 .catch(function (error) {
                     // handle error
                     toast.error('❌ ' + error.response.data);
-                    // alert(error.response.data);
+                    alert(error.response.data);
                 })
                 .then(function () {
                     // always executed
 
-                });
-        }
-        
+                });    
     }
 
     return (
@@ -93,9 +101,11 @@ export default function Signup() {
                                 email={email} onChangeemail={setemail} contactNo={contactno} onChangecontact={setcontactno} address={address} onChangeaddress={setaddress} 
                                 address2={address2} onChangeaddress2={setaddress2} city={city} onChangecity={setcity} password={password} onChangepassword={setpassword} rcpwd={rcpwd} onChangercpwd={setrcpwd} />
                         </div>
+                        {/* alert of password not matching. need to check with atoms */}
+                        <div className={"font-primary font-bold text-red-500 text-center "+(visibility)}><p>Password does not match</p></div>
                         <div className="text-white mt-7 flex items-center justify-center">
                             <div className="m-4" >
-                                <ButtonHover available={passwordMatch} txt="Sign Up" clickaction={submit} />
+                                <ButtonHover disableBtn={disable} txt="Sign Up" clickaction={submit} />
                             </div>
                             <div className="m-4" >
                                 <Link to="login"><ButtonSecondary txt="Already a Customer" /></Link>
