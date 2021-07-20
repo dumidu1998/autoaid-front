@@ -8,6 +8,30 @@ import VehicleContainer from '../../components/Moleculars/customer/VehicleContai
 import StatusViewer from '../../components/Moleculars/customer/StatusViewer'
 import TopNav from '../../components/Moleculars/customer/TopNav'
 export default function Index() {
+
+    var submit = () => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/1`)
+            .then(function (response) {
+                // handle success
+                console.log(response);
+                alert(response.data);
+
+            })
+            .catch(function (error) {
+                // handle error
+                toast.error('❌ ' + error.response.data);
+                // alert(error.response.data);
+            })
+            .then(function () {
+                // always executed
+
+            });
+    }
+
+    useEffect(() => {
+        submit();
+    }, [])
+    
     return (
         <div className="mb-44">
         <div className="flex flex-col items-center">

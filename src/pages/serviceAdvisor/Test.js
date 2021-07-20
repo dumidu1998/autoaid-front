@@ -1,7 +1,7 @@
 import React from 'react'
 import FormInput from '../../components/Atoms/FormInput'
 import RoundContainer from '../../components/Atoms/RoundContainer'
-import Addnew from '../../components/Atoms/serviceAdvisor/Addnew'
+// import Addnew from '../../components/Atoms/serviceStation/Addnew'
 
 export default function Test() {
     return (
@@ -12,7 +12,7 @@ export default function Test() {
                 </h1>
                 <input type="text" placeholder="name" className=" w-24"/>
                 <FormInput/>
-                <Addnew/>
+                {/* <Addnew/> */}
             </div>
             
         </div>
