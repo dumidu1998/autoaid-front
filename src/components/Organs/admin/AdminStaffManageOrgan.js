@@ -13,7 +13,7 @@ export default function AdminStaffManageOrgan(props) {
             <div className="flex items-center justify-center">
                 <StaffMemListOrgan added={added} />
                 <div className="ml-12"></div>
-                <StaffManageFormOrgan setadded={setadded} added={added} staffdetails={props.staffdetails} />
+                <StaffManageFormOrgan setadded={setadded} added={added} staffdetails={props.staffdetails} selectedid={props.selectedid} />
             </div>
         </div>
     )

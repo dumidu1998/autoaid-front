@@ -47,7 +47,7 @@ export default function AdminStaff() {
       <div className="relative bg-Background-0">
          <AdminSideBar />
          <div className="w-10/12 absolute top-28 right-10 ">
-            <AdminStaffManageOrgan staffdetails={staffdetails} />
+            <AdminStaffManageOrgan staffdetails={staffdetails} selectedid={staffid} />
          </div>
 
       </div>
