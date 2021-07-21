@@ -11,7 +11,7 @@ class StaffNavbarMolecular extends Component {
                     <StaffNavBar />
                 </div>
                 <Link to="/admin/staff" >
-                    <StaffManageBtn setColor="bg-blue-600" btnName="Add New" />
+                    <StaffManageBtn setColor="bg-blue-600" btnName="" />
                 </Link>
             </div>
         );

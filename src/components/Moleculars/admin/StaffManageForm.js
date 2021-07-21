@@ -42,7 +42,7 @@ export default function StaffManageForm(props) {
             >
 
                 <Form>
-                    <button type="submit">Add </button>
+                   
                     <div className=" bg-white rounded-2xl shadow-2xl  flex justify-between items-center -mt-12 py-9 px-12 mb-4">
 
                         <div className="flex flex-col">
@@ -61,6 +61,11 @@ export default function StaffManageForm(props) {
                             <label htmlFor="city" className="font-primary  text-md font-semibold  mt-3">City </label>
                             <Field id="city" name="city" placeholder="Veyangoda" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
                         </div>
+                        <div className="flex flex-col" >
+                             <button className="bg-green-600 w-48 h-12 rounded-xl text-white text-xl mt-2" type="submit">Add </button>
+                             <button className="bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2" type="">Update </button>
+                             <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2" type="">Delete </button>
+                        </div>
                         <div className="flex flex-col">
                             <label htmlFor="lastName" className="font-primary  text-md font-semibold  mt-3">Last Name</label>
                             <Field id="lastName" name="lastName" placeholder="Viniger" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
@@ -74,6 +79,8 @@ export default function StaffManageForm(props) {
                             <label htmlFor="address" className="font-primary  text-md font-semibold  mt-3">Address</label>
                             <Field id="address" name="address" placeholder="16/A Wataddara, Veyangoda" className=" ml-2 rounded-lg shadow-lg w-60 h-32  mt-2 pl-5" />
                         </div>
+                       
+                        
                     </div>
                 </Form>
             </Formik>
