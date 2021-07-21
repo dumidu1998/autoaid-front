@@ -34,8 +34,8 @@ export default function SignUpForm(props) {
                     <div className="lg:ml-24 mt-0">
                         {/* <FormInput lable=" Tel. No." value={props.contactNo} /> */}
                         <h1 className="font-primary  text-md">  Mobile No.</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.contactno}
-                            onChange={(event) => props.onChangecontact(event.target.value)} />
+                        <input type="tel" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.contactno}
+                            onChange={(event) => props.onChangecontact(event.target.value)} placeholder="0766344989 / +94766344989" />
                     </div>
 
                 </div>
@@ -54,14 +54,14 @@ export default function SignUpForm(props) {
                     <div className="">
                         {/* <FormInput lable=" Address Line 1 " /> */}
                         <h1 className="font-primary  text-md">  Address Line 1</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.address} 
+                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.address}
                             onChange={(event) => props.onChangeaddress(event.target.value)} />
                     </div>
                     <div className="lg:ml-24 mt-0">
                         {/* <FormInput lable="Address Line 2 " /> */}
                         <h1 className="font-primary  text-md">  Address Line 2</h1>
                         <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.address2}
-                            onChange={(event)=> props.onChangeaddress2(event.target.value)} />
+                            onChange={(event) => props.onChangeaddress2(event.target.value)} />
                     </div>
                     {/* //TODO Address line to database and below city */}
 
@@ -88,7 +88,8 @@ export default function SignUpForm(props) {
                     <div className="lg:ml-24 mt-0">
                         {/* <FormInput lable="Re-check Password" /> */}
                         <h1 className="font-primary  text-md">  Confirm Password</h1>
-                        <input type="password" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.rcpwd} />
+                        <input type="password" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.rcpwd}
+                            onChange={(event) => props.onChangercpwd(event.target.value)} />
                     </div>
 
 
