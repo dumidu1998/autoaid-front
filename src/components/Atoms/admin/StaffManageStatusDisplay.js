@@ -4,7 +4,7 @@ class StaffManageStatusDisplay extends Component {
     render() { 
         return ( 
             <div className="bg-white shadow-2xl rounded-xl h-12 p-3 flex items-center mr-2">
-                <div className="font-bold text-lg font-primary">{this.props.status}</div>
+                <div className=" text-lg font-primary">{this.props.status}</div>
             </div>
          );
     }

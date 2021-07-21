@@ -1,34 +1,55 @@
-import React, { Component } from 'react';
-import StaffManageForm from '../../components/Moleculars/admin/StaffManageForm';
-import StaffManageIdStatusPropilePicRow from '../../components/Moleculars/admin/StaffManageIdStatusPropilePicRow';
-import StaffMemListSlide from '../../components/Moleculars/admin/StaffMemListSlide';
-import StaffManageFormOrgan from '../../components/Organs/admin/StaffManageFormOrgan';
-import StaffMemListOrgan from '../../components/Organs/admin/StaffMemListOrgan';
-// import StaffNavbarMolecular from '../../components/Moleculars/admin/StaffNavbarMolecular';
- import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar';
 import AdminStaffManageOrgan from '../../components/Organs/admin/AdminStaffManageOrgan';
- 
-class AdminStaff extends Component {
-   state={
+
+export default function AdminStaff() {
+   const [staffdetails, setstaffdetails] = useState('');
+   let { staffid } = useParams();
+
+   var getData = async () => {
+      await axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstaffmeminfo/${staffid}`)
+         .then(async function (response) {
+            // handle success
+            console.log(response.data);
+            setstaffdetails(response.data);
+
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         })
+         .then(function () {
+            // always executed
+         });
    }
-   render(){
-       return(
-          <div className="relative bg-Background-0">
-            <AdminSideBar/>
-           ÷
-            {/* <StaffNavbarMolecular/> */}
-            {/* <StaffMemListSlide/> */}
-            {/* <StaffMemListOrgan/> */}
-            {/* <StaffManageIdStatusPropilePicRow/> */}
-            {/* <StaffManageForm/> */}
-            {/* <StaffManageFormOrgan/> */}
-            <div className="w-10/12 absolute top-28 right-10 ">
-               <AdminStaffManageOrgan/>
-            </div>
-           
-          </div>
-       )
-   }
+
+   useEffect(() => {
+      if (staffid) {
+         getData();
+      } else {
+         setstaffdetails({
+            firstName: '',
+            lastName: '',
+            email: '',
+            contactNum: '',
+            city: '',
+            role: '',
+            password: '',
+            address: '',
+            userName: ''
+         })
+      }
+   }, [staffid])
+
+   return (
+      <div className="relative bg-Background-0 mb-16 ">
+         <AdminSideBar name="Staff Handling " roleName="Admin"/>
+         <div className="w-10/12 absolute top-28 right-10 ">
+            <AdminStaffManageOrgan staffdetails={staffdetails} selectedid={staffid} />
+         </div>
+
+      </div>
+   )
 }
- 
-export default AdminStaff;
