@@ -12,11 +12,11 @@ export default function ServiceSummary() {
                 <div className="flex w-10/12 justify-between">
 
                     <SummaryMainContainer />
-                    <div className="">
+                    <div className="flex flex-col items-center">
                         <SummaryRightContainer />
                         <Addnew txt={"Start"} />
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
