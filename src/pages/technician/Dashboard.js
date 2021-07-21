@@ -25,7 +25,7 @@ export default function Dashboard() {
                         <div className="h-full w-10/12 py-24 ">
                             <SubSectionHeading heading="Ongoing Appointment" />
 
-                            <AppointmentContainer vehicleNo="CAM - 4216" link={"summary"} />
+                            <AppointmentContainer vehicleNo="CAM - 4216" link={"progress"} />
                             <AppointmentContainer vehicleNo="CAP - 1246" link={"viewService/" + "4"} />
                         </div>
                     </div>
