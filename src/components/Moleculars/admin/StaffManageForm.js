@@ -69,7 +69,7 @@ export default function StaffManageForm(props) {
                             <Field id="role" name="role" placeholder="ADMIN" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
                             <label htmlFor="password" className="font-primary  text-md font-semibold  mt-3">Password</label>
-                            <Field id="password" name="password" placeholder="***********" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                            <Field id="password" type="password" name="password" placeholder="***********" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
                             <label htmlFor="address" className="font-primary  text-md font-semibold  mt-3">Address</label>
                             <Field id="address" name="address" placeholder="16/A Wataddara, Veyangoda" className=" ml-2 rounded-lg shadow-lg w-60 h-32  mt-2 pl-5" />

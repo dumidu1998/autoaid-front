@@ -1,35 +1,10 @@
-// import React, { Component } from 'react';
-// import StaffManageIdDisplay from '../../Atoms/admin/StaffManageIdDisplay';
-// import StaffManageStatusBtn from '../../Atoms/admin/StaffManageStatusBtn';
-// import StaffManageStatusDisplay from '../../Atoms/admin/StaffManageStatusDisplay';
-// import StaffMemProfileImg from '../../Atoms/admin/StaffMemProfileImg';
-// class StaffManageIdStatusPropilePicRow extends Component {
-//     state = {  }
-//     render() { 
-//         return ( 
-//             <div className="flex justify-between items-center z-10 px-9">
-//                 <StaffManageIdDisplay id={"2020"}/>
-//                 <div className="ml-12">
-//                     <StaffMemProfileImg/>
-//                 </div>
-//                 <div className="flex ml-2">
-//                     <StaffManageStatusDisplay status={"Deactivated"}/>
-//                     <StaffManageStatusBtn status={"Active"}/>
-//                 </div>
-//             </div>
-//          );
-//     }
-// }
- 
-// export default StaffManageIdStatusPropilePicRow;
-
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import StaffManageIdDisplay from '../../Atoms/admin/StaffManageIdDisplay';
 import StaffManageStatusBtn from '../../Atoms/admin/StaffManageStatusBtn';
 import StaffManageStatusDisplay from '../../Atoms/admin/StaffManageStatusDisplay';
 import StaffMemProfileImg from '../../Atoms/admin/StaffMemProfileImg';
-import axios from 'axios'; 
-export default function StaffManageIdStatusPropilePicRow() {
+import axios from 'axios';
+export default function StaffManageIdStatusPropilePicRow(props) {
     const [nextId, setnextId] = useState();
 
     var getid = () => {
@@ -51,17 +26,24 @@ export default function StaffManageIdStatusPropilePicRow() {
             });
     }
 
-    useEffect(() => {getid();}, [])
+    useEffect(() => {
+        if (props.selectedid) {
+            setnextId(props.selectedid);
+        } else {
+            getid();
+        }
+
+    }, [props.selectedid])
     return (
         <div className="flex justify-between items-center z-10 px-9">
-                <StaffManageIdDisplay id={nextId}/>
-                <div className="ml-12">
-                    <StaffMemProfileImg/>
-                </div>
-                <div className="flex ml-2">
-                    <StaffManageStatusDisplay status={"Deactivated"}/>
-                    <StaffManageStatusBtn status={"Active"}/>
-                </div>
+            <StaffManageIdDisplay id={nextId} />
+            <div className="ml-12">
+                <StaffMemProfileImg />
             </div>
+            <div className="flex ml-2">
+                <StaffManageStatusDisplay status={"Deactivated"} />
+                <StaffManageStatusBtn status={"Active"} />
+            </div>
+        </div>
     )
 }
