@@ -47,8 +47,6 @@ export default function Signup() {
     }, [password, rcpwd, firstname, lastname, username, email, contactno]);
     //this array useState will only effect to this function
 
-    const regex = new RegExp('^(\d{10}|\d{12})$');
-
     var submit = () => {
         if (!/^((\+\d{11})|\d{10})$/.test(contactno)) {
             toast.error('❌ Invalid Contact Number');
@@ -75,8 +73,9 @@ export default function Signup() {
                 // handle success
                 console.log(response);
                 // TODO make alert styles for success response
-                alert(response.data);
-                { window.location.href = "login" }
+                toast.success('Signup Sucessful!!');
+                toast.success('Please Log in to Continue!!', { onClose: () => window.location.href = "login" });
+                // { window.location.href = "login" }
 
             })
             .catch(function (error) {
@@ -95,7 +94,7 @@ export default function Signup() {
         <div className="md:flex w-screen">
             <ToastContainer
                 position="bottom-right"
-                autoClose={5000}
+                autoClose={3000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
