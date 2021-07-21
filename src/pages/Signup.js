@@ -49,9 +49,13 @@ export default function Signup() {
         }
     }, [password, rcpwd, firstname, lastname, username, email, contactno]);
     //this array useState will only effect to this function
-    
+    const regex = new RegExp('^(\d{10}|\d{12})$');
     
     var submit = () => {
+        if(regex.test(contactno)){
+            alert('invalid contact No!');
+            return false;
+        }
             let finalAddress = address + ',' + address2;
             axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/signup`, {
                 "firstName": firstname,
@@ -96,6 +100,7 @@ export default function Signup() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
+
             />
             <div className="hidden md:block md:w-1/2 ">
                 <SideImg img="/imgs/header2.jpg" />
