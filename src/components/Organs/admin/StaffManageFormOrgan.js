@@ -7,7 +7,7 @@ class StaffManageFormOrgan extends Component {
         return ( 
             <div className=" flex flex-col w-full float-right rounded-2xl -mt-12">
                 <StaffManageIdStatusPropilePicRow />
-                <div className="shadow-2xl rounded-2xl">
+                <div className="rounded-2xl">
                     <StaffManageForm/>
                 </div>
             </div>

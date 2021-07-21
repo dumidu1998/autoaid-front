@@ -9,7 +9,7 @@ class StaffManageIdStatusPropilePicRow extends Component {
         return ( 
             <div className="flex justify-between items-center z-10 px-9">
                 <StaffManageIdDisplay id={"2020"}/>
-                <div className="ml-9">
+                <div className="ml-12">
                     <StaffMemProfileImg/>
                 </div>
                 <div className="flex ml-2">
