@@ -32,6 +32,8 @@ function App() {
             <Route path="/customer/vehicle" exact component={VehicleDetails} />
             <Route path="/admin" exact component={AdminDashboard} />
             <Route path="/admin/staff" exact component={AdminStaff} />
+            <Route path="/admin/staff/{staff_id}" component={AdminStaff} />
+
         </Switch>
       </Router>
 

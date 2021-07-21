@@ -1,18 +1,13 @@
-import React, { Component } from 'react';
+import React,{useState}from 'react'
 import StaffManageForm from '../../Moleculars/admin/StaffManageForm';
 import StaffManageIdStatusPropilePicRow from '../../Moleculars/admin/StaffManageIdStatusPropilePicRow';
-class StaffManageFormOrgan extends Component {
-    state = {  }
-    render() { 
-        return ( 
+export default function StaffManageFormOrgan(props) {
+    return (
             <div className=" flex flex-col w-full float-right rounded-2xl -mt-12">
-                <StaffManageIdStatusPropilePicRow />
-                <div className="rounded-2xl">
-                    <StaffManageForm/>
-                </div>
+            <StaffManageIdStatusPropilePicRow />
+            <div className="rounded-2xl">
+                <StaffManageForm setadded={props.setadded} added={props.added}/>
             </div>
-         );
-    }
+        </div>
+    )
 }
- 
-export default StaffManageFormOrgan;

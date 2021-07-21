@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import StaffMemListSlide from '../../Moleculars/admin/StaffMemListSlide';
 import axios from 'axios';
-export default function StaffMemListOrgan() {
+export default function StaffMemListOrgan(props) {
     
     const [admin,setadmin] = useState([])
 
@@ -24,7 +24,7 @@ export default function StaffMemListOrgan() {
             });
     }
 
-    useEffect(() => {submit();}, [])
+    useEffect(() => {submit();}, [props.added])
 
 
     return (
