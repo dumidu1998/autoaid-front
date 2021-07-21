@@ -10,6 +10,7 @@ class StaffNavbarMolecular extends Component {
                     <StaffNavBar/>
                 </div>
                 <StaffManageBtn setColor="bg-blue-600" btnName="Add"/>
+                
             </div>
         );
     }
