@@ -1,26 +1,23 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import StaffManageFormTxt from '../../Atoms/admin/StaffManageFormTxt';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
 
 export default function StaffManageForm(props) {
+
+    const [initvals, setinitvals] = useState();
+
+    useEffect(() => {
+        setinitvals(props.staffdetails);
+    }, [props.staffdetails])
+
+
     return (
         <div className="w-full shadow-xl ">
             <Formik
-                // initialValues={{
-                //     firstName: '',
-                //     lastName: '',
-                //     email: '',
-                //     contactNum: '',
-                //     city: '',
-                //     role: '',
-                //     password: '',
-                //     address: '',
-                //     userName: ''
-                // }}
                 enableReinitialize
-                initialValues={props.staffdetails}
+                initialValues={initvals}
                 onSubmit={async (values) => {
                     await new Promise((r) => setTimeout(r, 500));
                     axios.post(`${process.env.REACT_APP_API_BASE_URL}/admin/addstaff`, values)
@@ -45,7 +42,7 @@ export default function StaffManageForm(props) {
             >
 
                 <Form>
-                    <button>add </button>
+                    <button type="submit">Add </button>
                     <div className=" bg-white rounded-2xl shadow-2xl  flex justify-between items-center -mt-12 py-9 px-12 mb-4">
 
                         <div className="flex flex-col">
