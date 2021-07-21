@@ -15,9 +15,6 @@ require('dotenv').config();
 
 export default function Signup() {
 
-    // console.log(process.env.REACT_APP_API_KEY + "/auth/signup");
-    //console.log(`${process.env.REACT_APP_API_KEY}/auth/signup`);
-
     const [firstname, setfirstname] = useState('');
     const [username, setusername] = useState('');
     const [lastname, setlastname] = useState('');
@@ -36,10 +33,10 @@ export default function Signup() {
 
 
     useEffect(() => {
-        if(firstname=='' || lastname=='' || username==''||email==''||contactno==''||password==''){
+        if (firstname == '' || lastname == '' || username == '' || email == '' || contactno == '' || password == '') {
             setDisable(true);
             setFieldCheckVisibility("visible");
-        }else if(password !== rcpwd) {
+        } else if (password !== rcpwd) {
             setVisibility("visible");
             setDisable(true);
         } else {
@@ -49,42 +46,47 @@ export default function Signup() {
         }
     }, [password, rcpwd, firstname, lastname, username, email, contactno]);
     //this array useState will only effect to this function
-    const regex = new RegExp('^(\d{10}|\d{12})$');
-    
+
     var submit = () => {
-        if(regex.test(contactno)){
-            alert('invalid contact No!');
+        if (!/^((\+\d{11})|\d{10})$/.test(contactno)) {
+            toast.error('❌ Invalid Contact Number');
             return false;
         }
-            let finalAddress = address + ',' + address2;
-            axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/signup`, {
-                "firstName": firstname,
-                "lastName": lastname,
-                "userName": username,
-                "email": email,
-                "contactNo": contactno,
-                "address": finalAddress,
-                "city": city,
-                "password": password,
-                // "profile_state": "1"
+        if (!/.{5}/.test(password)) {
+            toast.error('❌ Password Should Contain at least 5 Characters');
+            return false;
+        }
+
+        let finalAddress = address + ',' + address2;
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/signup`, {
+            "firstName": firstname,
+            "lastName": lastname,
+            "userName": username,
+            "email": email,
+            "contactNo": contactno,
+            "address": finalAddress,
+            "city": city,
+            "password": password,
+            // "profile_state": "1"
+        })
+            .then(function (response) {
+                // handle success
+                console.log(response);
+                // TODO make alert styles for success response
+                toast.success('Signup Sucessful!!');
+                toast.success('Please Log in to Continue!!', { onClose: () => window.location.href = "login" });
+                // { window.location.href = "login" }
+
             })
-                .then(function (response) {
-                    // handle success
-                    console.log(response);
-                    // TODO make alert styles for success response
-                    alert(response.data);
-                    {window.location.href="login"}
+            .catch(function (error) {
+                // handle error
+                toast.error('❌ ' + error.response.data);
+                //alert(error.response.data);
+            })
+            .then(function () {
+                // always executed
 
-                })
-                .catch(function (error) {
-                    // handle error
-                    toast.error('❌ ' + error.response.data);
-                    //alert(error.response.data);
-                })
-                .then(function () {
-                    // always executed
-
-                });    
+            });
     }
 
     return (
@@ -92,7 +94,7 @@ export default function Signup() {
         <div className="md:flex w-screen">
             <ToastContainer
                 position="bottom-right"
-                autoClose={5000}
+                autoClose={3000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -111,13 +113,13 @@ export default function Signup() {
                     <form className="h-screen">
                         <div className="md:w-10/12 w-screen mx-auto flex flex-col items-center overflow-auto h-1/3 lg:h-1/2 shadow-md rounded-lg">
                             <SignUpForm firstname={firstname} onChangefirstname={setfirstname} lastname={lastname} onChangelastname={setlastname} username={username} onChangeusername={setusername}
-                                email={email} onChangeemail={setemail} contactNo={contactno} onChangecontact={setcontactno} address={address} onChangeaddress={setaddress} 
+                                email={email} onChangeemail={setemail} contactNo={contactno} onChangecontact={setcontactno} address={address} onChangeaddress={setaddress}
                                 address2={address2} onChangeaddress2={setaddress2} city={city} onChangecity={setcity} password={password} onChangepassword={setpassword} rcpwd={rcpwd} onChangercpwd={setrcpwd} />
                         </div>
                         {/* alert style of password not matching.*/}
-                        <AlertText text="Password does not match" visibility={visibility}/>
+                        <AlertText text="Password does not match" visibility={visibility} />
                         {/* TODO Modify the styles and the msg */}
-                        <AlertText text="All fields need to be filled !" visibility={fieldCheckVisibility}/>
+                        <AlertText text="All fields need to be filled !" visibility={fieldCheckVisibility} />
                         <div className="text-white mt-7 flex items-center justify-center">
                             <div className="m-4" >
                                 <ButtonHover disableBtn={disable} txt="Sign Up" clickaction={submit} />
