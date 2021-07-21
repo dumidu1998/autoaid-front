@@ -29,7 +29,7 @@ export default function AdminStaff() {
       if (staffid) {
          getData();
       }
-   }, [])
+   }, [staffid])
 
    return (
       <div className="relative bg-Background-0">
