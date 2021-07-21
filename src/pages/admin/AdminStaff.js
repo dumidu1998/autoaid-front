@@ -28,6 +28,18 @@ export default function AdminStaff() {
    useEffect(() => {
       if (staffid) {
          getData();
+      } else {
+         setstaffdetails({
+            firstName: '',
+            lastName: '',
+            email: '',
+            contactNum: '',
+            city: '',
+            role: '',
+            password: '',
+            address: '',
+            userName: ''
+         })
       }
    }, [staffid])
 
