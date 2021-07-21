@@ -5,7 +5,7 @@ import SummaryRightContainer from '../../components/Organs/technician/SummaryRig
 
 export default function ServiceSummary() {
     return (
-        <div className="relative bg-Background-0">
+        <div className="relative bg-Background-0 h-screen">
             <div className="flex flex-col items-center">
                 <TopContainerVNo heading1="KT-0246" />
                 <div className="flex w-10/12 justify-between">
