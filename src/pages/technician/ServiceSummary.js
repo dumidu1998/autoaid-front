@@ -1,4 +1,5 @@
 import React from 'react'
+import Addnew from '../../components/Atoms/serviceStation/Addnew'
 import TopContainerVNo from '../../components/Atoms/technician/TopContainerVNo'
 import SummaryMainContainer from '../../components/Organs/technician/SummaryMainContainer'
 import SummaryRightContainer from '../../components/Organs/technician/SummaryRightContainer'
@@ -11,7 +12,11 @@ export default function ServiceSummary() {
                 <div className="flex w-10/12 justify-between">
 
                     <SummaryMainContainer />
-                    <SummaryRightContainer />
+                    <div className="">
+                        <SummaryRightContainer />
+                        <Addnew txt={"Start"} />
+                    </div>
+
                 </div>
             </div>
         </div>
