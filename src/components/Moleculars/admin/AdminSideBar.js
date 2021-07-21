@@ -8,7 +8,7 @@ class AdminSideBar extends Component {
         return ( 
             <div className="flex ">
                 <AdminSideBarIcons/>
-                <AdminTopBar/>
+                <AdminTopBar />
             </div>
          );
     }

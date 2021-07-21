@@ -8,11 +8,11 @@ class StaffMemListSlide extends Component {
         return ( 
             <div>
                 <div className="flex flex-col bg-white shadow-xl rounded-xl p-2 m-4">
-                    <div className="flex justify-between items-center mx-4">
+                    <div className="flex justify-between items-center mx-4 w-48">
                         <StaffMemListId idNum={this.props.idNum}/>
-                        <StaffMemListManageBtn/>
+                        <StaffMemListManageBtn link={"/"+this.props.idNum}/>
                     </div>
-                    <div className="flex justify-center">
+                    <div className="flex justify-start ml-3">
                         <StaffMemListName userName={this.props.userName}/>
                     </div>
                 </div>

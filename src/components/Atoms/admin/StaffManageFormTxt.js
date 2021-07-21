@@ -13,7 +13,7 @@ class StaffManageFormTxt extends Component {
             <div>
                  <div className="m-2">
                     <h1 className="font-primary  text-md font-semibold"> {this.props.lable}</h1> 
-                    <input type="text" name="name" className={this.height()} />
+                    <input type="text" name="name" className={this.height()} value={this.props.value} onChange={(e)=>this.props.value=e.target.value} />
                 </div>
             </div>
          );

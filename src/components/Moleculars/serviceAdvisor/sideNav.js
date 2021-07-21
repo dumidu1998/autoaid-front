@@ -1,5 +1,5 @@
 import React from 'react'
-import SideNavIcon from '../../Atoms/serviceAdvisor/SideNavIcon'
+import SideNavIcon from '../../Atoms/serviceStation/SideNavIcon'
 
 function sideNav() {
     return (

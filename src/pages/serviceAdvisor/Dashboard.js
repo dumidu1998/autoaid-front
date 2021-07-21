@@ -1,8 +1,8 @@
 import React from 'react'
-import AppointmentContainer from '../../components/Atoms/serviceAdvisor/AppointmentContainer'
-import Register from '../../components/Atoms/serviceAdvisor/Register'
-import SubSectionHeading from '../../components/Atoms/serviceAdvisor/SubSectionHeading'
-import TopContainer from '../../components/Atoms/serviceAdvisor/TopContainer'
+import AppointmentContainer from '../../components/Atoms/serviceStation/AppointmentContainer'
+import Register from '../../components/Atoms/serviceStation/Register'
+import SubSectionHeading from '../../components/Atoms/serviceStation/SubSectionHeading'
+import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
 
 export default function Dashboard() {
