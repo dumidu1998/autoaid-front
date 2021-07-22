@@ -10,11 +10,17 @@ import axios from 'axios';
 import TopNav from '../../components/Moleculars/customer/TopNav'
 export default function Index() {
     const [vehicles, setvehicles] = useState([])
-    const [expenses, setexpenses] = useState()
+    const [expenses, setexpenses] = useState({
+        "total": 0,
+        "totalMonth": 0,
+        "avg": 0,
+        "avgRep": 0,
+        "activeRe": 0
+    })
 
-    var submit = () => {
+    var submit = async () => {
 
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/2`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/4`)
             .then(function (response) {
                 // handle success
                 setvehicles(response.data);
@@ -31,7 +37,7 @@ export default function Index() {
 
             });
 
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/2`)
+        await axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/4`)
             .then(function (response) {
                 // handle success
                 setexpenses(response.data);
