@@ -9,7 +9,8 @@ import StatusViewer from '../../components/Moleculars/customer/StatusViewer'
 import axios from 'axios';
 import TopNav from '../../components/Moleculars/customer/TopNav'
 export default function Index() {
- const [vehicles, setvehicles] = useState([])
+    const [vehicles, setvehicles] = useState([])
+    const [expenses, setexpenses] = useState()
 
     var submit = () => {
         
@@ -18,6 +19,23 @@ export default function Index() {
                 // handle success
                 setvehicles(response.data);
                 console.log(vehicles);
+                // alert(response.data);
+
+            })
+            .catch(function (error) {
+                // handle error
+                 console.log(error.response.data);
+            })
+            .then(function () {
+                // always executed
+
+            });
+
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/2`)
+            .then(function (response) {
+                // handle success
+                setexpenses(response.data);
+                console.log(expenses);
                 // alert(response.data);
 
             })
@@ -57,11 +75,11 @@ export default function Index() {
                                 <SideLink name="View Details" />
                             </div>
                             <div className="flex flex-wrap justify-between my-5">
-                                <DetailsShowing data="Rs. 5125.00" dataHeading="Total Expenditure" />
-                                <DetailsShowing data="Rs. 2500.00" dataHeading="Expenses in May" />
-                                <DetailsShowing data="Rs. 1500.00" dataHeading="Avg. Expenditure/Month" />
-                                <DetailsShowing data="1" dataHeading="Active Repairs" />
-                                <DetailsShowing data="2" dataHeading="Avg. Repairs/ Month" />
+                                <DetailsShowing data={expenses.total} dataHeading="Total Expenditure" />
+                                <DetailsShowing data={expenses.totalMonth} dataHeading="Expenses in May" />
+                                <DetailsShowing data={expenses.avg} dataHeading="Avg. Expenditure/Month" />
+                                <DetailsShowing data= {expenses.avgRep}dataHeading="Active Repairs" />
+                                <DetailsShowing data= {expenses.activeRe} dataHeading="Avg. Repairs/ Month" />
 
                             </div>
 
