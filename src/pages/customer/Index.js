@@ -23,7 +23,7 @@ export default function Index() {
             })
             .catch(function (error) {
                 // handle error
-                console.log(error.response.data);
+                 console.log(error.response.data);
             })
             .then(function () {
                 // always executed
@@ -42,11 +42,11 @@ export default function Index() {
             <div className="flex flex-col items-center">
                 <TopNav />
                 <div className="w-10/12 justify-center">
-                    <div className="flex justify-center">
+                    <div className="flex justify-center md:hidden">
 
                         <Addnew txt="Book Now" />
                     </div>
-                    <div>
+                    <div className="md:my-10">
                         <StatusViewer />
                     </div>
                     <div className="md:flex justify-center">
@@ -69,7 +69,7 @@ export default function Index() {
                         <div className="flex flex-col justify-center md:bg-white md:p-5 md:rounded-lg md:shadow-lg md:w-1/3 md:my-5 md:mx-5 ">
                             <HeadingPRimary heading="Vehicles" />
                             {vehicles.map((vehicle, index) => {
-                // console.log(course.title)
+                        // console.log(course.title)
                         return (
                             
                             <VehicleContainer reg={vehicle.vehicleNumber} time="200km / 3 Months"/>
