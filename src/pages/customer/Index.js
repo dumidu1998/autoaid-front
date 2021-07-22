@@ -8,6 +8,7 @@ import VehicleContainer from '../../components/Moleculars/customer/VehicleContai
 import StatusViewer from '../../components/Moleculars/customer/StatusViewer'
 import axios from 'axios';
 import TopNav from '../../components/Moleculars/customer/TopNav'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 export default function Index() {
     const [vehicles, setvehicles] = useState([])
     const [expenses, setexpenses] = useState({
@@ -96,8 +97,9 @@ export default function Index() {
                             {vehicles.map((vehicle, index) => {
                                 // console.log(course.title)
                                 return (
-
-                                    <VehicleContainer reg={vehicle.vehicleNumber} time="200km / 3 Months" />
+                                    <Link to={"/customer/vehicle"}>
+                                        <VehicleContainer reg={vehicle.vehicleNumber} time="200km / 3 Months" />
+                                    </Link>
                                 );
                             })}
                         </div>

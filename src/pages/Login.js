@@ -20,8 +20,9 @@ export default function Login() {
             .then(function (response) {
                 // handle success
                 console.log(response);
-                toast.success('Login Sucessfull!');
+                // toast.success('Login Sucessfull!');
                 //TODO Redirect to respective dashboard
+                toast.success('Login Sucessfull!', { onClose: () => window.location.href = "customer" });
 
             })
             .catch(function (error) {
@@ -38,7 +39,7 @@ export default function Login() {
         <div className="md:flex w-screen">
             <ToastContainer
                 position="bottom-right"
-                autoClose={3000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
