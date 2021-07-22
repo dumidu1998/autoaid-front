@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 class StaffManageNavbarHeadingBtns extends Component {
-    state = {  }
-    highlightColor=()=>{
-        let color="flex place-items-center justify-center bg-white w-full ml-3 mr-3 shadow-2xl rounded-xl h-16";
+    state = {}
+    highlightColor = () => {
+        let color = "flex place-items-center justify-center bg-white w-full mx-3 shadow-xl rounded-xl h-16 px-4";
         return color;
     }
-    render() { 
-        return ( 
+    render() {
+        return (
             <div className={this.highlightColor()}>
-            {/* <div className="flex items-center justify-center h-8 bg-gray-900 p-3 pb-4 rounded-xl"><div className="text-white  font-semibold">{this.props.btnName}</div></div> */}
-            <button className="font-primary">{this.props.btnName}</button>
-        </div>
-         );
+                {/* <div className="flex items-center justify-center h-8 bg-gray-900 p-3 pb-4 rounded-xl"><div className="text-white  font-semibold">{this.props.btnName}</div></div> */}
+                <button className="font-primary">{this.props.btnName}</button>
+            </div>
+        );
     }
 }
- 
+
 export default StaffManageNavbarHeadingBtns;
 
 // import React, { Component } from 'react';
@@ -47,7 +47,7 @@ export default StaffManageNavbarHeadingBtns;
 //         return ( <>
 //             <div className={this.state.color}>
 //             {/* <div className="flex items-center justify-center h-8 bg-gray-900 p-3 pb-4 rounded-xl"><div className="text-white  font-semibold">{this.props.btnName}</div></div> */}
-            
+
 //             <button className="font-primary" >{this.props.btnName}</button>
 //         </div>
 //         <div className="">{}</div>
@@ -55,5 +55,5 @@ export default StaffManageNavbarHeadingBtns;
 //          );
 //     }
 // }
- 
+
 // export default StaffManageNavbarHeadingBtns;

@@ -108,7 +108,7 @@ export default function Signup() {
                 <SideImg img="/imgs/header2.jpg" />
             </div>
             <div className="bg-primary-0 w-screen h-screen md:w-1/2 ">
-                <div className="bg-white absolute top-1/4 md:top-36 w-screen h-screen md:w-1/2 md:fixed" style={{ borderTopLeftRadius: '150px' }}>
+                <div className="bg-white absolute top-1/4 md:top-20 w-screen h-screen md:w-1/2 md:fixed" style={{ borderTopLeftRadius: '150px' }}>
                     <h1 className="font-primary text-center md:text-5xl text-4xl text-current font-semibold mt-7 mb-7">Sign Up</h1>
                     <form className="h-screen">
                         <div className="md:w-10/12 w-screen mx-auto flex flex-col items-center overflow-auto h-1/3 lg:h-1/2 shadow-md rounded-lg">
