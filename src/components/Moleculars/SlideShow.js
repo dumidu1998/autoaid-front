@@ -22,7 +22,7 @@ export default function SlideShow() {
                         <div className="z-50 absolute bottom-1/4 left-1/2 ml-3 text-white">
                             <Jump>
 
-                            <ButtonOutline txt="Register" link="/customer"/>
+                            <ButtonOutline txt="Register" link="/signup"/>
                             </Jump>
                         </div>
                     

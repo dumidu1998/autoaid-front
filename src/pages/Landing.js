@@ -7,10 +7,12 @@ import LandingSection4 from '../components/Organs/LandingSection4';
 import LandingSection5 from '../components/Organs/LandingSection5';
 import LandingSection6 from '../components/Organs/LandingSection6';
 import CallContainer from '../components/Atoms/CallContainer';
+import NavBar from '../components/Moleculars/NavBar';
 
 export default function Landing() {
     return (
         <div>
+            <NavBar/>
             <Header/>
             <LandingSection2/>
             <LandingSection3/>
