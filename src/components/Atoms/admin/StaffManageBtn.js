@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 class StaffManageBtn extends Component {
     state = { 
-        style:"w-40 h-12 rounded-xl text-white text-3xl font-semibold "
+        style:"w-40 h-12 rounded-xl text-white text-xl font-semibold "
      }
      setColor(){
         let {style}=this.state;
