@@ -5,6 +5,7 @@ import LoginForm from '../components/Moleculars/LoginForm'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Switch } from '@headlessui/react';
 
 export default function Login() {
 
@@ -19,10 +20,23 @@ export default function Login() {
         })
             .then(function (response) {
                 // handle success
-                console.log(response);
-                // toast.success('Login Sucessfull!');
-                //TODO Redirect to respective dashboard
+                console.log(response.data.userType);
                 toast.success('Login Sucessfull!', { onClose: () => window.location.href = "customer" });
+                //TODO Redirect to respective dashboard
+                let Redirect=response.data.userType;
+                
+                switch (Redirect){
+                    case 'ADMIN':
+                        window.location.href = "/admin";
+                        break;
+                    case 'CUSTOMER':
+                        window.location.href = "/customer";
+                        break;
+                    case 'TECHNICIAN':
+                        window.location.href = "/technician";
+                        break;
+
+                }
 
             })
             .catch(function (error) {

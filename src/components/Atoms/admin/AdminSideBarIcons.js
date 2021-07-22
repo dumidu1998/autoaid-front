@@ -41,12 +41,14 @@ class AdminSideBarIcons extends Component {
                                 </svg>
                                 <h1 className="text-gray-300 font-primary text-xs m-1 font-bold ">Reports</h1>
                             </div>
-                            <div  className="flex flex-col items-center justify-center w-20 h-20 hover:bg-white hover:shadow-lg hover:border-transparent m-10  rounded-lg">
+                        <Link to="/login">
+                            <div className="flex flex-col items-center justify-center w-20 h-20 hover:bg-white hover:shadow-lg hover:border-transparent m-10  rounded-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
                                 </svg>
                                 <h1 className=" font-primary text-xs m-1 font-bold text-gray-300">Logout</h1>
                             </div>
+                        </Link>
                         </div>
                     </div>
                 </div>
