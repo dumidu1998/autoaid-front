@@ -13,7 +13,7 @@ export default function Index() {
     const [expenses, setexpenses] = useState()
 
     var submit = () => {
-        
+
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/2`)
             .then(function (response) {
                 // handle success
@@ -24,24 +24,25 @@ export default function Index() {
             })
             .catch(function (error) {
                 // handle error
-                 console.log(error.response.data);
+                console.log(error.response.data);
             })
             .then(function () {
                 // always executed
 
             });
 
-            axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/2`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/2`)
             .then(function (response) {
                 // handle success
                 setexpenses(response.data);
                 console.log(expenses);
+                console.log(response.data);
                 // alert(response.data);
 
             })
             .catch(function (error) {
                 // handle error
-                 console.log(error.response.data);
+                console.log(error.response.data);
             })
             .then(function () {
                 // always executed
@@ -53,7 +54,7 @@ export default function Index() {
         submit();
     }, [])
 
-   
+
 
     return (
         <div className="mb-44">
@@ -78,8 +79,8 @@ export default function Index() {
                                 <DetailsShowing data={expenses.total} dataHeading="Total Expenditure" />
                                 <DetailsShowing data={expenses.totalMonth} dataHeading="Expenses in May" />
                                 <DetailsShowing data={expenses.avg} dataHeading="Avg. Expenditure/Month" />
-                                <DetailsShowing data= {expenses.avgRep}dataHeading="Active Repairs" />
-                                <DetailsShowing data= {expenses.activeRe} dataHeading="Avg. Repairs/ Month" />
+                                <DetailsShowing data={expenses.avgRep} dataHeading="Active Repairs" />
+                                <DetailsShowing data={expenses.activeRe} dataHeading="Avg. Repairs/ Month" />
 
                             </div>
 
@@ -87,12 +88,12 @@ export default function Index() {
                         <div className="flex flex-col justify-center md:bg-white md:p-5 md:rounded-lg md:shadow-lg md:w-1/3 md:my-5 md:mx-5 ">
                             <HeadingPRimary heading="Vehicles" />
                             {vehicles.map((vehicle, index) => {
-                        // console.log(course.title)
-                        return (
-                            
-                            <VehicleContainer reg={vehicle.vehicleNumber} time="200km / 3 Months"/>
-                        );
-                    })}
+                                // console.log(course.title)
+                                return (
+
+                                    <VehicleContainer reg={vehicle.vehicleNumber} time="200km / 3 Months" />
+                                );
+                            })}
                         </div>
                     </div>
 
