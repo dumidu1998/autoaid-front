@@ -5,6 +5,7 @@ import HeadingPRimary from '../../components/Atoms/customer/HeadingPRimary'
 import SideLink from '../../components/Atoms/customer/SideLink'
 import BottomNav from '../../components/Moleculars/customer/BottomNav'
 import TopNav from '../../components/Moleculars/customer/TopNav'
+import BookModel from '../../components/Moleculars/customer/BookModel'
 
 export default function VehicleProfile() {
     return (
@@ -78,7 +79,9 @@ export default function VehicleProfile() {
 
                     </div>
                 </div>
+                <BookModel/>
             <BottomNav/>
+
         </div>
     )
 }
