@@ -22,10 +22,9 @@ export default function Login() {
                 // handle success
                 console.log(response.data.userType);
                 toast.success('Login Sucessfull!', { onClose: () => window.location.href = "customer" });
-                //TODO Redirect to respective dashboard
-                let Redirect=response.data.userType;
-                
-                switch (Redirect){
+                let Redirect = response.data.userType;
+
+                switch (Redirect) {
                     case 'ADMIN':
                         window.location.href = "/admin";
                         break;
@@ -33,7 +32,7 @@ export default function Login() {
                         window.location.href = "/customer";
                         break;
                     case 'TECHNICIAN':
-                        window.location.href = "/technician";
+                        window.location.href = "/technician/dashboard";
                         break;
 
                 }
