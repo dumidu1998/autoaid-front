@@ -1,8 +1,22 @@
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, Transition, Listbox } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
+import TechniciansDropDown from '../technician/TechniciansDropDown'
+import Calendar, { MonthView } from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+const people = [
+  { name: 'Wade Cooper' },
+  { name: 'Arlene Mccoy' },
+  { name: 'Devon Webb' },
+  { name: 'Tom Cook' },
+  { name: 'Tanya Fox' },
+  { name: 'Hellen Schmidt' },
+]
 
 export default function MyModal() {
-  let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(true)
+  const [value, onChange] = useState(new Date());
 
   function closeModal() {
     setIsOpen(false)
@@ -12,7 +26,11 @@ export default function MyModal() {
     setIsOpen(true)
   }
 
+ 
+  const [selected, setSelected] = useState(people[0])
+
   return (
+    
     <>
       <div className="">
         <button
@@ -26,10 +44,10 @@ export default function MyModal() {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 overflow-y-auto backdrop-blur-lg"
+          className="fixed inset-0 w-screen z-40 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-lg"
           onClose={closeModal}
         >
-          <div className="min-h-screen px-4 text-center">
+          <div className="min-h-screen w-1/4 px-4">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -43,12 +61,8 @@ export default function MyModal() {
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
-            <span
-              className="inline-block h-screen align-middle"
-              aria-hidden="true"
-            >
-              &#8203;
-            </span>
+           
+            
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -58,18 +72,50 @@ export default function MyModal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-center align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="flex flex-col w-full  p-5 my-10 overflow-hidden text-center items-center transition-all transform bg-white shadow-xl rounded-2xl ">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-bold leading-6 text-gray-900 font-primary "
+                  className="text-2xl font-bold leading-6 text-primary-0 font-primary text-center"
                 >
                   Book Now
                 </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Your payment has been successfully submitted. We’ve sent
-                    your an email with all of the details of your order.
-                  </p>
+                <div className="my-5 text-left">
+                    <div >
+                        <form>
+                          <div className="mt-5">
+                            <div>
+                              <Calendar
+                                onChange={onChange}
+                                value={value}
+                                minDate={new Date()}
+                                className="shadow-lg border-0 rounded-lg border-white"
+                                
+                                
+                              
+                              />
+                            </div>
+
+                          </div>
+                          <div className="mt-5">
+                            <h1 className="font-primary  text-md font-semibold"> Time</h1>
+                            <input type="time" name="name" className=" rounded-lg shadow-lg h-10 w-60" value="a" />
+
+                          </div>
+                          <div className="mt-5">
+                            <h1 className="font-primary  text-md font-semibold "> Vehicle No</h1>
+                            <TechniciansDropDown />       
+
+
+                          </div>
+                          
+                          <div className="mt-5">
+                            <h1 className="font-primary  text-md font-semibold"> Service Advisor</h1>
+                            <TechniciansDropDown />       
+
+                          </div>
+                        </form>
+                    </div>
+                    
                 </div>
 
                 <div className="mt-4">
@@ -78,7 +124,7 @@ export default function MyModal() {
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                     onClick={closeModal}
                   >
-                    Got it, thanks!
+                    Book Now
                   </button>
                 </div>
               </div>

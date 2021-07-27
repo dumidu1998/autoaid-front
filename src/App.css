@@ -6,3 +6,6 @@
   align-items: center;
   
 }
+.reactCalendar {
+  border: 0 !important;
+}
