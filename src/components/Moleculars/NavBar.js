@@ -17,11 +17,11 @@ export default function NavBar() {
                     <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">About</h1>
                     <div className="m-4">
                         <a href="/login">
-                            <Button txt="Log in" />
+                            <Button txt="Log in" link="/login" />
 
                         </a>
                     </div>
-                    <a href="/signup"><ButtonOutline txt= "Register" /></a>
+                    <ButtonOutline txt= "Register" link="/signup" />
                 </div>
 
                 <div className="md:hidden text-white ">

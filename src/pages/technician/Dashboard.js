@@ -13,13 +13,19 @@ export default function Dashboard() {
                 </div>
                 <div className="w-full flex flex-col">
                     <TopContainer heading1="Dashboard" heading2="Technician" addnewbtntext="Add New" />
-                    <div className="h-full flex items-center justify-center">
+                    <div className="h-full flex items-center justify-center mx-16 ">
                         <div className="h-full w-10/12 py-24">
                             <SubSectionHeading heading="Upcomming Appointment" />
 
-                            <AppointmentContainer vehicleNo="CAM - 4216" link={"viewService/" + "1"} />
+                            <AppointmentContainer vehicleNo="CAM - 4216" link={"summary"} />
                             <AppointmentContainer vehicleNo="KT - 0246" link={"viewService/" + "2"} />
                             <AppointmentContainer vehicleNo="CAA - 2216" link={"viewService/" + "3"} />
+                            <AppointmentContainer vehicleNo="CAP - 1246" link={"viewService/" + "4"} />
+                        </div>
+                        <div className="h-full w-10/12 py-24 ">
+                            <SubSectionHeading heading="Ongoing Appointment" />
+
+                            <AppointmentContainer vehicleNo="CAM - 4216" link={"progress"} />
                             <AppointmentContainer vehicleNo="CAP - 1246" link={"viewService/" + "4"} />
                         </div>
                     </div>

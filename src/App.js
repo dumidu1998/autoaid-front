@@ -15,6 +15,7 @@ import AdminStaff from './pages/admin/AdminStaff';
 import VehicleInfo from './pages/serviceAdvisor/VehicleInfo';
 import Dashboard from './pages/technician/Dashboard';
 import ServiceSummary from './pages/technician/ServiceSummary';
+import ServiceProgress from './pages/technician/ServiceProgress';
 
 
 
@@ -31,14 +32,22 @@ function App() {
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
           <Route path="/serviceadvisor" exact component={Service} />
+
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
+
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
           <Route path="/customer/vehicle" exact component={VehicleDetails} />
           <Route path="/admin" exact component={AdminDashboard} />
-          <Route path="/adminstaff" exact component={AdminStaff} />
+
+          <Route path="/admin/staff" exact component={AdminStaff} />
+          <Route path="/admin/staff/:staffid" component={AdminStaff} />
+
           <Route path="/technician/dashboard" exact component={Dashboard} />
+          <Route path="/technician" exact component={Dashboard} />
           <Route path="/technician/summary" exact component={ServiceSummary} />
+          <Route path="/technician/progress" exact component={ServiceProgress} />
+
         </Switch>
       </Router>
 
