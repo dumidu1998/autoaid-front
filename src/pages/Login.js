@@ -5,6 +5,7 @@ import LoginForm from '../components/Moleculars/LoginForm'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Switch } from '@headlessui/react';
 
 export default function Login() {
 
@@ -19,9 +20,22 @@ export default function Login() {
         })
             .then(function (response) {
                 // handle success
-                console.log(response);
-                toast.success('Login Sucessfull!');
-                //TODO Redirect to respective dashboard
+                console.log(response.data.userType);
+                toast.success('Login Sucessfull!', { onClose: () => window.location.href = "customer" });
+                let Redirect = response.data.userType;
+
+                switch (Redirect) {
+                    case 'ADMIN':
+                        window.location.href = "/admin";
+                        break;
+                    case 'CUSTOMER':
+                        window.location.href = "/customer";
+                        break;
+                    case 'TECHNICIAN':
+                        window.location.href = "/technician/dashboard";
+                        break;
+
+                }
 
             })
             .catch(function (error) {
@@ -38,7 +52,7 @@ export default function Login() {
         <div className="md:flex w-screen">
             <ToastContainer
                 position="bottom-right"
-                autoClose={3000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

@@ -8,13 +8,20 @@ import VehicleContainer from '../../components/Moleculars/customer/VehicleContai
 import StatusViewer from '../../components/Moleculars/customer/StatusViewer'
 import axios from 'axios';
 import TopNav from '../../components/Moleculars/customer/TopNav'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 export default function Index() {
     const [vehicles, setvehicles] = useState([])
-    const [expenses, setexpenses] = useState()
+    const [expenses, setexpenses] = useState({
+        "total": 0,
+        "totalMonth": 0,
+        "avg": 0,
+        "avgRep": 0,
+        "activeRe": 0
+    })
 
-    var submit = () => {
+    var submit = async () => {
 
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/2`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/4`)
             .then(function (response) {
                 // handle success
                 setvehicles(response.data);
@@ -31,7 +38,7 @@ export default function Index() {
 
             });
 
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/2`)
+        await axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/4`)
             .then(function (response) {
                 // handle success
                 setexpenses(response.data);
@@ -90,8 +97,9 @@ export default function Index() {
                             {vehicles.map((vehicle, index) => {
                                 // console.log(course.title)
                                 return (
-
-                                    <VehicleContainer reg={vehicle.vehicleNumber} time="200km / 3 Months" />
+                                    <Link to={"/customer/vehicle"}>
+                                        <VehicleContainer reg={vehicle.vehicleNumber} time="200km / 3 Months" />
+                                    </Link>
                                 );
                             })}
                         </div>
