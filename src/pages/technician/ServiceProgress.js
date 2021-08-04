@@ -18,8 +18,10 @@ export default function ServiceProgress() {
                     <div className="flex flex-col items-center">
                         <SummaryRightContainer />
                         <PauseBtn txt={"Pause"} />
-                        <AddnewWithIcon txt={"Add New"} />
-                        <BlueBgBtn txt={"Request Item"} />
+                        <div className="flex ">
+                            <AddnewWithIcon txt={"Add New"} />
+                            <BlueBgBtn txt={"Request Item"} />
+                        </div>
                     </div>
 
                 </div>
