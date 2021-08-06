@@ -16,6 +16,8 @@ import VehicleInfo from './pages/serviceAdvisor/VehicleInfo';
 import Dashboard from './pages/technician/Dashboard';
 import ServiceSummary from './pages/technician/ServiceSummary';
 import ServiceProgress from './pages/technician/ServiceProgress';
+import RepairHistory from './pages/customer/RepairHistory'
+import Expenses from './pages/customer/Expenses'
 
 
 
@@ -38,6 +40,8 @@ function App() {
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
           <Route path="/customer/vehicle" exact component={VehicleDetails} />
+          <Route path="/customer/vehicle/history" exact component={RepairHistory} />
+          <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/admin" exact component={AdminDashboard} />
 
           <Route path="/admin/staff" exact component={AdminStaff} />
