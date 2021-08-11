@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react'
 import StaffManageFormTxt from '../../Atoms/admin/StaffManageFormTxt';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 export default function StaffManageForm(props) {
 
     const [initvals, setinitvals] = useState();
+    const history = useHistory();
 
     useEffect(() => {
         setinitvals(props.staffdetails);
@@ -21,12 +23,13 @@ export default function StaffManageForm(props) {
                 onSubmit={async (values) => {
                     await new Promise((r) => setTimeout(r, 500));
                     axios.post(`${process.env.REACT_APP_API_BASE_URL}/admin/addstaff`, values)
+                        
                         .then(function (response) {
                             // handle success
                             //onsole.log(response);
                             props.setadded(!props.added);
                             alert("Admin " + response.data.fisrtName + " with id " + response.data.sid + " Added Sucessfully");
-
+                            history.push("/admin/staff");
                         })
                         .catch(function (error) {
                             //handle error
@@ -66,8 +69,8 @@ export default function StaffManageForm(props) {
                             <label htmlFor="lastName" className="font-primary  text-md font-semibold  mt-3">Last Name</label>
                             <Field id="lastName" name="lastName" placeholder="Viniger" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
-                            <label htmlFor="role" className="font-primary  text-md font-semibold  mt-3">Role</label>
-                            <Field id="role" name="role" placeholder="ADMIN" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                            <label htmlFor="userType" className="font-primary  text-md font-semibold  mt-3">UserType</label>
+                            <Field id="userType" name="userType" placeholder="userType" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
                             <label htmlFor="password" className="font-primary  text-md font-semibold  mt-3">Password</label>
                             <Field id="password" type="password" name="password" placeholder="***********" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
