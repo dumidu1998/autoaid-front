@@ -14,17 +14,31 @@ class AdminDashboard extends Component {
                         <div className="w-10/12 absolute top-28 right-10 ">
                             <div>
                                 <div className="flex justify-between">
-                                        <div className="bg-white px-9 rounded-xl shadow-xl mr-4 w-1/2 h-64 overflow-auto py-3 mt-2">
+                                        <div className="bg-white px-9 rounded-xl shadow-xl mr-4 w-1/2 h-64 py-3 mt-2">
                                             <DashBoardVehicleInfoSectionHeadingMolecular/>
-                                            <DashBoardSectionDetails/>
-                                            <DashBoardSectionDetails/>
+                                            <div className="bg-white shadow-xl overflow-auto w-full h-48">
+                                                <DashBoardSectionDetails/>
+                                                <DashBoardSectionDetails/>
+                                                <DashBoardSectionDetails/>
+                                                <DashBoardSectionDetails/>
+                                                <DashBoardSectionDetails/>
+                                                <DashBoardSectionDetails/>
+                                                <DashBoardSectionDetails/>
+                                                <DashBoardSectionDetails/>
+                                            </div>
+                                            
                                             
                                         </div>
                                         <div  className="bg-white px-9 rounded-xl shadow-xl ml-4  w-1/2 h-64 overflow-auto py-3 mt-2">
                                             <span className="font-xl text-lg flex justify-center">Today's Transaction History</span>
-                                            <DashBoardTransactionOrgan price="3260" number="CAZ-4079"/>
-                                            <DashBoardTransactionOrgan price="1400" number="ABC-6839"/>
-                                            <DashBoardTransactionOrgan price="1050" number="45-4502"/>
+                                            <div className="bg-white shadow-xl overflow-auto w-full h-48">
+                                                <DashBoardTransactionOrgan price="3260" number="CAZ-4079"/>
+                                                <DashBoardTransactionOrgan price="1400" number="ABC-6839"/>
+                                                <DashBoardTransactionOrgan price="1050" number="45-4502"/>
+                                                <DashBoardTransactionOrgan price="3260" number="CAZ-4079"/>
+                                                <DashBoardTransactionOrgan price="1400" number="ABC-6839"/>
+                                                <DashBoardTransactionOrgan price="1050" number="45-4502"/>
+                                            </div>
                                         </div>
                                 </div>
                                 <div className="bg-white w-full mt-3 rounded-lg h-96 p-5">
