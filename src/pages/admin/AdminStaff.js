@@ -35,7 +35,7 @@ export default function AdminStaff() {
             email: '',
             contactNum: '',
             city: '',
-            role: '',
+            userType: '',
             password: '',
             address: '',
             userName: ''
