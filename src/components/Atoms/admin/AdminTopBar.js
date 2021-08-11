@@ -11,6 +11,7 @@ class AdminTopBar extends Component {
                         <DashboardName name={this.props.name} roleName={this.props.roleName}/>
                         <Profileicon loginuser={"Admin One"} url="/imgs/admin/Admin One.jpg"/>
                     </div>
+                    
                 </div>
             </div>
          );
