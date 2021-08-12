@@ -1,6 +1,8 @@
 import React from 'react'
 import ButtonHover from '../../Atoms/ButtonHover'
 import Addnew from '../../Atoms/serviceStation/Addnew'
+import BookModel from './BookModel'
+
 
 export default function TopNav() {
     return (
@@ -13,7 +15,7 @@ export default function TopNav() {
                         <a className="font-primary font-semibold hover:text-primary-0 mx-10">Profile</a>
                     </div>
                     <div className="text-white flex items-center">
-                        <Addnew txt="Book Now"/>
+                        <BookModel/>
                         <ButtonHover txt="Contact Us"/>
                     </div>
 

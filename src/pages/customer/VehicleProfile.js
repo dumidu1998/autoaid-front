@@ -78,7 +78,9 @@ export default function VehicleProfile() {
 
                     </div>
                 </div>
+                
             <BottomNav/>
+
         </div>
     )
 }
