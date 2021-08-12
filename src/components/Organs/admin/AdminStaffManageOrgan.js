@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import StaffManageFormOrgan from './StaffManageFormOrgan';
 import StaffMemListOrgan from './StaffMemListOrgan';
 import StaffNavbarMolecular from '../../Moleculars/admin/StaffNavbarMolecular';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function AdminStaffManageOrgan(props) {
     const [added, setadded] = useState(true);
