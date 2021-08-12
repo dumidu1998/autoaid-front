@@ -4,9 +4,10 @@ import axios from 'axios';
 export default function StaffMemListOrgan(props) {
     
     const [admin,setadmin] = useState([])
+    
 
      var submit = () => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getadmins`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstaff/`+props.userType)
             .then(function (response) {
                 // handle success
                 console.log(response.data);
