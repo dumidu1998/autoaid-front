@@ -17,6 +17,7 @@ import Dashboard from './pages/technician/Dashboard';
 import ServiceSummary from './pages/technician/ServiceSummary';
 import ServiceProgress from './pages/technician/ServiceProgress';
 import AdminSection from './pages/admin/AdminSection';
+import Testing from './pages/admin/Testing';
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/admin/staff" exact component={AdminStaff} />
           <Route path="/admin/staff/:staffid" component={AdminStaff} />
           <Route path="/admin/section" exact component={AdminSection} />
+          <Route path="/admin/test" exact component={Testing} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
           <Route path="/technician" exact component={Dashboard} />
