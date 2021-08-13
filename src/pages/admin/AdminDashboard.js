@@ -5,10 +5,12 @@ import DashBoardVehicleInfoSectionHeadingMolecular from '../../components/Molecu
 import DashBoardSectionDetails from '../../components/Organs/admin/DashBoardSectionDetails';
 import DashBoardTransactionOrgan from '../../components/Organs/admin/DashBoardTransactionOrgan';
 import Popup from 'reactjs-popup';
+import Clock from 'react-live-clock';
 import 'reactjs-popup/dist/index.css';
 
 import React from 'react'
 import DashboardStatusCardsGrid from '../../components/Organs/admin/DashboardStatusCardsGrid';
+import SectionHeading from '../../components/Atoms/SectionHeading';
 
 export default function AdminDashboard() {
     return  (
@@ -21,9 +23,14 @@ export default function AdminDashboard() {
                                     <DashboardStatusCardsGrid/> 
                                 </div>
                         </div>
-                        <div className="flex justify-center w-full -mt-24 mb-10">
-                            <div className="bg-blue-40 w-96">
-                                <DashBoardSectionDetails/>
+                        <div className="flex justify-center w-full -mt-24 mb-7">
+                            <div className=" w-96 h-20 flex justify-center items-center">
+                                    <div className="bg-white   rounded-xl shadow-2xl font-primary text-xl p-4 w-96">
+                                        <Clock timezone={'Asia/Colombo'} format="dddd, MMMM Mo, YYYY  " />
+                                    </div>     
+                                    <div className="bg-white ml-10  rounded-xl shadow-2xl font-primary text-4xl p-4 w-full"> 
+                                        <Clock timezone={'Asia/Colombo'} format="HH:mm:ss" interval={1000} ticking={true}  /> 
+                                    </div>     
                             </div>
                            
                         </div>
