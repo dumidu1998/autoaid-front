@@ -17,6 +17,7 @@ class StaffManageNavbarHeadingBtns extends Component {
             <div className={this.props.highBtn === this.props.id ? this.highlightColor() : this.normalColor()}>
                 {/* <div className="flex items-center justify-center h-8 bg-gray-900 p-3 pb-4 rounded-xl"><div className="text-white  font-semibold">{this.props.btnName}</div></div> */}
                 <button onClick={() => this.props.setHighBtn(this.props.id)} className="font-primary">{this.props.btnName}</button>
+
             </div>
         );
     }

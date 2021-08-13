@@ -20,7 +20,7 @@ export default function StaffManageForm(props) {
             <Formik
                 enableReinitialize
                 initialValues={initvals}
-                onSubmit={async (values) => {
+                onSubmit={async (values, {resetForm}) => {
                     await new Promise((r) => setTimeout(r, 500));
                     axios.post(`${process.env.REACT_APP_API_BASE_URL}/admin/addstaff`, values)
                         
@@ -29,6 +29,7 @@ export default function StaffManageForm(props) {
                             //onsole.log(response);
                             props.setadded(!props.added);
                             alert("Admin " + response.data.fisrtName + " with id " + response.data.sid + " Added Sucessfully");
+                            resetForm();
                             history.push("/admin/staff");
                         })
                         .catch(function (error) {
