@@ -21,7 +21,12 @@ export default function AdminDashboard() {
                                     <DashboardStatusCardsGrid/> 
                                 </div>
                         </div>
-
+                        <div className="flex justify-center w-full -mt-24 mb-10">
+                            <div className="bg-blue-40 w-96">
+                                <DashBoardSectionDetails/>
+                            </div>
+                           
+                        </div>
                         <div>
                             <div className="flex justify-between">
                                     <div className="bg-white px-9 rounded-xl shadow-xl mr-4 w-1/2 h-full py-3 mt-2">

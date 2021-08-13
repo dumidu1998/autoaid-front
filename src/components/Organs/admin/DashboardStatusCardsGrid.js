@@ -8,7 +8,7 @@ export default function DashboardStatusCardsGrid() {
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 mb-4">
                 <DashboardStatusCards
                     icon="https://img.icons8.com/pastel-glyph/64/000000/website--v2.png"
-                    title="Traffic"
+                    title="Web Traffic"
                     amount="350,897"
                     percentage="3.48"
                     percentageColor="green"
