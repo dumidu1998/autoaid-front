@@ -92,7 +92,7 @@ export default function StaffManageForm(props) {
                     <div className="flex justify-between " >
                         <button className="bg-green-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8" type="submit">Add </button>
                         <button className="bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 ml-8" type="">Update </button>
-                        <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button>
+                        {/* <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button> */}
                     </div>
                     </div>
                 </Form>

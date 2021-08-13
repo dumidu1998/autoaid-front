@@ -18,12 +18,12 @@ function StaffNavBar(props) {
     //console.log("CHILD"+highBtn);
 
     return (
-        <di className="flex">
+        <div className="flex">
             {/* Amodgen ahanna one */}
             {/* <RemmovenavbarAdminbtn  btnName="Service"  /> */}
             {list.map(btn => <StaffManageNavbarHeadingBtns setHighBtn={setHighBtn} highBtn={highBtn} key={btn.id} btnName={btn.value} id={btn.id} />)}
 
-        </di>
+        </div>
     );
 }
 

@@ -10,7 +10,7 @@ export default function StaffNavbarMolecular(props) {
                 </div>
 
                 <Link to="/admin/staff" >
-                    <StaffManageBtn setColor="bg-blue-600" btnName="Add New" />
+                    <StaffManageBtn btnName="Add New" />
                 </Link>
 
             </div>
