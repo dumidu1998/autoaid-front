@@ -25,8 +25,8 @@ export default function DetailsForm() {
                             <div className="container mx-auto max-w-full">
                                 <div className="grid-cols-4 ">
                                     <div className="w-full h-24">
-                                        <div className="flex items-center justify-center w-2/3">
-                                            <div className="flex flex-col mr-2 ml-2">
+                                        <div className="flex items-center justify-center w-1/2">
+                                            <div className="flex flex-col mr-2 ml-16">
                                                 <label htmlFor="tepNum" className="font-primary  text-md font-semibold  mt-3">Tel No. </label>
                                                 <Field id="tepNum" name="tepNum" placeholder="0779690020" className=" ml-5 mt-2 rounded-lg shadow-lg w-64 h-10 pl-5" />
                                             </div>
@@ -35,7 +35,7 @@ export default function DetailsForm() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className=" w-full h-48">
+                                    <div className=" w-full h-48 mt-">
                                         <div className="flex flex-col items-center overflow-auto ">
                                             <div className="flex flex-row">
                                                 <div className="flex flex-col mr-12 ml-4 w-1/2 ">
@@ -55,7 +55,8 @@ export default function DetailsForm() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="w-full h-18">
+                                    <div className="w-full h-18 mt-3">
+                                        <div className="font-primary text-xl flex items-center justify-center w-4/12 mb-2 ">Vehicle 01</div>
                                         <div className="flex flex-col items-center overflow-auto ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
@@ -81,9 +82,13 @@ export default function DetailsForm() {
                                                 </div>
                                             </div>
                                         </div>
-                                    <div className="flex justify-center  items-center w-full h-18">
+                                    <div className="flex justify-center  items-center h-18 mt-6">
+                                        <div className="flex justify-end mr-20  items-center w-1/2">
                                             <DetailFormUpdatebtn txt="Update"/>
+                                        </div>
+                                        <div className="flex justify-start ml-20  items-center  w-1/2">
                                             <DetailFormBtn txt="Add New"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
