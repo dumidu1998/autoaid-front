@@ -5,9 +5,10 @@ function StaffNavBar(props) {
     const [list, setList] = useState([
         { id: 1, value: "Admin" },
         { id: 2, value: "Service Advisor" },
-        { id: 3, value: "Technician" },
+        { id: 3, value: "Lead Technician" },
         { id: 4, value: "Cashier" },
         { id: 5, value: "Stock Keeper" },
+        { id: 6, value: "Technician" },
     ])
 
     const [highBtn, setHighBtn] = useState(list[0].id);

@@ -71,7 +71,13 @@ export default function StaffManageForm(props) {
                             <Field id="lastName" name="lastName" placeholder="Viniger" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
                             <label htmlFor="userType" className="font-primary  text-md font-semibold  mt-3">UserType</label>
-                            <Field id="userType" name="userType" placeholder="userType" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                                <Field id="userType" name="userType" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" component="select">
+                                    <option value="ADMIN">Admin</option>
+                                    <option value="SERVICE_ADVISOR">Service Advisor</option>
+                                    <option value="LEAD_TECHNICIAN">Lead Technician</option>
+                                    <option value="STOCK_KEEPER">Stock Keeper</option>
+                                    <option value="TECHNICIAN">Technician</option>
+                                </Field>
 
                             <label htmlFor="password" className="font-primary  text-md font-semibold  mt-3">Password</label>
                             <Field id="password" type="password" name="password" placeholder="***********" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
