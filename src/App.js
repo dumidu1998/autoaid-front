@@ -18,6 +18,7 @@ import ServiceSummary from './pages/technician/ServiceSummary';
 import ServiceProgress from './pages/technician/ServiceProgress';
 import AdminSection from './pages/admin/AdminSection';
 import Testing from './pages/admin/Testing';
+import DetailsForm from './pages/serviceAdvisor/DetailsForm';
 
 
 
@@ -34,7 +35,7 @@ function App() {
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
           <Route path="/serviceadvisor" exact component={Service} />
-
+          <Route path="/serviceadvisor/detailsform" exact component={DetailsForm} />
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
 
           <Route path="/test" exact component={Test} />
