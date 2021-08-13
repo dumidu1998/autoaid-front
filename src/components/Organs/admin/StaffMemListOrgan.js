@@ -5,8 +5,10 @@ export default function StaffMemListOrgan(props) {
     
     const [admin,setadmin] = useState([])
     
-
-     var submit = () => {
+    //console.log("List1"+props.userType);
+        
+     const getUsers = () => {
+        //console.log("List"+props.userType);
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstaff/`+props.userType)
             .then(function (response) {
                 // handle success
@@ -25,7 +27,7 @@ export default function StaffMemListOrgan(props) {
             });
     }
 
-    useEffect(() => {submit();}, [props.added])
+    useEffect(() => {getUsers();}, [props.userType, props.added])
 
 
     return (
