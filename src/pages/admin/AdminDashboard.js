@@ -4,6 +4,8 @@ import DashBoardVehicleInfoCard from '../../components/Moleculars/admin/DashBoar
 import DashBoardVehicleInfoSectionHeadingMolecular from '../../components/Moleculars/admin/DashBoardVehicleInfoSectionHeadingMolecular';
 import DashBoardSectionDetails from '../../components/Organs/admin/DashBoardSectionDetails';
 import DashBoardTransactionOrgan from '../../components/Organs/admin/DashBoardTransactionOrgan';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 import React from 'react'
 import DashboardStatusCardsGrid from '../../components/Organs/admin/DashboardStatusCardsGrid';
@@ -32,19 +34,19 @@ export default function AdminDashboard() {
                                     </div>
                                     <div  className="bg-white px-9 rounded-xl shadow-xl ml-4  w-1/2 h-full overflow-auto py-3 mt-2">
                                         <div className="font-xl text-lg flex justify-center">Today's Transaction History</div>
-                                        <div className="bg-white  overflow-auto w-full h-64 mt-6">
-                                            <DashBoardTransactionOrgan price="3260" number="CAZ-4079"/>
-                                            <DashBoardTransactionOrgan price="1400" number="ABC-6839"/>
-                                            <DashBoardTransactionOrgan price="1050" number="45-4502"/>
-                                            {/* <DashBoardTransactionOrgan price="3260" number="CAZ-4079"/>
-                                            <DashBoardTransactionOrgan price="1400" number="ABC-6839"/>
-                                            <DashBoardTransactionOrgan price="1050" number="45-4502"/> */}
+                                            <div className="bg-white  overflow-auto w-full h-64 mt-6">
+                                                <DashBoardTransactionOrgan price="3260" number="CAZ-4079"/>
+                                                <DashBoardTransactionOrgan price="1400" number="ABC-6839"/>
+                                                <DashBoardTransactionOrgan price="1050" number="45-4502"/>
+                                                {/* <DashBoardTransactionOrgan price="3260" number="CAZ-4079"/>
+                                                <DashBoardTransactionOrgan price="1400" number="ABC-6839"/>
+                                                <DashBoardTransactionOrgan price="1050" number="45-4502"/> */}
+                                            </div>
                                         </div>
                                     </div>
                             </div>
-                        </div>
                     
+                        </div>
                     </div>
-                </div>
         )
 }
