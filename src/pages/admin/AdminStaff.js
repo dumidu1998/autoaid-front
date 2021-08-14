@@ -39,7 +39,7 @@ export default function AdminStaff() {
             password: '',
             address: '',
             userName: '',
-            userStatus:''
+            userStatus:'STATUS'
          })
       }
    }, [staffid])

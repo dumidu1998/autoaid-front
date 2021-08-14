@@ -6,7 +6,7 @@ import StaffMemProfileImg from '../../Atoms/admin/StaffMemProfileImg';
 import axios from 'axios';
 export default function StaffManageIdStatusPropilePicRow(props) {
     const [nextId, setnextId] = useState();
-    const [activatedBtn, setActivatedBtn] = useState();
+    const [activatedBtn, setActivatedBtn] = useState('ACTIVATE');
 
     var getid = () => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getnextstaffid`)
@@ -38,7 +38,8 @@ export default function StaffManageIdStatusPropilePicRow(props) {
         }else{
             setActivatedBtn("ACTIVATE")
         }
-    }, [props.selectedid])
+    }, [props.selectedid,props.userStatus])
+    
     return (
         <div className="flex justify-between items-center z-10 px-9">
             <StaffManageIdDisplay id={nextId} />
