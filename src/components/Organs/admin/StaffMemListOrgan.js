@@ -9,6 +9,7 @@ export default function StaffMemListOrgan(props) {
         
      const getUsers = () => {
         //console.log("List"+props.userType);
+        
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstaff/`+props.userType)
             .then(function (response) {
                 // handle success
