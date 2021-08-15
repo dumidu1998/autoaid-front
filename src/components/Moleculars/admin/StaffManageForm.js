@@ -84,7 +84,6 @@ export default function StaffManageForm(props) {
 
                             <label htmlFor="address" className="font-primary  text-md font-semibold  mt-3">Address</label>
                             <Field id="address" name="address" placeholder="16/A Wataddara, Veyangoda" className=" ml-2 rounded-lg shadow-lg w-60 h-32  mt-2 pl-5" />
-                        
                         </div>
                       
                         

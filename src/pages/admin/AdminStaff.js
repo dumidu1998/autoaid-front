@@ -38,7 +38,8 @@ export default function AdminStaff() {
             userType: '',
             password: '',
             address: '',
-            userName: ''
+            userName: '',
+            userStatus:'STATUS'
          })
       }
    }, [staffid])
