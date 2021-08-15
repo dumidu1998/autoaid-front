@@ -30,6 +30,7 @@ export default function AdminStaff() {
          getData();
       } else {
          setstaffdetails({
+            staffId:'',
             firstName: '',
             lastName: '',
             email: '',

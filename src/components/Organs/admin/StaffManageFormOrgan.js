@@ -6,7 +6,7 @@ export default function StaffManageFormOrgan(props) {
         <div className=" flex flex-col w-full float-right rounded-2xl -mt-12">
             <StaffManageIdStatusPropilePicRow userStatus={props.userStatus} selectedid={props.selectedid} />
             <div className="rounded-2xl">
-                <StaffManageForm setadded={props.setadded} added={props.added} staffdetails={props.staffdetails} />
+                <StaffManageForm staffId={props.selectedid} setadded={props.setadded} added={props.added} staffdetails={props.staffdetails} />
             </div>
         </div>
     )
