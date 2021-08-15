@@ -27,7 +27,7 @@ export default function AdminStaffManageOrgan(props) {
                 <StaffMemListOrgan added={added} userType={userType} />
                 <div className="ml-12"></div>
                 {/*Staff Manage Form */}
-                <StaffManageFormOrgan userStatus={userStatus} setadded={setadded} added={added} 
+                <StaffManageFormOrgan userStatus={userStatus} setUserStatus={setUserStatus} setadded={setadded} added={added} 
                 staffdetails={props.staffdetails} selectedid={props.selectedid} />
             </div>
         </div>

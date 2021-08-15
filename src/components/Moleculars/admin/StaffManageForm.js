@@ -105,6 +105,8 @@ export default function StaffManageForm(props) {
 
                                     <label htmlFor="userType" className="font-primary  text-md font-semibold  mt-3">UserType</label>
                                     <Field id="userType" name="userType" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" component="select">
+                                        {/* Error happens in if not selected or state changes*/}
+                                        <option value="null">Select Type</option>
                                         <option value="ADMIN">Admin</option>
                                         <option value="SERVICE_ADVISOR">Service Advisor</option>
                                         <option value="LEAD_TECHNICIAN">Lead Technician</option>
