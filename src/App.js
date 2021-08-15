@@ -18,6 +18,8 @@ import ServiceSummary from './pages/technician/ServiceSummary';
 import ServiceProgress from './pages/technician/ServiceProgress';
 import RepairHistory from './pages/customer/RepairHistory'
 import Expenses from './pages/customer/Expenses'
+import Profile from './pages/customer/Profile'
+import AddNew from './pages/serviceAdvisor/AddNew'
 
 
 
@@ -34,6 +36,7 @@ function App() {
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
           <Route path="/serviceadvisor" exact component={Service} />
+          <Route path="/serviceadvisor/addnew" exact component={AddNew} />
 
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
 
@@ -42,6 +45,7 @@ function App() {
           <Route path="/customer/vehicle" exact component={VehicleDetails} />
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
+          <Route path="/customer/profile" exact component={Profile} />
           <Route path="/admin" exact component={AdminDashboard} />
 
           <Route path="/admin/staff" exact component={AdminStaff} />
