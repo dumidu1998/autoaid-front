@@ -10,7 +10,6 @@ export default function ServiceSummary() {
             <div className="flex flex-col items-center">
                 <TopContainerVNo heading1="KT-0246" />
                 <div className="flex w-10/12 justify-between">
-
                     <SummaryMainContainer />
                     <div className="flex flex-col items-center">
                         <SummaryRightContainer />

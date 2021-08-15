@@ -1,6 +1,7 @@
 import React from 'react'
 import SideNavIcon from '../../Atoms/serviceStation/SideNavIcon'
 
+//not used
 function sideNav() {
     return (
         <div className=" bg-white w-28 h-screen shadow-xl flex justify-center">

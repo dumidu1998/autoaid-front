@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react'
 import StaffManageFormTxt from '../../Atoms/admin/StaffManageFormTxt';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 export default function StaffManageForm(props) {
 
     const [initvals, setinitvals] = useState();
+    const history = useHistory();
 
     useEffect(() => {
         setinitvals(props.staffdetails);
@@ -18,15 +20,17 @@ export default function StaffManageForm(props) {
             <Formik
                 enableReinitialize
                 initialValues={initvals}
-                onSubmit={async (values) => {
+                onSubmit={async (values, {resetForm}) => {
                     await new Promise((r) => setTimeout(r, 500));
                     axios.post(`${process.env.REACT_APP_API_BASE_URL}/admin/addstaff`, values)
+                        
                         .then(function (response) {
                             // handle success
                             //onsole.log(response);
                             props.setadded(!props.added);
                             alert("Admin " + response.data.fisrtName + " with id " + response.data.sid + " Added Sucessfully");
-
+                            resetForm();
+                            history.push("/admin/staff");
                         })
                         .catch(function (error) {
                             //handle error
@@ -66,8 +70,14 @@ export default function StaffManageForm(props) {
                             <label htmlFor="lastName" className="font-primary  text-md font-semibold  mt-3">Last Name</label>
                             <Field id="lastName" name="lastName" placeholder="Viniger" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
-                            <label htmlFor="role" className="font-primary  text-md font-semibold  mt-3">Role</label>
-                            <Field id="role" name="role" placeholder="ADMIN" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                            <label htmlFor="userType" className="font-primary  text-md font-semibold  mt-3">UserType</label>
+                                <Field id="userType" name="userType" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" component="select">
+                                    <option value="ADMIN">Admin</option>
+                                    <option value="SERVICE_ADVISOR">Service Advisor</option>
+                                    <option value="LEAD_TECHNICIAN">Lead Technician</option>
+                                    <option value="STOCK_KEEPER">Stock Keeper</option>
+                                    <option value="TECHNICIAN">Technician</option>
+                                </Field>
 
                             <label htmlFor="password" className="font-primary  text-md font-semibold  mt-3">Password</label>
                             <Field id="password" type="password" name="password" placeholder="***********" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
@@ -82,7 +92,7 @@ export default function StaffManageForm(props) {
                     <div className="flex justify-between " >
                         <button className="bg-green-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8" type="submit">Add </button>
                         <button className="bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 ml-8" type="">Update </button>
-                        <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button>
+                        {/* <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button> */}
                     </div>
                     </div>
                 </Form>

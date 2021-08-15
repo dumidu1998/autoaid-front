@@ -20,6 +20,9 @@ import RepairHistory from './pages/customer/RepairHistory'
 import Expenses from './pages/customer/Expenses'
 import Profile from './pages/customer/Profile'
 import AddNew from './pages/serviceAdvisor/AddNew'
+import AdminSection from './pages/admin/AdminSection';
+import Testing from './pages/admin/Testing';
+import DetailsForm from './pages/serviceAdvisor/DetailsForm';
 
 
 
@@ -38,6 +41,7 @@ function App() {
           <Route path="/serviceadvisor" exact component={Service} />
           <Route path="/serviceadvisor/addnew" exact component={AddNew} />
 
+          <Route path="/serviceadvisor/detailsform" exact component={DetailsForm} />
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
 
           <Route path="/test" exact component={Test} />
@@ -46,10 +50,12 @@ function App() {
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />
+          
           <Route path="/admin" exact component={AdminDashboard} />
-
           <Route path="/admin/staff" exact component={AdminStaff} />
           <Route path="/admin/staff/:staffid" component={AdminStaff} />
+          <Route path="/admin/section" exact component={AdminSection} />
+          <Route path="/admin/test" exact component={Testing} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
           <Route path="/technician" exact component={Dashboard} />
