@@ -50,7 +50,7 @@ function App() {
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />
-          
+
           <Route path="/admin" exact component={AdminDashboard} />
           <Route path="/admin/staff" exact component={AdminStaff} />
           <Route path="/admin/staff/:staffid" component={AdminStaff} />
