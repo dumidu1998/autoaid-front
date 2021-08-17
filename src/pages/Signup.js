@@ -9,11 +9,12 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AlertText from '../components/Atoms/AlertText'
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router'
 
 require('dotenv').config();
 
 export default function Signup() {
+    const history = useHistory();
 
     const [firstname, setfirstname] = useState('');
     const [username, setusername] = useState('');
@@ -74,8 +75,7 @@ export default function Signup() {
                 console.log(response);
                 // TODO make alert styles for success response
                 toast.success('Signup Sucessful!!');
-                toast.success('Please Log in to Continue!!', { onClose: () => window.location.href = "login" });
-                // { window.location.href = "login" }
+                toast.success('Please Log in to Continue!!', { onClose: () => history.push('/login') });
 
             })
             .catch(function (error) {
