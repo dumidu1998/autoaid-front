@@ -16,7 +16,7 @@ export default function Dashboard() {
                     <SideNav />
                 </div>
                 <div className="w-full flex flex-col">
-                    <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/>
+                    <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New" path="/serviceadvisor/detailsform"/>
                     <div className="flex justify-between">
                         <div className="w-full flex flex-col items-center justify-center">
                             <div className=" w-10/12 pt-24">
