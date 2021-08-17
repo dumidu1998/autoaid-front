@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
 import AdminTopBar from '../../components/Atoms/admin/AdminTopBar'
@@ -7,10 +7,44 @@ import SearchBtnDetailsForm from '../../components/Atoms/SearchBtnDetailsForm'
 import Button from '../../components/Atoms/Button'
 import DetailFormBtn from '../../components/Atoms/DetailFormBtn'
 import DetailFormUpdatebtn from '../../components/Atoms/DetailFormUpdatebtn'
+import axios from 'axios'
+import LandingSection6 from '../../components/Organs/LandingSection6'
+import { toast, ToastContainer } from 'react-toastify'
 
 
 
 export default function DetailsForm() {
+
+    const [contactNo, setcontactNo] = useState('');
+    const [customerDetails, setcustomerDetails] = useState('');
+
+
+    const getUserDetails = () => {
+        console.log(contactNo);
+
+        if (contactNo != '') {
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/getCustomer/${contactNo}`)
+                .then(async function (response) {
+                    // handle success
+                    console.log(response.data);
+                    toast.success("User is There");
+                    setcustomerDetails(response.data);
+
+                })
+                .catch(function (error) {
+                    // handle error
+                    // console.log(error.response.data);
+                    toast.error(error.response.data);
+                    setcustomerDetails('');
+                })
+                .then(function () {
+                    // always executed
+                });
+        } else {
+            toast.error("Contact Number Required");
+        }
+    }
+
     return (
         <div className=" bg-Background-0">
             <div className="flex flex-row">
@@ -20,28 +54,33 @@ export default function DetailsForm() {
                 <div className="w-full flex flex-col">
                     {/* <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/> */}
                     <AdminTopBar name="XXXXXXXXX" roleName="Service Advisor" />
-                    <Formik>
-                        <Form>
-                            <div className="container mx-auto max-w-full">
-                                <div className="grid-cols-4 ">
-                                    <div className="w-full h-24">
-                                        <div className="flex items-center justify-center w-1/2">
-                                            <div className="flex flex-col mr-2 ml-16">
-                                                <label htmlFor="tepNum" className="font-primary  text-md font-semibold  mt-3">Tel No. </label>
-                                                <Field id="tepNum" name="tepNum" placeholder="0779690020" className=" ml-5 mt-2 rounded-lg shadow-lg w-64 h-10 pl-5" />
-                                            </div>
-                                            <div className="ml-8 mt-12">
-                                                <SearchBtnDetailsForm txt="Search"/>
-                                            </div>
-                                        </div>
+
+                    <div className="container mx-auto max-w-full">
+                        <div className="grid-cols-4 ">
+                            <div className="w-full h-24">
+                                <div className="flex items-center justify-center w-1/2">
+                                    <div className="flex flex-col mr-2 ml-16">
+                                        <label htmlFor="contactNo" className="font-primary  text-md font-semibold  mt-3">Contact No </label>
+                                        <input value={contactNo} onChange={event => setcontactNo(event.target.value)} placeholder="+94/07....." className=" ml-5 mt-2 rounded-lg shadow-lg w-64 h-10 pl-5" />
                                     </div>
+                                    <div className="ml-8 mt-12">
+                                        <SearchBtnDetailsForm functionName={getUserDetails} txt="Search" />
+                                    </div>
+                                </div>
+                            </div>
+                            <Formik
+                                enableReinitialize
+                                initialValues={customerDetails}
+                            
+                            >
+                                <Form>
                                     <div className=" w-full h-48 mt-">
                                         <div className="flex flex-col items-center overflow-auto ">
                                             <div className="flex flex-row">
                                                 <div className="flex flex-col mr-12 ml-4 w-1/2 ">
                                                     <label htmlFor="firstName" className="font-primary  text-md font-semibold  mt-3">First Name</label>
                                                     <Field id="firstName" name="firstName" placeholder="Jane Irish" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
-                                                        
+
                                                     <label htmlFor="firstName" className="font-primary  text-md font-semibold  mt-3">Address</label>
                                                     <Field id="address" name="address" placeholder="1/d, Negombo,Colombo" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                 </div>
@@ -55,47 +94,59 @@ export default function DetailsForm() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="w-full h-18 mt-3">
+                                    {/* <div className="w-full h-18 mt-3">
                                         <div className="font-primary text-xl flex items-center justify-center w-4/12 mb-2 ">Vehicle 01</div>
                                         <div className="flex flex-col items-center overflow-auto ">
-                                                <div className="flex flex-row">
-                                                    <div className="flex flex-col mr-12 ml-4 w-1/2 ">
-                                                        <label htmlFor="vin" className="font-primary  text-md font-semibold  mt-3">VIN</label>
-                                                        <Field id="vin" name="vin" placeholder="0938383830123" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
-                                                            
-                                                        <label htmlFor="engNo" className="font-primary  text-md font-semibold  mt-3">Engine No.</label>
-                                                        <Field id="engNo" name="engNo" placeholder="UK9393JWAP7" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
-                                                        
-                                                        <label htmlFor="vehicleModel" className="font-primary  text-md font-semibold  mt-3">Vehicle Model</label>
-                                                        <Field id="vehicleModel" name="vehicleModel" placeholder="SUV" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
-                                                    </div>
-                                                    <div className="flex flex-col ml-40 w-1/2">
-                                                        <label htmlFor="regNo" className="font-primary  text-md font-semibold  mt-3">Reg No.</label>
-                                                        <Field id="regNo" name="regNo" placeholder="CAM - 4038" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
-                                                        
-                                                        <label htmlFor="chasisNo" className="font-primary  text-md font-semibold  mt-3">Chasis No</label>
-                                                        <Field id="chasisNo" name="chasisNo" placeholder="Jane" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                                            <div className="flex flex-row">
+                                                <div className="flex flex-col mr-12 ml-4 w-1/2 ">
+                                                    <label htmlFor="vin" className="font-primary  text-md font-semibold  mt-3">VIN</label>
+                                                    <Field id="vin" name="vin" placeholder="0938383830123" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
-                                                        <label htmlFor="vType" className="font-primary  text-md font-semibold  mt-3">Vehicle Type</label>
-                                                        <Field id="vType" name="vType" placeholder="SuV" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
-                                                    </div>
+                                                    <label htmlFor="engNo" className="font-primary  text-md font-semibold  mt-3">Engine No.</label>
+                                                    <Field id="engNo" name="engNo" placeholder="UK9393JWAP7" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+
+                                                    <label htmlFor="vehicleModel" className="font-primary  text-md font-semibold  mt-3">Vehicle Model</label>
+                                                    <Field id="vehicleModel" name="vehicleModel" placeholder="SUV" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                </div>
+                                                <div className="flex flex-col ml-40 w-1/2">
+                                                    <label htmlFor="regNo" className="font-primary  text-md font-semibold  mt-3">Reg No.</label>
+                                                    <Field id="regNo" name="regNo" placeholder="CAM - 4038" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+
+                                                    <label htmlFor="chasisNo" className="font-primary  text-md font-semibold  mt-3">Chasis No</label>
+                                                    <Field id="chasisNo" name="chasisNo" placeholder="Jane" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+
+                                                    <label htmlFor="vType" className="font-primary  text-md font-semibold  mt-3">Vehicle Type</label>
+                                                    <Field id="vType" name="vType" placeholder="SuV" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                     <div className="flex justify-center  items-center h-18 mt-6">
                                         <div className="flex justify-end mr-20  items-center w-1/2">
-                                            <DetailFormUpdatebtn txt="Update"/>
+                                            <DetailFormUpdatebtn txt="Update" />
                                         </div>
                                         <div className="flex justify-start ml-20  items-center  w-1/2">
-                                            <DetailFormBtn txt="Add New"/>
+                                            <DetailFormBtn txt="Add New" />
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </Form>
-                    </Formik>
+                                    </div> */}
+                                </Form>
+                            </Formik>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     )
 }
