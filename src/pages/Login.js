@@ -5,9 +5,13 @@ import LoginForm from '../components/Moleculars/LoginForm'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Switch } from '@headlessui/react';
-
+import '../jsfunctions/cookies.js';
+import { setCookie } from '../jsfunctions/cookies.js';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 export default function Login() {
+
+    const history = useHistory();
 
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
@@ -21,22 +25,34 @@ export default function Login() {
             .then(function (response) {
                 // handle success
                 console.log(response.data.userType);
-                toast.success('Login Sucessfull!', { onClose: () => window.location.href = "customer" });
+                toast.success('Login Sucessfull!');
                 let Redirect = response.data.userType;
+                setCookie('username', response.data.username);
+                setCookie('userId', response.data.id);
+                setCookie('email', response.data.email);
+                setCookie('token', response.data.token);
+                setCookie('userType', response.data.userType);
 
                 switch (Redirect) {
                     case 'ADMIN':
-                        window.location.href = "/admin";
+                        history.push('/admin');
                         break;
                     case 'CUSTOMER':
-                        window.location.href = "/customer";
+                        history.push('/customer');
                         break;
-                    case 'TECHNICIAN':
-                        window.location.href = "/technician/dashboard";
+                    case 'LEAD_TECHNICIAN':
+                        history.push('/technician');
                         break;
-
+                    case 'STOCK_KEEPER':
+                        history.push('/stockkeeper');
+                        break;
+                    case 'CASHIER':
+                        history.push('/cashier');
+                        break;
+                    case 'SERVICE_ADVISOR':
+                        history.push('/serviceadvisor');
+                        break;
                 }
-
             })
             .catch(function (error) {
                 // handle error
@@ -44,7 +60,6 @@ export default function Login() {
             })
             .then(function () {
                 // always executed
-
             });
     }
 
@@ -75,14 +90,15 @@ export default function Login() {
                         <div className="m-4">
                             <ButtonHover txt="Log In" clickaction={submit} />
                         </div>
-
                     </div>
                     <div className="text-center">
-                        <h1 className="font-primary font-extralight text-sm">Don't Have an Account <br /><span className="text-blue-800"> Sign Up</span> </h1>
+                        <h1 className="font-primary font-light text-sm">Don't Have an Account <br />
+                            <Link to="/signup" >
+                                <span className="text-blue-900 font-normal cursor-pointer"> Sign Up</span>
+                            </Link>
+                        </h1>
                     </div>
-
                 </div>
-
             </div>
         </div>
     )

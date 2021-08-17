@@ -22,7 +22,7 @@ export default function Dashboard() {
                             <AppointmentContainer vehicleNo="CAA - 2216" link={"viewService/" + "3"} />
                             <AppointmentContainer vehicleNo="CAP - 1246" link={"viewService/" + "4"} />
                         </div>
-                        <div className="h-full w-10/12 py-24 ">
+                        <div className="h-full w-10/12 py-24 ml-5">
                             <SubSectionHeading heading="Ongoing Appointment" />
 
                             <AppointmentContainer vehicleNo="CAM - 4216" link={"progress"} />

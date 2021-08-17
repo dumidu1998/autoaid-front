@@ -47,7 +47,7 @@ export default function MyModal() {
           className="fixed inset-0 w-screen z-40 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-lg"
           onClose={closeModal}
         >
-          <div className="min-h-screen w-1/4 px-4">
+          <div className="min-h-screen w-1/3 px-4">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
