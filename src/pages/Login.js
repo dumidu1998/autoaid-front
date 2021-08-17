@@ -43,13 +43,13 @@ export default function Login() {
                         history.push('/technician');
                         break;
                     case 'STOCK_KEEPER':
-                        history.push('/technician');
+                        history.push('/stockkeeper');
                         break;
                     case 'CASHIER':
-                        history.push('/technician');
+                        history.push('/cashier');
                         break;
                     case 'SERVICE_ADVISOR':
-                        history.push('/technician');
+                        history.push('/serviceadvisor');
                         break;
                 }
             })
@@ -59,7 +59,6 @@ export default function Login() {
             })
             .then(function () {
                 // always executed
-
             });
     }
 
