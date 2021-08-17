@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../jsfunctions/cookies.js';
 import { setCookie } from '../jsfunctions/cookies.js';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 export default function Login() {
 
     const history = useHistory();
@@ -91,7 +92,11 @@ export default function Login() {
                         </div>
                     </div>
                     <div className="text-center">
-                        <h1 className="font-primary font-extralight text-sm">Don't Have an Account <br /><span className="text-blue-800"> Sign Up</span> </h1>
+                        <h1 className="font-primary font-light text-sm">Don't Have an Account <br />
+                            <Link to="/signup" >
+                                <span className="text-blue-900 font-normal cursor-pointer"> Sign Up</span>
+                            </Link>
+                        </h1>
                     </div>
                 </div>
             </div>
