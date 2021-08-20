@@ -23,6 +23,7 @@ import AddNew from './pages/serviceAdvisor/AddNew'
 import AdminSection from './pages/admin/AdminSection';
 import Testing from './pages/admin/Testing';
 import DetailsForm from './pages/serviceAdvisor/DetailsForm';
+import SectionSelection from './pages/serviceAdvisor/SectionSelection';
 
 
 
@@ -43,6 +44,7 @@ function App() {
 
           <Route path="/serviceadvisor/detailsform" exact component={DetailsForm} />
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
+          <Route path="/serviceadvisor/section/selection" exact component={SectionSelection} />
 
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
