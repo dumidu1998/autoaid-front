@@ -21,7 +21,7 @@ function StaffManageStatusBtn(props) {
 
         return ( 
             <div>
-                <button onClick={()=> clickBtn() } className="rounded-xl w-24 h-12 bg-gradient-to-r from-primary-0 to-Secondary-0 font-bold text-white text-xl">{props.status}</button>
+                <button onClick={()=> clickBtn() } className="rounded-xl px-2 h-12 bg-primary-0 font-bold text-white text-xl">{props.status}</button>
             </div>
          );
 

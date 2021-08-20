@@ -3,7 +3,7 @@ import StaffManageForm from '../../Moleculars/admin/StaffManageForm';
 import StaffManageIdStatusPropilePicRow from '../../Moleculars/admin/StaffManageIdStatusPropilePicRow';
 export default function StaffManageFormOrgan(props) {
     return (
-        <div className=" flex flex-col w-full float-right rounded-2xl -mt-12">
+        <div className=" flex flex-col w-full float-right rounded-2xl">
             <StaffManageIdStatusPropilePicRow userStatus={props.userStatus} setUserStatus={props.setUserStatus} selectedid={props.selectedid} />
             <div className="rounded-2xl">
                 <StaffManageForm staffId={props.selectedid} setadded={props.setadded} added={props.added} staffdetails={props.staffdetails} />
