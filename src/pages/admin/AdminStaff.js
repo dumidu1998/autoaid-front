@@ -10,7 +10,7 @@ export default function AdminStaff() {
 
    var config = {
       headers: {
-         Authorization: 'Bearer ' + getCookie('token'),
+         'Authorization': 'Bearer ' + getCookie('token'),
       }
    }
 
