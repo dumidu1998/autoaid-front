@@ -24,13 +24,24 @@ import AdminSection from './pages/admin/AdminSection';
 import Testing from './pages/admin/Testing';
 import DetailsForm from './pages/serviceAdvisor/DetailsForm';
 import SectionSelection from './pages/serviceAdvisor/SectionSelection';
+import AddNewVehicleForm from './pages/serviceAdvisor/AddNewVehicleForm';
 import ServiceHistory from './pages/serviceAdvisor/ServiceHistory';
+import { getCookie } from './jsfunctions/cookies';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 
 
 
 
 function App() {
+  //redirect to login if token is not set
+
+  // const history=useHistory();
+  
+  // if(getCookie('token')==null){
+  //   history.push('/login');
+  // }
+
   return (
     <div className="overflow-hidden">
 
@@ -44,6 +55,7 @@ function App() {
           <Route path="/serviceadvisor" exact component={Service} />
           <Route path="/serviceadvisor/addnew" exact component={AddNew} />
           <Route path="/serviceadvisor/detailsform" exact component={DetailsForm} />
+          <Route path="/serviceadvisor/addvehicle" exact component={AddNewVehicleForm} />
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
           <Route path="/serviceadvisor/section/selection" exact component={SectionSelection} />
           <Route path="/serviceadvisor/servicehistory" exact component={ServiceHistory} />
