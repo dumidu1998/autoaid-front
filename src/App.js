@@ -39,9 +39,9 @@ function App() {
           <Route path="/" exact component={Landing} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
+          
           <Route path="/serviceadvisor" exact component={Service} />
           <Route path="/serviceadvisor/addnew" exact component={AddNew} />
-
           <Route path="/serviceadvisor/detailsform" exact component={DetailsForm} />
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
           <Route path="/serviceadvisor/section/selection" exact component={SectionSelection} />
