@@ -25,7 +25,7 @@ export default function AdminStaffManageOrgan(props) {
             <div className="flex items-center justify-center">
                 {/* Staff list according to user type */}
                 <StaffMemListOrgan added={added} userType={userType} />
-                <div className="ml-12"></div>
+                <div className=""></div>
                 {/*Staff Manage Form */}
                 <StaffManageFormOrgan userStatus={userStatus} setUserStatus={setUserStatus} setadded={setadded} added={added} 
                 staffdetails={props.staffdetails} selectedid={props.selectedid} />
