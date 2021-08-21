@@ -34,18 +34,18 @@ export default function StaffManageIdStatusPropilePicRow(props) {
         } else {
             getid();
         }
-        if(props.userStatus=="ACTIVATED"){
+        if (props.userStatus == "ACTIVATED") {
             setActivatedBtn("DEACTIVATE");
-        }else{
+        } else {
             setActivatedBtn("ACTIVATE")
         }
-        if(props.userStatus!="STATUS"){
+        if (props.userStatus != "STATUS") {
             setactivateBtnHide("flex ml-2");
-        }else{
+        } else {
             setactivateBtnHide("hidden");
         }
-    }, [props.selectedid,props.userStatus])
-    
+    }, [props.selectedid, props.userStatus])
+
     return (
         <div className="relative">
             <div className="flex items-center justify-around z-10 ">
@@ -55,9 +55,9 @@ export default function StaffManageIdStatusPropilePicRow(props) {
                     <StaffManageStatusBtn staffId={props.selectedid} setUserStatus={props.setUserStatus} userStatus={props.userStatus} status={activatedBtn} />
                 </div>
             </div>
-                <div className=" absolute left-1/3 ml-24 -top-14">
-                    <StaffMemProfileImg />
-                </div>
+            <div className=" absolute left-1/3 ml-24 -top-14">
+                <StaffMemProfileImg />
+            </div>
 
         </div>
     )
