@@ -1,7 +1,8 @@
 
 import React from 'react'
+import ServiceHistoryCards from '../../components/Atoms/ServiceHistoryCards'
 import TopContainerVNo from '../../components/Atoms/technician/TopContainerVNo' 
-import SelectionSectionNavbarMolecular from '../../components/Moleculars/serviceAdvisor/SelectionSectionNavbarMolecular'
+import ServiceHistoryNavBar from '../../components/Moleculars/serviceAdvisor/ServiceHistoryNavBar'
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
 
 export default function ServiceHistory() {
@@ -17,10 +18,12 @@ export default function ServiceHistory() {
                     <div className="w-3/6 bg-white shadow-xl rounded-lg mt-12 ml-6 p-8">
                         <div className="font-primary text-xl">Service History</div>
                         <div className="  p-1 rounded-lg mt-4 w-full">
-                            <SelectionSectionNavbarMolecular/>
+                            <ServiceHistoryNavBar/>
                         </div>
                         <div>
-                           nnn
+                           <ServiceHistoryCards name="Engine Pistone change" price="2500"/>
+                           <ServiceHistoryCards name="Radiator Effect" price="3000"/>
+                           <ServiceHistoryCards name="Noice in the Engine" price="9500"/>
                         </div>
                     </div>
                     <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12  mr-32 p-8">
