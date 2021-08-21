@@ -1,4 +1,5 @@
 import React from 'react'
+import SelectedServiceActivitiesSVAD from '../../components/Atoms/SelectedServiceActivitiesSVAD'
 import SelectedSevicesSVAD from '../../components/Atoms/SelectedSevicesSVAD'
 import SectionItems from '../../components/Atoms/serviceStation/SectionItems'
 import SectionSelectionTop from '../../components/Atoms/serviceStation/SectionSelectionTop'
@@ -17,8 +18,8 @@ export default function SectionSelection() {
                 </div>
                 <div className="w-full flex flex-col">
                     <SectionSelectionTop heading1="CAM 9044"/>
-                    <div className="flex">
-                        <div className="w-1/2 bg-white shadow-xl rounded-lg mt-12 ml-6 p-8">
+                    <div className="flex justify-between w-full">
+                        <div className="w-3/6 bg-white shadow-xl rounded-lg mt-12 ml-6 p-8">
                             <div className="font-primary text-xl">Select Section</div>
                             <div className="  p-1 rounded-lg mt-4 w-full">
                                 <SelectionSectionNavbarMolecular/>
@@ -29,8 +30,10 @@ export default function SectionSelection() {
                                 <SectionItems itemName="Vaccume" itemTime="10 min"/>
                             </div>
                         </div>
-                        <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12 ml-16  p-8">
-                            <SelectedSevicesSVAD heading1="Selected Service" description="ss"/>
+                        <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12  mr-32 p-8">
+                            <SelectedSevicesSVAD heading1="Selected Service" description="Time and Cost can be differ with the change of requirements "/>
+                            <SelectedServiceActivitiesSVAD activity="Car Wash " price="600 " time="20"/>
+                            <SelectedServiceActivitiesSVAD activity="Oil Filter Change " price="850 " time="15"/>
                         </div>
                     </div>
                 </div>
