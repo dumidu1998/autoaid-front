@@ -26,12 +26,22 @@ import DetailsForm from './pages/serviceAdvisor/DetailsForm';
 import SectionSelection from './pages/serviceAdvisor/SectionSelection';
 import AddNewVehicleForm from './pages/serviceAdvisor/AddNewVehicleForm';
 import ServiceHistory from './pages/serviceAdvisor/ServiceHistory';
+import { getCookie } from './jsfunctions/cookies';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 
 
 
 
 function App() {
+  //redirect to login if token is not set
+
+  // const history=useHistory();
+  
+  // if(getCookie('token')==null){
+  //   history.push('/login');
+  // }
+
   return (
     <div className="overflow-hidden">
 
