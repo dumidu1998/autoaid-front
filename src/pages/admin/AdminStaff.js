@@ -17,7 +17,7 @@ export default function AdminStaff() {
 
          })
          .catch(function (error) {
-            // handle error
+            // handle error nmnmn
             console.log(error);
          })
          .then(function () {
