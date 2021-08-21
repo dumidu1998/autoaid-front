@@ -5,6 +5,7 @@ import SectionItems from '../../components/Atoms/serviceStation/SectionItems'
 import SectionSelectionTop from '../../components/Atoms/serviceStation/SectionSelectionTop'
 import SelectionSectionNavbar from '../../components/Atoms/serviceStation/SelectionSectionNavbar'
 import TopContainerVNo from '../../components/Atoms/technician/TopContainerVNo'
+import TimeEstimationSVAD from '../../components/Atoms/TimeEstimationSVAD'
 import SelectionSectionNavbarMolecular from '../../components/Moleculars/serviceAdvisor/SelectionSectionNavbarMolecular'
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
 
@@ -32,8 +33,14 @@ export default function SectionSelection() {
                         </div>
                         <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12  mr-32 p-8">
                             <SelectedSevicesSVAD heading1="Selected Service" description="Time and Cost can be differ with the change of requirements "/>
-                            <SelectedServiceActivitiesSVAD activity="Car Wash " price="600 " time="20"/>
-                            <SelectedServiceActivitiesSVAD activity="Oil Filter Change " price="850 " time="15"/>
+                            <div className="mt-6 mb-4">
+                                <SelectedServiceActivitiesSVAD activity="Car Wash " price="600 " time="20"/>
+                                <SelectedServiceActivitiesSVAD activity="Oil Filter Change " price="850 " time="15"/>
+                                <div className="border-b-2 mt-4"></div>
+                            </div>
+                            <div className="mt-6">
+                                <TimeEstimationSVAD time="35"/>
+                            </div>
                         </div>
                     </div>
                 </div>
