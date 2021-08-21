@@ -1,4 +1,5 @@
 import React from 'react'
+import CostEstimation from '../../components/Atoms/CostEstimation'
 import SelectedServiceActivitiesSVAD from '../../components/Atoms/SelectedServiceActivitiesSVAD'
 import SelectedSevicesSVAD from '../../components/Atoms/SelectedSevicesSVAD'
 import SectionItems from '../../components/Atoms/serviceStation/SectionItems'
@@ -40,6 +41,9 @@ export default function SectionSelection() {
                             </div>
                             <div className="mt-6">
                                 <TimeEstimationSVAD time="35"/>
+                            </div>
+                            <div className="mt-6">
+                                <CostEstimation cost="1,400" /> 
                             </div>
                         </div>
                     </div>
