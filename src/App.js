@@ -24,11 +24,8 @@ import AdminSection from './pages/admin/AdminSection';
 import Testing from './pages/admin/Testing';
 import DetailsForm from './pages/serviceAdvisor/DetailsForm';
 import SectionSelection from './pages/serviceAdvisor/SectionSelection';
-<<<<<<< HEAD
 import AddNewVehicleForm from './pages/serviceAdvisor/AddNewVehicleForm';
-=======
 import ServiceHistory from './pages/serviceAdvisor/ServiceHistory';
->>>>>>> b6c6e98a4e35b096956fbcd31788673764f5bde2
 
 
 
