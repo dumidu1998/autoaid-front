@@ -7,7 +7,7 @@ export default function TopContainerVNo(props) {
         <div>
             <div className="w-screen h-24 bg-forth-0 rounded-b-3xl flex items-center justify-center">
                 <div className=" flex w-9/12 justify-between items-center">
-                    <Link to="/technician/dashboard">
+                    <Link to={props.link}>
                         <BackToHome />
                     </Link>
 
