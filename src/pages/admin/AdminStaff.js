@@ -3,13 +3,20 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar';
 import AdminStaffManageOrgan from '../../components/Organs/admin/AdminStaffManageOrgan';
-
+import { getCookie } from '../../jsfunctions/cookies'
 export default function AdminStaff() {
    const [staffdetails, setstaffdetails] = useState('');
    let { staffid } = useParams();
 
+   var config = {
+      headers: {
+         Authorization: 'Bearer ' + getCookie('token'),
+      }
+   }
+
    var getData = async () => {
-      await axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstaffmeminfo/${staffid}`)
+
+      await axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstaffmeminfo/${staffid}`, config)
          .then(async function (response) {
             // handle success
             console.log(response.data);
@@ -30,7 +37,7 @@ export default function AdminStaff() {
          getData();
       } else {
          setstaffdetails({
-            staffId:'',
+            staffId: '',
             firstName: '',
             lastName: '',
             email: '',
@@ -40,7 +47,7 @@ export default function AdminStaff() {
             password: '',
             address: '',
             userName: '',
-            userStatus:'STATUS'
+            userStatus: 'STATUS'
          })
       }
    }, [staffid])

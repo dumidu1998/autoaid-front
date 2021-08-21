@@ -24,7 +24,7 @@ export default function StaffManageForm(props) {
         }
     }, [props.staffdetails])
 
-    // console.log(props.staffdetails.staffId);
+    console.log(props.staffdetails.staffId);
 
 
     return (
