@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-class StaffManageStatusDisplay extends Component {
-    state = {  }
-    render() { 
+
+
+function StaffManageStatusDisplay(props){
         return ( 
-            <div className="bg-white shadow-2xl rounded-xl h-12 p-3 flex items-center mr-2">
-                <div className=" text-lg font-primary">{this.props.status}</div>
+            <div className="h-12 p-3 flex items-center mr-2">
+                <span className={props.status=="ACTIVATED"? "w-3 h-3 rounded-full bg-green-500 mr-5": "w-3 h-3 rounded-full bg-primary-0 mr-5"}></span><div className="font-primary">{props.status}</div>
             </div>
          );
     }
-}
  
 export default StaffManageStatusDisplay;
