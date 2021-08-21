@@ -1,4 +1,5 @@
 import React from 'react'
+import SelectedSevicesSVAD from '../../components/Atoms/SelectedSevicesSVAD'
 import SectionItems from '../../components/Atoms/serviceStation/SectionItems'
 import SectionSelectionTop from '../../components/Atoms/serviceStation/SectionSelectionTop'
 import SelectionSectionNavbar from '../../components/Atoms/serviceStation/SelectionSectionNavbar'
@@ -16,15 +17,20 @@ export default function SectionSelection() {
                 </div>
                 <div className="w-full flex flex-col">
                     <SectionSelectionTop heading1="CAM 9044"/>
-                    <div className="w-1/2 bg-white shadow-xl rounded-lg mt-12 ml-6 p-8">
-                        <div className="font-primary text-xl">Select Section</div>
-                        <div className=" bg-white p-1 shadow-2xl rounded-lg mt-4 w-full">
-                            <SelectionSectionNavbarMolecular/>
+                    <div className="flex">
+                        <div className="w-1/2 bg-white shadow-xl rounded-lg mt-12 ml-6 p-8">
+                            <div className="font-primary text-xl">Select Section</div>
+                            <div className="  p-1 rounded-lg mt-4 w-full">
+                                <SelectionSectionNavbarMolecular/>
+                            </div>
+                            <div>
+                                <SectionItems itemName="Car Wash" itemTime="20 min"/>
+                                <SectionItems itemName="Oil Filter Change" itemTime="15 min"/>
+                                <SectionItems itemName="Vaccume" itemTime="10 min"/>
+                            </div>
                         </div>
-                        <div>
-                            <SectionItems itemName="Car Wash" itemTime="20 min"/>
-                            <SectionItems itemName="Oil Filter Change" itemTime="15 min"/>
-                            <SectionItems itemName="Vaccume" itemTime="10 min"/>
+                        <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12 ml-16  p-8">
+                            <SelectedSevicesSVAD heading1="Selected Service" description="ss"/>
                         </div>
                     </div>
                 </div>
