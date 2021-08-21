@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import SelectionSectionNavbar from '../../Atoms/serviceStation/SelectionSectionNavbar';
+import SelectionSectionNavbar from '../../Atoms/serviceStation/SelectionSectionNavbar'
 
-export default function SelectionSectionNavbarMolecular() {
-
+export default function ServiceHistoryNavBar(props) {
     const [list, setList] = useState([
         { id: 1, value: "Service" },
-        { id: 2, value: "General Repair" },
-        { id: 3, value: "Wheel Alignment" },
-        { id: 4, value: "High Tech" },
-      
+        { id: 2, value: "Parts Used" },
     ])
 
     const [highBtn, setHighBtn] = useState(list[0].id);
