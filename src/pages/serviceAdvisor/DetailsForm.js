@@ -11,6 +11,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { getCookie } from '../../jsfunctions/cookies'
 import AppointmentContainer from '../../components/Atoms/serviceStation/AppointmentContainer'
 import { Redirect, useHistory, Link } from 'react-router-dom/cjs/react-router-dom.min'
+import VehicleListComponent from '../../components/Atoms/serviceStation/VehicleListComponent'
 
 
 export default function DetailsForm() {
@@ -35,11 +36,12 @@ export default function DetailsForm() {
                     console.log(response.data);
                     toast.success("User is There");
                     setcustomerDetails(response.data);
-                    setvehicleNumbers(response.data.vehicleList.map((vehicle) =>
-                        <AppointmentContainer vehicleNo={vehicle.vehicleNumber} link={{
+                    setvehicleNumbers(response.data.vehicleList.map((vehicle) =>                        
+                        <VehicleListComponent vehicleNo={vehicle.vehicleNumber} link={{
                             pathname: '/serviceadvisor/addvehicle',
                             state: { contact: contactNo,
-                                        update:"update" }
+                                        update:"update",
+                                        vin:vehicle.vin }
                         }} />
                     ));
                     document.getElementById("customer-add-btn").classList.add("hidden");
@@ -102,7 +104,7 @@ export default function DetailsForm() {
                                         .then(function (response) {
                                             console.log(response.data);
                                             history.push('/serviceadvisor/addvehicle',
-                                                { state: '0777777' }
+                                                { state: contactNo }
                                             );
                                         })
                                 }
