@@ -31,7 +31,7 @@ export default function Index() {
             })
             .catch(function (error) {
                 // handle error
-                console.log(error.response.data);
+                // console.log(error.response.data);
             })
             .then(function () {
                 // always executed
@@ -49,7 +49,7 @@ export default function Index() {
             })
             .catch(function (error) {
                 // handle error
-                console.log(error.response.data);
+                // console.log(error.response.data);
             })
             .then(function () {
                 // always executed

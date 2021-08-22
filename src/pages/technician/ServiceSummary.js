@@ -8,9 +8,8 @@ export default function ServiceSummary() {
     return (
         <div className="relative bg-Background-0 h-screen">
             <div className="flex flex-col items-center">
-                <TopContainerVNo heading1="KT-0246" />
+                <TopContainerVNo heading1="KT-0246" link="/technician/dashboard"/>
                 <div className="flex w-10/12 justify-between">
-
                     <SummaryMainContainer />
                     <div className="flex flex-col items-center">
                         <SummaryRightContainer />
