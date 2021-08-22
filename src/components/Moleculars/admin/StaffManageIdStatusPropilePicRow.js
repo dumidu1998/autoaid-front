@@ -37,7 +37,7 @@ export default function StaffManageIdStatusPropilePicRow(props) {
         if(props.userStatus=="ACTIVATED"){
             setActivatedBtn("DEACTIVATE");
         }else{
-            setActivatedBtn("ACTIVATE")
+            setActivatedBtn("ACTIVATE");
         }
         if(props.userStatus!="STATUS"){
             setactivateBtnHide("flex ml-2");
