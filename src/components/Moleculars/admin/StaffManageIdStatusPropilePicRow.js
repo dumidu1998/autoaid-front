@@ -12,7 +12,7 @@ export default function StaffManageIdStatusPropilePicRow(props) {
     var getid = () => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getnextstaffid`)
             .then(function (response) {
-                // handle success
+                // handle success 
                 console.log(response.data);
                 // alert(response.data);
                 setnextId(response.data);
