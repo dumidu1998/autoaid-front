@@ -22,14 +22,12 @@ export default function StockQuantity() {
                             </div>
                             <div className="font-primary text-xl">Stock Items</div>
                             <div className="w-full h-4/6 overflow-auto">
-                                <ItemContainer3 itemNo="Piston" quantity="123" link={""} />
-                                <ItemContainer3 itemNo="Brake Pad" quantity="123" link={""} />
-                                <ItemContainer3 itemNo="Cluch Pad" quantity="123" link={""} />
-                                <ItemContainer3 itemNo="Oil Filter" quantity="123" link={""} />
-                                <ItemContainer3 itemNo="Piston" quantity="123" link={""} />
-                                <ItemContainer3 itemNo="Brake Pad" quantity="123" link={""} />
-                                <ItemContainer3 itemNo="Cluch Pad" quantity="123" link={""} />
-                                <ItemContainer3 itemNo="Oil Filter" quantity="123" link={""} />
+                                <div className="mt-4 border-b-2 pr-9 pl-12"><ItemContainer3 itemNo="Piston" quantity="123" link={""} /></div>
+                                <div className="mt-4 border-b-2 pr-9 pl-12"><ItemContainer3 itemNo="Brake Pad" quantity="123" link={""} /></div>
+                                <div className="mt-4 border-b-2 pr-9 pl-12"><ItemContainer3 itemNo="Piston" quantity="123" link={""} /></div>
+                                <div className="mt-4 border-b-2 pr-9 pl-12"><ItemContainer3 itemNo="Cluch Pad" quantity="123" link={""} /></div>
+                                <div className="mt-4 border-b-2 pr-9 pl-12"><ItemContainer3 itemNo="Piston" quantity="123" link={""} /></div>
+                                
                             </div>
                         </div>
                         
