@@ -48,7 +48,8 @@ export default function StaffManageForm(props) {
                                 })
                                 .catch(function (error) {
                                     console.log(error.response.data);
-                                    alert("error Occured. Please Check data again");
+                                    // alert("error Occured. Please Check data again");
+                                    toast.error(error.response.data);
                                 });
                         } else {
                             axios.post(`${process.env.REACT_APP_API_BASE_URL}/admin/addstaff`, values)
