@@ -1,8 +1,9 @@
 import React from 'react'
 import SideNavBar from '../../components/Moleculars/technician/SideNavBar'
 import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
-import ItemContainer from '../../components/Atoms/stockKeeper/ItemContainer'
+import ItemContainer3 from '../../components/Atoms/stockKeeper/ItemContainer3'
 import SubSectionHeading from '../../components/Atoms/serviceStation/SubSectionHeading'
+import SelectionSectionNavbarMolecular from '../../components/Moleculars/serviceAdvisor/SelectionSectionNavbarMolecular'
 
 export default function StockQuantity() {
     return (
@@ -15,16 +16,20 @@ export default function StockQuantity() {
                     <TopContainer heading1="Stock" heading2="Stock Keeper" addnewbtntext="Add New" />
                     <div className="h-full flex items-center justify-center mx-8 ">
                         <div className="h-full w-10/12 py-8">
-                            <SubSectionHeading heading="Stock Items" />
+                            <div className="font-primary text-xl">Select Section</div>
+                            <div className="  p-1 rounded-lg mt-4 w-full">
+                                <SelectionSectionNavbarMolecular/>
+                            </div>
+                            <div className="font-primary text-xl">Stock Items</div>
                             <div className="w-full h-4/6 overflow-auto">
-                                <ItemContainer itemNo="Piston" link={""} />
-                                <ItemContainer itemNo="Brake Pad" link={""} />
-                                <ItemContainer itemNo="Cluch Pad" link={""} />
-                                <ItemContainer itemNo="Oil Filter" link={""} />
-                                <ItemContainer itemNo="Piston" link={""} />
-                                <ItemContainer itemNo="Brake Pad" link={""} />
-                                <ItemContainer itemNo="Cluch Pad" link={""} />
-                                <ItemContainer itemNo="Oil Filter" link={""} />
+                                <ItemContainer3 itemNo="Piston" quantity="123" link={""} />
+                                <ItemContainer3 itemNo="Brake Pad" quantity="123" link={""} />
+                                <ItemContainer3 itemNo="Cluch Pad" quantity="123" link={""} />
+                                <ItemContainer3 itemNo="Oil Filter" quantity="123" link={""} />
+                                <ItemContainer3 itemNo="Piston" quantity="123" link={""} />
+                                <ItemContainer3 itemNo="Brake Pad" quantity="123" link={""} />
+                                <ItemContainer3 itemNo="Cluch Pad" quantity="123" link={""} />
+                                <ItemContainer3 itemNo="Oil Filter" quantity="123" link={""} />
                             </div>
                         </div>
                         
