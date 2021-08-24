@@ -35,8 +35,8 @@ export default function Dashboard() {
                                     <LowQuantityItems itemNo="Item Number" itemName="Item Name" CurrentStatus="Current Status"/>
                                     </div>
                                     <div className="w-full h-64 overflow-auto">
-                                    <div className="mt-4 border-b-2 pr-16 pl-12"><LowQuantityItems itemNo="12345" itemName="Brake Pad" CurrentStatus="Completed"/></div>
-                                    <div className="mt-4 border-b-2 pr-16 pl-12"><LowQuantityItems itemNo="15948" itemName="Brake Pad" CurrentStatus="On service"/></div>
+                                    <div className="mt-4 border-b-2 pr-9 pl-12"><LowQuantityItems itemNo="12345" itemName="Brake Pad" CurrentStatus="Completed"/></div>
+                                    <div className="mt-4 border-b-2 pr-9 pl-12"><LowQuantityItems itemNo="15948" itemName="Brake Pad" CurrentStatus="On service"/></div>
                                     <div className="mt-4 border-b-2 pr-9 pl-12"><LowQuantityItems itemNo="21356" itemName="Brake Pad" CurrentStatus="Completed"/></div>
                                     <div className="mt-4 border-b-2 pr-9 pl-12"><LowQuantityItems itemNo="15943" itemName="Brake Pad" CurrentStatus="On service"/></div>
                                     
