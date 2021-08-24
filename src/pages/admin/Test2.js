@@ -1,22 +1,18 @@
-
-import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar';
-import DashBoardVehicleInfoCard from '../../components/Moleculars/admin/DashBoardVehicleInfoCard';
+import React from 'react'
+import AdminSideBarIcons from '../../components/Atoms/admin/AdminSideBarIcons'
+import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar'
 import DashBoardVehicleInfoSectionHeadingMolecular from '../../components/Moleculars/admin/DashBoardVehicleInfoSectionHeadingMolecular';
 import DashBoardSectionDetails from '../../components/Organs/admin/DashBoardSectionDetails';
 import DashBoardTransactionOrgan from '../../components/Organs/admin/DashBoardTransactionOrgan';
 import Popup from 'reactjs-popup';
 import Clock from 'react-live-clock';
 import 'reactjs-popup/dist/index.css';
-
-import React from 'react'
 import DashboardStatusCardsGrid from '../../components/Organs/admin/DashboardStatusCardsGrid';
-import SectionHeading from '../../components/Atoms/SectionHeading';
-
-export default function AdminDashboard() {
+export default function Test2() {
     return (
-        <div className="relative bg-Background-0">
-            <AdminSideBar name="DashBoard " roleName="Admin" />
-            <div className="w-10/12 absolute top-5 right-10 ">
+        <div className="bg-gray-500">
+            <AdminSideBar name="eee" roleName="ddd"/>
+            <div className="w-10/12 absolute right-10 bg-Background-0 top-24">
                 <div className="bg-whit w-full mt-3 rounded-lg h-96 p-5">
                     <div className=" border-0 h-80 mt-2 flex justify-center items-center">
                         <DashboardStatusCardsGrid />
@@ -58,6 +54,7 @@ export default function AdminDashboard() {
                 </div>
 
             </div>
+            
         </div>
     )
 }

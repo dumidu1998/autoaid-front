@@ -52,7 +52,7 @@ export default function AdminStaff() {
       }
    }, [staffid])
 
-   return (
+   return( 
       <div className="relative bg-Background-0 pb-16 h-full">
          <AdminSideBar name="Staff Handling " roleName="Admin" />
          <div className="w-10/12 absolute top-28 right-10 ">
