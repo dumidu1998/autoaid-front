@@ -13,6 +13,7 @@ export default function SelectedServiceActivitiesSVAD(props) {
             </div>
             <div className="text-gray-500 flex justify-start mt-2 ">  
                 {props.time} min
+                <button className="text-red-600 ml-11"> ❌remove</button>
             </div>
         </div>
     )
