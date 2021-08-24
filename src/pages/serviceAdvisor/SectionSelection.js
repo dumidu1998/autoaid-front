@@ -18,6 +18,8 @@ export default function SectionSelection() {
     const [sectionName, setsectionName] = useState();
     const [subCatDetails, setsubCatDetails] = useState([{}]);
     const [repairList, setrepairList] = useState([]);
+    const [totalTime, settotalTime] = useState(0);
+    const [estimatedPrice, setestimatedPrice] = useState(0);
     const location=useLocation();
     console.log(location.state);
     
@@ -53,13 +55,15 @@ export default function SectionSelection() {
                                 <SelectionSectionNavbarMolecular sectionName={sectionName} setsectionName={setsectionName}/>
                             </div>
                             <div>
-                                {subCatDetails.map(subCat=><SectionItems setrepairList={setrepairList} repairList={repairList} itemName={subCat.subCatName} itemTime={subCat.time}/>)}
+                                {subCatDetails.map(subCat=><SectionItems estimatedPrice={estimatedPrice} setestimatedPrice={setestimatedPrice} 
+                                totalTime={totalTime} settotalTime={settotalTime} setrepairList={setrepairList} repairList={repairList} 
+                                itemName={subCat.subCatName} itemTime={subCat.time}/>)}
                             </div>
                         </div>
                         <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12  mr-32 p-8">
                             <SelectedSevicesSVAD heading1="Selected Service" description="Time and Cost can be differ with the change of requirements "/>
                             <div className="mt-6 mb-4">
-                                {console.log(repairList)}
+                                {/* {console.log(repairList)} */}
                                 
                                 {repairList.map(addedRepair=><SelectedServiceActivitiesSVAD activity={addedRepair.itemName} price={addedRepair.price} time={addedRepair.time}/>)}
                                 {/* <SelectedServiceActivitiesSVAD activity="Car Wash " price="600 " time="20"/>
@@ -67,10 +71,13 @@ export default function SectionSelection() {
                                 <div className="border-b-2 mt-4"></div>
                             </div>
                             <div className="mt-6">
-                                <TimeEstimationSVAD time="35"/>
+                                <TimeEstimationSVAD time={totalTime}/>
                             </div>
                             <div className="mt-6">
-                                <CostEstimation cost="1,400" /> 
+                                <CostEstimation cost={estimatedPrice} />
+                                {/* Need to add styles */}
+                                <button className=" ml-10 bg-blue-800 text-white">Proceed to repair</button> 
+                                <button className=" ml-10 bg-red-800 text-white">Inspection Only</button> 
                             </div>
                         </div>
                     </div>
