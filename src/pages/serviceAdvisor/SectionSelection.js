@@ -63,7 +63,8 @@ export default function SectionSelection() {
                             <div className="mt-6 mb-4">
 
                                 {repairList.map(addedRepair => <SelectedServiceActivitiesSVAD addedRepair={addedRepair}
-                                    repairList={repairList} setrepairList={setrepairList} totalTime={[totalTime,settotalTime]} estimatedPrice={[estimatedPrice,setestimatedPrice]} />)}
+                                    repairList={repairList} setrepairList={setrepairList} totalTime={[totalTime,settotalTime]} 
+                                    estimatedPrice={[estimatedPrice,setestimatedPrice]} />)}
 
                                 <div className="border-b-2 mt-4"></div>
                             </div>
