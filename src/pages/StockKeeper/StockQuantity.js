@@ -3,7 +3,7 @@ import SideNavBar from '../../components/Moleculars/technician/SideNavBar'
 import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
 import ItemContainer3 from '../../components/Atoms/stockKeeper/ItemContainer3'
 import SubSectionHeading from '../../components/Atoms/serviceStation/SubSectionHeading'
-import SelectionSectionNavbarMolecular from '../../components/Moleculars/serviceAdvisor/SelectionSectionNavbarMolecular'
+import SectionSelectNavBarMol from '../../components/Moleculars/stockKeeper/SectionSelectNavBarMol'
 
 export default function StockQuantity() {
     return (
@@ -18,7 +18,7 @@ export default function StockQuantity() {
                         <div className="h-full w-10/12 py-8">
                             <div className="font-primary text-xl">Select Section</div>
                             <div className="  p-1 rounded-lg mt-4 w-full">
-                                <SelectionSectionNavbarMolecular/>
+                            <SectionSelectNavBarMol/>
                             </div>
                             <div className="font-primary text-xl">Stock Items</div>
                             <div className="w-full h-4/6 overflow-auto">
