@@ -32,6 +32,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import StockKeeperTest from './pages/StockKeeper/test';
 import StockKeeperDash from './pages/StockKeeper/Dashboard';
 import StockKeeperStock from './pages/StockKeeper/StockQuantity';
+import StockKeeperAddItem from './pages/StockKeeper/AddNewItem';
 
 
 
@@ -82,8 +83,9 @@ function App() {
           <Route path="/technician/progress" exact component={ServiceProgress} />
 
           <Route path="/stockkeeper/test" exact component={StockKeeperTest} />
-          <Route path="/stockkeeper/Dashboard" exact component={StockKeeperDash} />
-          <Route path="/stockkeeper/Stock" exact component={StockKeeperStock} />
+          <Route path="/stockkeeper/dashboard" exact component={StockKeeperDash} />
+          <Route path="/stockkeeper/stock" exact component={StockKeeperStock} />
+          <Route path="/stockkeeper/addnew" exact component={StockKeeperAddItem} />
 
         </Switch>
       </Router>
