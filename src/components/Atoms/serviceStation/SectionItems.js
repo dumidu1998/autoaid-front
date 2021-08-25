@@ -6,12 +6,12 @@ export default function SectionItems(props) {
     const addToList=()=>{
         //add new item to real time list
         props.setrepairList(prevList => ([...prevList, {
-                itemName:props.itemName,
-                price:props.itemTime*1000/60,
-                time:props.itemTime
+                itemName:props.subCat.subCatName,
+                price:props.subCat.time*1000/60,
+                time:props.subCat.time
         }]));
-        props.settotalTime(prevTime => prevTime+props.itemTime);
-        props.setestimatedPrice(prevPrice=>prevPrice+props.itemTime*1000/60)   
+        props.settotalTime(prevTime => prevTime+props.subCat.time);
+        props.setestimatedPrice(prevPrice=>prevPrice+props.subCat.time*1000/60)   
         // console.log(props.repairList);
         // console.log(props.totalTime);
         // console.log(props.itemTime);
@@ -23,10 +23,10 @@ export default function SectionItems(props) {
         <div className="w-full bg-white shadow-2xl  rounded-lg h-16 flex items-center mt-5">
             <div className="flex flex-col  items-start   w-9/12 ml-12">
                 <div>
-                    {props.itemName}
+                    {props.subCat.subCatName}
                 </div>
                 <div>
-                    {props.itemTime} min
+                    {props.subCat.time} min
                     {/* Need to add styles */}
                     <button className="ml-10 bg-green-600 text-white">Change Time</button>    
                 </div>
