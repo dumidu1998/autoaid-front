@@ -19,12 +19,12 @@ export default function DetailsForm() {
     const [contactNo, setcontactNo] = useState('');
     const [customerDetails, setcustomerDetails] = useState('');
     const [vehicleNumbers, setvehicleNumbers] = useState('');
-
+    const userId=getCookie('userId');
     var config = {
         headers: {
             'Authorization': 'Bearer ' + getCookie('token'),
         }
-    }
+    }    
 
     const getUserDetails = () => {
         console.log(contactNo);
@@ -37,11 +37,12 @@ export default function DetailsForm() {
                     toast.success("User is There");
                     setcustomerDetails(response.data);
                     setvehicleNumbers(response.data.vehicleList.map((vehicle) =>                        
-                        <VehicleListComponent vehicleNo={vehicle.vehicleNumber} link={{
+                        <VehicleListComponent vehicle={vehicle} userId={userId} link={{
                             pathname: '/serviceadvisor/addvehicle',
-                            state: { contact: contactNo,
+                            state: {    contact: contactNo,
                                         update:"update",
                                         vin:vehicle.vin }
+                                        // pass vin to update
                         }} />
                     ));
                     document.getElementById("customer-add-btn").classList.add("hidden");
