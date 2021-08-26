@@ -3,7 +3,7 @@ import AppointmentContainer from '../../components/Atoms/serviceStation/Appointm
 import Register from '../../components/Atoms/serviceStation/Register'
 import SubSectionHeading from '../../components/Atoms/serviceStation/SubSectionHeading'
 import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
-import SideNavBar from '../../components/Moleculars/technician/SideNavBar'
+import SideNavBar from '../../components/Moleculars/stockKeeper/SideNavBar'
 import ButtonProps from '../../components/Atoms/stockKeeper/ButtonProps'
 
 export default function AddNewItem() {
@@ -12,11 +12,9 @@ export default function AddNewItem() {
             <div className=" bg-Background-0">
                 <div className="flex flex-row">
                     <div className="">
-
                         <SideNavBar />
                     </div>
                     <div className="w-full flex flex-col">
-
                         <TopContainer heading1="Add New Item" heading2="Stock Keeper" addnewbtntext="Add New" />
                         <div className="h-full flex flex-col items-center mt-20">
                             <h1>Search for stock Item</h1>
@@ -25,18 +23,18 @@ export default function AddNewItem() {
                                     {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                                     <h1 className="font-primary  text-md font-semibold">Item Name</h1>
                                     <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
-                                        />
+                                    />
                                 </div>
                                 <div className="lg:ml-24 mt-6">
-                                    <ButtonProps name="Search"/>
+                                    <ButtonProps name="Search" />
                                 </div>
-                            </div>   
+                            </div>
                             <div className="lg:flex mt-5">
                                 <div className="">
                                     {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                                     <h1 className="font-primary  text-md font-semibold">Item Number</h1>
                                     <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
-                                        />
+                                    />
                                 </div>
                                 <div className="lg:ml-24">
                                     {/* <FormInput lable=" Last Name" value={props.lastname} /> */}
@@ -49,7 +47,7 @@ export default function AddNewItem() {
                                     {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                                     <h1 className="font-primary  text-md font-semibold">Price</h1>
                                     <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
-                                        />
+                                    />
                                 </div>
                                 <div className="lg:ml-24">
                                     {/* <FormInput lable=" Last Name" value={props.lastname} /> */}
@@ -62,7 +60,7 @@ export default function AddNewItem() {
                                     {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                                     <h1 className="font-primary  text-md font-semibold">Category</h1>
                                     <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
-                                        />
+                                    />
                                 </div>
                                 <div className="lg:ml-24">
                                     {/* <FormInput lable=" Last Name" value={props.lastname} /> */}
@@ -71,14 +69,14 @@ export default function AddNewItem() {
                                 </div>
                             </div>
                             <div className=" justify-center mt-6">
-                                <ButtonProps name="Add"/>
+                                <ButtonProps name="Add" />
                             </div>
                         </div>
-                        
-                </div>
 
+                    </div>
+
+                </div>
             </div>
-        </div>
         </div>
     )
 }
