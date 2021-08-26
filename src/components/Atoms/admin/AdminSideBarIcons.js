@@ -1,11 +1,47 @@
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import { Link } from 'react-router-dom';
-class AdminSideBarIcons extends Component {
-    state = {  }
-    render() { 
-        return ( 
-            <div className="flex justify-start">
-                <div className="bg-white shadow-lg w-40 h-screen">
+import Button from '@material-tailwind/react/Button';
+export default function AdminSideBarIcons({ showSidebar, setShowSidebar }) {
+    return (
+        <div className="flex justify-start">
+        {/* <div className="bg-black shadow-lg w-40 h-screen"> */}
+        <div className="md:hidden ">
+                    <Button
+                        color="transparent"
+                        buttonType="link"
+                        size="lg"
+                        iconOnly
+                        rounded
+                        ripple="light"
+                        onClick={() => setShowSidebar('left-0')}
+                    >
+                        {/* <Icon name="menu" size="2xl" color="bg-forth-0" /> */}
+                        <img src="https://img.icons8.com/material-rounded/48/000000/menu--v4.png"/>
+                    </Button>
+                    <div
+                        className={`absolute top-2 md:hidden ${
+                            showSidebar === 'left-0' ? 'left-40' : '-left-40'
+                        } z-50 transition-all duration-300`}
+                    >
+                        <Button
+                            color="transparent"
+                            buttonType="link"
+                            size="lg"
+                            iconOnly
+                            rounded
+                            ripple="light"
+                            onClick={() => setShowSidebar('-left-40')}
+                        >
+                            {/* <Icon name="close" size="2xl" color="red" /> */}
+                            <img src="https://img.icons8.com/fluency/96/000000/close-window.png"/>
+                        </Button>
+                    </div>
+                </div>
+
+                <div className={`h-screen fixed  top-0 md:left-0 ${showSidebar} flex items-center justify-center flex-row flex-nowrap overflow-y-auto bg-white shadow-lg w-40   z-10 py-4 px-6 transition-all duration-300 md:overflow-hidden`}>
+                {/* <div > */}
+            
+            
                     <div className="relative mt-24 h-screen">
                         <Link to="/admin/"> 
                             <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg  m-10 rounded-lg mt-24">
@@ -52,10 +88,9 @@ class AdminSideBarIcons extends Component {
                             </div>
                         </Link>
                         </div>
-                    </div>
+                {/* </div> */}
                 </div>
-         );
-    }
+            {/* </div> */}
+        </div>
+    )
 }
- 
-export default AdminSideBarIcons;
