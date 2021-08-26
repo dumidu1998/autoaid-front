@@ -5,7 +5,7 @@ export default function DashboardStatusCardsGrid() {
     return (
         <div className="px-3 md:px-8 mt-32">
         <div className="container mx-auto max-w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 w-autolg:grid-cols-2 xl:grid-cols-4 mb-4">
                 <DashboardStatusCards
                     icon="https://img.icons8.com/pastel-glyph/64/000000/website--v2.png"
                     title="Web Traffic"
