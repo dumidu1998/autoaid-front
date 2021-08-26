@@ -49,9 +49,9 @@ export default function AddNewItem() {
                                     <h1 className="font-primary  text-md font-semibold">Item Name</h1>
                                     <input type="text" name="item" id="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" onChange={getByName}
                                     />
-                                    <div className="h-auto z-20 relative ">
+                                    <div className="h-auto z-20 ">
                                         <ul class={`bg-white border border-gray-100 w-full mt-12 ${show} `} >
-                                            {result.map(item => (<li class="pl-8 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900" onClick={showdetails} id={item.itemNo} >
+                                            {result.map(item => (<li class="pl-1 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900" onClick={showdetails} id={item.itemNo} >
                                                 {item.itemName}
                                             </li>))}
                                             {(result.length == 0) ? ("Item Not found. Add New Item Below!") : ("")}
