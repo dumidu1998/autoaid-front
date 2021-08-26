@@ -29,6 +29,10 @@ import ServiceHistory from './pages/serviceAdvisor/ServiceHistory';
 import { getCookie } from './jsfunctions/cookies';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
+import StockKeeperTest from './pages/StockKeeper/test';
+import StockKeeperDash from './pages/StockKeeper/Dashboard';
+import StockKeeperStock from './pages/StockKeeper/StockQuantity';
+import StockKeeperAddItem from './pages/StockKeeper/AddNewItem';
 
 
 
@@ -78,6 +82,11 @@ function App() {
           <Route path="/technician" exact component={Dashboard} />
           <Route path="/technician/summary" exact component={ServiceSummary} />
           <Route path="/technician/progress" exact component={ServiceProgress} />
+
+          <Route path="/stockkeeper/test" exact component={StockKeeperTest} />
+          <Route path="/stockkeeper/dashboard" exact component={StockKeeperDash} />
+          <Route path="/stockkeeper/stock" exact component={StockKeeperStock} />
+          <Route path="/stockkeeper/addnew" exact component={StockKeeperAddItem} />
 
         </Switch>
       </Router>

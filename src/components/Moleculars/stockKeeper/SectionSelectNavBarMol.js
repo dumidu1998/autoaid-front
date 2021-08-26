@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import SelectionSectionNavbar from '../../Atoms/serviceStation/SelectionSectionNavbar';
+import SectionSelectNavbar from '../../Atoms/stockKeeper/SectionSelectNavbar';
 
-export default function SelectionSectionNavbarMolecular(props) {
+export default function SectionSelectNavBarMol() {
 
     const [list, setList] = useState([
         { id: 1, value: "General Repair" },
@@ -13,13 +13,13 @@ export default function SelectionSectionNavbarMolecular(props) {
     ])
 
     const [highBtn, setHighBtn] = useState(list[0].id);
-    useEffect(()=>{props.setsectionName(highBtn) }, [highBtn]);
+    // useEffect(()=>{props.setsectionName(highBtn) }, [highBtn]);
     // console.log("Child-"+highBtn);
     
     return (
         <div className=" bg-white p-2 shadow-2xl rounded-lg grid grid-cols-1 mb-4">
             <div className="flex items-center justify-between">
-                {list.map(btn => <SelectionSectionNavbar setHighBtn={setHighBtn} highBtn={highBtn} key={btn.id} name={btn.value} id={btn.id} /> )}
+                {list.map(btn => <SectionSelectNavbar setHighBtn={setHighBtn} highBtn={highBtn} key={btn.id} name={btn.value} id={btn.id} /> )}
             </div>
         </div>
     )

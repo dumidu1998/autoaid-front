@@ -10,7 +10,8 @@ import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import { getCookie } from '../../jsfunctions/cookies'
 import AppointmentContainer from '../../components/Atoms/serviceStation/AppointmentContainer'
-import { Redirect, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { Redirect, useHistory, Link } from 'react-router-dom/cjs/react-router-dom.min'
+import VehicleListComponent from '../../components/Atoms/serviceStation/VehicleListComponent'
 
 
 export default function DetailsForm() {
@@ -35,11 +36,16 @@ export default function DetailsForm() {
                     console.log(response.data);
                     toast.success("User is There");
                     setcustomerDetails(response.data);
-                    setvehicleNumbers(response.data.vehicleList.map((vehicle) =>
-                        <AppointmentContainer vehicleNo={vehicle.vehicleNumber} link="" />
+                    setvehicleNumbers(response.data.vehicleList.map((vehicle) =>                        
+                        <VehicleListComponent vehicleNo={vehicle.vehicleNumber} link={{
+                            pathname: '/serviceadvisor/addvehicle',
+                            state: { contact: contactNo,
+                                        update:"update",
+                                        vin:vehicle.vin }
+                        }} />
                     ));
                     document.getElementById("customer-add-btn").classList.add("hidden");
-                    // document.getElementById("add-vehicle-form").classList.add("hidden");
+                    document.getElementById("add-new-vehicle-btn").classList.remove("hidden");
                 })
                 .catch(function (error) {
                     // handle error
@@ -50,12 +56,12 @@ export default function DetailsForm() {
                         lastName: '',
                         city: '',
                         address: '',
-                        contactNo:contactNo
+                        contactNo: contactNo
                     });
                     setvehicleNumbers();
                     document.getElementById("customer-add-btn").classList.remove("hidden");
                     //set this on submit of add customer
-                    // document.getElementById("add-vehicle-form").classList.remove("hidden");
+                    document.getElementById("add-new-vehicle-btn").classList.add("hidden");
                 })
                 .then(function () {
                     // always executed
@@ -97,7 +103,9 @@ export default function DetailsForm() {
                                     axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/customer/addNew`, values, config)
                                         .then(function (response) {
                                             console.log(response.data);
-                                            history.push('/serviceadvisor/addvehicle');
+                                            history.push('/serviceadvisor/addvehicle',
+                                                { state: contactNo }
+                                            );
                                         })
                                 }
                                 }
@@ -134,6 +142,14 @@ export default function DetailsForm() {
                                     </div>
                                 </Form>
                             </Formik>
+                            <div>
+                                <Link to={{
+                                    pathname: '/serviceadvisor/addvehicle',
+                                    state: { contact:contactNo }
+                                }}>
+                                    <button id="add-new-vehicle-btn" className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 hidden">Add New Vehicle</button>
+                                </Link>
+                            </div>
 
                         </div>
                     </div>
