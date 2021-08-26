@@ -1,5 +1,5 @@
 import React from 'react'
-import SideNavBar from '../../components/Moleculars/technician/SideNavBar'
+import SideNavBar from '../../components/Moleculars/stockKeeper/SideNavBar'
 import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
 import ItemContainer3 from '../../components/Atoms/stockKeeper/ItemContainer3'
 import SubSectionHeading from '../../components/Atoms/serviceStation/SubSectionHeading'

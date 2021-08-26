@@ -15,7 +15,6 @@ export default function AddNewItem() {
                         <SideNavBar />
                     </div>
                     <div className="w-full flex flex-col">
-
                         <TopContainer heading1="Add New Item" heading2="Stock Keeper" addnewbtntext="Add New" />
                         <div className="h-full flex flex-col items-center mt-20">
                             <h1>Search for stock Item</h1>
