@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-
+import { useState } from 'react';
+import Testing from '../../../pages/admin/Testing';
 import AdminSideBarIcons from '../../Atoms/admin/AdminSideBarIcons';
 import AdminTopBar from '../../Atoms/admin/AdminTopBar';
-class AdminSideBar extends Component {
-    state = {  }
-    render() { 
-        return ( 
-            <div className="flex ">
-                <AdminSideBarIcons/>
-                <AdminTopBar name={this.props.name} roleName={this.props.roleName} />
-            </div>
-         );
-    }
+
+export default function AdminSideBar(props) {
+    const [showSidebar, setShowSidebar] = useState('-left-40');
+
+    return (
+        <div className="flex ">
+            <AdminSideBarIcons showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
+            {/* <Testing  showSidebar={showSidebar} setShowSidebar={setShowSidebar}/> */}
+            <AdminTopBar name={props.name} roleName={props.roleName}  />
+        </div>
+    )
 }
- 
-export default AdminSideBar;
