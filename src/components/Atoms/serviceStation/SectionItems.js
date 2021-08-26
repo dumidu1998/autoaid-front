@@ -2,19 +2,24 @@ import React, { useState, useEffect } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 
 export default function SectionItems(props) {
+    const [timeDisabled, settimeDisabled] = useState(true);
+    // const [newTime, setnewTime] = useState();
 
+    function setTime(){
+        settimeDisabled(false);
+    }
 
     const addToList = () => {
         //add new item to real time list
         const repairExist = props.repairList.filter(item => item.itemName == props.subCat.subCatName);
-        console.log("exists");
-
-        console.log(repairExist);
+        // console.log("exists");
+        // console.log(repairExist);
 
         if (repairExist=='') {
             props.setrepairList(prevList => ([...prevList, {
+                subCatId:props.subCat.subCatId,
                 itemName: props.subCat.subCatName,
-                price: props.subCat.time * 1000 / 60,
+                price: (props.subCat.time * 1000 / 60).toFixed(2),
                 time: props.subCat.time
             }]));
             props.settotalTime(prevTime => prevTime + props.subCat.time);
@@ -34,9 +39,11 @@ export default function SectionItems(props) {
                     {props.subCat.subCatName}
                 </div>
                 <div>
-                    {props.subCat.time} min
+                    {/* Need Styles */}
+                    <input className=" w-20 h-1 border-none" type="number" value={(timeDisabled==true?props.subCat.time:null)} onChange={event => props.subCat.time=(Number(event.target.value))} disabled={timeDisabled}/>
+                     min
                     {/* Need to add styles */}
-                    <button className="ml-10 bg-green-600 text-white">Change Time</button>
+                    <button onClick={setTime} className="ml-10 bg-green-600 text-white">Change Time</button>
                 </div>
             </div>
             <div>
