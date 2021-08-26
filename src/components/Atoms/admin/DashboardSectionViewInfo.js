@@ -8,7 +8,7 @@ import React from 'react'
 export default function DashboardSectionViewInfo() {
     return (
         <div>
-                <Popup trigger={ < button className="bg-blue-600 w-28 h-10 text-sm font-bold font-primary rounded-md text-white ">Vehicle Info</button>} position="right center">
+                <Popup trigger={ < button className="bg-blue-600 w-24 h-10 text-sm font-bold font-primary rounded-md text-white sm:w-32">Vehicle Info</button>} position="right center">
                     <div className="w-96 h-56 bg-Background- ">
                        <div className="flex flex-col ">
                             <div className="bg-white shadow-xl rounded-xl w-48 h-16 flex justify-center items-center mt-1 ">
