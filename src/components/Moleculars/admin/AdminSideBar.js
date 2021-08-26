@@ -8,8 +8,8 @@ export default function AdminSideBar(props) {
 
     return (
         <div className="flex ">
-            {/* <AdminSideBarIcons/> */}
-            <Testing  showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
+            <AdminSideBarIcons showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
+            {/* <Testing  showSidebar={showSidebar} setShowSidebar={setShowSidebar}/> */}
             <AdminTopBar name={props.name} roleName={props.roleName}  />
         </div>
     )

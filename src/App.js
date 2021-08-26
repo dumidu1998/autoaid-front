@@ -28,7 +28,7 @@ import AddNewVehicleForm from './pages/serviceAdvisor/AddNewVehicleForm';
 import ServiceHistory from './pages/serviceAdvisor/ServiceHistory';
 import { getCookie } from './jsfunctions/cookies';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
-import Test2 from './pages/admin/Test2';
+
 
 
 
@@ -73,7 +73,6 @@ function App() {
           <Route path="/admin/staff/:staffid" component={AdminStaff} />
           <Route path="/admin/section" exact component={AdminSection} />
           <Route path="/admin/test" exact component={Testing} />
-          <Route path="/admin/test2" exact component={Test2} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
           <Route path="/technician" exact component={Dashboard} />

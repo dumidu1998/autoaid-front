@@ -15,7 +15,7 @@ export default function AdminSection() {
                             <div className="grid grid-cols-1 md:grid-cols-5">
                                 <div className="flex flex-col  items-center md:col-span-2">
                                     <div className="bg-white w-10/12 mt-32 mb-8 rounded-lg shadow-2xl p-6 md:w-10/12 ">
-                                        <div className="text-xl font-primary font-medium flex justify-center items-center md:text-2xl lg:text-3xl xl:text-4xl">General Repair </div>
+                                        <div className="text-xl font-primary font-medium flex justify-center items-center md:text-2xl ">General Repair </div>
                                             <div className="flex flex-col justify-between items-center lg:flex-row">
                                                 <div className="flex flex-col">
                                                     <SectionCardsHeadings heading="Total No of Slots" count="5" class="font-medium ml-12    "/>
@@ -31,7 +31,7 @@ export default function AdminSection() {
                                 </div>
                                 <div className="flex flex-col  items-center md:col-span-2">
                                     <div className="bg-white w-10/12 mt-12 mb-8 rounded-lg shadow-2xl p-6 md:w-10/12 md:mt-32 ">
-                                        <div className="text-xl font-primary font-medium flex justify-center items-center md:text-2xl lg:text-3xl xl:text-4xl">General Repair </div>
+                                        <div className="text-xl font-primary font-medium flex justify-center items-center md:text-2xl ">General Repair </div>
                                             <div className="flex flex-col justify-between items-center lg:flex-row">
                                                 <div className="flex flex-col">
                                                     <SectionCardsHeadings heading="Total No of Slots" count="5" class="font-medium ml-12    "/>
