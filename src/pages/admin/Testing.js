@@ -40,7 +40,7 @@ export default function Testing({ showSidebar, setShowSidebar }) {
                     </div>
                 </div>
 
-                <div className={`h-screen fixed  top-0 md:left-0 ${showSidebar} flex items-center justify-center flex-row flex-nowrap overflow-hidden bg-white shadow-lg w-40   z-10 py-4 px-6 transition-all duration-300 `}>
+                <div className={`h-screen fixed  top-0 md:left-0 ${showSidebar} flex items-center justify-center flex-row flex-nowrap overflow-y-auto bg-white shadow-lg w-40   z-10 py-4 px-6 transition-all duration-300 md:overflow-hidden`}>
                 {/* <div > */}
             
             
