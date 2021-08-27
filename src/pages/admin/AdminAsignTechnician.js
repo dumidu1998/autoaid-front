@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams,useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import AddSlotBtn from '../../components/Atoms/admin/AddSlotBtn';
 import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar'
 
 export default function AdminAsignTechnician(props) {
@@ -13,7 +14,7 @@ export default function AdminAsignTechnician(props) {
                 <div className="font-primary text-xl font-medium ml-12   mt-8 md:text-2xl lg:text-3xl xl:text-4xl">{name}</div>
                 <div className="px-3 md:px-8 -mt-24">
                     <div className="container mx-auto max-w-full">
-                        
+                        <div className="flex justify-center items-center mt-32 md:mt-16 md:justify-end md:mr-10"><AddSlotBtn/></div>
                     </div>
                 </div>
             </div>
