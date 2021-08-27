@@ -47,15 +47,15 @@ export default function StaffManageIdStatusPropilePicRow(props) {
     }, [props.selectedid, props.userStatus])
 
     return (
-        <div className=" flex flex-col items-center relative">
-            <div className="flex items-center justify-around z-10 ">
+        <div className=" flex flex-col items-center relative lg:flex-row lg:justify-center lg:right-32">
+            <div className="flex items-center justify-around z-10 lg:mr-20  ">
                 <StaffManageIdDisplay id={nextId} />
                 <div className={activateBtnHide}>
                     <StaffManageStatusDisplay status={props.userStatus} />
                     <StaffManageStatusBtn staffId={props.selectedid} setUserStatus={props.setUserStatus} userStatus={props.userStatus} status={activatedBtn} />
                 </div>
             </div>
-            <div className=" absolute  top-16">
+            <div className=" ">
                 <StaffMemProfileImg />
             </div>
 
