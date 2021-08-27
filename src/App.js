@@ -34,6 +34,7 @@ import StockKeeperDash from './pages/StockKeeper/Dashboard';
 import StockKeeperStock from './pages/StockKeeper/StockQuantity';
 import StockKeeperAddItem from './pages/StockKeeper/AddNewItem';
 import AdminAsignTechnician from './pages/admin/AdminAsignTechnician';
+import AdminReports from './pages/admin/AdminReports';
 
 
 
@@ -79,6 +80,7 @@ function App() {
           <Route path="/admin/section" exact component={AdminSection} />
           <Route path="/admin/test" exact component={Testing} />
           <Route path="/admin/technician/asign" exact component={AdminAsignTechnician} />
+          <Route path="/admin/reports" exact component={AdminReports} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
           <Route path="/technician" exact component={Dashboard} />
