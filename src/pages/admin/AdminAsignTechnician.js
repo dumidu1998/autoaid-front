@@ -17,16 +17,16 @@ export default function AdminAsignTechnician(props) {
                 <div className="px-3 md:px-8 -mt-24">
                     <div className="container mx-auto max-w-full">
                         <div className="flex justify-center items-center mt-32 md:mt-16 md:justify-end md:mr-10"><AddSlotBtn/></div>
-                        <div className="bg-white shadow-xl rounded-lg w-full px-8 py-12 mt-6">
+                        <div className="bg-white shadow-xl rounded-lg w-full px-8 py-12 mt-6 mb-6">
                             <div className="flex justify-center items-center">
                                 <TechniciansDropDown/>  
                             </div>
                             <div className="flex flex-col justify-center items-center mt-6 sm:grid grid-cols-2 place-items-center lg:grid-cols-3 xl:grid-cols-4">
-                                <SlotNumberCard color="bg-green-500" slotNum="1" vNum="CAZ-4079" techName="Pathiya"/>
-                                <SlotNumberCard/>
-                                <SlotNumberCard/>
-                                <SlotNumberCard/>
-                                <SlotNumberCard/>
+                                <SlotNumberCard color="bg-green-500" slotNum="1" vNum="" techName=""/>
+                                <SlotNumberCard color="bg-green-500" slotNum="2" vNum="" techName=""/>
+                                <SlotNumberCard color="bg-red-500" slotNum="3" vNum="CAZ-4079" techName="Pathiya"/>
+                                <SlotNumberCard color="bg-red-500" slotNum="4" vNum="CAZ-4079" techName="Pathiya"/>
+                                <SlotNumberCard color="bg-green-500" slotNum="5" vNum="" techName=""/>
                             </div>
                             
                         </div>
