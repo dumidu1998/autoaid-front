@@ -10,14 +10,23 @@ import axios from 'axios'
 export default function AddNewItem() {
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
-
+    const [output, setoutput] = useState({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:""});
 
     function showdetails(id) {
-        alert(id.target.id);
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
+            .then(res => {
+                setshow("hidden");
+                // window.document.getElementById("name")=res.data.itemName;
+               setoutput(res.data);
+               console.log(output);
+            }
+            ).catch(err => {
+                console.log(err);
+            })
     }
 
     function getByName(e) {
-        if (e.target.value.length == "") {
+        if (e.target.value == "") {
             setshow("hidden");
             return;
         }
@@ -66,26 +75,26 @@ export default function AddNewItem() {
                                 <div className="">
                                     {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                                     <h1 className="font-primary  text-md font-semibold">Item Number</h1>
-                                    <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
+                                    <input type="text" name="name" value={output.itemNo} className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
                                     />
                                 </div>
                                 <div className="lg:ml-24">
                                     {/* <FormInput lable=" Last Name" value={props.lastname} /> */}
                                     <h1 className="font-primary  text-md font-semibold">Item Name</h1>
-                                    <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
+                                    <input type="text" name="name" value={output.itemName} className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
                                 </div>
                             </div>
                             <div className="lg:flex mt-5">
                                 <div className="">
                                     {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                                     <h1 className="font-primary  text-md font-semibold">Price</h1>
-                                    <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
+                                    <input type="text" name="name" value={output.price} className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
                                     />
                                 </div>
                                 <div className="lg:ml-24">
                                     {/* <FormInput lable=" Last Name" value={props.lastname} /> */}
                                     <h1 className="font-primary  text-md font-semibold">Stock</h1>
-                                    <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
+                                    <input type="text" name="name" value={output.stock} className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
                                 </div>
                             </div>
                             <div className="lg:flex mt-5">
@@ -98,7 +107,7 @@ export default function AddNewItem() {
                                 <div className="lg:ml-24">
                                     {/* <FormInput lable=" Last Name" value={props.lastname} /> */}
                                     <h1 className="font-primary  text-md font-semibold">Reorder Level</h1>
-                                    <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
+                                    <input type="text" name="name" value={output.reorderLevel} className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
                                 </div>
                             </div>
                             <div className=" justify-center mt-6">
