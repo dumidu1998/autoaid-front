@@ -22,7 +22,7 @@ export default function AdminAsignTechnician(props) {
                                 <TechniciansDropDown/>  
                             </div>
                             <div className="flex flex-col justify-center items-center mt-6 sm:grid grid-cols-2 place-items-center lg:grid-cols-3 xl:grid-cols-4">
-                                <SlotNumberCard/>
+                                <SlotNumberCard color="bg-green-500" slotNum="1" vNum="CAZ-4079" techName="Pathiya"/>
                                 <SlotNumberCard/>
                                 <SlotNumberCard/>
                                 <SlotNumberCard/>
