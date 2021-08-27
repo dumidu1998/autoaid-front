@@ -81,7 +81,7 @@ export default function StaffManageForm(props) {
                 <Form>
                     <div className="flex flex-col items-center">
 
-                        <div className=" bg-white rounded-2xl shadow-xl  flex  flex-col justify-around items-center -mt-10 py-9 mb-4 w-11/12 md:flex-row ">
+                        <div className=" bg-white rounded-2xl shadow-xl  flex  flex-col justify-around items-center -mt-48 py-9 mb-4 w-11/12 md:flex-row lg:-mt-56">
 
                             <div className="flex flex-col">
                                 <Field id="staffId" name="staffId" placeholder="100" className=" hidden" />
