@@ -7,7 +7,7 @@ import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar'
 export default function AdminSection() {
     return (
         <div className="">
-            <div className="md:ml-40"><AdminSideBar name="DashBoard " roleName="Admin"/></div>
+            <div className="md:ml-40"><AdminSideBar name="Section Manage " roleName="Admin"/></div>
             <div className=" w-full absolute  bg-Background-0 ">
                 <div className="md:ml-40">
                     <div className="font-primary text-xl font-medium ml-6 mt-8 md:text-2xl lg:text-3xl xl:text-4xl">Sections</div>
