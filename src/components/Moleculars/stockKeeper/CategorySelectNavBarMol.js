@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import SectionSelectNavbar from '../../Atoms/stockKeeper/SectionSelectNavbar';
 
-export default function SectionSelectNavBarMol() {
+export default function CategorySelectNavBarMol() {
 
     const [list, setList] = useState([
-        { id: 1, value: "General Repair" },
-        { id: 2, value: "Wheel Alignment" },
-        { id: 3, value: "Service" },
-        { id: 4, value: "Express Maintainance" },
-        { id: 5, value: "Truck and Bus" },
+        { id: 1, value: "Engine" },
+        { id: 2, value: "Brakes" },
+        { id: 3, value: "Clutch" },
+        { id: 4, value: "Suspension" },
+        { id: 5, value: "Body" },
       
     ])
 
