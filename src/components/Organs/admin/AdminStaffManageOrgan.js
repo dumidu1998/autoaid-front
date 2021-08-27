@@ -14,12 +14,12 @@ export default function AdminStaffManageOrgan(props) {
     }, [props.staffdetails])
 
     return (
-        <div>
+        <div className="grid grid-cols-1">
             <div className="mb-3">
                 {/* Nav bar with user types */}
                 <StaffNavbarMolecular setUserType={setUserType} userType={userType} />
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex flex-col items-center justify-center">
                 {/* Staff list according to user type */}
                 <StaffMemListOrgan added={added} userType={userType} />
                 <div className=""></div>
