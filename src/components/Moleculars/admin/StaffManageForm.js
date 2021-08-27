@@ -1,10 +1,12 @@
 
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import StaffManageBtn from '../../Atoms/admin/StaffManageBtn';
 
 export default function StaffManageForm(props) {
 
@@ -79,7 +81,7 @@ export default function StaffManageForm(props) {
                 <Form>
                     <div className="flex flex-col items-center">
 
-                        <div className=" bg-white rounded-2xl shadow-xl  flex justify-around items-center mt-5 py-9 mb-4 w-9/12">
+                        <div className=" bg-white rounded-2xl shadow-xl  flex  flex-col justify-around items-center -mt-10 py-9 mb-4 w-11/12 md:flex-row ">
 
                             <div className="flex flex-col">
                                 <Field id="staffId" name="staffId" placeholder="100" className=" hidden" />
@@ -129,6 +131,9 @@ export default function StaffManageForm(props) {
                             {/* <button className="bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 ml-8" type="">Update </button> */}
                             {/* <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button> */}
                         </div>
+                        <Link to="/admin/staff" >
+                            <StaffManageBtn btnName="Add New" />
+                        </Link>
                     </div>
                 </Form>
 
