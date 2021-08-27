@@ -8,6 +8,7 @@ import AppointmentContainer from '../../components/Atoms/serviceStation/Appointm
 import Register from '../../components/Atoms/serviceStation/Register'
 import ButtonProps from '../../components/Atoms/stockKeeper/ButtonProps'
 import axios from 'axios'
+import ButtonRedProps from '../../components/Atoms/stockKeeper/ButtonRedProps'
 
 export default function StockQuantity() {
     const [result, setresult] = useState([]);
@@ -58,18 +59,20 @@ export default function StockQuantity() {
                                             {result.map(item => (<li class="pl-1 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900" onClick={showdetails} id={item.itemNo} >
                                                 {item.itemName}
                                             </li>))}
-                                            {(result.length == 0) ? ("Item Not found. Add New Item Below!") : ("")}
+                                            {(result.length == 0) ? ("Item Not found. Please Add New Item!") : ("")}
                                         </ul>
                                     </div>
                             </div>
-                            <div className="ml-10 font-primary text-xl font-semibold">Select Category </div>
-                            <div><ButtonProps name="Clear" link={""} /></div>
-                            <div className="ml-16 p-2 rounded-lg mt-4 w-full">
+                            <div className=" flex">
+                                <div className="ml-10 font-primary text-xl font-semibold">Select Category </div>
+                                <div className="ml-80"><ButtonRedProps name="Clear" link={""} /></div>
+                            </div>
+                            <div className="ml-20 p-2 rounded-lg mt-4 ">
                                 <CategorySelectNavBarMol />
                             </div>
                             
                             <div className="font-primary text-xl">Stock Items</div>
-                            <div className="w-full h-3/5 overflow-auto">
+                            <div className="w-full h-2/5 overflow-auto">
                                 <div className="mt-4 border-b-2 pr-9 pl-12"><ItemContainer3 itemNo="Piston" quantity="123" link={""} /></div>
                                 <div className="mt-4 border-b-2 pr-9 pl-12"><ItemContainer3 itemNo="Brake Pad" quantity="123" link={""} /></div>
                                 <div className="mt-4 border-b-2 pr-9 pl-12"><ItemContainer3 itemNo="Piston" quantity="123" link={""} /></div>

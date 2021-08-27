@@ -17,7 +17,7 @@ export default function CategorySelectNavBarMol() {
     // console.log("Child-"+highBtn);
     
     return (
-        <div className=" bg-white p-2 shadow-2xl rounded-lg grid grid-cols-1 mb-4">
+        <div className=" bg-white p-2 shadow-2xl rounded-lg grid grid-cols-1 mb-2">
             <div className="flex items-center justify-between">
                 {list.map(btn => <SectionSelectNavbar setHighBtn={setHighBtn} highBtn={highBtn} key={btn.id} name={btn.value} id={btn.id} /> )}
             </div>
