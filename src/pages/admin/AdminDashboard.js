@@ -14,10 +14,10 @@ import SectionHeading from '../../components/Atoms/SectionHeading';
 
 export default function AdminDashboard() {
     return (
-        <div className="md:ml-40 ">
-            <AdminSideBar name="DashBoard " roleName="Admin"/>
+        <div className=" ">
+            <div className="md:ml-40"><AdminSideBar name="DashBoard " roleName="Admin"/></div>
             <div className="w-full absolute  bg-Background-0">
-                <div className="">
+                <div className="md:ml-40">
                 <div className="w-full mt-3 rounded-lg h-96 p-5 sm:-mt-12 xl:-mt-32">
                     <div className=" border-0 h-80 mt-2 flex justify-center items-center">
                         <DashboardStatusCardsGrid />
