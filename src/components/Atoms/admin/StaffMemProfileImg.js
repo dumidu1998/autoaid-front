@@ -6,7 +6,7 @@ class StaffMemProfileImg extends Component {
     render() { 
         return ( 
             <div>
-                <img src={this.state.url} className="w-40 h-40 rounded-full shadow-2xl p-2" alt="profile"/>
+                <img src={this.state.url} className="w-32 h-32  lg:w-40 lg:h-40 rounded-full shadow-2xl p-2" alt="profile"/>
             </div>
          );
     }
