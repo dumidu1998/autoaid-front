@@ -6,6 +6,7 @@ import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
 import SideNavBar from '../../components/Moleculars/stockKeeper/SideNavBar'
 import ButtonProps from '../../components/Atoms/stockKeeper/ButtonProps'
 import axios from 'axios'
+import ButtonRedProps from '../../components/Atoms/stockKeeper/ButtonRedProps'
 
 export default function AddNewItem() {
     const [result, setresult] = useState([]);
@@ -110,8 +111,10 @@ export default function AddNewItem() {
                                     <input type="text" name="name" value={output.reorderLevel} className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
                                 </div>
                             </div>
-                            <div className=" justify-center mt-6">
-                                <ButtonProps name="Add" />
+                            {/* <div className=" justify-center mt-6"></div> */}
+                            <div className="flex justify-between mt-6">
+                                <div className="mx-4"><ButtonProps name="Add" /></div>
+                                <div className="mx-4"><ButtonRedProps name="Update" link={""} /></div>
                             </div>
                         </div>
                     </div>
