@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 class SectionSelectNavbar extends Component {
     state = {}
     highlightColor = () => {
-        let color = "flex place-items-center justify-center bg-black w-full ml-3 mr-3 shadow-2xl rounded-xl h-12 text-white";
+        let color = "flex place-items-center justify-center bg-black w-full ml-3 mr-3 shadow-2xl rounded-xl h-12 px-4 text-white";
         
         return color;
     }
