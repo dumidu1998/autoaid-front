@@ -40,6 +40,8 @@ export default function SectionSelection() {
         }, config)
         .then(function(response){
             console.log(response.data);
+            console.log(repairList);
+            
             //Then add service entries
             axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/add service entries`, {
                 "userId": location.state.userId,
