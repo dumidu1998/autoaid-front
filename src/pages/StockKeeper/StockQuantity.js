@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SideNavBar from '../../components/Moleculars/stockKeeper/SideNavBar'
 import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
 import ItemContainer3 from '../../components/Atoms/stockKeeper/ItemContainer3'
@@ -30,7 +30,19 @@ export default function StockQuantity() {
 
     function getByName(e) {
         if (e.target.value == "") {
-            setshow("hidden");
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
+            .then(res => {
+                setresult(res.data);
+                setshow("block");
+                console.log(result);
+            }
+            ).catch(err => {
+                console.log(err);
+                setresult([]);
+            })
+            // setshow("hidden");
+            // setresult(res.data);
+            // setshow("block");
             return;
         }
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembyname/${e.target.value}`)
@@ -44,6 +56,28 @@ export default function StockQuantity() {
                 setresult([]);
             })
     }
+    
+useEffect(() => {
+    
+    
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
+            .then(res => {
+                setresult(res.data);
+                setshow("block");
+                console.log(result);
+            }
+            ).catch(err => {
+                console.log(err);
+                setresult([]);
+            })
+            // setshow("hidden");
+            // setresult(res.data);
+            // setshow("block");
+            
+    
+
+}, [])
+
     return (
         <div className="relative bg-Background-0">
             <div className="flex flex-row">
