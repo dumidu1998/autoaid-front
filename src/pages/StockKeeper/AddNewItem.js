@@ -27,6 +27,7 @@ export default function AddNewItem() {
     }
 
     function getByName(e) {
+        setoutput({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:""});
         if (e.target.value == "") {
             setshow("hidden");
             return;
