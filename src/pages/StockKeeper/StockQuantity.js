@@ -9,12 +9,19 @@ import Register from '../../components/Atoms/serviceStation/Register'
 import ButtonProps from '../../components/Atoms/stockKeeper/ButtonProps'
 import axios from 'axios'
 import ButtonRedProps from '../../components/Atoms/stockKeeper/ButtonRedProps'
+import { getCookie } from '../../jsfunctions/cookies'
 
 export default function StockQuantity() {
+    const [itemCategory, setitemCategory] = useState();
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
     const [output, setoutput] = useState({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:""});
 
+    var config={
+        header:{
+            'Authorization': 'Bearer ' + getCookie('token'),
+        }
+    }
     function showdetails(id) {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
             .then(res => {
@@ -73,10 +80,19 @@ useEffect(() => {
             // setshow("hidden");
             // setresult(res.data);
             // setshow("block");
-            
+
     
 
 }, [])
+
+useEffect(() => {
+    console.log(itemCategory);
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`, config)
+        .then(function (response) {
+            console.log(response.data);
+            setresult(response.data);
+        })
+}, [itemCategory])
 
     return (
         <div className="relative bg-Background-0">
@@ -110,7 +126,7 @@ useEffect(() => {
                                 {/* <div className="ml-80"><ButtonRedProps name="Clear" link={""} /></div> */}
                             </div>
                             <div className="p-2 rounded-lg mt-4 ">
-                                <CategorySelectNavBarMol />
+                                <CategorySelectNavBarMol itemCategory={itemCategory} setitemCategory={setitemCategory} />
                             </div>
                             
                             <div className="font-primary text-xl">Stock Items</div>

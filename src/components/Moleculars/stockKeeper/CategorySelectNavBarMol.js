@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import SectionSelectNavbar from '../../Atoms/stockKeeper/SectionSelectNavbar';
 
-export default function CategorySelectNavBarMol() {
+export default function CategorySelectNavBarMol(props) {
 
     const [list, setList] = useState([
         { categoryId: 0, categoryName: "All" },
@@ -10,7 +10,7 @@ export default function CategorySelectNavBarMol() {
     ])
 
     const [highBtn, setHighBtn] = useState(list[0].categoryId);
-    // useEffect(()=>{props.setsectionName(highBtn) }, [highBtn]);
+    useEffect(()=>{props.setitemCategory(highBtn) }, [highBtn]);
     // console.log("Child-"+highBtn);
     
 
