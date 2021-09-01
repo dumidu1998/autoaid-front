@@ -70,7 +70,7 @@ export default function AddNewItem() {
                                     </div>
                                 </div>
                                 <div className="lg:ml-24 mt-6">
-                                    <ButtonProps name="Search" />
+                                    {/* <ButtonProps name="Search" /> */}
                                 </div>
                             </div>
                             <div className="lg:flex mt-5">
@@ -114,7 +114,7 @@ export default function AddNewItem() {
                             </div>
                             {/* <div className=" justify-center mt-6"></div> */}
                             <div className="flex justify-between mt-6">
-                                <div className="mx-4"><ButtonProps name="Add" /></div>
+                                <div className="mx-4"><ButtonProps name="Add" color="bg-blue-700" /></div>
                                 <div className="mx-4"><ButtonRedProps name="Update" link={""} /></div>
                             </div>
                         </div>
