@@ -7,11 +7,13 @@ import SideNavBar from '../../components/Moleculars/stockKeeper/SideNavBar'
 import ButtonProps from '../../components/Atoms/stockKeeper/ButtonProps'
 import axios from 'axios'
 import ButtonRedProps from '../../components/Atoms/stockKeeper/ButtonRedProps'
+import UpdateQuantity from '../../components/Moleculars/stockKeeper/UpdateQuantity'
 
 export default function AddNewItem() {
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
     const [output, setoutput] = useState({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:""});
+    const [input, setInput] = useState([])
 
     function showdetails(id) {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
@@ -52,16 +54,16 @@ export default function AddNewItem() {
                     </div>
                     <div className="w-full flex flex-col">
                         <TopContainer heading1="Add New Item" heading2="Stock Keeper" addnewbtntext="Add New" />
-                        <div className="h-full flex flex-col items-center mt-20">
+                        <div className="h-3/5 flex flex-col items-center mt-20">
                             <h1>Search for stock Item</h1>
-                            <div className="lg:flex mt-5 items-center">
+                            <div className="lg:flex mt-5 h-32">
                                 <div className=" float-left">
                                     {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                                     <h1 className="font-primary  text-md font-semibold">Item Name</h1>
                                     <input type="text" name="item" id="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" onChange={getByName}
                                     />
                                     <div className="h-auto z-20 ">
-                                        <ul class={`bg-white border border-gray-100 w-full mt-12 ${show} `} >
+                                        <ul class={`bg-white border border-gray-100 w-full mt-12 overflow-y- ${show} `} >
                                             {result.map(item => (<li class="pl-1 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900" onClick={showdetails} id={item.itemNo} >
                                                 {item.itemName}
                                             </li>))}
@@ -83,7 +85,7 @@ export default function AddNewItem() {
                                 <div className="lg:ml-24">
                                     {/* <FormInput lable=" Last Name" value={props.lastname} /> */}
                                     <h1 className="font-primary  text-md font-semibold">Item Name</h1>
-                                    <input type="text" name="name" value={output.itemName} className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
+                                    <input type="text" name="name" value={output.itemName} onChange={event => setInput(event.target.value)} className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" />
                                 </div>
                             </div>
                             <div className="lg:flex mt-5">
@@ -114,11 +116,14 @@ export default function AddNewItem() {
                             </div>
                             {/* <div className=" justify-center mt-6"></div> */}
                             <div className="flex justify-between mt-6">
-                                <div className="mx-4"><ButtonProps name="Add" color="bg-blue-700" /></div>
-                                <div className="mx-4"><ButtonRedProps name="Update" link={""} /></div>
+                                <div className="mx-4"><ButtonProps name="Add" color="bg-green-600" /></div>
+                                <div className="mx-4"><ButtonProps name="Update" color="bg-blue-700" /></div>
                             </div>
+                            
                         </div>
+                        <div className="mx-8 "><UpdateQuantity itemName="test" quantity="123" price="100" link={""} /></div>   
                     </div>
+                    
                 </div>
             </div>
         </div >
