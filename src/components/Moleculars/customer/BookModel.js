@@ -20,7 +20,7 @@ const people = [
 ]
 var userId = getCookie('userId');
 export default function MyModal() {
-	let [isOpen, setIsOpen] = useState(true);
+	let [isOpen, setIsOpen] = useState(false);
 	const [value, onChange] = useState(new Date());
 	const [slots, setSlots] = useState([]);
 	const [advisors, setAdvisors] = useState([{ firstName: 'Select the Date and', lastname: 'Time' }]);

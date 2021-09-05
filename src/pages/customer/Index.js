@@ -46,7 +46,7 @@ export default function Index() {
 
             });
 
-        await axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/4`)
+        await axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/expenses/${userId}`)
             .then(function (response) {
                 // handle success
                 setexpenses(response.data);
