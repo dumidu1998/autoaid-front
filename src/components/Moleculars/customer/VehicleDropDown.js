@@ -5,7 +5,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function SlotDropDown(props) {
+export default function VehicleDropDown(props) {
     const [selected, setSelected] = useState({ slotTime: 'Please Select a Time' })
 
     useEffect(() => {
