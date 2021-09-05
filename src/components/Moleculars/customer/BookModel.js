@@ -18,7 +18,7 @@ const people = [
 	{ name: 'Tanya Fox' },
 	{ name: 'Hellen Schmidt' },
 ]
-
+var userId = getCookie('userId');
 export default function MyModal() {
 	let [isOpen, setIsOpen] = useState(true);
 	const [value, onChange] = useState(new Date());
@@ -28,9 +28,9 @@ export default function MyModal() {
 	const [selecteddate, setSelecteddate] = useState();
 	const [selectedtimeSlot, setselectedtimeSlot] = useState({ appointmentSlotId: 0 });
 	const [selectedadvisor, setselectedadvisor] = useState();
-
-
-
+	const [vehicles, setvehicles] = useState([])
+	const [selectedvehicle, setselectedvehicle] = useState();
+	const [error, setError] = useState(false);
 	function closeModal() {
 		setIsOpen(false)
 	}
@@ -46,41 +46,64 @@ export default function MyModal() {
 	}
 
 	function click(e) {
+		setError(false);
 		var selectedDate = e.getFullYear() + '-' + (e.getMonth() + 1) + '-' + e.getDate();
 		setSelecteddate(selectedDate);
 		axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getslotsfromdate/${selectedDate}`, config)
 			.then((res) => {
 				setSlots(res.data);
-				console.log(res.data);
 			})
 			.catch((err) => {
-				console.log(err);
+				setSlots([]);
+				setError(err.response.data);
 			});
 	}
 
 	useEffect(() => {
+		setError(false);
 		var e = new Date();
 		var selectedDate = e.getFullYear() + '-' + (e.getMonth() + 1) + '-' + e.getDate();
+		setSelecteddate(selectedDate);
 		axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getslotsfromdate/${selectedDate}`, config)
 			.then((res) => {
 				setSlots(res.data);
-				console.log(res.data);
 			})
 			.catch((err) => {
+				setSlots([]);
+				setError(err.response.data);
 				console.log(err);
 			});
+		axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/vehiclesbyuserid/${userId}`, config)
+			.then(function (response) {
+				// handle success
+				setvehicles(response.data);
+
+			})
+			.catch(function (error) {
+				// handle error
+				console.log(error.response.data);
+			})
+
 	}, [])
 
 	useEffect(() => {
+		if (selectedtimeSlot.appointmentSlotId == undefined || selecteddate == undefined) return;
+		setError(false);
 		axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getadvisorfromdateandslot/${selecteddate}/${selectedtimeSlot.appointmentSlotId}`, config)
 			.then((res) => {
 				setAdvisors(res.data);
-				console.log(res.data);
 			})
 			.catch((err) => {
-				console.log(err);
+				setError(err.response.data);
 			});
 	}, [selectedtimeSlot])
+
+	function submit() {
+		console.log(selecteddate);
+		console.log(selectedtimeSlot);
+		console.log(selectedadvisor);
+		console.log(selectedvehicle);
+	}
 
 	return (
 		<>
@@ -149,8 +172,8 @@ export default function MyModal() {
 											</div>
 											<div className="mt-5">
 												<h1 className="font-primary  text-md font-semibold "> Vehicle No</h1>
-												{/* <VehicleDropDown data={advisors} set={setselectedadvisor} /> */}
-												<TechniciansDropDown />
+												<VehicleDropDown data={vehicles} set={setselectedvehicle} />
+												{/* <TechniciansDropDown /> */}
 											</div>
 											<div className="mt-5">
 												<h1 className="font-primary  text-md font-semibold"> Service Advisor</h1>
@@ -159,11 +182,13 @@ export default function MyModal() {
 										</form>
 									</div>
 								</div>
+								{error}
 								<div className="mt-4 mb-5">
 									<button
 										type="button"
 										className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-										onClick={closeModal}
+										onClick={submit}
+										disabled={(!error && selectedtimeSlot.slotTime != "Please Select a Time" && selectedvehicle.vehicleNumber != "Select your Vehicle") ? false : true}
 									>
 										Book Now
 									</button>

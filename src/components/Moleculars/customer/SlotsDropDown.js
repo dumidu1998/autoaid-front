@@ -6,11 +6,10 @@ function classNames(...classes) {
 }
 
 export default function SlotDropDown(props) {
-    const [selected, setSelected] = useState({ slotTime: 'Please Select a Time' })
+    const [selected, setSelected] = useState({ slotTime: 'Select a Time' })
 
     useEffect(() => {
-        setSelected({ slotTime: 'Please Select a Time' });
-        console.log(selected);
+        setSelected({ slotTime: 'Select a Time' });
     }, [props.data])
 
     useEffect(() => {
