@@ -26,11 +26,17 @@ export default function MyModal() {
     setIsOpen(true)
   }
 
- 
+  function click(e) {
+    console.log(e.getMonth() + 1)
+    console.log(e.getDate())
+    console.log(e.getFullYear())
+  }
+
+
   const [selected, setSelected] = useState(people[0])
 
   return (
-    
+
     <>
       <div className="">
         <button
@@ -61,8 +67,8 @@ export default function MyModal() {
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
-           
-            
+
+
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -80,42 +86,40 @@ export default function MyModal() {
                   Book Now
                 </Dialog.Title>
                 <div className="my-5 text-left">
-                    <div >
-                        <form>
-                          <div className="mt-5">
-                            <div>
-                              <Calendar
-                                onChange={onChange}
-                                value={value}
-                                minDate={new Date()}
-                                className="shadow-lg border-0 rounded-lg border-white"
-                                
-                                
-                              
-                              />
-                            </div>
+                  <div >
+                    <form>
+                      <div className="mt-5">
+                        <div>
+                          <Calendar
+                            onChange={onChange}
+                            value={value}
+                            onClickDay={click}
+                            minDate={new Date()}
+                            className="shadow-lg border-0 rounded-lg border-white"
+                          />
+                        </div>
 
-                          </div>
-                          <div className="mt-5">
-                            <h1 className="font-primary  text-md font-semibold"> Time</h1>
-                            <input type="time" name="name" className=" rounded-lg shadow-lg h-10 w-60" value="a" />
+                      </div>
+                      <div className="mt-5">
+                        <h1 className="font-primary  text-md font-semibold"> Time</h1>
+                        <input type="time" name="name" className=" rounded-lg shadow-lg h-10 w-60" value="a" />
 
-                          </div>
-                          <div className="mt-5">
-                            <h1 className="font-primary  text-md font-semibold "> Vehicle No</h1>
-                            <TechniciansDropDown />       
+                      </div>
+                      <div className="mt-5">
+                        <h1 className="font-primary  text-md font-semibold "> Vehicle No</h1>
+                        <TechniciansDropDown />
 
 
-                          </div>
-                          
-                          <div className="mt-5">
-                            <h1 className="font-primary  text-md font-semibold"> Service Advisor</h1>
-                            <TechniciansDropDown />       
+                      </div>
 
-                          </div>
-                        </form>
-                    </div>
-                    
+                      <div className="mt-5">
+                        <h1 className="font-primary  text-md font-semibold"> Service Advisor</h1>
+                        <TechniciansDropDown />
+
+                      </div>
+                    </form>
+                  </div>
+
                 </div>
 
                 <div className="mt-4">
