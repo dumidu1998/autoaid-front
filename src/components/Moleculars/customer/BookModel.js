@@ -4,6 +4,9 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import TechniciansDropDown from '../technician/TechniciansDropDown'
 import Calendar, { MonthView } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import axios from 'axios';
+import { getCookie } from './../../../jsfunctions/cookies'
+import SlotDropDown from './SlotsDropDown';
 
 const people = [
   { name: 'Wade Cooper' },
@@ -15,9 +18,9 @@ const people = [
 ]
 
 export default function MyModal() {
-  let [isOpen, setIsOpen] = useState(true)
+  let [isOpen, setIsOpen] = useState(true);
   const [value, onChange] = useState(new Date());
-
+  const [slots, setSlots] = useState([]);
   function closeModal() {
     setIsOpen(false)
   }
@@ -26,10 +29,23 @@ export default function MyModal() {
     setIsOpen(true)
   }
 
+  var config = {
+    headers: {
+      'Authorization': 'Bearer ' + getCookie('token'),
+    }
+  }
+
   function click(e) {
-    console.log(e.getMonth() + 1)
-    console.log(e.getDate())
-    console.log(e.getFullYear())
+
+    var selectedDate = e.getFullYear() + '-' + (e.getMonth() + 1) + '-' + e.getDate();
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getslotsfromdate/${selectedDate}`, config)
+      .then((res) => {
+        setSlots(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
 
@@ -102,7 +118,8 @@ export default function MyModal() {
                       </div>
                       <div className="mt-5">
                         <h1 className="font-primary  text-md font-semibold"> Time</h1>
-                        <input type="time" name="name" className=" rounded-lg shadow-lg h-10 w-60" value="a" />
+                        <SlotDropDown data={slots} />
+                        {/* <input type="time" name="name" className=" rounded-lg shadow-lg h-10 w-60" /> */}
 
                       </div>
                       <div className="mt-5">
