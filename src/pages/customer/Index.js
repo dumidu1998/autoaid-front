@@ -9,6 +9,7 @@ import StatusViewer from '../../components/Moleculars/customer/StatusViewer'
 import axios from 'axios';
 import TopNav from '../../components/Moleculars/customer/TopNav'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { getCookie } from '../../jsfunctions/cookies'
 export default function Index() {
     const [vehicles, setvehicles] = useState([])
     const [expenses, setexpenses] = useState({
@@ -19,9 +20,16 @@ export default function Index() {
         "activeRe": 0
     })
 
-    var submit = async () => {
+    var config = {
+        headers: {
+            'Authorization': 'Bearer ' + getCookie('token'),
+        }
+    }
 
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/4`)
+    var userId = getCookie('userId');
+
+    var submit = async () => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/vehiclesbyuserid/${userId}`, config)
             .then(function (response) {
                 // handle success
                 setvehicles(response.data);
