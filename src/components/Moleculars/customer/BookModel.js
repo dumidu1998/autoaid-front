@@ -47,7 +47,18 @@ export default function MyModal() {
 
 	function click(e) {
 		setError(false);
-		var selectedDate = e.toISOString().split('T')[0];
+		let month = e.getMonth() + 1;
+		let date = e.getDate();
+
+		if (month < 10) {
+			month = '0' + month;
+		}
+
+		if (date < 10) {
+			date = '0' + date;
+		}
+
+		var selectedDate = e.getFullYear() + '-' + month + '-' + date;
 		setSelecteddate(selectedDate);
 		axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getslotsfromdate/${selectedDate}`, config)
 			.then((res) => {
@@ -77,7 +88,6 @@ export default function MyModal() {
 			.then(function (response) {
 				// handle success
 				setvehicles(response.data);
-
 			})
 			.catch(function (error) {
 				// handle error
@@ -99,19 +109,15 @@ export default function MyModal() {
 	}, [selectedtimeSlot])
 
 	function submit() {
-		console.log(selecteddate);
-		console.log(selectedtimeSlot);
-		console.log(selectedadvisor);
-		console.log(selectedvehicle);
 		var datatosend = {
 			date: selecteddate,
 			slotId: selectedtimeSlot.appointmentSlotId,
 			staffId: selectedadvisor.id,
 			vehicleId: selectedvehicle.vehicleId
 		}
-		console.log(datatosend);
 		axios.post(`${process.env.REACT_APP_API_BASE_URL}/appointment/addappointment`, datatosend, config)
 			.then((res) => {
+				setselectedtimeSlot({ appointmentSlotId: 0, slotTime: "Select a Time" });
 				alert("Appointment Placed Sucessfully!!");
 				closeModal();
 			})
