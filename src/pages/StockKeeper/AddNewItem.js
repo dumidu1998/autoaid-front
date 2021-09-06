@@ -19,20 +19,20 @@ import DropdownMol from '../../components/Moleculars/stockKeeper/DropdownMol';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
-  }
+}
 
 export default function AddNewItem() {
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
-    const [output, setoutput] = useState({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:"",catName:""});
+    const [output, setoutput] = useState({ itemName: "", itemNo: "", stock: "", price: "", reorderLevel: "", catName: "" });
     const [input, setInput] = useState([]);
     const [selectedItem, setselectedItem] = useState(0);
-    const [addItem, setaddItem] = useState({name:"",price:"",reorderLevel:"",stock:"",categoryId:"",buyingPrice:""});
-    const [itemCategory, setitemCategory] = useState();
+    const [addItem, setaddItem] = useState({ name: "", price: "", reorderLevel: "", stock: "", categoryId: "", buyingPrice: "" });
+    const [itemCategory, setitemCategory] = useState([{ categoryId: 1, categoryName: " " }, { categoryId: 2, categoryName: " " }]);
 
 
-    var config={
-        header:{
+    var config = {
+        header: {
             'Authorization': 'Bearer ' + getCookie('token'),
         }
     }
@@ -42,8 +42,8 @@ export default function AddNewItem() {
             .then(res => {
                 setshow("hidden");
                 // window.document.getElementById("name")=res.data.itemName;
-               setoutput(res.data);
-               console.log(output);
+                setoutput(res.data);
+                console.log(output);
             }
             ).catch(err => {
                 console.log(err);
@@ -51,7 +51,7 @@ export default function AddNewItem() {
     }
 
     function getByName(e) {
-        setoutput({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:"",catName:"",buyingPrice:""});
+        setoutput({ itemName: "", itemNo: "", stock: "", price: "", reorderLevel: "", catName: "", buyingPrice: "" });
         if (e.target.value == "") {
             setshow("hidden");
             return;
@@ -122,24 +122,23 @@ export default function AddNewItem() {
                                     {/* <ButtonProps name="Search" /> */}
                                 </div>
                             </div>
-                            
-                            {(result.length != 0)?
+
+                            {(result.length != 0) ?
                                 <Formik
                                     enableReinitialize
                                     initialValues={output}
                                     onSubmit={async (values) => {
-                                    await new Promise((r) => setTimeout(r, 500));
-                                    alert(JSON.stringify(values, null, 2));
-                                  }}
+                                        await new Promise((r) => setTimeout(r, 500));
+                                        alert(JSON.stringify(values, null, 2));
+                                    }}
                                 >
-
                                     <Form>
                                         <div className="lg:flex mt-5">
 
                                             <div className="flex flex-col items-center overflow-auto ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
-                                                    
+
                                                         <label htmlFor="itemNo" className="font-primary  text-md font-semibold  mt-3">Item Number</label>
                                                         <Field id="itemNo" name="itemNo" placeholder="000" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
@@ -153,14 +152,14 @@ export default function AddNewItem() {
                                                         <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
                                                         <Field id="reorderLevel" name="reorderLevel" placeholder="20" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
-                                                </div>    
+                                                </div>
                                             </div>
-                                        </div> 
-                                        
+                                        </div>
+
                                         <div className="flex items-center justify-center mt-4" >
                                             <div className="w-auto h-10 rounded-lg flex items-center justify-center p-4 bg-blue-700 mx-6 ">
                                                 <button className="text-lg font-primary font-medium text-white" type="submit">Update Details</button>
-                                           </div>
+                                            </div>
                                         </div>
 
                                         <div className="lg:flex mt-5">
@@ -168,7 +167,7 @@ export default function AddNewItem() {
                                             <div className="flex flex-col items-center overflow-auto ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
-                                                    
+
                                                         <label htmlFor="buyingPrice" className="font-primary  text-md font-semibold  mt-3">Buying Price</label>
                                                         <Field id="buyingPrice" name="buyingPrice" placeholder="000" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
@@ -177,100 +176,100 @@ export default function AddNewItem() {
                                                         <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
                                                         <Field id="stock" name="stock" placeholder="20" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
-                                                </div>    
+                                                </div>
                                             </div>
                                         </div>
 
-                                        
-                                        
+
+
                                         <div className="flex items-center justify-center mt-4" >
                                             <div className="w-auto h-10 rounded-lg flex items-center justify-center p-4 bg-blue-700 mx-6 ">
                                                 <button className="text-lg font-primary font-medium text-white" type="submit">Update Stock</button>
-                                           </div>
-                                        </div>   
+                                            </div>
+                                        </div>
 
                                     </Form>
 
                                 </Formik>
-                                   :<Formik
-                                   enableReinitialize
-                                   initialValues={output}
-                                   onSubmit={async (values) => {
-                                       console.log(values);
-                                       var addedId;
-                                       axios.post(`${process.env.REACT_APP_API_BASE_URL}/inventory/item`,values,config)
-                                       .then((res)=>{
-                                            console.log(res.data);
-                                            addedId=res.data.itemId;
-                                            axios.post(`${process.env.REACT_APP_API_BASE_URL}/inventory/updateStock`,{
-                                                itemNo:addedId,
-                                                buyingPrice:values.buyingPrice,
-                                                stock:values.stock
-                                           },config)
-                                           .then((res)=>{
+                                : <Formik
+                                    enableReinitialize
+                                    initialValues={output}
+                                    onSubmit={async (values) => {
+                                        console.log(values);
+                                        var addedId;
+                                        axios.post(`${process.env.REACT_APP_API_BASE_URL}/inventory/item`, values, config)
+                                            .then((res) => {
                                                 console.log(res.data);
-                                           }).catch((err)=>{
+                                                addedId = res.data.itemId;
+                                                axios.post(`${process.env.REACT_APP_API_BASE_URL}/inventory/updateStock`, {
+                                                    itemNo: addedId,
+                                                    buyingPrice: values.buyingPrice,
+                                                    stock: values.stock
+                                                }, config)
+                                                    .then((res) => {
+                                                        console.log(res.data);
+                                                    }).catch((err) => {
+                                                        console.log(err);
+                                                    })
+                                                toast.success(res.data.name + " Added Successfully");
+                                            }).catch((err) => {
                                                 console.log(err);
-                                           })
-                                            toast.success(res.data.name + " Added Successfully");
-                                       }).catch((err)=>{
-                                            console.log(err);
-                                       })
-                                //    alert(JSON.stringify(values, null, 2));
-                                 }}
-                               >
+                                            })
+                                        //    alert(JSON.stringify(values, null, 2));
+                                    }}
+                                >
 
-                                   <Form>
-                                       
-                                       <div className="lg:flex mt-5">
+                                    <Form>
 
-                                           <div className="flex flex-col items-center overflow-auto ">
-                                               <div className="flex flex-row">
-                                                   <div className="flex flex-col mr-12 ml-4 w-1/2 ">
+                                        <div className="lg:flex mt-5">
 
-                                                       <label htmlFor="name" className="font-primary  text-md font-semibold  mt-3 z-10">Item Name</label>
-                                                       <Field id="name" name="name" placeholder="Enter Item" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
-                                                       
-                                                       <label htmlFor="price" className="font-primary  text-md font-semibold  mt-3">Selling Price</label>
-                                                       <Field id="price" name="price" placeholder="Enter Buying Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                            <div className="flex flex-col items-center overflow-auto ">
+                                                <div className="flex flex-row">
+                                                    <div className="flex flex-col mr-12 ml-4 w-1/2 ">
 
-                                                       <label htmlFor="buyingPrice" className="font-primary  text-md font-semibold  mt-3">Buying Price</label>
-                                                       <Field id="buyingPrice" name="buyingPrice" placeholder="Enter Selling Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <label htmlFor="name" className="font-primary  text-md font-semibold  mt-3 z-10">Item Name</label>
+                                                        <Field id="name" name="name" placeholder="Enter Item" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
-                                                   </div>
-                                                   <div className="flex flex-col ml-40 w-1/2">
-                                                       
-                                                       <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
-                                                       <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <label htmlFor="price" className="font-primary  text-md font-semibold  mt-3">Selling Price</label>
+                                                        <Field id="price" name="price" placeholder="Enter Buying Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
-                                                       <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
-                                                       <DropdownMol itemCategory={itemCategory} setitemCategory={setitemCategory} />
-                                                       {/* <Field id="categoryId" name="categoryId" placeholder="" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" /> */}
+                                                        <label htmlFor="buyingPrice" className="font-primary  text-md font-semibold  mt-3">Buying Price</label>
+                                                        <Field id="buyingPrice" name="buyingPrice" placeholder="Enter Selling Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
-                                                       <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
-                                                       <Field id="stock" name="stock" placeholder="Enter Stock" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
-                                                       
-                                                   </div>
-                                               </div>    
-                                           </div>
+                                                    </div>
+                                                    <div className="flex flex-col ml-40 w-1/2">
 
-                                       </div>
-                                       <div className="flex items-center justify-center " >
+                                                        <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
+                                                        <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+
+                                                        <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
+                                                        <DropdownMol data={itemCategory} set={setitemCategory} />
+                                                        {/* <Field id="categoryId" name="categoryId" placeholder="" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" /> */}
+
+                                                        <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
+                                                        <Field id="stock" name="stock" placeholder="Enter Stock" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div className="flex items-center justify-center " >
                                             <div className="w-min h-10 rounded-lg flex items-center justify-center p-4 bg-green-700 mt-6 ">
                                                 <button className="text-lg font-primary font-medium text-white" type="submit">Add</button>
-                                           </div>
-                                           {/* <div className="mx-4">
+                                            </div>
+                                            {/* <div className="mx-4">
                                            <div className="w-auto h-10 rounded-lg flex items-center justify-center p-4 bg-green-700" >
                                                 <h1 className="text-lg font-primary font-medium text-white">Add</h1>
                                             </div>
                                             </div> */}
-                                       </div>
+                                        </div>
 
 
-                                   </Form>
+                                    </Form>
 
-                               </Formik> }       
-                            
+                                </Formik>}
+
 
                             {/* <div className="lg:flex mt-5">
                                         <div className="">
@@ -346,22 +345,22 @@ export default function AddNewItem() {
                                 <div className="mx-4"><ButtonProps name="Add" color="bg-green-600" /></div>
                                 <div className="mx-4"><ButtonProps name="Update" color="bg-blue-700" /></div>
                             </div> */}
-                            
+
                         </div>
                         {/* <div className="mx-8 "><UpdateQuantity itemName={output.itemName} quantity="123" price="100" link={""} /></div>    */}
                     </div>
                     <ToastContainer
-                position="bottom-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
+                        position="bottom-right"
+                        autoClose={3000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
 
-            />
+                    />
                 </div>
             </div>
         </div >
