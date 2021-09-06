@@ -1,17 +1,13 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 export default function DropdownMol(props) {
-    const [selected, setSelected] = useState({ categoryName: 'Select the category', categoryId: 1 })
-
-    useEffect(() => {
-        setSelected({ categoryName: 'Select the category', categoryId: 1 });
-        console.log(props.data);
-    }, [props.data])
+    const [selected, setSelected] = useState({ categoryId: 0, categoryName: 'Select One' });
 
     useEffect(() => {
         props.set(selected);
@@ -27,6 +23,7 @@ export default function DropdownMol(props) {
                                 <span className="ml-3 block truncate">{selected.categoryName}</span>
                             </span>
                             <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                {/* <SelectorIcon className="h-5 w-5 text-gray-400" aria-hidden="true" /> */}
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                 </svg>

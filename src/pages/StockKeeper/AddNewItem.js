@@ -16,6 +16,7 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import DropdownMol from '../../components/Moleculars/stockKeeper/DropdownMol';
+import TechniciansDropDown from '../../components/Moleculars/technician/TechniciansDropDown';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -29,6 +30,7 @@ export default function AddNewItem() {
     const [selectedItem, setselectedItem] = useState(0);
     const [addItem, setaddItem] = useState({ name: "", price: "", reorderLevel: "", stock: "", categoryId: "", buyingPrice: "" });
     const [itemCategory, setitemCategory] = useState([{ categoryId: 1, categoryName: " " }, { categoryId: 2, categoryName: " " }]);
+    const [selectedItemCategory, setSelectedItemCategory] = useState();
 
 
     var config = {
@@ -36,6 +38,7 @@ export default function AddNewItem() {
             'Authorization': 'Bearer ' + getCookie('token'),
         }
     }
+
     function showdetails(id) {
         setselectedItem(id.target.id)
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
@@ -66,14 +69,14 @@ export default function AddNewItem() {
                 setresult([]);
             })
     }
+
     useEffect(() => {
-        console.log(itemCategory);
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`, config)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/categories`, config)
             .then(function (response) {
                 console.log(response.data);
-                setresult(response.data);
+                setitemCategory(response.data);
             })
-    }, [itemCategory])
+    }, [])
 
     // function addItem(item) {
     //     setaddItem({name:"",price:"",reorderLevel:"",stock:"",categoryId:""});
@@ -191,7 +194,8 @@ export default function AddNewItem() {
                                     </Form>
 
                                 </Formik>
-                                : <Formik
+                                :
+                                <Formik
                                     enableReinitialize
                                     initialValues={output}
                                     onSubmit={async (values) => {
@@ -243,8 +247,7 @@ export default function AddNewItem() {
                                                         <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                         <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
-                                                        <DropdownMol data={itemCategory} set={setitemCategory} />
-                                                        {/* <Field id="categoryId" name="categoryId" placeholder="" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" /> */}
+                                                        <DropdownMol data={itemCategory} set={setSelectedItemCategory} />
 
                                                         <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
                                                         <Field id="stock" name="stock" placeholder="Enter Stock" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
