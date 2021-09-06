@@ -42,7 +42,7 @@ function App() {
   //redirect to login if token is not set
 
   // const history=useHistory();
-  
+
   // if(getCookie('token')==null){
   //   history.push('/login');
   // }
@@ -67,7 +67,7 @@ function App() {
 
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
-          <Route path="/customer/vehicle" exact component={VehicleDetails} />
+          <Route path="/customer/vehicle/:id" exact component={VehicleDetails} />
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />

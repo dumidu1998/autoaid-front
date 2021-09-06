@@ -10,6 +10,8 @@ import axios from 'axios';
 import TopNav from '../../components/Moleculars/customer/TopNav'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { getCookie } from '../../jsfunctions/cookies'
+
+
 export default function Index() {
     const [vehicles, setvehicles] = useState([])
     const [expenses, setexpenses] = useState({
@@ -105,8 +107,8 @@ export default function Index() {
                             {vehicles.map((vehicle, index) => {
                                 // console.log(course.title)
                                 return (
-                                    <Link to={"/customer/vehicle"}>
-                                        <VehicleContainer reg={vehicle.vehicleNumber} time="200km / 3 Months" />
+                                    <Link to={`/customer/vehicle/${vehicle.vehicleId}`}>
+                                        <VehicleContainer reg={vehicle.vehicleNumber} key={vehicle.vehicleId} time="200km / 3 Months" />
                                     </Link>
                                 );
                             })}
