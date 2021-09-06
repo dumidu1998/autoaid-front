@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function ButtonProps(props) {
 
-    let style= "w-24 h-10 rounded-lg flex items-center justify-center ";
+    let style= "w-auto h-10 rounded-lg flex items-center justify-center p-4 ";
     style+=props.color;
 
     return (
