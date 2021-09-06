@@ -1,123 +1,92 @@
-import axios from 'axios';
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-import React, { useState, useEffect } from 'react';
-import SectionSelectNavbar from '../../Atoms/stockKeeper/SectionSelectNavbar';
+import { Fragment, useEffect, useState } from 'react'
+import { Listbox, Transition } from '@headlessui/react'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
-  }
+}
 
 export default function DropdownMol(props) {
-
-    const [list, setList] = useState([
-        { categoryId: 0, categoryName: "All" },
-        { categoryId: 1, categoryName: "A/C" },
-    ])
-
-    const [highBtn, setHighBtn] = useState(list[0].categoryId);
-    useEffect(()=>{props.setitemCategory(highBtn) }, [highBtn]);
-    // console.log("Child-"+highBtn);
-    
+    const [selected, setSelected] = useState({ categoryName: 'Select the category', categoryId: 1 })
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/categories`)
-        .then(res => {
-            // setshow("hidden");
-            // window.document.getElementById("name")=res.data.itemName;
-            setList(res.data);
-           console.log(list);
-        }
-        ).catch(err => {
-            console.log(err);
-        })
-    }, [])
+        setSelected({ categoryName: 'Select the category', categoryId: 1 });
+        console.log(props.data);
+    }, [props.data])
 
+    useEffect(() => {
+        props.set(selected);
+    }, [selected])
 
     return (
-        <div>
+        <Listbox value={selected} onChange={setSelected}>
+            {({ open }) => (
+                <>
+                    <div className="mt-1 relative w-3/4">
+                        <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <span className="flex items-center">
+                                <span className="ml-3 block truncate">{selected.categoryName}</span>
+                            </span>
+                            <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                                </svg>
+                            </span>
+                        </Listbox.Button>
 
-            
-            <Menu as="div" className="relative inline-block text-left">
-                <div>
-                    <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                    Options
-                    <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-                    </Menu.Button>
-                </div>
+                        <Transition
+                            show={open}
+                            as={Fragment}
+                            leave="transition ease-in duration-100"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                        >
+                            <Listbox.Options
+                                static
+                                className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+                            >
+                                {props.data.map((person) => (
+                                    <Listbox.Option
+                                        key={person.categoryId}
+                                        className={({ active }) =>
+                                            classNames(
+                                                active ? 'text-white bg-indigo-600' : 'text-gray-900',
+                                                'cursor-default select-none relative py-2 pl-3 pr-9'
+                                            )
+                                        }
+                                        value={person}
+                                    >
+                                        {({ selected, active }) => (
+                                            <>
+                                                <div className="flex items-center">
+                                                    <span
+                                                        className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
+                                                    >
+                                                        {person.categoryName}
+                                                    </span>
+                                                </div>
 
-                <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-100 scale-95"
-                >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        {/* {list.map(btn => <SectionSelectNavbar setHighBtn={setHighBtn} highBtn={highBtn} key={btn.categoryId} name={btn.categoryName} id={btn.categoryId} /> )} */}
-                    <div className="py-1">
-                        <Menu.Item>
-                        {({ active }) => (
-                            <a
-                            href="#"
-                            className={classNames(
-                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                            )}
-                            >
-                            {/* {list.map(btn => <SectionSelectNavbar setHighBtn={setHighBtn} highBtn={highBtn} key={btn.categoryId} name={btn.categoryName} id={btn.categoryId} /> )} */}
-                            </a>
-                        )}
-                        </Menu.Item> 
-                        {/* <Menu.Item>
-                        {({ active }) => (
-                            <a
-                            href="#"
-                            className={classNames(
-                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                            )}
-                            >
-                            Support
-                            </a>
-                        )}
-                        </Menu.Item>
-                        <Menu.Item>
-                        {({ active }) => (
-                            <a
-                            href="#"
-                            className={classNames(
-                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                            )}
-                            >
-                            License
-                            </a>
-                        )}
-                        </Menu.Item>
-                        <form method="POST" action="#">
-                        <Menu.Item>
-                            {({ active }) => (
-                            <button
-                                type="submit"
-                                className={classNames(
-                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                'block w-full text-left px-4 py-2 text-sm'
-                                )}
-                            >
-                                Sign out
-                            </button>
-                            )}
-                        </Menu.Item>
-                        </form> */}
+                                                {selected ? (
+                                                    <span
+                                                        className={classNames(
+                                                            active ? 'text-white' : 'text-indigo-600',
+                                                            'absolute inset-y-0 right-0 flex items-center pr-4'
+                                                        )}
+                                                    >
+                                                        {/* <CheckIcon className="h-5 w-5" aria-hidden="true" /> */}
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                    </span>
+                                                ) : null}
+                                            </>
+                                        )}
+                                    </Listbox.Option>
+                                ))}
+                            </Listbox.Options>
+                        </Transition>
                     </div>
-                    </Menu.Items>
-                </Transition>
-            </Menu>
-            
-        </div>
+                </>
+            )}
+        </Listbox>
     )
 }
