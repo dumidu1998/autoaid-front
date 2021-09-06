@@ -25,11 +25,11 @@ function classNames(...classes) {
 export default function AddNewItem() {
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
-    const [output, setoutput] = useState({ itemName: "", itemNo: "", stock: "", price: "", reorderLevel: "", catName: "" });
+    const [output, setoutput] = useState({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", categoryId: "", buyingPrice: "" });
     const [input, setInput] = useState([]);
     const [selectedItem, setselectedItem] = useState(0);
     const [addItem, setaddItem] = useState({ name: "", price: "", reorderLevel: "", stock: "", categoryId: "", buyingPrice: "" });
-    const [itemCategory, setitemCategory] = useState([{ categoryId: 1, categoryName: " " }, { categoryId: 2, categoryName: " " }]);
+    const [itemCategory, setitemCategory] = useState([]);
     const [selectedItemCategory, setSelectedItemCategory] = useState();
 
 
@@ -54,7 +54,7 @@ export default function AddNewItem() {
     }
 
     function getByName(e) {
-        setoutput({ itemName: "", itemNo: "", stock: "", price: "", reorderLevel: "", catName: "", buyingPrice: "" });
+        setoutput({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", categoryId: "", buyingPrice: "" });
         if (e.target.value == "") {
             setshow("hidden");
             return;
@@ -69,12 +69,28 @@ export default function AddNewItem() {
                 setresult([]);
             })
     }
+    // function categorySet(cat) {
+    //     setSelectedItemCategory(cat.target.value)
+    //     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
+    //         .then(res => {
+    //             setshow("hidden");
+    //             // window.document.getElementById("name")=res.data.itemName;
+    //             setoutput(res.data);
+    //             console.log(output);
+    //         }
+    //         ).catch(err => {
+    //             console.log(err);
+    //         })
+    // }
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/categories`, config)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/categories`)
             .then(function (response) {
                 console.log(response.data);
                 setitemCategory(response.data);
+                setSelectedItemCategory(response.data);
+                console.log(itemCategory);
+                console.log(selectedItemCategory);
             })
     }, [])
 
@@ -142,15 +158,15 @@ export default function AddNewItem() {
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
 
-                                                        <label htmlFor="itemNo" className="font-primary  text-md font-semibold  mt-3">Item Number</label>
-                                                        <Field id="itemNo" name="itemNo" placeholder="000" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <label htmlFor="name" className="font-primary  text-md font-semibold  mt-3">Item Number</label>
+                                                        <Field id="name" name="name" placeholder="000" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                         <label htmlFor="price" className="font-primary  text-md font-semibold  mt-3">Selling Price</label>
                                                         <Field id="price" name="price" placeholder="500" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                     <div className="flex flex-col ml-40 w-1/2">
-                                                        <label htmlFor="catName" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
-                                                        <Field id="catName" name="catName" placeholder="Item" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                                                        <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
+                                                        <Field id="categoryId" name="categoryId" placeholder="Item" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
                                                         <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
                                                         <Field id="reorderLevel" name="reorderLevel" placeholder="20" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
@@ -199,6 +215,7 @@ export default function AddNewItem() {
                                     enableReinitialize
                                     initialValues={output}
                                     onSubmit={async (values) => {
+                                        values.categoryId=selectedItemCategory.categoryId;
                                         console.log(values);
                                         var addedId;
                                         axios.post(`${process.env.REACT_APP_API_BASE_URL}/inventory/item`, values, config)
@@ -244,11 +261,11 @@ export default function AddNewItem() {
                                                     <div className="flex flex-col ml-40 w-1/2">
 
                                                         <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
-                                                        <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5"/>
 
                                                         <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
-                                                        <DropdownMol data={itemCategory} set={setSelectedItemCategory} />
-
+                                                        <DropdownMol data={itemCategory} set={setSelectedItemCategory} id="categoryId" name="categoryId" value/>
+                                                        
                                                         <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
                                                         <Field id="stock" name="stock" placeholder="Enter Stock" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 

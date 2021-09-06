@@ -11,6 +11,7 @@ export default function DropdownMol(props) {
 
     useEffect(() => {
         props.set(selected);
+        console.log("test")
     }, [selected])
 
     return (
