@@ -18,7 +18,7 @@ export default function UpdateQuantity(props) {
                     <div><input type="text" name="name" value={props.quantity} className=" rounded-lg shadow-lg h-10 w-40 float-right border-0" /></div>
                     <div className=" "><p className="font-bold font-primary  ">Item Price</p></div>
                     <div><input type="text" name="name" value={props.price} className=" rounded-lg shadow-lg h-10 w-40 float-right border-0 " /></div>
-                    <ButtonProps className=" w-20" name="Update" link={props.link} color="bg-blue-700" />
+                    <ButtonProps name="Update" link={props.link} color="bg-blue-700" />
 
                 </div>
             </div>
