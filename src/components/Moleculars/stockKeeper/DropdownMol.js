@@ -19,7 +19,7 @@ export default function DropdownMol(props) {
             {({ open }) => (
                 <>
                     <div className="mt-1 relative w-3/4">
-                        <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <Listbox.Button className="relative w-60 h-10 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             <span className="flex items-center">
                                 <span className="ml-3 block truncate">{selected.categoryName}</span>
                             </span>
@@ -40,7 +40,7 @@ export default function DropdownMol(props) {
                         >
                             <Listbox.Options
                                 static
-                                className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+                                className="absolute z-10 mt-1 w-60 bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
                             >
                                 {props.data.map((person) => (
                                     <Listbox.Option

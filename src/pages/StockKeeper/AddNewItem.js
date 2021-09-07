@@ -120,7 +120,7 @@ export default function AddNewItem() {
                     </div>
                     <div className="w-full flex flex-col">
                         <TopContainer heading1="Add New Item" heading2="Stock Keeper" addnewbtntext="Add New" />
-                        <div className="h-3/6 flex flex-col items-center mt-10">
+                        <div className="h-5/6 flex flex-col items-center mt-10">
                             {/* <h1>Search for stock Item</h1> */}
                             <div className="lg:flex mt-5 h-20">
                                 <div className=" float-left">
@@ -154,7 +154,7 @@ export default function AddNewItem() {
                                     <Form>
                                         <div className="lg:flex mt-5">
 
-                                            <div className="flex flex-col items-center overflow-auto ">
+                                            <div className="flex flex-col items-center ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
 
@@ -244,7 +244,7 @@ export default function AddNewItem() {
 
                                         <div className="lg:flex mt-5">
 
-                                            <div className="flex flex-col items-center overflow-auto ">
+                                            <div className="flex flex-col items-center ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
 
@@ -264,7 +264,9 @@ export default function AddNewItem() {
                                                         <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5"/>
 
                                                         <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
-                                                        <DropdownMol data={itemCategory} set={setSelectedItemCategory} id="categoryId" name="categoryId" value/>
+                                                        <div className=" ml-5 rounded-lg shadow-lg ">
+                                                            <DropdownMol data={itemCategory} set={setSelectedItemCategory} id="categoryId" name="categoryId" />
+                                                        </div>
                                                         
                                                         <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
                                                         <Field id="stock" name="stock" placeholder="Enter Stock" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
