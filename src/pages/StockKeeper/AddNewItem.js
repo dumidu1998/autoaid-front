@@ -25,7 +25,7 @@ function classNames(...classes) {
 export default function AddNewItem() {
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
-    const [output, setoutput] = useState({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", categoryId: "", buyingPrice: "" });
+    const [output, setoutput] = useState({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", categoryId: "", catName: "", buyingPrice: "", newStock: ""});
     const [input, setInput] = useState([]);
     const [selectedItem, setselectedItem] = useState(0);
     const [addItem, setaddItem] = useState({ name: "", price: "", reorderLevel: "", stock: "", categoryId: "", buyingPrice: "" });
@@ -54,7 +54,7 @@ export default function AddNewItem() {
     }
 
     function getByName(e) {
-        setoutput({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", categoryId: "", buyingPrice: "" });
+        setoutput({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", catName: "", buyingPrice: "", newStock: ""});
         if (e.target.value == "") {
             setshow("hidden");
             return;
@@ -63,6 +63,7 @@ export default function AddNewItem() {
             .then(res => {
                 setresult(res.data);
                 setshow("block");
+                console.log(res.data);
             }
             ).catch(err => {
                 console.log(err);
@@ -89,8 +90,8 @@ export default function AddNewItem() {
                 console.log(response.data);
                 setitemCategory(response.data);
                 setSelectedItemCategory(response.data);
-                console.log(itemCategory);
-                console.log(selectedItemCategory);
+                // console.log(itemCategory);
+                // console.log(selectedItemCategory);
             })
     }, [])
 
@@ -147,68 +148,68 @@ export default function AddNewItem() {
                                     enableReinitialize
                                     initialValues={output}
                                     onSubmit={async (values) => {
-                                        await new Promise((r) => setTimeout(r, 500));
-                                        alert(JSON.stringify(values, null, 2));
+                                        console.log(values);
+                                        axios.post(`${process.env.REACT_APP_API_BASE_URL}/inventory/updateStock`, {
+                                            itemNo: values.itemNo,
+                                            buyingPrice: values.buyingPrice,
+                                            stock: values.newStock
+                                        }, config)
+                                            .then((res) => {
+                                                console.log(res.data);
+                                                toast.success(res.data);
+                                            }).catch((err) => {
+                                                console.log(err);
+                                            })
+                                        // alert(JSON.stringify(values, null, 2));
                                     }}
                                 >
                                     <Form>
                                         <div className="lg:flex mt-5">
-
                                             <div className="flex flex-col items-center ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
 
-                                                        <label htmlFor="name" className="font-primary  text-md font-semibold  mt-3">Item Number</label>
-                                                        <Field id="name" name="name" placeholder="000" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <label htmlFor="itemNo" className="font-primary  text-md font-semibold  mt-3">Item Number</label>
+                                                        <Field id="itemNo" name="itemNo" placeholder="Enter Item Number" disabled className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                         <label htmlFor="price" className="font-primary  text-md font-semibold  mt-3">Selling Price</label>
-                                                        <Field id="price" name="price" placeholder="500" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <Field id="price" name="price" placeholder="Enter Selling Price" disabled className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                     <div className="flex flex-col ml-40 w-1/2">
-                                                        <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
-                                                        <Field id="categoryId" name="categoryId" placeholder="Item" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                                                        <label htmlFor="catName" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
+                                                        <Field id="catName" name="catName" placeholder="Enter Category Id" disabled className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5"/>
 
                                                         <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
-                                                        <Field id="reorderLevel" name="reorderLevel" placeholder="20" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" disabled className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div className="flex items-center justify-center mt-4" >
+                                        {/* <div className="flex items-center justify-center mt-4" >
                                             <div className="w-auto h-10 rounded-lg flex items-center justify-center p-4 bg-blue-700 mx-6 ">
                                                 <button className="text-lg font-primary font-medium text-white" type="submit">Update Details</button>
                                             </div>
-                                        </div>
-
+                                        </div> */}
                                         <div className="lg:flex mt-5">
-
                                             <div className="flex flex-col items-center overflow-auto ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
-
                                                         <label htmlFor="buyingPrice" className="font-primary  text-md font-semibold  mt-3">Buying Price</label>
-                                                        <Field id="buyingPrice" name="buyingPrice" placeholder="000" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
-
+                                                        <Field id="buyingPrice" name="buyingPrice" placeholder="Enter Buying Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                     <div className="flex flex-col ml-40 w-1/2">
-                                                        <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
-                                                        <Field id="stock" name="stock" placeholder="20" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <label htmlFor="newStock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
+                                                        <Field id="newStock" name="newStock" placeholder="Enter New Stock Number" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-
-
                                         <div className="flex items-center justify-center mt-4" >
                                             <div className="w-auto h-10 rounded-lg flex items-center justify-center p-4 bg-blue-700 mx-6 ">
                                                 <button className="text-lg font-primary font-medium text-white" type="submit">Update Stock</button>
                                             </div>
                                         </div>
-
                                     </Form>
-
                                 </Formik>
                                 :
                                 <Formik
@@ -233,6 +234,7 @@ export default function AddNewItem() {
                                                         console.log(err);
                                                     })
                                                 toast.success(res.data.name + " Added Successfully");
+                                                setoutput({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", catName: "", buyingPrice: "" })
                                             }).catch((err) => {
                                                 console.log(err);
                                             })
@@ -265,7 +267,7 @@ export default function AddNewItem() {
 
                                                         <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
                                                         <div className=" ml-5 rounded-lg shadow-lg ">
-                                                            <DropdownMol data={itemCategory} set={setSelectedItemCategory} id="categoryId" name="categoryId" />
+                                                            <DropdownMol data={itemCategory} set={setSelectedItemCategory} />
                                                         </div>
                                                         
                                                         <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
