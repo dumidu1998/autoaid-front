@@ -48,7 +48,7 @@ export default function StaffManageIdStatusPropilePicRow(props) {
 
     return (
         <div className=" flex flex-col items-center relative lg:flex-row lg:justify-center lg:right-32">
-            <div className="flex items-center justify-around z-10 lg:mr-20  ">
+            <div className="flex items-center justify-around  lg:mr-20  ">
                 <StaffManageIdDisplay id={nextId} />
                 <div className={activateBtnHide}>
                     <StaffManageStatusDisplay status={props.userStatus} />

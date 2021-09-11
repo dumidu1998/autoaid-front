@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '@material-tailwind/react/Button';
 export default function AdminSideBarIcons({ showSidebar, setShowSidebar }) {
     return (
-        <div className="flex justify-start">
+        <div className="flex justify-start ">
         {/* <div className="bg-black shadow-lg w-40 h-screen"> */}
         <div className="md:hidden ">
                     <Button
@@ -38,11 +38,11 @@ export default function AdminSideBarIcons({ showSidebar, setShowSidebar }) {
                     </div>
                 </div>
 
-                <div className={`h-screen fixed  top-0 md:left-0 ${showSidebar} flex items-center justify-center flex-row flex-nowrap overflow-y-auto bg-white shadow-lg w-40   z-10 py-4 px-6 transition-all duration-300 md:overflow-hidden`}>
+                <div className={`h-screen fixed  top-0 md:left-0 ${showSidebar} flex items-center justify-center flex-row flex-nowrap overflow-y-auto bg-white z-200 shadow-lg w-40   z-10 py-4 px-6 transition-all duration-300 md:overflow-hidden`}>
                 {/* <div > */}
             
             
-                    <div className="relative mt-24 h-screen">
+                    <div className="relative mt-24 h-screen ">
                         <Link to="/admin/"> 
                             <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg  m-10 rounded-lg mt-24">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
