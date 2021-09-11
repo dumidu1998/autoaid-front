@@ -10,6 +10,7 @@ import ButtonProps from '../../components/Atoms/stockKeeper/ButtonProps'
 import axios from 'axios'
 import ButtonRedProps from '../../components/Atoms/stockKeeper/ButtonRedProps'
 import { getCookie } from '../../jsfunctions/cookies'
+import PopupItemDetails from '../../components/Moleculars/stockKeeper/PopupItemDetails'
 
 export default function StockQuantity() {
     const [itemCategory, setitemCategory] = useState();
@@ -111,6 +112,9 @@ useEffect(() => {
                                             <input type="text" name="item" id="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0 ml-10" onChange={getByName}
                                             />
                                         </div>
+                                        <div>
+                                            {/* <PopupItemDetails/> */}
+                                        </div>
                                         {/* <div className="h-auto z-20 ">
                                             <ul class={`bg-white border border-gray-100 w-full mt-12 ${show} `} >
                                                 {result.map(item => (<li class="pl-1 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900" onClick={showdetails} id={item.itemNo} >
@@ -133,10 +137,10 @@ useEffect(() => {
                             <div className="w-full h-3/5 overflow-auto">
                                 <div className="h-auto z-20 ">
                                     <ul class={` ${show} `} >
-                                                {result.map(item => (<div className="mt-4 border-b-2 pr-9 pl-12" onChange={showdetails} id={item.itemNo}>
+                                                {result.map(item => (<div className="mt-4 border-b-2 pr-9 pl-12 " onChange={showdetails} id={item.itemNo}>
                                                     {/* {item.itemName} */}
-                                                     <ItemContainer3 itemNo={item.itemName} quantity={item.stock} link={""} />
-                                                     
+                                                     <ItemContainer3 itemName={item.itemName} quantity={item.stock} itemNo={item.itemNo}/>
+                                                                                                          
                                                 </div>
                                                 ))}
                                                 {(result.length == 0) ? ("Item Not found. Please Add New Item!") : ("")}

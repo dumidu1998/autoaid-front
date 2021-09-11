@@ -254,10 +254,10 @@ export default function AddNewItem() {
                                                         <Field id="name" name="name" placeholder="Enter Item" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
                                                         <label htmlFor="price" className="font-primary  text-md font-semibold  mt-3">Selling Price</label>
-                                                        <Field id="price" name="price" placeholder="Enter Buying Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <Field id="price" name="price" placeholder="Enter Selling Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                         <label htmlFor="buyingPrice" className="font-primary  text-md font-semibold  mt-3">Buying Price</label>
-                                                        <Field id="buyingPrice" name="buyingPrice" placeholder="Enter Selling Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                        <Field id="buyingPrice" name="buyingPrice" placeholder="Enter Buying Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                     </div>
                                                     <div className="flex flex-col ml-40 w-1/2">
