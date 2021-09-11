@@ -50,7 +50,7 @@ function App() {
   // }
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-auto">
 
       {/* <NavBar/> */}
       <Router>

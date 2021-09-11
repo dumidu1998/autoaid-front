@@ -1,98 +1,213 @@
-import React, { Component,useState } from 'react';
-import { Link } from 'react-router-dom';
-import Button from '@material-tailwind/react/Button';
-import Icon from '@material-tailwind/react/Icon';
-export default function Testing({ showSidebar, setShowSidebar }) {
-    // const [showSidebar, setShowSidebar] = useState('-left-64');
-    return (
-        <div className="flex justify-start">
-        {/* <div className="bg-black shadow-lg w-40 h-screen"> */}
-        <div className="md:hidden ">
-                    <Button
-                        color="transparent"
-                        buttonType="link"
-                        size="lg"
-                        iconOnly
-                        rounded
-                        ripple="light"
-                        onClick={() => setShowSidebar('left-0')}
-                    >
-                        {/* <Icon name="menu" size="2xl" color="bg-forth-0" /> */}
-                        <img src="https://img.icons8.com/material-rounded/48/000000/menu--v4.png"/>
-                    </Button>
-                    <div
-                        className={`absolute top-2 md:hidden ${
-                            showSidebar === 'left-0' ? 'left-40' : '-left-40'
-                        } z-50 transition-all duration-300`}
-                    >
-                        <Button
-                            color="transparent"
-                            buttonType="link"
-                            size="lg"
-                            iconOnly
-                            rounded
-                            ripple="light"
-                            onClick={() => setShowSidebar('-left-40')}
-                        >
-                            {/* <Icon name="close" size="2xl" color="red" /> */}
-                            <img src="https://img.icons8.com/fluency/96/000000/close-window.png"/>
-                        </Button>
-                    </div>
-                </div>
+// import { Dialog, Transition } from '@headlessui/react'
+// import { Fragment, useState } from 'react'
 
-                <div className={`h-screen fixed  top-0 md:left-0 ${showSidebar} flex items-center justify-center flex-row flex-nowrap overflow-y-auto bg-white shadow-lg w-40   z-10 py-4 px-6 transition-all duration-300 md:overflow-hidden`}>
-                {/* <div > */}
-            
-            
-                    <div className="relative mt-24 h-screen">
-                        <Link to="/admin/"> 
-                            <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg  m-10 rounded-lg mt-24">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                                </svg>
-                                <h1 className="text-gray-300 font-primary text-xs m-1 font-bold">Dashboard</h1>
-                            </div>
-                        </Link>
-                        <Link to="/admin/staff"> 
-                            <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg  m-10 rounded-lg mt-12">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                                </svg>
-                                <h1 className="text-gray-300 font-primary text-xs m-1 font-bold">Staff</h1>
-                            </div>
-                        </Link>
-                        <Link to="/admin/section"> 
-                            <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg m-10 rounded-lg mt-12">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                                </svg>
-                                <h1 className="text-gray-300 font-primary text-xs m-1 font-bold">Sections</h1>
-                            </div>
-                        </Link>
-                            {/* <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg m-10 rounded-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                                </svg>
-                                <h1 className="text-gray-300 font-primary text-xs m-1 font-bold">New Items</h1>
-                            </div> */}
-                            <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg m-10  rounded-lg mt-12">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                                </svg>
-                                <h1 className="text-gray-300 font-primary text-xs m-1 font-bold ">Reports</h1>
-                            </div>
-                        <Link to="/login">
-                            <div className="flex flex-col items-center justify-center w-20 h-20 hover:bg-white hover:shadow-lg hover:border-transparent m-10  rounded-lg mt-24">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
-                                </svg>
-                                <h1 className=" font-primary text-xs m-1 font-bold text-gray-300">Logout</h1>
-                            </div>
-                        </Link>
-                        </div>
-                {/* </div> */}
+// export default function Testing() {
+//   let [isOpen, setIsOpen] = useState(true)
+
+//   function closeModal() {
+//     setIsOpen(false)
+//   }
+
+//   function openModal() {
+//     setIsOpen(true)
+//   }
+
+//   return (
+//     <>
+//       <div className="fixed inset-0 flex items-center justify-center">
+//         <button
+//           type="button"
+//           onClick={openModal}
+//           className="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+//         >
+//           Open dialog
+//         </button>
+//       </div>
+
+//       <Transition appear show={isOpen} as={Fragment}>
+//         <Dialog
+//           as="div"
+//           className="fixed inset-0 z-10 overflow-y-auto"
+//           onClose={closeModal}
+//         >
+//           <div className="min-h-screen px-4 text-center">
+//             <Transition.Child
+//               as={Fragment}
+//               enter="ease-out duration-300"
+//               enterFrom="opacity-0"
+//               enterTo="opacity-100"
+//               leave="ease-in duration-200"
+//               leaveFrom="opacity-100"
+//               leaveTo="opacity-0"
+//             >
+//               <Dialog.Overlay className="fixed inset-0" />
+//             </Transition.Child>
+
+//             {/* This element is to trick the browser into centering the modal contents. */}
+//             <span
+//               className="inline-block h-screen align-middle"
+//               aria-hidden="true"
+//             >
+//               &#8203;
+//             </span>
+//             <Transition.Child
+//               as={Fragment}
+//               enter="ease-out duration-300"
+//               enterFrom="opacity-0 scale-95"
+//               enterTo="opacity-100 scale-100"
+//               leave="ease-in duration-200"
+//               leaveFrom="opacity-100 scale-100"
+//               leaveTo="opacity-0 scale-95"
+//             >
+//               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+//                 <Dialog.Title
+//                   as="h3"
+//                   className="text-lg font-medium leading-6 text-gray-900"
+//                 >
+//                   Payment successful
+//                 </Dialog.Title>
+//                 <div className="mt-2">
+//                   <p className="text-sm text-gray-500">
+//                     Your payment has been successfully submitted. We’ve sent
+//                     your an email with all of the details of your order.
+//                   </p>
+//                 </div>
+
+//                 <div className="mt-4">
+//                   <button
+//                     type="button"
+//                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+//                     onClick={closeModal}
+//                   >
+//                     Got it, thanks!
+//                   </button>
+//                 </div>
+//               </div>
+//             </Transition.Child>
+//           </div>
+//         </Dialog>
+//       </Transition>
+//     </>
+//   )
+// }
+
+import React from "react";
+
+const Tabs = ({ color }) => {
+  const [openTab, setOpenTab] = React.useState(1);
+  return (
+    <>
+      <div className="flex flex-wrap">
+        <div className="w-full">
+          <ul
+            className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
+            role="tablist"
+          >
+            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a
+                className={
+                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  (openTab === 1
+                    ? "text-white bg-" + color + "-600"
+                    : "text-" + color + "-600 bg-white")
+                }
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(1);
+                }}
+                data-toggle="tab"
+                href="#link1"
+                role="tablist"
+              >
+                <i className="fas fa-space-shuttle text-base mr-1"></i> Profile
+              </a>
+            </li>
+            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a
+                className={
+                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  (openTab === 2
+                    ? "text-white bg-" + color + "-600"
+                    : "text-" + color + "-600 bg-white")
+                }
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(2);
+                }}
+                data-toggle="tab"
+                href="#link2"
+                role="tablist"
+              >
+                <i className="fas fa-cog text-base mr-1"></i>  Settings
+              </a>
+            </li>
+            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a
+                className={
+                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  (openTab === 3
+                    ? "text-white bg-" + color + "-600"
+                    : "text-" + color + "-600 bg-white")
+                }
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(3);
+                }}
+                data-toggle="tab"
+                href="#link3"
+                role="tablist"
+              >
+                <i className="fas fa-briefcase text-base mr-1"></i>  Options
+              </a>
+            </li>
+          </ul>
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+            <div className="px-4 py-5 flex-auto">
+              <div className="tab-content tab-space">
+                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+                  <p>
+                    Collaboratively administrate empowered markets via
+                    plug-and-play networks. Dynamically procrastinate B2C users
+                    after installed base benefits.
+                    <br />
+                    <br /> Dramatically visualize customer directed convergence
+                    without revolutionary ROI.
+                  </p>
                 </div>
-            {/* </div> */}
+                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                  <p>
+                    Completely synergize resource taxing relationships via
+                    premier niche markets. Professionally cultivate one-to-one
+                    customer service with robust ideas.
+                    <br />
+                    <br />
+                    Dynamically innovate resource-leveling customer service for
+                    state of the art customer service.
+                  </p>
+                </div>
+                <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                  <p>
+                    Efficiently unleash cross-media information without
+                    cross-media value. Quickly maximize timely deliverables for
+                    real-time schemas.
+                    <br />
+                    <br /> Dramatically maintain clicks-and-mortar solutions
+                    without functional solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    )
+      </div>
+    </>
+  );
+};
+
+export default function TabsRender() {
+  return (
+    <>
+      return <Tabs color="pink" />;
+    </>
+  );
 }
