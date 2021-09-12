@@ -1,5 +1,6 @@
 import React from 'react'
 import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar'
+import Barchart from '../../components/Organs/admin/Barchart'
 import ReportSwitch from '../../components/Organs/admin/ReportSwitch'
 import ReportTopNavbar from '../../components/Organs/admin/ReportTopNavbar'
 import SalesChart from '../../components/Organs/admin/SalesChart'
@@ -19,7 +20,8 @@ export default function AdminReports() {
                             <div className="mb-3 flex justify-center ">
                                 <div className="bg-white w-full rounded-lg mt-8">
                                     <div >
-                                        <SalesChart/>
+                                        {/* <SalesChart/> */}
+                                        <Barchart/>
                                     </div>   
                                 </div>
                             </div>
