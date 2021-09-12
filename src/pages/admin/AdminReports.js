@@ -4,6 +4,7 @@ import Barchart from '../../components/Organs/admin/Barchart'
 import ReportSwitch from '../../components/Organs/admin/ReportSwitch'
 import ReportTopNavbar from '../../components/Organs/admin/ReportTopNavbar'
 import SalesChart from '../../components/Organs/admin/SalesChart'
+import TableViewOne from '../../components/Organs/admin/TableViewOne'
 
 export default function AdminReports() {
     return (
@@ -23,7 +24,10 @@ export default function AdminReports() {
                                         {/* <SalesChart/> */}
                                     </div>  
                                     <div>
-                                        <Barchart/>
+                                        {/* <Barchart/> */}
+                                    </div> 
+                                    <div>
+                                        <TableViewOne/>
                                     </div> 
                                 </div>
                             </div>
