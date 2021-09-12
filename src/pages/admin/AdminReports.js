@@ -21,8 +21,10 @@ export default function AdminReports() {
                                 <div className="bg-white w-full rounded-lg mt-8">
                                     <div >
                                         {/* <SalesChart/> */}
+                                    </div>  
+                                    <div>
                                         <Barchart/>
-                                    </div>   
+                                    </div> 
                                 </div>
                             </div>
                         </div>

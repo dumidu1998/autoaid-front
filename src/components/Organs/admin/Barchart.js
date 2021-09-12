@@ -21,8 +21,8 @@ export default function Barchart() {
                 datasets: [
                     {
                         label: new Date().getFullYear(),
-                        backgroundColor: '#03a9f4',
-                        borderColor: '#03a9f4',
+                        backgroundColor: 'FF7433',
+                        borderColor: 'FF7433',
                         data: [30, 78, 56, 34, 100, 45, 13],
                         fill: false,
                         barThickness: 8,
@@ -30,8 +30,8 @@ export default function Barchart() {
                     {
                         label: new Date().getFullYear() - 1,
                         fill: false,
-                        backgroundColor: '#f44336',
-                        borderColor: '#f44336',
+                        backgroundColor: '#FFBE33',
+                        borderColor: '#FFBE33',
                         data: [27, 68, 86, 74, 10, 4, 87],
                         barThickness: 8,
                     },
@@ -103,14 +103,14 @@ export default function Barchart() {
     }, []);
     return (
         <Card>
-            <CardHeader color="pink" contentPosition="left">
-                <h6 className="uppercase text-gray-200 text-xs font-medium">
+            <CardHeader className="bg-gradient-to-r from-red-400 to-yellow-500 " contentPosition="left">
+                <h6 className="uppercase text-gray-200 text-xs font-medium font-primary" >
                     Overview
                 </h6>
-                <h2 className="text-white text-2xl">Sales value</h2>
+                <h2 className="text-white text-2xl font-primary">Sales value</h2>
             </CardHeader>
             <CardBody>
-                <div className="relative h-96">
+                <div className="relative h-96 shadow-2xl bg-white rounded-lg p-4">
                     <canvas id="bar-chart"></canvas>
                 </div>
             </CardBody>
