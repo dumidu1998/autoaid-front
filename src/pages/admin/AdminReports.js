@@ -5,6 +5,7 @@ import ReportSwitch from '../../components/Organs/admin/ReportSwitch'
 import ReportTopNavbar from '../../components/Organs/admin/ReportTopNavbar'
 import SalesChart from '../../components/Organs/admin/SalesChart'
 import TableViewOne from '../../components/Organs/admin/TableViewOne'
+import TableViewTwoPrecentage from '../../components/Organs/admin/TableViewTwoPrecentage'
 
 export default function AdminReports() {
     return (
@@ -27,7 +28,10 @@ export default function AdminReports() {
                                         {/* <Barchart/> */}
                                     </div> 
                                     <div>
-                                        <TableViewOne/>
+                                        {/* <TableViewOne/> */}
+                                    </div> 
+                                    <div>
+                                        <TableViewTwoPrecentage/>
                                     </div> 
                                 </div>
                             </div>
