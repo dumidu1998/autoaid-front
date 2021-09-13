@@ -1,26 +1,17 @@
-
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import {Chart} from 'chart.js';
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
-import ReportSwitch from './ReportSwitch';
 
-export default function  SalesChart()  {
+export default function Barchart() {
     useEffect(() => {
-        var config = {
-            type: 'line',
+        let config = {
+            type: 'bar',
             data: {
                 labels: [
-                    'Jan',
-                    'Feb',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'Jan',
-                    'Feb',
+                    'January',
+                    'February',
                     'March',
                     'April',
                     'May',
@@ -30,17 +21,19 @@ export default function  SalesChart()  {
                 datasets: [
                     {
                         label: new Date().getFullYear(),
-                        backgroundColor: '#03a9f4',
-                        borderColor: '#03a9f4',
-                        data: [65, 78, 66, 44, 56, 67, 15,65, 78, 66, 44, 56, 67, 15],
+                        backgroundColor: 'FF7433',
+                        borderColor: 'FF7433',
+                        data: [30, 78, 56, 34, 100, 45, 13],
                         fill: false,
+                        barThickness: 8,
                     },
                     {
                         label: new Date().getFullYear() - 1,
                         fill: false,
-                        backgroundColor: '#ff9800',
-                        borderColor: '#ff9800',
-                        data: [40, 68, 86, 74, 56, 60, 87,0, 68, 86, 74, 56, 60, 87],
+                        backgroundColor: '#FFBE33',
+                        borderColor: '#FFBE33',
+                        data: [27, 68, 86, 74, 10, 4, 87],
+                        barThickness: 8,
                     },
                 ],
             },
@@ -49,15 +42,7 @@ export default function  SalesChart()  {
                 responsive: true,
                 title: {
                     display: false,
-                    text: 'Sales Charts',
-                    fontColor: 'black',
-                },
-                legend: {
-                    labels: {
-                        fontColor: 'black',
-                    },
-                    align: 'end',
-                    position: 'bottom',
+                    text: 'Orders Chart',
                 },
                 tooltips: {
                     mode: 'index',
@@ -67,24 +52,26 @@ export default function  SalesChart()  {
                     mode: 'nearest',
                     intersect: true,
                 },
+                legend: {
+                    labels: {
+                        fontColor: 'rgba(17,17,17,.7)',
+                    },
+                    align: 'end',
+                    position: 'bottom',
+                },
                 scales: {
                     xAxes: [
                         {
-                            ticks: {
-                                fontColor: 'rgba(17,17,17,.7)',
-                            },
-                            display: true,
+                            display: false,
                             scaleLabel: {
-                                display: false,
+                                display: true,
                                 labelString: 'Month',
-                                fontColor: 'white',
                             },
                             gridLines: {
-                                display: false,
                                 borderDash: [2],
                                 borderDashOffset: [2],
                                 color: 'rgba(33, 37, 41, 0.3)',
-                                zeroLineColor: 'rgba(0, 0, 0, 0)',
+                                zeroLineColor: 'rgba(33, 37, 41, 0.3)',
                                 zeroLineBorderDash: [2],
                                 zeroLineBorderDashOffset: [2],
                             },
@@ -92,21 +79,17 @@ export default function  SalesChart()  {
                     ],
                     yAxes: [
                         {
-                            ticks: {
-                                fontColor: 'rgba(17,17,17,.7)',
-                            },
                             display: true,
                             scaleLabel: {
                                 display: false,
                                 labelString: 'Value',
-                                fontColor: 'white',
                             },
                             gridLines: {
-                                borderDash: [3],
-                                borderDashOffset: [3],
+                                borderDash: [2],
                                 drawBorder: false,
-                                color: 'rgba(17, 17, 17, 0.15)',
-                                zeroLineColor: 'rgba(33, 37, 41, 0)',
+                                borderDashOffset: [2],
+                                color: 'rgba(33, 37, 41, 0.2)',
+                                zeroLineColor: 'rgba(33, 37, 41, 0.15)',
                                 zeroLineBorderDash: [2],
                                 zeroLineBorderDashOffset: [2],
                             },
@@ -115,22 +98,20 @@ export default function  SalesChart()  {
                 },
             },
         };
-        var ctx = document.getElementById('line-chart').getContext('2d');
-        window.myLine = new Chart(ctx, config);
+        let ctx = document.getElementById('bar-chart').getContext('2d');
+        window.myBar = new Chart(ctx, config);
     }, []);
-
     return (
         <Card>
-            <CardHeader className="bg-gradient-to-r from-red-400 to-yellow-500 grid-cols-2 ">
-                <div className="grid grid-cols-1">
-                    <div><h6 className="uppercase text-black text-xs font-medium font-primary">Overview</h6></div>
-                    <div><h2 className="text-black text-2xl font-primary">Sales value</h2></div>
-                </div>
-                <div className="grid place-content-end "><ReportSwitch/></div>
+            <CardHeader className="bg-gradient-to-r from-red-400 to-yellow-500 " contentPosition="left">
+                <h6 className="uppercase text-gray-200 text-xs font-medium font-primary" >
+                    Overview
+                </h6>
+                <h2 className="text-white text-2xl font-primary">Sales value</h2>
             </CardHeader>
             <CardBody>
                 <div className="relative h-96 shadow-2xl bg-white rounded-lg p-4">
-                    <canvas id="line-chart"></canvas>
+                    <canvas id="bar-chart"></canvas>
                 </div>
             </CardBody>
         </Card>
