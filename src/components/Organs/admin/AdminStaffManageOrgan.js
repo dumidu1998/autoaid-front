@@ -14,15 +14,16 @@ export default function AdminStaffManageOrgan(props) {
     }, [props.staffdetails])
 
     return (
-        <div>
-            <div className="mb-3">
+        <div className="grid grid-cols-1">
+            <div className="mb-6 flex flex-col items-center justify-center lg:grid grid-cols-2 place-items-center ">
                 {/* Nav bar with user types */}
                 <StaffNavbarMolecular setUserType={setUserType} userType={userType} />
-            </div>
-            <div className="flex items-center justify-center">
                 {/* Staff list according to user type */}
-                <StaffMemListOrgan added={added} userType={userType} />
-                <div className=""></div>
+                <div className="flex justify-center items-center mt-10 lg:mt-0  w-full  ">
+                    <StaffMemListOrgan added={added} userType={userType} /> 
+                </div>
+            </div>
+            <div className="flex flex-col items-center justify-center">
                 {/*Staff Manage Form */}
                 <StaffManageFormOrgan userStatus={userStatus} setUserStatus={setUserStatus} setadded={setadded} added={added}
                     staffdetails={props.staffdetails} selectedid={props.selectedid} />
