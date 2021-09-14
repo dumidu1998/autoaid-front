@@ -60,7 +60,8 @@ export default function MyModal() {
 
 		var selectedDate = e.getFullYear() + '-' + month + '-' + date;
 		setSelecteddate(selectedDate);
-		axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getslotsfromdate/${selectedDate}`, config)
+		// axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getslotsfromdate/${selectedDate}`, config)
+		axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/slots`, config)
 			.then((res) => {
 				setSlots(res.data);
 			})
@@ -75,7 +76,8 @@ export default function MyModal() {
 		var e = new Date();
 		var selectedDate = e.toISOString().split('T')[0];
 		setSelecteddate(selectedDate);
-		axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getslotsfromdate/${selectedDate}`, config)
+		// axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/getslotsfromdate/${selectedDate}`, config)
+		axios.get(`${process.env.REACT_APP_API_BASE_URL}/appointment/slots`, config)
 			.then((res) => {
 				setSlots(res.data);
 			})
