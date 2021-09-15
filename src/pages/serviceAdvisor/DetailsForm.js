@@ -73,7 +73,7 @@ export default function DetailsForm() {
     }
     const history = useHistory();
     return (
-        <div className=" bg-Background-0">
+        <div className=" bg-Background-0 mb-12 h-screen">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
@@ -85,7 +85,7 @@ export default function DetailsForm() {
                     <div className="container mx-auto max-w-full overflow-hidden">
                         <div className="grid-cols-4 ">
                             <div className="w-full h-24">
-                                <div className="flex items-center justify-center w-1/2">
+                                <div className="flex items-center justify-center w-1/2 mt-20">
                                     <div className="flex flex-col mr-2 ml-16">
                                         <label htmlFor="contactNo" className="font-primary  text-md font-semibold  mt-3">Contact No </label>
                                         <input value={contactNo} onChange={event => setcontactNo(event.target.value)} placeholder="+94/07....." className=" ml-5 mt-2 rounded-lg shadow-lg w-64 h-10 pl-5" />
@@ -112,9 +112,9 @@ export default function DetailsForm() {
                                 }
 
                             >
-                                <Form>
+                                <Form className="mt-20 mr-12">
                                     <div className=" w-full h-48 mt-10 grid grid-cols-1 place-items-center ">
-                                        <div className="flex flex-col items-center overflow-auto ">
+                                        <div className="w-full xl:w-11/12 bg-white p-12 rounded-xl flex flex-col items-center overflow-auto ">
                                             <div className="flex flex-row">
                                                 <div className="flex flex-col mr-12 ml-4 w-1/2 ">
                                                     <Field id="contactNo" name="contactNo" className=" hidden" />
@@ -139,8 +139,8 @@ export default function DetailsForm() {
                                         {vehicleNumbers}
                                     </div>
 
-                                    <div className="flex justify-center  items-center h-18 mt-6">
-                                        <div id="customer-add-btn" className="flex justify-center  items-center  w-1/2">
+                                    <div className="flex justify-center  items-center h-18 mt-12">
+                                        <div id="customer-add-btn" className="flex justify-center  items-center  w-1/2 mt-8 ">
                                             <button className="bg-green-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8" type="submit">Add Customer</button>
                                             {/* <DetailFormBtn txt="Add Customer" /> */}
                                         </div>
