@@ -47,18 +47,27 @@ export default function StaffManageIdStatusPropilePicRow(props) {
     }, [props.selectedid, props.userStatus])
 
     return (
-        <div className=" flex flex-col items-center relative lg:flex-row lg:justify-center lg:right-32">
-            <div className="flex items-center justify-around  lg:mr-20  ">
-                <StaffManageIdDisplay id={nextId} />
-                <div className={activateBtnHide}>
-                    <StaffManageStatusDisplay status={props.userStatus} />
-                    <StaffManageStatusBtn staffId={props.selectedid} setUserStatus={props.setUserStatus} userStatus={props.userStatus} status={activatedBtn} />
+        <div className=" flex flex-col items-center relative xl:flex-row xl:justify-center ">
+            <div className="grid grid-cols-1  place-items-center lg:mr-20 ">
+                <div className=" mb-6 xl:mb-0 lg:ml-16 xl:ml-0">
+                    <StaffManageIdDisplay id={nextId} />
+                </div>
+                <div className="md:hidden mt-4 mb-4">
+                    <div className={activateBtnHide}>
+                        <StaffManageStatusDisplay status={props.userStatus} />
+                        <StaffManageStatusBtn staffId={props.selectedid} setUserStatus={props.setUserStatus} userStatus={props.userStatus} status={activatedBtn} />
+                    </div>
                 </div>
             </div>
             <div className=" ">
                 <StaffMemProfileImg />
             </div>
-
+            <div className="hidden md:block mt-4 mb-4 xl:mb-0 xl:mt-0">
+                <div className={activateBtnHide}>
+                    <StaffManageStatusDisplay status={props.userStatus} />
+                    <StaffManageStatusBtn staffId={props.selectedid} setUserStatus={props.setUserStatus} userStatus={props.userStatus} status={activatedBtn} />
+                </div>
+            </div>
         </div>
     )
 }
