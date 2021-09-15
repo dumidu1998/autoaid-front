@@ -1,14 +1,12 @@
-import React from 'react'
+import  { useState } from 'react';
 import SideNavIcon from '../../Atoms/serviceStation/SideNavIcon'
 
-//not used
-function sideNav() {
-    return (
-        <div className=" bg-white w-28 h-screen shadow-xl flex justify-center">
+export default function AdminSideBar(props) {
+    const [showSidebar, setShowSidebar] = useState('-left-40');
 
-            <SideNavIcon/>
+    return (
+        <div className="flex ">
+            <SideNavIcon showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
         </div>
     )
 }
-
-export default sideNav

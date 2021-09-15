@@ -78,11 +78,11 @@ export default function DetailsForm() {
                 <div className="">
                     <SideNav />
                 </div>
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col xl:ml-40">
                     {/* <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/> */}
                     <AdminTopBar name="Vehicle Registration" roleName="Service Advisor" />
 
-                    <div className="container mx-auto max-w-full">
+                    <div className="container mx-auto max-w-full overflow-hidden">
                         <div className="grid-cols-4 ">
                             <div className="w-full h-24">
                                 <div className="flex items-center justify-center w-1/2">
@@ -90,7 +90,7 @@ export default function DetailsForm() {
                                         <label htmlFor="contactNo" className="font-primary  text-md font-semibold  mt-3">Contact No </label>
                                         <input value={contactNo} onChange={event => setcontactNo(event.target.value)} placeholder="+94/07....." className=" ml-5 mt-2 rounded-lg shadow-lg w-64 h-10 pl-5" />
                                     </div>
-                                    <div className="ml-8 mt-12">
+                                    <div className="ml-8 mt-16">
                                         <SearchBtnDetailsForm functionName={getUserDetails} txt="Search" />
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@ export default function DetailsForm() {
 
                             >
                                 <Form>
-                                    <div className=" w-full h-48 mt-">
+                                    <div className=" w-full h-48 mt-10 grid grid-cols-1 place-items-center ">
                                         <div className="flex flex-col items-center overflow-auto ">
                                             <div className="flex flex-row">
                                                 <div className="flex flex-col mr-12 ml-4 w-1/2 ">
@@ -124,7 +124,7 @@ export default function DetailsForm() {
                                                     <label htmlFor="address" className="font-primary  text-md font-semibold  mt-3">Address</label>
                                                     <Field id="address" name="address" placeholder="1/d, Negombo,Colombo" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                 </div>
-                                                <div className="flex flex-col ml-40 w-1/2">
+                                                <div className="flex flex-col md:ml-20 lg:ml-28 xl:ml-32 w-1/2">
                                                     <label htmlFor="lastName" className="font-primary  text-md font-semibold  mt-3">Last Name</label>
                                                     <Field id="lastName" name="lastName" placeholder="Jane" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
@@ -134,21 +134,25 @@ export default function DetailsForm() {
                                             </div>
                                         </div>
                                     </div>
-                                    {vehicleNumbers}
+
+                                    <div className="w-full mt-12">
+                                        {vehicleNumbers}
+                                    </div>
+
                                     <div className="flex justify-center  items-center h-18 mt-6">
-                                        <div id="customer-add-btn" className="flex justify-start ml-20  items-center  w-1/2">
+                                        <div id="customer-add-btn" className="flex justify-center  items-center  w-1/2">
                                             <button className="bg-green-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8" type="submit">Add Customer</button>
                                             {/* <DetailFormBtn txt="Add Customer" /> */}
                                         </div>
                                     </div>
                                 </Form>
                             </Formik>
-                            <div>
+                            <div className="flex justify-center mt-8 mb-40">
                                 <Link to={{
                                     pathname: '/serviceadvisor/addvehicle',
                                     state: { contact:contactNo }
                                 }}>
-                                    <button id="add-new-vehicle-btn" className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 hidden">Add New Vehicle</button>
+                                    <button id="add-new-vehicle-btn" className=" bg-gradient-to-r from-red-400 to-yellow-500 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 hidden">Add New Vehicle</button>
                                 </Link>
                             </div>
 
