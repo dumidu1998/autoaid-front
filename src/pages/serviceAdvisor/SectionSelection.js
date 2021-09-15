@@ -75,15 +75,15 @@ export default function SectionSelection() {
 
 
     return (
-        <div className=" bg-Background-0">
+        <div className=" bg-Background-0 h-screen">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
                 </div>
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col xl:ml-40 overflow-hidden">
                     <SectionSelectionTop heading1={location.state.vehicleNo} />
-                    <div className="flex justify-between w-full">
-                        <div className="w-3/6 bg-white shadow-xl rounded-lg mt-12 ml-6 p-8">
+                    <div className="grid grid-cols-1 xl:grid-cols-4 xl:ml-8  w-11/12 xl:w-10/12 ">
+                        <div className="w-full bg-white shadow-xl rounded-lg mt-12  p-8 xl:col-span-3">
                             <div className="font-primary text-xl">Select Section</div>
                             <div className="  p-1 rounded-lg mt-4 w-full">
                                 <SelectionSectionNavbarMolecular sectionName={sectionName} setsectionName={setsectionName} />
@@ -94,7 +94,7 @@ export default function SectionSelection() {
                                     subCat={subCat}/>)}
                             </div>
                         </div>
-                        <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12  mr-32 p-8">
+                        <div className="w-full bg-white shadow-xl rounded-lg mt-12 p-8 xl:ml-20">
                             <SelectedSevicesSVAD heading1="Selected Service" description="Time and Cost can be differ with the change of requirements " />
                             <div className="mt-6 mb-4">
 

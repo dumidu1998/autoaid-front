@@ -65,12 +65,12 @@ export default function AddNewVehicleForm() {
     const history = useHistory();
     return (
 
-        <div className=" bg-Background-0">
+        <div className=" bg-Background-0 ">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
                 </div>
-                <div className="w-full flex flex-col xl:ml-40">
+                <div className="w-full flex flex-col xl:ml-40 ">
                     {/* <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/> */}
                     <AdminTopBar name="Vehicle Registration" roleName="Service Advisor" />
                     <Formik
