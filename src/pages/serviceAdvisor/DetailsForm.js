@@ -78,7 +78,7 @@ export default function DetailsForm() {
                 <div className="">
                     <SideNav />
                 </div>
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col xl:ml-40">
                     {/* <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/> */}
                     <AdminTopBar name="Vehicle Registration" roleName="Service Advisor" />
 
