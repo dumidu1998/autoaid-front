@@ -21,7 +21,7 @@ jobs:
     - name: build
       run: CI=false && npm run build
     - name: Archive production artifact
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v2
       with: 
         name: build
         path: build
@@ -33,7 +33,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@main
       - name: download Atrifact
-        uses: actions/download-artifact@main
+        uses: actions/download-artifact@v2
         with:
           name: build
           path: build
