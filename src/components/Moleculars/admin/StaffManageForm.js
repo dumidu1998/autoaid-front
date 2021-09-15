@@ -19,10 +19,10 @@ export default function StaffManageForm(props) {
         setinitvals(props.staffdetails);
         if (props.staffdetails.email !== "") {
             setaddOrUpdate("Update");
-            setaddBtnStyle("bg-blue-600 w-32 h-10 rounded-xl text-white text-lg mr-8");
+            setaddBtnStyle("bg-blue-600 w-32 md:w-40  xl:w-44 h-10 md:h-12 rounded-xl text-white text-lg mr-8");
         } else {
             setaddOrUpdate("Add");
-            setaddBtnStyle("bg-green-600 w-32 h-10 rounded-xl text-white text-lg  -mt-14 mr-8");
+            setaddBtnStyle("bg-green-600 w-32 md:w-40 xl:w-44 h-10   md:h-12 rounded-xl text-white text-lg  -mt-14 mr-8");
         }
     }, [props.staffdetails])
 
@@ -89,7 +89,7 @@ export default function StaffManageForm(props) {
                                         <StaffManageBtn btnName="New Form" />
                                     </Link>
                                 </div>
-                                <div className="md:flex justify-between mb-5 mt-3 md:hidden" >
+                                <div className="md:flex justify-between mb-5 mt-4 md:hidden" >
                                     <button className={addBtnStyle} type="submit">{addOrUpdate}</button>
                                     {/* <button className="bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 ml-8" type="">Update </button> */}
                                     {/* <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button> */}
