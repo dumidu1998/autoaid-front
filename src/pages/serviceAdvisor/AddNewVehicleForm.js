@@ -65,7 +65,7 @@ export default function AddNewVehicleForm() {
     const history = useHistory();
     return (
 
-        <div className=" bg-Background-0 ">
+        <div className=" bg-Background-0 h-screen mb-12 ">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
@@ -73,68 +73,70 @@ export default function AddNewVehicleForm() {
                 <div className="w-full flex flex-col xl:ml-40 ">
                     {/* <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/> */}
                     <AdminTopBar name="Vehicle Registration" roleName="Service Advisor" />
-                    <Formik
-                        enableReinitialize
-                        initialValues={vehicleDetails}
-                        onSubmit={async (values, { resetform }) => {
-                            // console.log("on submit"+values); 
-                            if (addOrUpdate == "Add") {
-                                await new Promise((r) => setTimeout(r, 500));
-                                axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/vehicle/add new`, values, config)
-                                    .then(function (response) {
-                                        console.log(response.data);
-                                        history.push('/serviceadvisor');
-                                    })
-                            } else if (addOrUpdate == "Update") {
-                                //To Do
-                                console.log("Update back end");
+                    <div className="mt-16">
+                        <Formik
+                            enableReinitialize
+                            initialValues={vehicleDetails}
+                            onSubmit={async (values, { resetform }) => {
+                                // console.log("on submit"+values); 
+                                if (addOrUpdate == "Add") {
+                                    await new Promise((r) => setTimeout(r, 500));
+                                    axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/vehicle/add new`, values, config)
+                                        .then(function (response) {
+                                            console.log(response.data);
+                                            history.push('/serviceadvisor');
+                                        })
+                                } else if (addOrUpdate == "Update") {
+                                    //To Do
+                                    console.log("Update back end");
+                                }
+
                             }
+                            }
+                        >
+                            <Form id="add-vehicle-form">
+                                <div className="w-full h-18 mt-3">
+                                    <div className="font-primary text-2xl flex items-center justify-center w-4/12 mb-2 ">Add Vehicle</div>
+                                    <div className="flex flex-col items-center  mt-12 mb-12">
+                                        <div className="w-ful grid grid-cols-2 place-items-center gap-20 md:gap-32 lg:gap-40 xl:gap-48 mb-10">
+                                            <div className="flex flex-col ">
 
-                        }
-                        }
-                    >
-                        <Form id="add-vehicle-form">
-                            <div className="w-full h-18 mt-3">
-                                <div className="font-primary text-2xl flex items-center justify-center w-4/12 mb-2 ">Add Vehicle</div>
-                                <div className="flex flex-col items-center  mt-12 mb-12">
-                                    <div className="w-ful grid grid-cols-2 place-items-center gap-20 md:gap-32 lg:gap-40 xl:gap-48 mb-10">
-                                        <div className="flex flex-col ">
+                                                <Field id="contactNo" name="contactNo" className="hidden" />
 
-                                            <Field id="contactNo" name="contactNo" className="hidden" />
+                                                <label htmlFor="vin" className="font-primary  text-md font-semibold  mt-3">VIN</label>
+                                                <Field id="vin" name="vin" placeholder="0938383830123" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
 
-                                            <label htmlFor="vin" className="font-primary  text-md font-semibold  mt-3">VIN</label>
-                                            <Field id="vin" name="vin" placeholder="0938383830123" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
+                                                <label htmlFor="engineNo" className="font-primary  text-md font-semibold  mt-3">Engine No.</label>
+                                                <Field id="engineNo" name="engineNo" placeholder="engineNo" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
-                                            <label htmlFor="engineNo" className="font-primary  text-md font-semibold  mt-3">Engine No.</label>
-                                            <Field id="engineNo" name="engineNo" placeholder="engineNo" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                <label htmlFor="model" className="font-primary  text-md font-semibold  mt-3">Vehicle Model</label>
+                                                <Field id="model" name="model" placeholder="model" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
+                                            </div>
+                                            <div className="flex flex-col ">
+                                                <label htmlFor="vehicleNumber" className="font-primary  text-md font-semibold  mt-3">Reg No.</label>
+                                                <Field id="vehicleNumber" name="vehicleNumber" placeholder="vehicleNumber" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" disabled={disable} />
 
-                                            <label htmlFor="model" className="font-primary  text-md font-semibold  mt-3">Vehicle Model</label>
-                                            <Field id="model" name="model" placeholder="model" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
-                                        </div>
-                                        <div className="flex flex-col ">
-                                            <label htmlFor="vehicleNumber" className="font-primary  text-md font-semibold  mt-3">Reg No.</label>
-                                            <Field id="vehicleNumber" name="vehicleNumber" placeholder="vehicleNumber" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" disabled={disable} />
+                                                <label htmlFor="chassisNo" className="font-primary  text-md font-semibold  mt-3">chassis No</label>
+                                                <Field id="chassisNo" name="chassisNo" placeholder="Jane" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" disabled={disable} />
 
-                                            <label htmlFor="chassisNo" className="font-primary  text-md font-semibold  mt-3">chassis No</label>
-                                            <Field id="chassisNo" name="chassisNo" placeholder="Jane" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" disabled={disable} />
-
-                                            <label htmlFor="make" className="font-primary  text-md font-semibold  mt-3">Make</label>
-                                            <Field id="make" name="make" placeholder="make" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
+                                                <label htmlFor="make" className="font-primary  text-md font-semibold  mt-3">Make</label>
+                                                <Field id="make" name="make" placeholder="make" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="flex justify-center  items-center h-18 mt-6">
-                                {/* <div className="flex justify-end mr-20  items-center w-1/2">
-                                <DetailFormUpdatebtn txt="Update" />
-                            </div> */}
-                                <div className="flex justify-center items-center">
-                                    {/* <DetailFormBtn txt="Add New" /> */}
-                                    <button className={addBtnStyle} type="submit">{addOrUpdate}</button>
+                                <div className="flex justify-center  items-center h-18 mt-6">
+                                    {/* <div className="flex justify-end mr-20  items-center w-1/2">
+                                    <DetailFormUpdatebtn txt="Update" />
+                                </div> */}
+                                    <div className="flex justify-center items-center">
+                                        {/* <DetailFormBtn txt="Add New" /> */}
+                                        <button className={addBtnStyle} type="submit">{addOrUpdate}</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </Form>
-                    </Formik>
+                            </Form>
+                        </Formik>
+                    </div>
                 </div>
             </div>
         </div >

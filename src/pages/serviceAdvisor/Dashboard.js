@@ -10,12 +10,12 @@ import DetailsShowing from '../../components/Moleculars/customer/DetailsShowing'
 
 export default function Dashboard() {
     return (
-        <div className=" bg-Background-0">
+        <div className=" bg-Background-0 h-screen">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
                 </div>
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col xl:ml-40">
                     <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New" path="/serviceadvisor/detailsform"/>
                     <div className="flex justify-between">
                         <div className="w-full flex flex-col items-center justify-center">
