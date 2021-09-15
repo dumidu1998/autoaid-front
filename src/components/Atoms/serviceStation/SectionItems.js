@@ -33,21 +33,21 @@ export default function SectionItems(props) {
     }
 
     return (
-        <div className="w-full bg-white shadow-2xl  rounded-lg h-16 flex items-center mt-5">
+        <div className="w-full bg-white shadow-2xl  rounded-lg h-24 flex items-center justify-center mt-5">
             <div className="flex flex-col  items-start   w-9/12 ml-12">
-                <div>
+                <div className="font-primary ">
                     {props.subCat.subCatName}
                 </div>
-                <div>
+                <div className="flex items-center justify-center mt-2 mb-2">
                     {/* Need Styles */}
-                    <input className=" w-20 h-1 border-none" type="number" value={(timeDisabled==true?props.subCat.time:null)} onChange={event => props.subCat.time=(Number(event.target.value))} disabled={timeDisabled}/>
-                     min
+                    <input className=" bg-white w-20 rounded-lg h-8 border-1" type="number" value={(timeDisabled==true?props.subCat.time:null)} onChange={event => props.subCat.time=(Number(event.target.value))} disabled={timeDisabled}/>
+                      <span className="ml-2">min</span>
                     {/* Need to add styles */}
-                    <button onClick={setTime} className="ml-10 bg-green-600 text-white">Change Time</button>
+                    <button onClick={setTime} className="ml-10 bg-green-600 text-white w-32 p-2 rounded-lg">Change Time</button>
                 </div>
             </div>
             <div>
-                <button onClick={addToList} className="text-white font-primary bg-blue-500 rounded-lg shadow-xl w-16 h-12 ml-5">Add</button>
+                <button onClick={addToList} className="text-white font-primary bg-blue-500 rounded-lg shadow-xl w-24 h-12 mr-6">Add</button>
             </div>
             <ToastContainer
                 position="bottom-right"
