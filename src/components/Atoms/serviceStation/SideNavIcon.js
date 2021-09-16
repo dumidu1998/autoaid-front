@@ -6,7 +6,7 @@ export default function sideNavIcon({ showSidebar, setShowSidebar }) {
 
 <div className="flex justify-start ">
         {/* <div className="bg-black shadow-lg w-40 h-screen"> */}
-        <div className="xl:hidden ">
+                <div className="xl:hidden ">
                     <Button
                         color="transparent"
                         buttonType="link"
