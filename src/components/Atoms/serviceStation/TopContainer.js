@@ -9,8 +9,13 @@ export default function TopContainer(props) {
                 <div className=" flex  w-full justify-between items-center">
 
                     <h1 className=" font-primary text-3xl text-white ml-16">{props.heading1} <span className=" font-primary text-2xl text-white font-light">({props.heading2})</span></h1>
-                    <div className="flex justify-center items-center ">
-                        <Addnew txt={props.addnewbtntext} path={props.path} />
+
+                    <div className="flex items-center ">
+                        <div className="mt-10">
+
+                            <Addnew txt={props.addnewbtntext} path={props.path} />
+
+                        </div>
                         <ProfileIcon />
                     </div>
                 </div>
