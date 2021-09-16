@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../Atoms/Button'
 import ButtonOutline from '../Atoms/ButtonOutline'
 
@@ -16,19 +17,19 @@ export default function NavBar() {
                     <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">Pricing</h1>
                     <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">About</h1>
                     <div className="m-4">
-                        <a href="/login">
+                        <Link to="/login">
                             <Button txt="Log in" link="/login" />
 
-                        </a>
+                        </Link>
                     </div>
-                    <ButtonOutline txt= "Register" link="/signup" />
+                    <ButtonOutline txt="Register" link="/signup" />
                 </div>
 
                 <div className="md:hidden text-white ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    
+
                 </div>
             </div>
         </div>

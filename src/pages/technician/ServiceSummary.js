@@ -6,12 +6,14 @@ import SummaryRightContainer from '../../components/Organs/technician/SummaryRig
 
 export default function ServiceSummary() {
     return (
-        <div className="relative bg-Background-0 h-screen">
+        <div className="relative bg-Background-0 h-screen overflow-auto">
             <div className="flex flex-col items-center">
-                <TopContainerVNo heading1="KT-0246" />
-                <div className="flex w-10/12 justify-between">
-                    <SummaryMainContainer />
-                    <div className="flex flex-col items-center">
+                <TopContainerVNo heading1="KT-0246" link="/technician/dashboard"/>
+                <div className="flex flex-col w-11/12 justify-center lg:flex-row">
+                    <div>
+                        <SummaryMainContainer />
+                    </div>
+                    <div className="flex flex-col items-center ">
                         <SummaryRightContainer />
                         <Addnew txt={"Start"} />
 

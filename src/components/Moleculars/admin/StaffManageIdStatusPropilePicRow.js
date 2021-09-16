@@ -12,7 +12,7 @@ export default function StaffManageIdStatusPropilePicRow(props) {
     var getid = () => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getnextstaffid`)
             .then(function (response) {
-                // handle success
+                // handle success 
                 console.log(response.data);
                 // alert(response.data);
                 setnextId(response.data);
@@ -34,31 +34,40 @@ export default function StaffManageIdStatusPropilePicRow(props) {
         } else {
             getid();
         }
-        if(props.userStatus=="ACTIVATED"){
+        if (props.userStatus == "ACTIVATED") {
             setActivatedBtn("DEACTIVATE");
-        }else{
+        } else {
             setActivatedBtn("ACTIVATE")
         }
-        if(props.userStatus!="STATUS"){
+        if (props.userStatus != "STATUS") {
             setactivateBtnHide("flex ml-2");
-        }else{
+        } else {
             setactivateBtnHide("hidden");
         }
-    }, [props.selectedid,props.userStatus])
-    
+    }, [props.selectedid, props.userStatus])
+
     return (
-        <div className="relative">
-            <div className="flex items-center justify-around z-10 ">
-                <StaffManageIdDisplay id={nextId} />
+        <div className=" flex flex-col items-center relative xl:grid grid-cols-3 place-items-center mr-3">
+            <div className="grid grid-cols-1  place-items-center lg:mr-20 ">
+                <div className=" mb-6 xl:mb-0 lg:ml-16 xl:ml-0">
+                    <StaffManageIdDisplay id={nextId} />
+                </div>
+                <div className="md:hidden mt-4 mb-4">
+                    <div className={activateBtnHide}>
+                        <StaffManageStatusDisplay status={props.userStatus} />
+                        <StaffManageStatusBtn staffId={props.selectedid} setUserStatus={props.setUserStatus} userStatus={props.userStatus} status={activatedBtn} />
+                    </div>
+                </div>
+            </div>
+            <div className=" ">
+                <StaffMemProfileImg />
+            </div>
+            <div className="hidden md:block mt-4 mb-4 xl:mb-0 xl:mt-0">
                 <div className={activateBtnHide}>
                     <StaffManageStatusDisplay status={props.userStatus} />
                     <StaffManageStatusBtn staffId={props.selectedid} setUserStatus={props.setUserStatus} userStatus={props.userStatus} status={activatedBtn} />
                 </div>
             </div>
-                <div className=" absolute left-1/3 ml-24 -top-14">
-                    <StaffMemProfileImg />
-                </div>
-
         </div>
     )
 }

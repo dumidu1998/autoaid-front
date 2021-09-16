@@ -23,14 +23,34 @@ import AddNew from './pages/serviceAdvisor/AddNew'
 import AdminSection from './pages/admin/AdminSection';
 import Testing from './pages/admin/Testing';
 import DetailsForm from './pages/serviceAdvisor/DetailsForm';
+import SectionSelection from './pages/serviceAdvisor/SectionSelection';
+import AddNewVehicleForm from './pages/serviceAdvisor/AddNewVehicleForm';
+import ServiceHistory from './pages/serviceAdvisor/ServiceHistory';
+import { getCookie } from './jsfunctions/cookies';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+
+import StockKeeperTest from './pages/StockKeeper/test';
+import StockKeeperDash from './pages/StockKeeper/Dashboard';
+import StockKeeperStock from './pages/StockKeeper/StockQuantity';
+import StockKeeperAddItem from './pages/StockKeeper/AddNewItem';
+import AdminAsignTechnician from './pages/admin/AdminAsignTechnician';
+import AdminReports from './pages/admin/AdminReports';
 
 
 
 
 
 function App() {
+  //redirect to login if token is not set
+
+  // const history=useHistory();
+  
+  // if(getCookie('token')==null){
+  //   history.push('/login');
+  // }
+
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-auto">
 
       {/* <NavBar/> */}
       <Router>
@@ -38,11 +58,14 @@ function App() {
           <Route path="/" exact component={Landing} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
+
           <Route path="/serviceadvisor" exact component={Service} />
           <Route path="/serviceadvisor/addnew" exact component={AddNew} />
-
           <Route path="/serviceadvisor/detailsform" exact component={DetailsForm} />
+          <Route path="/serviceadvisor/addvehicle" exact component={AddNewVehicleForm} />
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
+          <Route path="/serviceadvisor/section/selection" exact component={SectionSelection} />
+          <Route path="/serviceadvisor/servicehistory" exact component={ServiceHistory} />
 
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
@@ -50,17 +73,24 @@ function App() {
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />
-          
+
           <Route path="/admin" exact component={AdminDashboard} />
           <Route path="/admin/staff" exact component={AdminStaff} />
           <Route path="/admin/staff/:staffid" component={AdminStaff} />
           <Route path="/admin/section" exact component={AdminSection} />
           <Route path="/admin/test" exact component={Testing} />
+          <Route path="/admin/technician/asign" exact component={AdminAsignTechnician} />
+          <Route path="/admin/reports" exact component={AdminReports} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
           <Route path="/technician" exact component={Dashboard} />
           <Route path="/technician/summary" exact component={ServiceSummary} />
           <Route path="/technician/progress" exact component={ServiceProgress} />
+
+          <Route path="/stockkeeper/test" exact component={StockKeeperTest} />
+          <Route path="/stockkeeper/dashboard" exact component={StockKeeperDash} />
+          <Route path="/stockkeeper/stock" exact component={StockKeeperStock} />
+          <Route path="/stockkeeper/addnew" exact component={StockKeeperAddItem} />
 
         </Switch>
       </Router>

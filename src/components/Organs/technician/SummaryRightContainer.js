@@ -4,7 +4,7 @@ import DetailsShowing from '../../Moleculars/customer/DetailsShowing'
 
 export default function SummaryRightContainer() {
     return (
-        <div className=" bg-white shadow-lg rounded-lg flex flex-col items-center p-5 my-10">
+        <div className=" bg-white shadow-lg rounded-lg flex flex-col items-center p-5 mt-10 mb-6 w-11/12">
             <div className="flex flex-col items-center">
                 <RightContainerHeader text="Vehicle Details" />
                 <div className="flex flex-wrap justify-between my-5 ml-14">
@@ -16,5 +16,7 @@ export default function SummaryRightContainer() {
                 </div>
             </div>
         </div>
-    )
+    )  
 }
+
+

@@ -4,7 +4,7 @@ class  TransactionCardPrice extends Component {
     render() { 
         return ( 
             <div>
-                <span className="text-xl font-medium mr-12">Rs {this.props.price}</span>
+                <span className="text-xl font-medium ml-4 mr-12">Rs {this.props.price}</span>
             </div>
          );
     }
