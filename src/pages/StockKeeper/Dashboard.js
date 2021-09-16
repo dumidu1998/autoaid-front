@@ -7,7 +7,7 @@ import LowQuantityItems from '../../components/Atoms/stockKeeper/LowQuantityItem
 
 export default function Dashboard() {
     return (
-        <div className="relative bg-Background-0 lg:h-screen">
+        <div className="relative bg-Background-0 lg:h-full">
             <div className="flex flex-row">
                 <div>
                     <SideNavBar />
@@ -17,7 +17,15 @@ export default function Dashboard() {
                     <div className="h-full w-full flex flex-col items-center justify-center lg:flex-row lg:w-ful">
                         <div className=" w-11/12 py-8 lg:ml-12 lg:mr-12">
                             <SubSectionHeading heading="Item Requests" />
-                            <div className="w-full h-3/5 overflow-auto">
+                            <div className="w-full  overflow-auto ">
+                                <ItemContainer itemNo="Piston" link={""} />
+                                <ItemContainer itemNo="Brake Pad" link={""} />
+                                <ItemContainer itemNo="Cluch Pad" link={""} />
+                                <ItemContainer itemNo="Oil Filter" link={""} />
+                                <ItemContainer itemNo="Piston" link={""} />
+                                <ItemContainer itemNo="Brake Pad" link={""} />
+                                <ItemContainer itemNo="Cluch Pad" link={""} />
+                                <ItemContainer itemNo="Oil Filter" link={""} />
                                 <ItemContainer itemNo="Piston" link={""} />
                                 <ItemContainer itemNo="Brake Pad" link={""} />
                                 <ItemContainer itemNo="Cluch Pad" link={""} />
@@ -28,9 +36,9 @@ export default function Dashboard() {
                                 <ItemContainer itemNo="Oil Filter" link={""} />
                             </div>
                         </div>
-                        <div className=" w-11/12 py-8 -mt-56 lg:-mt-40 lg:ml-12 lg:mr-12">
+                        <div className=" w-11/12 py-8  lg:-mt-40 lg:ml-12 lg:mr-12">
                             <SubSectionHeading heading="Low Quantity Items" />
-                            <div className="bg-white w-full h-4/6 rounded-xl overflow-auto shadow-xl  p-12">
+                            <div className="bg-white w-full h-4/6 rounded-xl overflow-auto shadow-xl  p-12 lg:mt-14">
                                 <div className="px-4">
                                     <LowQuantityItems itemNo="Item Number" itemName="Item Name" CurrentStatus="Current Status" />
                                 </div>

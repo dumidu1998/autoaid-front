@@ -95,12 +95,12 @@ useEffect(() => {
 }, [itemCategory])
 
     return (
-        <div className="relative bg-Background-0">
+        <div className="relative bg-Background-0 h-screen">
             <div className="flex flex-row">
                 <div>
                     <SideNavBar />
                 </div>
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col xl:ml-40">
                     <TopContainer heading1="Stock" heading2="Stock Keeper" addnewbtntext="Add New" path="addnew" />
                     <div className="h-full flex items-center justify-center mx-2 ">
                         <div className="h-full w-10/12 py-8">
