@@ -15,12 +15,12 @@ export default function CheckList() {
                             <h1 className="text-center text-xl font-bold">Vehicle Checklist</h1>
                             <div className="flex justify-evenly">
                                 <div className="flex flex-col items-center">
-                                    <div className="w-72 h-44 bg-white border"></div>
+                                    <div className="w-72 h-44 bg-white border flex items-center justify-center text-3xl font-bold text-gray-400">Front View</div>
                                     <button className="px-5 py-2 my-3 rounded-lg shadow-lg bg-primary-0 font-semibold text-white">Take Photo</button>
 
                                 </div>
                                 <div className="flex flex-col items-center">
-                                    <div className="w-72 h-44 bg-white border"></div>
+                                    <div className="w-72 h-44 bg-white border flex items-center justify-center text-3xl font-bold text-gray-400">Rear View</div>
                                     <button className="px-5 py-2 my-3 rounded-lg shadow-lg bg-primary-0 font-semibold text-white">Take Photo</button>
 
                                 </div>
@@ -28,12 +28,12 @@ export default function CheckList() {
                             </div>
                             <div className="flex justify-evenly">
                                 <div className="flex flex-col items-center">
-                                    <div className="w-72 h-44 bg-white border"></div>
+                                    <div className="w-72 h-44 bg-white border flex items-center justify-center text-3xl font-bold text-gray-400">Side View</div>
                                     <button className="px-5 py-2 my-3 rounded-lg shadow-lg bg-primary-0 font-semibold text-white">Take Photo</button>
 
                                 </div>
                                 <div className="flex flex-col items-center">
-                                    <div className="w-72 h-44 bg-white border"></div>
+                                    <div className="w-72 h-44 bg-white border flex items-center justify-center text-3xl font-bold text-gray-400">Side View</div>
                                     <button className="px-5 py-2 my-3 rounded-lg shadow-lg bg-primary-0 font-semibold text-white">Take Photo</button>
 
                                 </div>

@@ -22,13 +22,13 @@ export default function AdminReports() {
                             <div className="mb-3 flex justify-center ">
                                 <div className="bg-white w-full rounded-lg mt-8">
                                     <div >
-                                        {/* <SalesChart/> */}
+                                        <SalesChart/>
                                     </div>  
                                     <div>
-                                        {/* <Barchart/> */}
+                                        <Barchart/>
                                     </div> 
                                     <div>
-                                        {/* <TableViewOne/> */}
+                                        <TableViewOne/>
                                     </div> 
                                     <div>
                                         <TableViewTwoPrecentage/>
