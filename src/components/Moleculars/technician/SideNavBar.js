@@ -1,12 +1,13 @@
-import React from 'react'
+import  { useState } from 'react';
 import SideNavIcon from '../../Atoms/technician/SideNavIcon'
 
 export default function SideNavBar() {
+    const [showSidebar, setShowSidebar] = useState('-left-40');
     return (
         <div>
-            <div className=" bg-white w-28 h-screen shadow-xl flex justify-center">
+            <div className=" flex">
 
-                <SideNavIcon />
+                <SideNavIcon showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
             </div>
         </div>
     )
