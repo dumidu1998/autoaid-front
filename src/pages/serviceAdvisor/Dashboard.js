@@ -1,12 +1,10 @@
 import React from 'react'
 import AppointmentContainer from '../../components/Atoms/serviceStation/AppointmentContainer'
 import OngoingServiceDetails from '../../components/Atoms/serviceStation/OngoingServiceDetails'
-import Register from '../../components/Atoms/serviceStation/Register'
 import SubSectionHeading from '../../components/Atoms/serviceStation/SubSectionHeading'
 import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
-import RightContainerHeader from '../../components/Atoms/serviceStation/RightContainerHeader'
-import DetailsShowing from '../../components/Moleculars/customer/DetailsShowing'
+
 
 export default function Dashboard() {
     return (
