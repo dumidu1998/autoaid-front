@@ -7,15 +7,15 @@ import LowQuantityItems from '../../components/Atoms/stockKeeper/LowQuantityItem
 
 export default function Dashboard() {
     return (
-        <div className="relative bg-Background-0">
+        <div className="relative bg-Background-0 lg:h-screen">
             <div className="flex flex-row">
                 <div>
                     <SideNavBar />
                 </div>
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col xl:ml-40">
                     <TopContainer heading1="Dashboard" heading2="Stock Keeper" addnewbtntext="Add New" path="addnew" />
-                    <div className="h-full w-FULL flex items-center justify-center mx-16 ">
-                        <div className="h-full w-5/12 py-8">
+                    <div className="h-full w-full flex flex-col items-center justify-center lg:flex-row lg:w-ful">
+                        <div className=" w-11/12 py-8 lg:ml-12 lg:mr-12">
                             <SubSectionHeading heading="Item Requests" />
                             <div className="w-full h-3/5 overflow-auto">
                                 <ItemContainer itemNo="Piston" link={""} />
@@ -28,9 +28,9 @@ export default function Dashboard() {
                                 <ItemContainer itemNo="Oil Filter" link={""} />
                             </div>
                         </div>
-                        <div className="h-full w-5/12 py-8 ml-20">
+                        <div className=" w-11/12 py-8 -mt-56 lg:-mt-40 lg:ml-12 lg:mr-12">
                             <SubSectionHeading heading="Low Quantity Items" />
-                            <div className="bg-white w-full h-4/6 rounded-xl shadow-xl  py-12">
+                            <div className="bg-white w-full h-4/6 rounded-xl overflow-auto shadow-xl  p-12">
                                 <div className="px-4">
                                     <LowQuantityItems itemNo="Item Number" itemName="Item Name" CurrentStatus="Current Status" />
                                 </div>
