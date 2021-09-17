@@ -1,11 +1,13 @@
-import React from 'react'
+import  { useState } from 'react';
 import SideNavIcon from '../../Atoms/stockKeeper/SideNavIcon'
 
 export default function SideNavBar() {
+    const [showSidebar, setShowSidebar] = useState('-left-40');
     return (
+        
         <div>
-            <div className=" bg-white w-28 h-screen shadow-xl flex justify-center">
-                <SideNavIcon />
+            <div className=" flex">
+                <SideNavIcon showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
             </div>
         </div>
     )
