@@ -67,7 +67,7 @@ export default function AddNewVehicleForm() {
     const history = useHistory();
     return (
 
-        <div className=" bg-Background-0 h-screen mb-12 ">
+        <div className=" bg-Background-0 h-full mb-12 ">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
