@@ -9,7 +9,7 @@ export default function SearchVihicleRowOne() {
 
                 </div>
                 <div>
-                    <VehicleBtnCol/>
+                    {/* <VehicleBtnCol/> */}
                 </div>
                 
             </div>
