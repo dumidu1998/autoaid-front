@@ -5,7 +5,7 @@ export default function SearchVihicleRowThree() {
         <div>
             <div>
                 <div className="flex justify-between items-center">
-                    <div className="bg-white w-8/12 h-32 rounded-lg shadow-xl">
+                    <div className="bg-white w-8/12 lg:w-9/12 h-40 rounded-lg shadow-xl xl:ml-10">
 
                     </div>
                     <div className="bg-red-400 w-4/12 h-20 rounded-lg shadow-xl">
