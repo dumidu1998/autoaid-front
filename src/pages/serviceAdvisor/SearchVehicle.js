@@ -1,5 +1,6 @@
 import React from 'react'
 import AdminTopBar from '../../components/Atoms/admin/AdminTopBar'
+import EndPath from '../../components/Atoms/EndPath'
 import SearchVihicleRowOne from '../../components/Atoms/SearchVihicleRowOne'
 import SearchVihicleRowThree from '../../components/Atoms/SearchVihicleRowThree'
 import SearchVihicleRowTwo from '../../components/Atoms/SearchVihicleRowTwo'
@@ -19,7 +20,7 @@ export default function SearchVehicle() {
                         <div className="mt-20 mb-12">
                             <SearchBarVehicle/>
                         </div>
-                        <div className="mb-8 w-10/12 lg:w-11/12 grid grid-cols-1  ml-14">
+                        <div className="mb-12 w-10/12 lg:w-11/12 grid grid-cols-1  ml-14">
                             <StartPath/>
                         </div>
                         <div className="w-10/12 lg:w-11/12 mb-12 grid grid-cols-1  ml-14 ">
@@ -32,6 +33,9 @@ export default function SearchVehicle() {
                             <div className="mt-12">
                                 <SearchVihicleRowThree/>
                             </div>
+                        </div>
+                        <div className="mt-12 w-10/12 lg:w-11/12 grid grid-cols-1  ml-14 mb-12">
+                            <EndPath/>
                         </div>
                     </div>
                 </div>
