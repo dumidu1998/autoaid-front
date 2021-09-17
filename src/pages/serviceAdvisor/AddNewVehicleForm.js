@@ -14,6 +14,8 @@ import { getCookie } from '../../jsfunctions/cookies'
 import AppointmentContainer from '../../components/Atoms/serviceStation/AppointmentContainer'
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 
+import BackTopBar from '../../components/Atoms/serviceStation/BackTopBar'
+
 export default function AddNewVehicleForm() {
     const [vehicleDetails, setvehicleDetails] = useState();
     const [disable, setdisable] = useState(false);
@@ -72,7 +74,8 @@ export default function AddNewVehicleForm() {
                 </div>
                 <div className="w-full flex flex-col xl:ml-40 ">
                     {/* <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/> */}
-                    <AdminTopBar name="Vehicle Registration" roleName="Service Advisor" />
+                    {/* <AdminTopBar name="Vehicle Registration" roleName="Service Advisor" /> */}
+                    <BackTopBar link="/serviceadvisor/detailsform" heading1="dddd eedf eeexx"/>
                     <div className="mt-16">
                         <Formik
                             enableReinitialize
