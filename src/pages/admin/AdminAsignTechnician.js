@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams,useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import AddSlotBtn from '../../components/Atoms/admin/AddSlotBtn';
 import SlotNumberCard from '../../components/Atoms/admin/SlotNumberCard';
 import AdminSideBar from '../../components/Moleculars/admin/AdminSideBar'
 import TechniciansDropDown from '../../components/Moleculars/technician/TechniciansDropDown';
+import { getCookie } from '../../jsfunctions/cookies';
+import axios from 'axios';
 
 export default function AdminAsignTechnician(props) {
-    const location = useLocation()
+    const [slotInfo, setslotInfo] = useState([]);
+    const location = useLocation();
     const name = location.state?.name;
+    var config = {
+        headers: {
+            'Authorization': 'Bearer ' + getCookie('token'),
+        }
+    }
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/slots/getdetails/${name}`, config)
+            .then(function (response) {
+                console.log(response.data);
+                setslotInfo(response.data);
+            })
+    }, [])
     return (
         <div className="">
         <div className="md:ml-40 "><AdminSideBar name="Section Manage " roleName="Admin"/></div>
@@ -22,11 +38,9 @@ export default function AdminAsignTechnician(props) {
                                 <TechniciansDropDown/>  
                             </div>
                             <div className="flex flex-col justify-center items-center mt-6 sm:grid grid-cols-2 place-items-center lg:grid-cols-3 xl:grid-cols-4">
-                                <SlotNumberCard color="bg-green-500" slotNum="1" vNum="" techName=""/>
-                                <SlotNumberCard color="bg-green-500" slotNum="2" vNum="" techName=""/>
-                                <SlotNumberCard color="bg-red-500" slotNum="3" vNum="CAZ-4079" techName="Pathiya"/>
-                                <SlotNumberCard color="bg-red-500" slotNum="4" vNum="CAZ-4079" techName="Pathiya"/>
-                                <SlotNumberCard color="bg-green-500" slotNum="5" vNum="" techName=""/>
+                                {slotInfo.map(slot=><SlotNumberCard color={slot.slotStatus == 'AVAILABLE'?"bg-green-500":"bg-red-500"} slotName={slot.slotName} vNum={slot.assignedVehicle} techName={slot.assignedTechnicianName==null?"AVAILABLE":slot.assignedTechnicianName}/>)}
+                                
+                                <SlotNumberCard color="bg-red-500" slotName="4" vNum="CAZ-4079" techName="Pathiya"/>
                             </div>
                             
                         </div>
