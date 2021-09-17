@@ -18,7 +18,7 @@ export default function SearchVehicle() {
                         <div className="mt-20 mb-20">
                             <SearchBarVehicle/>
                         </div>
-                        <div className="w-10/12 mb-12 grid grid-cols-1  ml-14 ">
+                        <div className="w-10/12 lg:w-11/12 mb-12 grid grid-cols-1  ml-14 ">
                             <div>
                                 <SearchVihicleRowOne/>
                             </div>
