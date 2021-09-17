@@ -20,6 +20,7 @@ export default function AdminReports() {
                                 <ReportTopNavbar/>
                             </div>
                             <div className="mb-3 flex justify-center ">
+
                                 <div className=" w-full rounded-lg mt-8">
                                     <div className="mt-2">
                                         <SalesChart/>
@@ -28,7 +29,7 @@ export default function AdminReports() {
                                         <Barchart/>
                                     </div> 
                                     <div className="mt-20">
-                                        <TableViewOne/>
+                          <TableViewOne/>
                                     </div> 
                                     <div className="mt-20">
                                         <TableViewTwoPrecentage/>
