@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import AppointmentContainer from '../../components/Atoms/serviceStation/AppointmentContainer'
 import OngoingServiceDetails from '../../components/Atoms/serviceStation/OngoingServiceDetails'
 import SubSectionHeading from '../../components/Atoms/serviceStation/SubSectionHeading'
 import TopContainer from '../../components/Atoms/serviceStation/TopContainer'
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
+import axios from 'axios'
+import { getCookie } from '../../jsfunctions/cookies'
 
 
 export default function Dashboard() {
+    const [ongoingRepairs, setongoingRepairs] = useState([]);
+    const userId=getCookie('userId');
+    
+    var config = {
+        headers: {
+            'Authorization': 'Bearer ' + getCookie('token'),
+        }
+    }
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/repairs/ongoing/${userId}`, config)
+            .then(function (response){
+                // console.log(response.data);
+                setongoingRepairs(response.data);
+            })
+    }, [])
     return (
         <div className=" bg-Background-0 h-screen">
             <div className="flex flex-row">
@@ -46,14 +64,7 @@ export default function Dashboard() {
                                     <OngoingServiceDetails RegNum="Reg. No" CurrentStatus="Current Status"/>
                                 </div>
                                 <div className="w-full h-64 overflow-auto">
-                                   <div className="mt-4 border-b-2 pr-16 pl-12"><OngoingServiceDetails RegNum="CAM - 4090" CurrentStatus="Completed"/></div>
-                                   <div className="mt-4 border-b-2 pr-16 pl-12"><OngoingServiceDetails RegNum="CAM - 4090" CurrentStatus="On service"/></div>
-                                   {/* <div className="mt-4 border-b-2 pr-9 pl-12"><OngoingServiceDetails RegNum="CAM - 4090" CurrentStatus="Completed"/></div>
-                                   <div className="mt-4 border-b-2 pr-9 pl-12"><OngoingServiceDetails RegNum="CAM - 4090" CurrentStatus="On service"/></div>
-                                   <div className="mt-4 border-b-2 pr-9 pl-12"><OngoingServiceDetails RegNum="CAM - 4090" CurrentStatus="Completed"/></div>
-                                   <div className="mt-4 border-b-2 pr-9 pl-12"><OngoingServiceDetails RegNum="CAM - 4090" CurrentStatus="On service"/></div> */}
-                              
-                                  
+                                    {ongoingRepairs.map(repair=><div className="mt-4 border-b-2 pr-16 pl-12"><OngoingServiceDetails RegNum={repair.vehicleNumber} CurrentStatus={repair.status}/></div>)}                                                                          
                                 </div>
                             </div>
                         </div>
