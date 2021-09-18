@@ -38,7 +38,7 @@ export default function AdminAsignTechnician(props) {
                                 <TechniciansDropDown/>  
                             </div>
                             <div className="flex flex-col justify-center items-center mt-6 sm:grid grid-cols-2 place-items-center lg:grid-cols-3 xl:grid-cols-4">
-                                {slotInfo.map(slot=><SlotNumberCard color={slot.slotStatus == 'AVAILABLE'?"bg-green-500":"bg-red-500"} slotName={slot.slotName} vNum={slot.assignedVehicle} techName={slot.assignedTechnicianName==null?"AVAILABLE":slot.assignedTechnicianName}/>)}
+                                {slotInfo.map(slot=><SlotNumberCard color={slot.slotStatus == 'AVAILABLE'?"bg-green-500":"bg-red-500"} slotName={slot.slotName} vNum={slot.slotStatus == 'AVAILABLE'?"AVAILABLE":slot.assignedVehicle} techName={slot.assignedTechnicianName==null?"Technician Not Assigned":slot.assignedTechnicianName}/>)}
                                 
                                 <SlotNumberCard color="bg-red-500" slotName="4" vNum="CAZ-4079" techName="Pathiya"/>
                             </div>
