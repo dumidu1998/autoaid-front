@@ -26,6 +26,7 @@ import DetailsForm from './pages/serviceAdvisor/DetailsForm';
 import SectionSelection from './pages/serviceAdvisor/SectionSelection';
 import AddNewVehicleForm from './pages/serviceAdvisor/AddNewVehicleForm';
 import ServiceHistory from './pages/serviceAdvisor/ServiceHistory';
+import CheckList from './pages/serviceAdvisor/CheckList';
 import { getCookie } from './jsfunctions/cookies';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
@@ -35,6 +36,7 @@ import StockKeeperStock from './pages/StockKeeper/StockQuantity';
 import StockKeeperAddItem from './pages/StockKeeper/AddNewItem';
 import AdminAsignTechnician from './pages/admin/AdminAsignTechnician';
 import AdminReports from './pages/admin/AdminReports';
+import SearchVehicle from './pages/serviceAdvisor/SearchVehicle';
 
 
 
@@ -66,6 +68,8 @@ function App() {
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
           <Route path="/serviceadvisor/section/selection" exact component={SectionSelection} />
           <Route path="/serviceadvisor/servicehistory" exact component={ServiceHistory} />
+          <Route path="/serviceadvisor/checklist" exact component={CheckList} />
+          <Route path="/serviceadvisor/searchvehicle" exact component={SearchVehicle} />
 
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />

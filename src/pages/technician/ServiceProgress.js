@@ -10,11 +10,13 @@ import SummaryRightContainer from '../../components/Organs/technician/SummaryRig
 
 export default function ServiceProgress() {
     return (
-        <div className="relative bg-Background-0 h-screen">
-            <div className="flex flex-col items-center">
+        <div className="relative bg-Background-0 h-full lg:h-screen">
+            <div className="flex flex-col items-center ">
                 <TopContainerVNo heading1="KT-0246" />
-                <div className="flex w-10/12 justify-between">
-                    <ProgressMainContainer />
+                <div className="flex  flex-col lg:flex-row w-11/12 justify-center items-center">
+                    <div>
+                        <ProgressMainContainer />
+                    </div>
                     <div className="flex flex-col items-center">
                         <SummaryRightContainer />
                         <PauseBtn txt={"Pause"} />

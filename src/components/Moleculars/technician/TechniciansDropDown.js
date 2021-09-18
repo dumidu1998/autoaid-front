@@ -1,5 +1,7 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
+import axios from 'axios'
+import { getCookie } from '../../../jsfunctions/cookies'
 
 const people = [
     {
@@ -34,6 +36,19 @@ function classNames(...classes) {
 
 export default function TechniciansDropDown() {
     const [selected, setSelected] = useState(people[3])
+    const [technicianList, settechnicianList] = useState([]);
+    var config = {
+        headers: {
+            'Authorization': 'Bearer ' + getCookie('token'),
+        }
+    }
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstaff/3`, config)
+        .then(function(response){
+            console.log(response.data);
+            settechnicianList(response.data);
+        })
+    }, [])
 
     return (
         <Listbox value={selected} onChange={setSelected}>
