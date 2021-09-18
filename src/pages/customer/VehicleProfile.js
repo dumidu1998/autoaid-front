@@ -17,7 +17,7 @@ var config = {
 var d = new Date();
 export default function VehicleProfile() {
     const { vid } = useParams();
-    const [vehicleDetails, setvehicleDetails] = useState({ model: "12312", engineNo: "12312", chassisNo: "12312", vin: "12312", make: "" });
+    const [vehicleDetails, setvehicleDetails] = useState({ model: "12312", engineNo: "12312", chassisNo: "12312", vin: "12312", make: "", vehicleNumber: "" });
     const [vehicleSummary, setvehicleSummary] = useState({
         "total": 0.0,
         "totalMonth": 0.0,
@@ -51,7 +51,7 @@ export default function VehicleProfile() {
     return (
         <div className="mb-20">
             <TopNav />
-            <UploadVehicleImg />
+            <UploadVehicleImg Vno={vehicleDetails.vehicleNumber} />
             <div className="md:flex md:justify-center ">
                 <div className="flex items-center justify-center my-5">
                     <div className="w-10/12 md:bg-white md:p-5 md:rounded-lg md:shadow-lg md:w-10/12 md:my-5 md:mx-5">
