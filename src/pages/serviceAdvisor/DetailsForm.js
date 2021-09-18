@@ -73,7 +73,7 @@ export default function DetailsForm() {
     }
     const history = useHistory();
     return (
-        <div className=" bg-Background-0 mb-12 h-screen">
+        <div className=" bg-Background-0">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
@@ -85,12 +85,12 @@ export default function DetailsForm() {
                     <div className="container mx-auto max-w-full overflow-hidden">
                         <div className="grid-cols-4 ">
                             <div className="w-full h-24">
-                                <div className="flex items-center justify-center w-1/2 mt-20">
-                                    <div className="flex flex-col mr-2 ml-16">
+                                <div className="flex items-center justify-center w-full mt-20">
+                                    <div className="flex flex-col mr-2">
                                         <label htmlFor="contactNo" className="font-primary  text-md font-semibold  mt-3">Contact No </label>
-                                        <input value={contactNo} onChange={event => setcontactNo(event.target.value)} placeholder="+94/07....." className=" ml-5 mt-2 rounded-lg shadow-lg w-64 h-10 pl-5" />
+                                        <input value={contactNo} onChange={event => setcontactNo(event.target.value)} placeholder="+94/07....." className="mt-2 rounded-lg shadow-lg w-80 h-20 pl-5" />
                                     </div>
-                                    <div className="ml-8 mt-16">
+                                    <div className="ml-8 mt-14">
                                         <SearchBtnDetailsForm functionName={getUserDetails} txt="Search" />
                                     </div>
                                 </div>
@@ -114,9 +114,9 @@ export default function DetailsForm() {
                             >
                                 <Form className="mt-20 mr-12">
                                     <div className=" w-full h-48 mt-10 grid grid-cols-1 place-items-center ">
-                                        <div className="w-full xl:w-11/12 bg-white p-12 rounded-xl flex flex-col items-center overflow-auto ">
-                                            <div className="flex flex-row">
-                                                <div className="flex flex-col mr-12 ml-4 w-1/2 ">
+                                        <div className="w-full xl:w-10/12 bg-white p-12 rounded-xl flex flex-col items-center overflow-auto ">
+                                            <div className="flex flex-row spay-3">
+                                                <div className="flex flex-col mr-12 ml-4 w-1/2">
                                                     <Field id="contactNo" name="contactNo" className=" hidden" />
                                                     <label htmlFor="firstName" className="font-primary  text-md font-semibold  mt-3">First Name</label>
                                                     <Field id="firstName" name="firstName" placeholder="Jane Irish" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />

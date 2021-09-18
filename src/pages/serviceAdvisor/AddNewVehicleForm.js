@@ -72,7 +72,7 @@ export default function AddNewVehicleForm() {
                 </div>
                 <div className="w-full flex flex-col xl:ml-40 ">
                     {/* <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/> */}
-                    <AdminTopBar name="Vehicle Registration" roleName="Service Advisor" />
+                    <AdminTopBar name="Vehicle Registration " roleName="Service Advisor" />
                     <div className="mt-16">
                         <Formik
                             enableReinitialize
