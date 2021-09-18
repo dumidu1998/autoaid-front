@@ -14,12 +14,20 @@ var config = {
         'Authorization': 'Bearer ' + getCookie('token'),
     }
 }
-
+var d = new Date();
 export default function VehicleProfile() {
     const { vid } = useParams();
     const [vehicleDetails, setvehicleDetails] = useState({ model: "12312", engineNo: "12312", chassisNo: "12312", vin: "12312", make: "" });
-
+    const [vehicleSummary, setvehicleSummary] = useState({
+        "total": 0.0,
+        "totalMonth": 0.0,
+        "avg": 0.0,
+        "avgRep": 0.0,
+        "activeRe": 0
+    });
+    const [vehicleHistory, setvehicleHistory] = useState({});
     const showonlyfirst5 = (data) => '*'.repeat(Math.min(data.length - 5, 5)) + data.slice(-5);
+
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/vehicledetails/${vid}`, config)
             .then((res) => {
@@ -27,6 +35,16 @@ export default function VehicleProfile() {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .then(() => {
+                axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/vehicleexpenses/${vid}`, config)
+                    .then((res) => {
+                        setvehicleSummary(res.data);
+                        console.log(res.data.total.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2 }));
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
             });
     }, [vid])
 
@@ -42,11 +60,11 @@ export default function VehicleProfile() {
                             <SideLink name="View Details" />
                         </div>
                         <div className="flex flex-wrap justify-between my-5">
-                            <DetailsShowing data="Rs. 5125.00" dataHeading="Total Expenditure" />
-                            <DetailsShowing data="Rs. 2500.00" dataHeading="Expenses in May" />
-                            <DetailsShowing data="Rs. 1500.00" dataHeading="Avg. Expenditure/Month" />
-                            <DetailsShowing data="1" dataHeading="Active Repairs" />
-                            <DetailsShowing data="2" dataHeading="Avg. Repairs/ Month" />
+                            <DetailsShowing data={`Rs.${vehicleSummary.total.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} dataHeading="Total Expenditure" />
+                            <DetailsShowing data={`Rs.${vehicleSummary.totalMonth.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} dataHeading={`Expenses in ${d.toLocaleString('default', { month: 'long' })}`} />
+                            <DetailsShowing data={`Rs.${vehicleSummary.avg.toLocaleString("en", { useGrouping: false, maximumFractionDigits: 2 })}`} dataHeading="Avg. Expenditure/Month" />
+                            <DetailsShowing data={`Rs.${vehicleSummary.avgRep.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} dataHeading="Active Repairs" />
+                            <DetailsShowing data={`Rs.${vehicleSummary.activeRe.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} dataHeading="Avg. Repairs/ Month" />
                         </div>
                     </div>
                 </div>
