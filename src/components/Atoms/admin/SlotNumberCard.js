@@ -1,4 +1,5 @@
 import React from 'react'
+import SlotStatusBtn from './SlotStatusBtn';
 
 export default function SlotNumberCard(props) {
     let style = "w-4/6 h-auto rounded-lg shadow-xl m-4 text-white text-xl sm:text-2xl ";
@@ -10,7 +11,10 @@ export default function SlotNumberCard(props) {
                 <div className="mt-2">{props.slotName}</div>
                 <div className="text-sm sm:text-base">{props.vNum}</div>
                 <div className="text-sm sm:text-base">{props.techName}</div>
-            </div>
+           </div>
+           <div className="flex  justify-center mb-4">
+               <SlotStatusBtn btnName="Status"/>
+           </div>
         </div>
     )
 }

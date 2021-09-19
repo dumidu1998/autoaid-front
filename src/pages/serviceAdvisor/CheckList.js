@@ -39,12 +39,25 @@ export default function CheckList() {
                                 </div>
 
                             </div>
+                            <div className="flex flex-col items-center w-1/2  space-y-4 mt-10 p-5">
+                                <div className="flex justify-between w-1/2 items-center">
+                                    <label className="mr-3">Documents</label>
+                                    <input type="checkbox" min="0"  className=" border rounded-full shadow-lg w-8 h-8"/>
 
-                            <div className="flex flex-col items-center">
-                                <p className=" text-left">Description</p>
-                                <input type="text"  className="w-3/4 h-32 border rounded-lg shadow-lg"/>
+                                </div>
+                                <div className="flex justify-between w-1/2 items-center">
+                                    <label className="mr-3">Spare Wheel</label>
+                                    <input type="checkbox" min="0"  className=" border rounded-full shadow-lg w-8 h-8"/>
+
+                                </div>
+                                <div className="flex justify-between w-1/2 items-center">
+                                    <label className="mr-3">Tool Set</label>
+                                    <input type="checkbox" min="0"  className=" border rounded-full shadow-lg w-8 h-8"/>
+
+                                </div>
 
                             </div>
+
 
                             <div className="flex justify-evenly space-x-5">
                                 <div>
@@ -59,22 +72,9 @@ export default function CheckList() {
                                 </div>
 
                             </div>
-                            <div className="flex flex-col items-center w-1/2  space-y-4 mt-10 p-5">
-                                <div className="flex justify-between w-1/2 items-center">
-                                    <label className="mr-3">Documents</label>
-                                    <input type="checkbox" min="0"  className=" border-0 rounded-full shadow-lg w-8 h-8"/>
-
-                                </div>
-                                <div className="flex justify-between w-1/2 items-center">
-                                    <label className="mr-3">Spare Wheel</label>
-                                    <input type="checkbox" min="0"  className=" border-0 rounded-full shadow-lg w-8 h-8"/>
-
-                                </div>
-                                <div className="flex justify-between w-1/2 items-center">
-                                    <label className="mr-3">Tool Set</label>
-                                    <input type="checkbox" min="0"  className=" border-0 rounded-full shadow-lg w-8 h-8"/>
-
-                                </div>
+                            <div className="flex flex-col items-center">
+                                <p className=" text-left">Description</p>
+                                <input type="text"  className="w-3/4 h-32 border rounded-lg shadow-lg"/>
 
                             </div>
                             <div className="w-full flex justify-center text-white">

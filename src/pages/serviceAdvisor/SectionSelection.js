@@ -75,7 +75,7 @@ export default function SectionSelection() {
 
 
     return (
-        <div className=" bg-Background-0 h-full mb-12 xl:h-screen">
+        <div className=" bg-Background-0 h-full pb-12 xl:h-full">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
