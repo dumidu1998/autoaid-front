@@ -40,7 +40,7 @@ export default function AdminSection() {
                         <div className="container mx-auto max-w-full">
                             <div className="flex justify-center items-center mt-32 md:mt-16 md:justify-end md:mr-10"><AddSectionBtn/></div>
                             <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
-                                {sectionDetails.map(section =>
+                                {/* {sectionDetails.map(section =>
 
                                     <div className="flex flex-col  items-center ">
 
@@ -136,7 +136,7 @@ export default function AdminSection() {
 
                                         </div>
                                     </div>
-                                )}
+                                )} */}
                             </div>
                         </div>
                     </div>
