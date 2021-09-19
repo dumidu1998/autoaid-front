@@ -13,7 +13,7 @@ import { getCookie } from '../../jsfunctions/cookies'
 import PopupItemDetails from '../../components/Moleculars/stockKeeper/PopupItemDetails'
 
 export default function StockQuantity() {
-    const [itemCategory, setitemCategory] = useState();
+    const [itemCategory, setitemCategory] = useState(0);
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
     const [output, setoutput] = useState({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:""});
@@ -23,6 +23,7 @@ export default function StockQuantity() {
             'Authorization': 'Bearer ' + getCookie('token'),
         }
     }
+
     function showdetails(id) {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
             .then(res => {
@@ -33,6 +34,7 @@ export default function StockQuantity() {
             }
             ).catch(err => {
                 console.log(err);
+                console.log("error showdetails");
             })
     }
 
@@ -47,6 +49,7 @@ export default function StockQuantity() {
             ).catch(err => {
                 console.log(err);
                 setresult([]);
+                console.log("error getByName");
             })
             // setshow("hidden");
             // setresult(res.data);
@@ -62,6 +65,7 @@ export default function StockQuantity() {
             ).catch(err => {
                 console.log(err);
                 setresult([]);
+                console.log("error search by name");
             })
     }
     
@@ -77,6 +81,7 @@ useEffect(() => {
             ).catch(err => {
                 console.log(err);
                 setresult([]);
+                console.log("error use effect");
             })
             // setshow("hidden");
             // setresult(res.data);
@@ -88,10 +93,16 @@ useEffect(() => {
 
 useEffect(() => {
     console.log(itemCategory);
+    console.log(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`);
     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`, config)
         .then(function (response) {
             console.log(response.data);
             setresult(response.data);
+            console.log("Response data printed");
+        }).catch(err => {
+            console.log(err);
+            setresult([]);
+            console.log("error use effect 2");
         })
 }, [itemCategory])
 
@@ -139,7 +150,7 @@ useEffect(() => {
                                     <ul class={` ${show} `} >
                                                 {result.map(item => (<div className="mt-4 border-b-2 pr-9 pl-12 " onChange={showdetails} id={item.itemNo}>
                                                     {/* {item.itemName} */}
-                                                     <ItemContainer3 itemName={item.itemName} quantity={item.stock} itemNo={item.itemNo}/>
+                                                     <ItemContainer3 key={item.itemNo} itemName={item.itemName} quantity={item.stock} itemNo={item.itemNo}/>
                                                                                                           
                                                 </div>
                                                 ))}
