@@ -6,9 +6,9 @@ import SideLink from '../../components/Atoms/customer/SideLink'
 import BottomNav from '../../components/Moleculars/customer/BottomNav'
 import TopNav from '../../components/Moleculars/customer/TopNav'
 import { useParams } from 'react-router'
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { getCookie } from '../../jsfunctions/cookies'
 import axios from 'axios'
-
 var config = {
     headers: {
         'Authorization': 'Bearer ' + getCookie('token'),
@@ -16,6 +16,7 @@ var config = {
 }
 var d = new Date();
 export default function VehicleProfile() {
+    const history = useHistory();
     const { vid } = useParams();
     const [vehicleDetails, setvehicleDetails] = useState({ model: "12312", engineNo: "12312", chassisNo: "12312", vin: "12312", make: "", vehicleNumber: "" });
     const [vehicleSummary, setvehicleSummary] = useState({
@@ -25,7 +26,8 @@ export default function VehicleProfile() {
         "avgRep": 0.0,
         "activeRe": 0
     });
-    const [vehicleHistory, setvehicleHistory] = useState({});
+    const [vehicleHistory, setvehicleHistory] = useState([]);
+
     const showonlyfirst5 = (data) => '*'.repeat(Math.min(data.length - 5, 5)) + data.slice(-5);
 
     useEffect(() => {
@@ -41,6 +43,16 @@ export default function VehicleProfile() {
                     .then((res) => {
                         setvehicleSummary(res.data);
                         console.log(res.data.total.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2 }));
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            })
+            .then(() => {
+                axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/vehicleservices/${vid}`, config)
+                    .then((res) => {
+                        setvehicleHistory(res.data);
+                        console.log(res.data[0].split(" ")[0])
                     })
                     .catch((err) => {
                         console.log(err);
@@ -63,8 +75,8 @@ export default function VehicleProfile() {
                             <DetailsShowing data={`Rs.${vehicleSummary.total.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} dataHeading="Total Expenditure" />
                             <DetailsShowing data={`Rs.${vehicleSummary.totalMonth.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} dataHeading={`Expenses in ${d.toLocaleString('default', { month: 'long' })}`} />
                             <DetailsShowing data={`Rs.${vehicleSummary.avg.toLocaleString("en", { useGrouping: false, maximumFractionDigits: 2 })}`} dataHeading="Avg. Expenditure/Month" />
-                            <DetailsShowing data={`Rs.${vehicleSummary.avgRep.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} dataHeading="Active Repairs" />
-                            <DetailsShowing data={`Rs.${vehicleSummary.activeRe.toLocaleString("en", { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} dataHeading="Avg. Repairs/ Month" />
+                            <DetailsShowing data={`${vehicleSummary.activeRe}`} dataHeading="Active Repairs" />
+                            <DetailsShowing data={`${vehicleSummary.avgRep}`} dataHeading="Avg. Repairs/ Month" />
                         </div>
                     </div>
                 </div>
@@ -90,27 +102,34 @@ export default function VehicleProfile() {
                     </div>
                     <table className="w-full table-auto">
                         <tbody>
-                            <tr className="border">
+                            {vehicleHistory.map((item, index) => (
+                                <tr className="border cursor-pointer" key={index} onClick={() => {
+                                    // history.push('/invoice/');
+                                    const win = window.open("/invoice", "_blank");
+                                    win.focus();
+                                }} >
+                                    <td className="p-2">{item.split(" ")[0]}</td>
+                                    <td >
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </td>
+                                </tr>
+
+                            ))}
+                            {/* <tr className="border">
                                 <td className="p-2">2021.05.05</td>
                                 <td >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </td>
-                            </tr>
-                            <tr className="border">
-                                <td className="p-2">2021.05.05</td>
-                                <td >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
                 </div>
             </div>
             <BottomNav />
-        </div>
+        </div >
     )
 }
