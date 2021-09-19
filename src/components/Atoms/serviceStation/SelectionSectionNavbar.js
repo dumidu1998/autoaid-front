@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 class SelectionSectionNavbar extends Component {
     state = {}
     highlightColor = () => {
-        let color = "flex place-items-center justify-center bg-black w-full ml-3 mr-3 shadow-2xl rounded-xl h-16 text-white";
+        let color = "flex place-items-center justify-center bg-black w-full ml-3 mr-3 shadow-2xl rounded-xl h-16 text-sm font-semibold text-white";
         
         return color;
     }
     
     normalColor = () => {
-        let color = "flex place-items-center justify-center bg-white w-full mx-3 shadow-xl rounded-xl h-16 px-4";
+        let color = "flex place-items-center justify-center bg-white w-full mx-3 shadow-xl rounded-xl h-16 px-4 text-sm font-semibold";
         return color;
     }
     render() { 

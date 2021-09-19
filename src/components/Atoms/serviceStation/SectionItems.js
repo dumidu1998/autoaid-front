@@ -41,9 +41,9 @@ export default function SectionItems(props) {
                 <div className="flex items-center justify-center mt-2 mb-2">
                     {/* Need Styles */}
                     <input className=" bg-white w-20 rounded-lg h-8 border-1" type="number" value={(timeDisabled==true?props.subCat.time:null)} onChange={event => props.subCat.time=(Number(event.target.value))} disabled={timeDisabled}/>
-                      <span className="ml-2">min</span>
+                      <span className="ml-2 text-xs">min</span>
                     {/* Need to add styles */}
-                    <button onClick={setTime} className="ml-10 bg-green-600 text-white w-32 p-2 rounded-lg">Change Time</button>
+                    <button onClick={setTime} className="ml-10 bg-red-600 text-white w-32 p-2 rounded-lg">Change Time</button>
                 </div>
             </div>
             <div>
