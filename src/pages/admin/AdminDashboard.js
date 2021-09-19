@@ -8,12 +8,30 @@ import Popup from 'reactjs-popup';
 import Clock from 'react-live-clock';
 import 'reactjs-popup/dist/index.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DashboardStatusCardsGrid from '../../components/Organs/admin/DashboardStatusCardsGrid';
 import SectionHeading from '../../components/Atoms/SectionHeading';
+import axios from 'axios';
+import { getCookie } from '../../jsfunctions/cookies';
 
 
 export default function AdminDashboard() {
+    const [sectionName, setsectionName] = useState("");
+    const [ongoingRepair, setongoingRepair] = useState([]);
+
+    var config = {
+        headers: {
+            'Authorization': 'Bearer ' + getCookie('token'),
+        }
+    }
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/section/getongoingvehicles/${sectionName}`, config)
+        .then(function (response) {
+            console.log(response.data);
+            setongoingRepair(response.data);
+        })
+    }, [sectionName])
     return (
         <div className=" ">
             <div className="md:ml-40"><AdminSideBar name="DashBoard " roleName="Admin"/></div>
@@ -38,11 +56,10 @@ export default function AdminDashboard() {
                 <div className="">
                     <div className="grid grid-cols-1 mt-80 place-items-center sm:-mt-20 md:-mt-20 md:grid-cols-2">
                         <div className="bg-white px-9 rounded-xl shadow-xl mr-4 w-11/12 ml-6 h-auto py-3 mt-64 mb-9 sm:mt-32">
-                            <DashBoardVehicleInfoSectionHeadingMolecular />
+                            <DashBoardVehicleInfoSectionHeadingMolecular sectionName={sectionName} setsectionName={setsectionName} />
                             <div className="bg-white overflow-auto w-full h-64 mt-6">
-                                <DashBoardSectionDetails />
-                                <DashBoardSectionDetails />
-                                <DashBoardSectionDetails />
+                                {ongoingRepair.map(repair=><DashBoardVehicleInfoCard repair={repair}/>)}
+                                {/* <DashBoardSectionDetails /> */}
                             </div>
                         </div>
                         <div className="bg-white px-9 rounded-xl shadow-xl ml-2  w-11/12 h-auto overflow-auto py-3  mb-9 sm:mt-32">

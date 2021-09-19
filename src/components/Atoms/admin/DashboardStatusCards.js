@@ -15,17 +15,17 @@ export default function DashboardStatusCards({
     date,
 }) {
     return (
-            <div className="px-4 mb-10 ">
-                <Card>
-                    <CardRow>
-                        <CardHeader  iconOnly className="  bg-gradient-to-br from-Secondary-0 to-primary-0">
-                            <img src={icon}/>
-                        </CardHeader>
-                        <CardStatus title={title} amount={amount} className="font-primary" />
-                    </CardRow>
+        <div className="px-4 mb-10 ">
+            <Card>
+                <CardRow>
+                    <CardHeader iconOnly className="bg-gradient-to-br from-Secondary-0 to-primary-0">
+                        <img src={icon} />
+                    </CardHeader>
+                    <CardStatus title={title} amount={amount} className="font-primary" />
+                </CardRow>
 
-                    <CardStatusFooter  className="font-primary justify-center" amount={percentage+" %"} color={percentageColor} date={date}></CardStatusFooter>
-                </Card>
-            </div>
+                <CardStatusFooter className="font-primary justify-center" amount={percentage + " %"} color={percentageColor} date={date}></CardStatusFooter>
+            </Card>
+        </div>
     )
 }
