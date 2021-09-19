@@ -29,7 +29,7 @@ export default function AdminReports() {
                                         <Barchart/>
                                     </div> 
                                     <div className="mt-20">
-                          <TableViewOne/>
+                                        <TableViewOne/>
                                     </div> 
                                     <div className="mt-20">
                                         <TableViewTwoPrecentage/>
