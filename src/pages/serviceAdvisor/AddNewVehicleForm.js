@@ -67,7 +67,7 @@ export default function AddNewVehicleForm() {
     const history = useHistory();
     return (
 
-        <div className=" bg-Background-0 h-full mb-12 ">
+        <div className=" bg-Background-0 h-full pb-12 ">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
@@ -99,33 +99,33 @@ export default function AddNewVehicleForm() {
                         >
                             <Form id="add-vehicle-form">
                                 <div className="w-full h-18 mt-3">
-                                    <div className="font-primary text-2xl flex items-center justify-center w-full mb-2 ">Add Vehicle</div>
+                                    <div className="font-primary text-2xl flex items-center justify-center w-full mb-2 font-bold ">Add Vehicle</div>
                                     (mehtna ekama form nisa heading eka "Add Vehicle" or "Update Vehicle" kiyla update wenna one 
                                     <div className="flex flex-col items-center  mt-12 mb-12">
                                         <div className="flex justify-center w-11/12">
-                                        <div className="bg-white  rounded-lg  py-32 w-full grid grid-cols-2 place-items-center  mb-4">
+                                        <div className="bg-white  rounded-lg py-10 w-10/12 grid grid-cols-2 place-items-center  mb-4">
                                             <div className="flex flex-col ">
 
                                                 <Field id="contactNo" name="contactNo" className="hidden" />
 
                                                 <label htmlFor="vin" className="font-primary  text-md font-semibold  ">VIN</label>
-                                                <Field id="vin" name="vin" placeholder="0938383830123" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
+                                                <Field id="vin" name="vin" placeholder="0938383830123" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} required />
 
                                                 <label htmlFor="engineNo" className="font-primary  text-md font-semibold  mt-10">Engine No.</label>
-                                                <Field id="engineNo" name="engineNo" placeholder="engineNo" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                <Field id="engineNo" name="engineNo" placeholder="engineNo" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" required/>
 
                                                 <label htmlFor="model" className="font-primary  text-md font-semibold  mt-10">Vehicle Model</label>
-                                                <Field id="model" name="model" placeholder="model" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
+                                                <Field id="model" name="model" placeholder="model" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} required/>
                                             </div>
                                             <div className="flex flex-col ">
                                                 <label htmlFor="vehicleNumber" className="font-primary  text-md font-semibold  ">Reg No.</label>
-                                                <Field id="vehicleNumber" name="vehicleNumber" placeholder="vehicleNumber" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" disabled={disable} />
+                                                <Field id="vehicleNumber" name="vehicleNumber" placeholder="vehicleNumber" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" disabled={disable} required/>
 
                                                 <label htmlFor="chassisNo" className="font-primary  text-md font-semibold  mt-10">chassis No</label>
-                                                <Field id="chassisNo" name="chassisNo" placeholder="Jane" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" disabled={disable} />
+                                                <Field id="chassisNo" name="chassisNo" placeholder="Jane" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" disabled={disable} required/>
 
                                                 <label htmlFor="make" className="font-primary  text-md font-semibold  mt-10">Make</label>
-                                                <Field id="make" name="make" placeholder="make" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} />
+                                                <Field id="make" name="make" placeholder="make" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" disabled={disable} required/>
                                             </div>
                                         </div>
                                         </div>
