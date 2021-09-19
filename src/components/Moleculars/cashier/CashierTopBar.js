@@ -1,6 +1,7 @@
 import {useState } from 'react';
-import DashboardName from './DashboardName';
-import Profileicon from './Profileicon';
+import DashboardName from '../../Atoms/admin/DashboardName';
+import Profileicon from '../../Atoms/admin/Profileicon';
+
 
 export default function CashierTopBar(props) {
     const [showSidebar, setShowSidebar] = useState('-left-64');
