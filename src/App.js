@@ -38,8 +38,7 @@ import AdminAsignTechnician from './pages/admin/AdminAsignTechnician';
 import AdminReports from './pages/admin/AdminReports';
 import SearchVehicle from './pages/serviceAdvisor/SearchVehicle';
 import Invoice from './components/Moleculars/Invoice';
-
-
+import CashierDashBoard from './pages/cashier/CashierDashBoard';
 
 
 
@@ -98,6 +97,8 @@ function App() {
           <Route path="/stockkeeper/stock" exact component={StockKeeperStock} />
           <Route path="/stockkeeper/addnew" exact component={StockKeeperAddItem} />
 
+          <Route path="/cashier" exact component={CashierDashBoard} />
+          
         </Switch>
       </Router>
 
