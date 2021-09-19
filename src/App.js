@@ -37,9 +37,8 @@ import StockKeeperAddItem from './pages/StockKeeper/AddNewItem';
 import AdminAsignTechnician from './pages/admin/AdminAsignTechnician';
 import AdminReports from './pages/admin/AdminReports';
 import SearchVehicle from './pages/serviceAdvisor/SearchVehicle';
+import Invoice from './components/Moleculars/Invoice';
 import CashierDashBoard from './pages/cashier/CashierDashBoard';
-
-
 
 
 
@@ -61,6 +60,7 @@ function App() {
           <Route path="/" exact component={Landing} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
+          <Route path="/invoice" exact component={Invoice} />
 
           <Route path="/serviceadvisor" exact component={Service} />
           <Route path="/serviceadvisor/addnew" exact component={AddNew} />

@@ -35,6 +35,10 @@ export default function AdminSection() {
                     <div className="px-3 md:px-8 -mt-24">
                         <div className="container mx-auto max-w-full">
                             <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
+
+                                {/* {sectionDetails.map(section =>
+
+
                                 <div className="flex justify-center items-center mt-32 md:mt-16 md:justify-end md:mr-10"><AddSectionBtn/></div>
                                 {sectionDetails.map(section =>
                                     <div className="flex flex-col  items-center ">
@@ -59,7 +63,7 @@ export default function AdminSection() {
                                                 <div className="mt-8 flex justify-center items-center"><StatusBtn btnName="Status" /></div>
                                         </div>
                                     </div>
-                                )}
+                                )} */}
                             </div>
                         </div>
                     </div>
