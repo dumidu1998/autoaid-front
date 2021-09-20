@@ -99,10 +99,10 @@ export default function AddNewVehicleForm() {
                         >
                             <Form id="add-vehicle-form">
                                 <div className="w-full h-18 mt-3">
-                                    <div className="font-primary text-2xl flex items-center justify-center w-full mb-2 font-bold ">Add Vehicle</div>
+                                    <div className="font-primary text-2xl flex items-center justify-center w-full mb-2 font-bold text-white tracking-wider ">Add Vehicle</div>
                                     (mehtna ekama form nisa heading eka "Add Vehicle" or "Update Vehicle" kiyla update wenna one 
                                     <div className="flex flex-col items-center  mt-12 mb-12">
-                                        <div className="flex justify-center w-11/12">
+                                        <div className="flex justify-center w-9/12">
                                         <div className="bg-white  rounded-lg py-10 w-10/12 grid grid-cols-2 place-items-center  mb-4">
                                             <div className="flex flex-col ">
 

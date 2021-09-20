@@ -41,6 +41,8 @@ import BarChart from './components/Moleculars/BarChart';
 import DoughnutChart from './components/Moleculars/DoughnutChart';
 import Invoice from './components/Moleculars/Invoice';
 import CashierDashBoard from './pages/cashier/CashierDashBoard';
+import Charts from './pages/customer/Charts';
+import ItemRequest from './pages/serviceAdvisor/ItemRequest';
 import CashierVehicleHistoryList from './pages/cashier/CashierVehicleHistoryList';
 import AvehicleHistory from './pages/cashier/AvehicleHistory';
 
@@ -69,7 +71,7 @@ function App() {
           <Route path="/invoice" exact component={Invoice} />
 
           <Route path="/serviceadvisor" exact component={Service} />
-          <Route path="/serviceadvisor/addnew" exact component={AddNew} />
+          {/* <Route path="/serviceadvisor/addnew" exact component={AddNew} /> */}
           <Route path="/serviceadvisor/detailsform" exact component={DetailsForm} />
           <Route path="/serviceadvisor/addvehicle" exact component={AddNewVehicleForm} />
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
@@ -77,6 +79,7 @@ function App() {
           <Route path="/serviceadvisor/servicehistory" exact component={ServiceHistory} />
           <Route path="/serviceadvisor/checklist" exact component={CheckList} />
           <Route path="/serviceadvisor/searchvehicle" exact component={SearchVehicle} />
+          <Route path="/serviceadvisor/itemrequests" exact component={ItemRequest} />
 
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
@@ -84,6 +87,8 @@ function App() {
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />
+          <Route path="/customer/charts" exact component={Charts} />
+
 
           <Route path="/admin" exact component={AdminDashboard} />
           <Route path="/admin/staff" exact component={AdminStaff} />
