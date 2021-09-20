@@ -11,23 +11,46 @@ export default function Dashboard() {
     const [output, setoutput] = useState({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:""});
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
+    const [request, setrequest] = useState([]);
 
     useEffect(() => {
     
     
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
         .then(res => {
-            setresult(res.data);
+            setrequest(res.data);
             // setshow("block");
-            console.log(result);
+            console.log(request);
         }
         ).catch(err => {
             console.log(err);
-            setresult([]);
+            setrequest([]);
         })
         // setshow("hidden");
         // setresult(res.data);
         // setshow("block");
+
+
+
+}, [])
+
+useEffect(() => {
+    
+    
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
+    .then(res => {
+        setresult(res.data);
+        setshow("block");
+        console.log(result);
+    }
+    ).catch(err => {
+        console.log(err);
+        setresult([]);
+        console.log("error use effect");
+    })
+    // setshow("hidden");
+    // setresult(res.data);
+    // setshow("block");
 
 
 
