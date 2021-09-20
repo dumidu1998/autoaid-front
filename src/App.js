@@ -42,6 +42,7 @@ import DoughnutChart from './components/Moleculars/DoughnutChart';
 import Invoice from './components/Moleculars/Invoice';
 import CashierDashBoard from './pages/cashier/CashierDashBoard';
 import CashierVehicleHistoryList from './pages/cashier/CashierVehicleHistoryList';
+import AvehicleHistory from './pages/cashier/AvehicleHistory';
 
 
 
@@ -104,6 +105,7 @@ function App() {
 
           <Route path="/cashier" exact component={CashierDashBoard} />
           <Route path="/cashier/history" exact component={CashierVehicleHistoryList} />
+          <Route path="/cashier/vehicleinfo" exact component={AvehicleHistory} />
 
         </Switch >
       </Router >
