@@ -113,7 +113,9 @@ useEffect(() => {
                     <SideNavBar />
                 </div>
                 <div className="w-full flex flex-col xl:ml-40">
-                    <TopContainer heading1="Stock" heading2="Stock Keeper" addnewbtntext="Add New" path="addnew" />
+                        <div className="">
+                            <TopContainer heading1="Stock" heading2="Stock Keeper" addnewbtntext="Add New" path="addnew" />
+                        </div>
                     <div className="h-full flex items-center justify-center mx-2 ">
                         <div className="h-full w-10/12 py-8">
                             <div className=" flex">
