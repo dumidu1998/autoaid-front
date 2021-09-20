@@ -7,10 +7,9 @@ import SearchVihicleRowTwo from '../../components/Atoms/SearchVihicleRowTwo'
 import SearchBarVehicle from '../../components/Atoms/serviceStation/SearchBarVehicle'
 import StartPath from '../../components/Atoms/StartPath'
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
-import VehicleListTable from '../../components/Organs/serviceAdvisor/VehicleListTable'
-export default function SearchVehicle() {
+export default function SearchVehicleOld() {
     return (
-            <div className=" bg-Background-0  h-screen ">
+            <div className=" bg-Background-0  h-full ">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
@@ -21,8 +20,22 @@ export default function SearchVehicle() {
                         <div className="mt-20 mb-12">
                             <SearchBarVehicle/>
                         </div>
-                        <div className="mb-8 w-11/12 grid grid-cols-1 place-items-center mt-32 ml-3 lg:ml-12 xl:ml-14">
-                            <VehicleListTable/>
+                        <div className="mb-12 w-10/12 lg:w-11/12 grid grid-cols-1  ml-14">
+                            <StartPath/>
+                        </div>
+                        <div className="w-10/12 lg:w-11/12 mb-12 grid grid-cols-1  ml-14 ">
+                            <div>
+                                <SearchVihicleRowOne/>
+                            </div>
+                            <div className="mt-12">
+                                <SearchVihicleRowTwo/>
+                            </div>
+                            <div className="mt-12">
+                                <SearchVihicleRowThree/>
+                            </div>
+                        </div>
+                        <div className="mt-12 w-10/12 lg:w-11/12 grid grid-cols-1  ml-14 mb-12">
+                            <EndPath/>
                         </div>
                     </div>
                 </div>
