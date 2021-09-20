@@ -42,6 +42,7 @@ import DoughnutChart from './components/Moleculars/DoughnutChart';
 import Invoice from './components/Moleculars/Invoice';
 import CashierDashBoard from './pages/cashier/CashierDashBoard';
 import Charts from './pages/customer/Charts';
+import CheckListPage from './pages/customer/CheckListPage';
 import ItemRequest from './pages/serviceAdvisor/ItemRequest';
 import CashierVehicleHistoryList from './pages/cashier/CashierVehicleHistoryList';
 import AvehicleHistory from './pages/cashier/AvehicleHistory';
@@ -88,6 +89,7 @@ function App() {
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />
           <Route path="/customer/charts" exact component={Charts} />
+          <Route path="/customer/checklist" exact component={CheckListPage} />
 
 
           <Route path="/admin" exact component={AdminDashboard} />
