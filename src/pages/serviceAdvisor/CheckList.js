@@ -8,6 +8,7 @@ import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
 import { db } from '../../Firebase'
 import { getCookie } from '../../jsfunctions/cookies'
 import { useHistory } from 'react-router'
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 
 var config = {
     headers: {
@@ -29,6 +30,9 @@ export default function CheckList() {
     const [carpets, setcarpets] = useState(0)
     const [seatcovers, setseatcovers] = useState(0)
     const [description, setdescription] = useState(' ')
+    const location=useLocation();
+    console.log("State"+location.state);
+    
 
     function upload() {
         if (millage == '') {
