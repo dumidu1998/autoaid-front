@@ -19,17 +19,14 @@ export default function Dashboard() {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
         .then(res => {
             setrequest(res.data);
-            // setshow("block");
+            
             console.log(request);
         }
         ).catch(err => {
             console.log(err);
             setrequest([]);
         })
-        // setshow("hidden");
-        // setresult(res.data);
-        // setshow("block");
-
+        
 
 
 }, [])
@@ -68,6 +65,15 @@ useEffect(() => {
                         <div className="h-full w-5/12 py-8">
                             <SubSectionHeading heading="Item Requests" />
                             <div className="w-full h-3/5 overflow-auto">
+                                {request.map(item => (<div className=" pr-9 pl-12 ">
+                                                
+                                                <div className="mt-4 text-red-600 text-sm font-semibold">
+                                                    <ItemContainer itemNo={item.itemName} parts={item.quantity} vehicle={item.vehicleNumber} link={""} />
+                                                    {/* <LowQuantityItems itemNo={item.itemNo} itemName={item.itemName} stock={item.stock} color="text-red-600"/> */}
+                                                </div>
+                                                                                                  
+                                            </div>
+                                            ))}
                                 <ItemContainer itemNo="Piston" parts="25" repair="2" link={""} />
                                 <ItemContainer itemNo="Brake Pad" link={""} />
                                 <ItemContainer itemNo="Cluch Pad" link={""} />
