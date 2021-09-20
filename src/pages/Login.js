@@ -41,7 +41,7 @@ export default function Login() {
                         history.push('/customer');
                         break;
                     case 'LEAD_TECHNICIAN':
-                        history.push('/technician');
+                        history.push('/technician/dashboard');
                         break;
                     case 'STOCK_KEEPER':
                         history.push('/stockkeeper');
