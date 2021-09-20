@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 export default function StatusViewer(props) {
@@ -13,7 +14,7 @@ export default function StatusViewer(props) {
                 <h1 className="font-primary text-white text-sm font-semibold">Est. Time : {format(props.data.estTime)}hr</h1>
                 <img className=" w-44 h-44 rounded-full my-5 border-2 border-primary-0" src="/imgs/Icons/repair.png" />
                 <h1 className="font-primary text-white text-sm font-semibold">On Service</h1>
-                <a href="/customer/checklist" className="absolute top-2 right-5 font-primary text-xs text-Secondary-0">View Check List</a>
+                <Link to={{ pathname: "checklist", state: props.data.repairId }} className="absolute top-2 right-5 font-primary text-xs text-Secondary-0">View Check List</Link>
 
                 {props.data.ongoing.map((it, index) => (
                     <div className="w-1/3 flex my-1 items-center justify-center" key={index}>
@@ -45,8 +46,7 @@ export default function StatusViewer(props) {
                         <h1 className="font-primary text-white text-sm font-semibold text-center">Done</h1>
 
                     </div>
-
-                    <a href="/customer/checklist" className="absolute top-5 right-5 font-primary text-xs text-Secondary-0">View Check List</a>
+                    <Link to={{ pathname: "customer/checklist", state: props.data.repairId }} className="absolute top-2 right-5 font-primary text-xs text-Secondary-0">View Check List</Link>
                 </div>
                 {props.data.ongoing.map((it, index) => (
                     <div className="w-1/3 flex my-1 items-center justify-center" key={index}>
