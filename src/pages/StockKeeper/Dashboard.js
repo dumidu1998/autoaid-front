@@ -54,34 +54,34 @@ useEffect(() => {
 }, [])
 
     return (
-        <div className="relative bg-Background-0">
-            <div className="flex flex-row">
+        <div className="h-full w-full relative bg-Background-0">
+            <div className="flex">
                 <div>
                     <SideNavBar />
                 </div>
                 <div className="w-full flex flex-col xl:ml-40">
                     <TopContainer heading1="Dashboard" heading2="Stock Keeper" addnewbtntext="Add New" path="addnew" />
-                    <div className="h-full w-FULL flex items-center justify-center mx-16 ">
+                    <div className="h-full w-FULL flex items-center justify-center mx-8 ">
                         <div className="h-full w-5/12 py-8">
                             <SubSectionHeading heading="Item Requests" />
-                            <div className="w-full h-3/5 overflow-auto">
-                                {request.map(item => (<div className=" pr-9 pl-12 ">
+                            <div className="w-full h-full overflow-y-auto">
+                                {request.map(item => (<div className="  ">
                                                 
-                                                <div className="mt-4 text-red-600 text-sm font-semibold">
+                                                <div className="">
                                                     <ItemContainer itemNo={item.itemName} parts={item.quantity} vehicle={item.vehicleNumber} link={""} />
                                                     {/* <LowQuantityItems itemNo={item.itemNo} itemName={item.itemName} stock={item.stock} color="text-red-600"/> */}
                                                 </div>
                                                                                                   
                                             </div>
                                             ))}
-                                <ItemContainer itemNo="Piston" parts="25" repair="2" link={""} />
+                                {/* <ItemContainer itemNo="Piston" parts="25" repair="2" link={""} />
                                 <ItemContainer itemNo="Brake Pad" link={""} />
                                 <ItemContainer itemNo="Cluch Pad" link={""} />
                                 <ItemContainer itemNo="Oil Filter" link={""} />
                                 <ItemContainer itemNo="Piston" link={""} />
                                 <ItemContainer itemNo="Brake Pad" link={""} />
                                 <ItemContainer itemNo="Cluch Pad" link={""} />
-                                <ItemContainer itemNo="Oil Filter" link={""} />
+                                <ItemContainer itemNo="Oil Filter" link={""} /> */}
                             </div>
                         </div>
                         <div className="h-full w-5/12 py-8 ml-20">
