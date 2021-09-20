@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React,{useEffect} from 'react'
+import Barchart from '../../components/Organs/admin/Barchart'
 import { getCookie } from '../../jsfunctions/cookies'
 
 export default function Charts() {
@@ -22,7 +23,8 @@ export default function Charts() {
 
     return (
         <div>
-            gggg
+            kkk
+            {/* <Barchart/> */}
         </div>
     )
 }

@@ -87,7 +87,7 @@ export default function DetailsForm() {
                             <div className="w-full h-24">
                                 <div className="flex items-center justify-center w-full mt-20">
                                     <div className="flex flex-col mr-2">
-                                        <label htmlFor="contactNo" className="font-primary  text-md font-semibold  mt-3">Contact No </label>
+                                        <label htmlFor="contactNo" className="font-primary  text-xl text-white font-semibold  mt-3">Contact No </label>
                                         <input value={contactNo} onChange={event => setcontactNo(event.target.value)} placeholder="+94/07....." className="mt-2 rounded-lg shadow-lg w-80 h-20 pl-5" />
                                     </div>
                                     <div className="ml-8 mt-14">
@@ -114,7 +114,7 @@ export default function DetailsForm() {
                             >
                                 <Form className="mt-20 mr-12">
                                     <div className=" w-full h-48 mt-10 grid grid-cols-1 place-items-center ">
-                                        <div className="w-full xl:w-10/12 bg-white p-12 rounded-xl flex flex-col items-center overflow-auto ">
+                                        <div className="w-full xl:w-8/12 bg-white p-12 rounded-xl flex flex-col items-center overflow-auto ">
                                             <div className="flex flex-row spay-3">
                                                 <div className="flex flex-col mr-12 ml-4 w-1/2">
                                                     <Field id="contactNo" name="contactNo" className=" hidden" />

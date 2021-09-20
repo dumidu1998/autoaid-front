@@ -40,6 +40,7 @@ import SearchVehicle from './pages/serviceAdvisor/SearchVehicle';
 import Invoice from './components/Moleculars/Invoice';
 import CashierDashBoard from './pages/cashier/CashierDashBoard';
 import Charts from './pages/customer/Charts';
+import ItemRequest from './pages/serviceAdvisor/ItemRequest';
 
 
 
@@ -64,7 +65,7 @@ function App() {
           <Route path="/invoice" exact component={Invoice} />
 
           <Route path="/serviceadvisor" exact component={Service} />
-          <Route path="/serviceadvisor/addnew" exact component={AddNew} />
+          {/* <Route path="/serviceadvisor/addnew" exact component={AddNew} /> */}
           <Route path="/serviceadvisor/detailsform" exact component={DetailsForm} />
           <Route path="/serviceadvisor/addvehicle" exact component={AddNewVehicleForm} />
           <Route path="/serviceadvisor/vehicleinfo" exact component={VehicleInfo} />
@@ -72,6 +73,7 @@ function App() {
           <Route path="/serviceadvisor/servicehistory" exact component={ServiceHistory} />
           <Route path="/serviceadvisor/checklist" exact component={CheckList} />
           <Route path="/serviceadvisor/searchvehicle" exact component={SearchVehicle} />
+          <Route path="/serviceadvisor/itemrequests" exact component={ItemRequest} />
 
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
