@@ -15,8 +15,15 @@ export default function CashierVehicleHistoryList() {
                         <div className="font-primary text-xl md:text-2xl font-bold flex justify-center items-center mb-10">Completed Vehicle History</div>
                         <div className="flex justify-center -mt-12 ">
                            <SearchBarVehicle/>
-                        </div> 
-                        <Calander/>
+                        </div>
+                        <div className="flex justify-center items-center ">
+                            <div className="bg-white w-44 sm:w-48 md:w-52 lg:w-56 h-12 mt-4 mb-4 mr-4">
+
+                            </div>
+                            <div className="bg-white w-44 sm:w-48 md:w-52 lg:w-56 h-12 mt-4 mb-4 ml-4">
+
+                            </div>
+                        </div>
                         <div className="flex justify-center items-center mt-24 mb-12">
                             <SearchedVehicleList/>
                         </div>

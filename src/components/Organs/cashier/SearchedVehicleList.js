@@ -6,16 +6,16 @@ import MoreDetialsBtn from '../../Atoms/customer/MoreDetialsBtn';
 
 export default function SearchedVehicleList() {
     return (
-        <Card>
+        <Card className="mb-12">
             <CardHeader className="bg-gradient-to-r from-red-400 to-yellow-500" contentPosition="none">
                 <div className="w-full flex items-center justify-between">
                     <h2 className="text-white text-xl font-primary">Vehicle Details</h2>
                 </div>
             </CardHeader>
             <CardBody>
-                <div className="overflow-auto max-h-96">
+                <div className="overflow-auto max-h-96 ">
                     <table className="items-center w-full bg-transparent border-collapse overflow-auto">
-                        <thead>
+                        <thead className="">
                             <tr>
                                 <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-bold font-primary text-left">
                                     Reg.
