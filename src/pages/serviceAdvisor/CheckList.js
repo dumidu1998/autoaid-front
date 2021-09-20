@@ -8,6 +8,7 @@ import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
 import { db } from '../../Firebase'
 import { getCookie } from '../../jsfunctions/cookies'
 import { useHistory } from 'react-router'
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 
 var config = {
     headers: {
@@ -28,11 +29,14 @@ export default function CheckList() {
     const [tools, settools] = useState(false)
     const [carpets, setcarpets] = useState(0)
     const [seatcovers, setseatcovers] = useState(0)
-    const [description, setdescription] = useState(' ');
+    const [description, setdescription] = useState(' ')
     const [email, setemail] = useState('')
+
+    const location=useLocation();
+    console.log("State"+location.state);
+    
     useEffect(() => {
-        //TODO pass repair ID
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/getemailbypairid/${"1"}`, config)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/getemailbypairid/${location.state}`, config)
             .then((res) => {
                 setemail(res.data);
             })
@@ -69,8 +73,7 @@ export default function CheckList() {
         }
 
         db.collection('checklist').add(data).then(function (ref) {
-            //TODO repair Id 
-            axios.put(`${process.env.REACT_APP_API_BASE_URL}/advisor/addchecklist`, { repairId: 1, fbdocid: ref.id, repairType: serviceType == "REGULAR SERVICE" ? "RSERVICE" : serviceType, millage: millage }, config)
+            axios.put(`${process.env.REACT_APP_API_BASE_URL}/advisor/addchecklist`, { repairId: location.state, fbdocid: ref.id, repairType: serviceType == "REGULAR SERVICE" ? "RSERVICE" : serviceType, millage: millage }, config)
                 .then(e => {
                     axios.post('https://duminodemailer.herokuapp.com/autoaidchecklistemail', {
                         email: email,
@@ -88,6 +91,7 @@ export default function CheckList() {
                         des: description
                     }).then(e => {
                         //TODO redirect
+                        history.push('/serviceadvisor');
                         toast.success('✅ Checklist Uploaded Successfully');
                     })
 
