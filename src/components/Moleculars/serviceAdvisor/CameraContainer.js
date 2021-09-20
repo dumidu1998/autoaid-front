@@ -39,12 +39,10 @@ export default function CameraContainer(props) {
     function takephoto(e) {
         e.preventDefault();
         capture();
-        // console.log(dataURLtoBlob(image));
     }
 
     function upload() {
         const path = "checklist";
-        console.log(dataURLtoBlob(image));
         const newtime = new Date().getTime();
         const uploadTask = storage.ref(`${path}/${newtime}`).put(dataURLtoBlob(image));
         uploadTask.on(
@@ -62,7 +60,6 @@ export default function CameraContainer(props) {
             () => {
                 storage.ref(path).child(newtime.toString()).getDownloadURL().then(url => {
                     props.setter(url);
-                    // console.log(url);
                 })
             }
         )
