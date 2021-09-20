@@ -17,11 +17,11 @@ export default function CashierVehicleHistoryList() {
                            <SearchBarVehicle/>
                         </div>
                         <div className="flex justify-center items-center ">
-                            <div className="bg-white w-44 sm:w-48 md:w-52 lg:w-56 h-12 mt-4 mb-4 mr-4">
-
+                            <div className="bg-white w-44 sm:w-48 md:w-52 lg:w-56 h-12 mt-4 mb-4 mr-4 flex items-center justify-center font-primary">
+                                    {/* need to insert a datePicker  */} Calnder 1
                             </div>
-                            <div className="bg-white w-44 sm:w-48 md:w-52 lg:w-56 h-12 mt-4 mb-4 ml-4">
-
+                            <div className="bg-white w-44 sm:w-48 md:w-52 lg:w-56 h-12 mt-4 mb-4 ml-4 flex items-center justify-center font-primary" >
+                                      {/* need to insert a datePicker  */}Calnder 2
                             </div>
                         </div>
                         <div className="flex justify-center items-center mt-24 mb-12">
