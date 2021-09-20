@@ -13,7 +13,7 @@ export default function SlotNumberCard(props) {
                 <div className="text-sm sm:text-base">{props.techName}</div>
            </div>
            <div className="flex  justify-center mb-4">
-               <SlotStatusBtn btnName="Status"/>
+               <SlotStatusBtn btnName="Deactivate"/>
            </div>
         </div>
     )

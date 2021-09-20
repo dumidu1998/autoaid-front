@@ -37,10 +37,14 @@ import StockKeeperAddItem from './pages/StockKeeper/AddNewItem';
 import AdminAsignTechnician from './pages/admin/AdminAsignTechnician';
 import AdminReports from './pages/admin/AdminReports';
 import SearchVehicle from './pages/serviceAdvisor/SearchVehicle';
+import BarChart from './components/Moleculars/BarChart';
+import DoughnutChart from './components/Moleculars/DoughnutChart';
 import Invoice from './components/Moleculars/Invoice';
 import CashierDashBoard from './pages/cashier/CashierDashBoard';
 import Charts from './pages/customer/Charts';
 import ItemRequest from './pages/serviceAdvisor/ItemRequest';
+import CashierVehicleHistoryList from './pages/cashier/CashierVehicleHistoryList';
+import AvehicleHistory from './pages/cashier/AvehicleHistory';
 
 
 
@@ -62,6 +66,8 @@ function App() {
           <Route path="/" exact component={Landing} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
+          <Route path="/bar" exact component={DoughnutChart} />
+          <Route path="/pie" exact component={BarChart} />
           <Route path="/invoice" exact component={Invoice} />
 
           <Route path="/serviceadvisor" exact component={Service} />
@@ -103,11 +109,13 @@ function App() {
           <Route path="/stockkeeper/addnew" exact component={StockKeeperAddItem} />
 
           <Route path="/cashier" exact component={CashierDashBoard} />
-          
-        </Switch>
-      </Router>
+          <Route path="/cashier/history" exact component={CashierVehicleHistoryList} />
+          <Route path="/cashier/vehicleinfo" exact component={AvehicleHistory} />
 
-    </div>
+        </Switch >
+      </Router >
+
+    </div >
   );
 }
 
