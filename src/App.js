@@ -39,6 +39,7 @@ import AdminReports from './pages/admin/AdminReports';
 import SearchVehicle from './pages/serviceAdvisor/SearchVehicle';
 import Invoice from './components/Moleculars/Invoice';
 import CashierDashBoard from './pages/cashier/CashierDashBoard';
+import Charts from './pages/customer/Charts';
 
 
 
@@ -78,6 +79,8 @@ function App() {
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />
+          <Route path="/customer/charts" exact component={Charts} />
+
 
           <Route path="/admin" exact component={AdminDashboard} />
           <Route path="/admin/staff" exact component={AdminStaff} />
