@@ -114,12 +114,12 @@ export default function AddNewItem() {
 
     return (
         <div>
-            <div className=" bg-Background-0">
+            <div className=" bg-Background-0 h-screen">
                 <div className="flex flex-row">
                     <div className="">
                         <SideNavBar />
                     </div>
-                    <div className="w-full flex flex-col">
+                    <div className="w-full flex flex-col xl:ml-40">
                         <TopContainer heading1="Add New Item" heading2="Stock Keeper" addnewbtntext="Add New" />
                         <div className="h-5/6 flex flex-col items-center mt-10">
                             {/* <h1>Search for stock Item</h1> */}
@@ -164,7 +164,8 @@ export default function AddNewItem() {
                                     }}
                                 >
                                     <Form>
-                                        <div className="lg:flex mt-5">
+                                        <div className="lg:flex mt-5 ">
+
                                             <div className="flex flex-col items-center ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">

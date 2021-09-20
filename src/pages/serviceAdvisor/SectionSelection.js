@@ -75,15 +75,15 @@ export default function SectionSelection() {
 
 
     return (
-        <div className=" bg-Background-0">
+        <div className=" bg-Background-0 h-full pb-12 xl:h-full">
             <div className="flex flex-row">
                 <div className="">
                     <SideNav />
                 </div>
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col xl:ml-40 overflow-hidden">
                     <SectionSelectionTop heading1={location.state.vehicleNo} />
-                    <div className="flex justify-between w-full">
-                        <div className="w-3/6 bg-white shadow-xl rounded-lg mt-12 ml-6 p-8">
+                    <div className="grid grid-cols-1 xl:grid-cols-4 xl:ml-8  w-11/12 xl:w-10/12 ">
+                        <div className="w-full bg-white shadow-xl rounded-lg mt-12  px-8 py-16 xl:col-span-3">
                             <div className="font-primary text-xl">Select Section</div>
                             <div className="  p-1 rounded-lg mt-4 w-full">
                                 <SelectionSectionNavbarMolecular sectionName={sectionName} setsectionName={setsectionName} />
@@ -94,7 +94,7 @@ export default function SectionSelection() {
                                     subCat={subCat}/>)}
                             </div>
                         </div>
-                        <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12  mr-32 p-8">
+                        <div className=" w-full xl:w-80 2xl:w-96 mb-12 bg-white shadow-xl rounded-lg mt-12 p-8 xl:ml-12 xl:mb-0">
                             <SelectedSevicesSVAD heading1="Selected Service" description="Time and Cost can be differ with the change of requirements " />
                             <div className="mt-6 mb-4">
 
@@ -104,15 +104,19 @@ export default function SectionSelection() {
 
                                 <div className="border-b-2 mt-4"></div>
                             </div>
-                            <div className="mt-6">
+                            <div className="mt-6 ml-12 mr-12 xl:ml-1 xl:mr-1">
                                 <TimeEstimationSVAD time={totalTime} />
                             </div>
-                            <div className="mt-6">
+                            <div className="mt-6 ml-12 mr-12 xl:ml-1 xl:mr-1">
                                 <CostEstimation cost={estimatedPrice.toFixed(2)} />
                                 {/* Need to add styles */}
-                                <button onClick={proceedRepair} className=" ml-10 bg-blue-800 text-white">Proceed to repair</button>
-                                <button onClick={inspectionOnly} className=" ml-10 bg-red-800 text-white">Inspection Only</button>
+                                <div className="flex flex-col justify-center items-center">
+                                    <button onClick={proceedRepair} className="  w-64 xl:w-56 bg-blue-800 text-white rounded-lg p-4  mt-8">Proceed to repair</button>
+                                    <button onClick={inspectionOnly} className=" w-64 xl:w-56 bg-red-800 text-white rounded-lg p-4 mt-4 mb-6">Inspection Only</button>
+                                </div>
                             </div>
+                            <div className="border-b-2 mt-4"></div>
+                            <div className="border-b-2 mt-6"></div>
                         </div>
                     </div>
                 </div>

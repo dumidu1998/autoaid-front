@@ -19,10 +19,10 @@ export default function StaffManageForm(props) {
         setinitvals(props.staffdetails);
         if (props.staffdetails.email !== "") {
             setaddOrUpdate("Update");
-            setaddBtnStyle("bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8");
+            setaddBtnStyle("bg-blue-600 w-32 md:w-40  xl:w-44 h-10 md:h-12 rounded-xl text-white text-lg mr-8");
         } else {
             setaddOrUpdate("Add");
-            setaddBtnStyle("bg-green-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8");
+            setaddBtnStyle("bg-green-600 w-32 md:w-40 xl:w-44 h-10   md:h-12 rounded-xl text-white text-lg  -mt-14 mr-8");
         }
     }, [props.staffdetails])
 
@@ -84,6 +84,16 @@ export default function StaffManageForm(props) {
                         <div className=" bg-white rounded-2xl shadow-xl  flex  flex-col justify-around items-center -mt-48 py-9 mb-4 w-11/12 md:flex-row lg:-mt-56">
 
                             <div className="flex flex-col">
+                                <div className="mt-5">
+                                    <Link to="/admin/staff" >
+                                        <StaffManageBtn btnName="New Form" />
+                                    </Link>
+                                </div>
+                                <div className="md:flex justify-between mb-5 mt-4 md:hidden" >
+                                    <button className={addBtnStyle} type="submit">{addOrUpdate}</button>
+                                    {/* <button className="bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 ml-8" type="">Update </button> */}
+                                    {/* <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button> */}
+                                </div>
                                 <Field id="staffId" name="staffId" placeholder="100" className=" hidden" />
 
                                 <label htmlFor="firstName" className="font-primary  text-md font-semibold  mt-6">First Name</label>
@@ -102,6 +112,13 @@ export default function StaffManageForm(props) {
                                 <Field id="city" name="city" placeholder="Veyangoda" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
                             </div>
                             <div className="flex flex-col">
+
+                                <div className="md:flex justify-between mb-5 hidden md:block" >
+                                    <button className={addBtnStyle} type="submit">{addOrUpdate}</button>
+                                    {/* <button className="bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 ml-8" type="">Update </button> */}
+                                    {/* <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button> */}
+                                </div>
+
                                 <label htmlFor="lastName" className="font-primary  text-md font-semibold  mt-6">Last Name</label>
                                 <Field id="lastName" name="lastName" placeholder="Viniger" className=" ml-2 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
@@ -126,14 +143,8 @@ export default function StaffManageForm(props) {
 
 
                         </div>
-                        <div className="flex justify-between " >
-                            <button className={addBtnStyle} type="submit">{addOrUpdate}</button>
-                            {/* <button className="bg-blue-600 w-48 h-12 rounded-xl text-white text-xl mt-2 mr-8 ml-8" type="">Update </button> */}
-                            {/* <button className="bg-red-600 w-48 h-12 rounded-xl text-white text-xl mt-2 ml-8" type="">Delete </button> */}
-                        </div>
-                        <Link to="/admin/staff" >
-                            <StaffManageBtn btnName="Add New" />
-                        </Link>
+                        
+                       
                     </div>
                 </Form>
 

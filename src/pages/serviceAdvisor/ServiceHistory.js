@@ -9,15 +9,15 @@ import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
 
 export default function ServiceHistory() {
     return (
-        <div className=" bg-Background-0">
+        <div className=" bg-Background-0 h-full lg:h-screen">
         <div className="flex flex-row">
             <div className="">
                 <SideNav />
             </div>
-            <div className="w-full flex flex-col">
+            <div className="w-full flex flex-col xl:ml-40">
                 <TopContainerVNo heading1="KT-0246" link="/serviceadvisor"/>
-                <div className="flex justify-between w-full">
-                    <div className="w-3/6 bg-white shadow-xl rounded-lg mt-12 ml-6 p-8">
+                <div className="grid grid-cols-1 place-items-center lg:grid-cols-2 xl:mr-20 mb-12">
+                    <div className="w-5/6 bg-white shadow-xl rounded-lg mt-12 mr-20 p-8">
                         <div className="font-primary text-xl">Service History</div>
                         <div className="  p-1 rounded-lg mt-4 w-full">
                             <ServiceHistoryNavBar/>
@@ -28,7 +28,7 @@ export default function ServiceHistory() {
                            <ServiceHistoryCards name="Noice in the Engine" price="9500"/>
                         </div>
                     </div>
-                    <div className="w-2/6 bg-white shadow-xl rounded-lg mt-12  mr-32 p-8 px-16">
+                    <div className="w-5/6 bg-white shadow-xl rounded-lg mt-12  mr-20  p-8 px-16">
                         <div className="font-primary text-2xl font-medium flex justify-center items-center m-12">Vehicle Details</div>
                         <div className="mt-6 mb-4 flex justify-between items-center">
                            <VehicleDetailsCardInfo color="text-red-600 mt-2 font-bold" heading="VIN No." info="1234"/>

@@ -37,7 +37,7 @@ export default function StaffMemListOrgan(props) {
 
 
     return (
-        <div className="bg-white p-3 shadow-xl rounded-lg w-10/12 h-48 overflow-auto mb-10 lg:mb-0 ">
+        <div className="bg-white p-3 shadow-xl rounded-lg w-11/12 overflow-auto mb-10 lg:mb-0 h-56 mt-4 lg:mt-2 ">
             {admin.map(t => <StaffMemListSlide idNum={t.id} userName={t.firstName + " " + t.lastname} key={t.id} />)}
         </div>
     )
