@@ -45,7 +45,7 @@ export default function Dashboard() {
                         <div className="h-full w-5/12 py-8">
                             <SubSectionHeading heading="Item Requests" />
                             <div className="w-full h-3/5 overflow-auto">
-                                <ItemContainer itemNo="Piston" parts="25" link={""} />
+                                <ItemContainer itemNo="Piston" parts="25" repair="2" link={""} />
                                 <ItemContainer itemNo="Brake Pad" link={""} />
                                 <ItemContainer itemNo="Cluch Pad" link={""} />
                                 <ItemContainer itemNo="Oil Filter" link={""} />
