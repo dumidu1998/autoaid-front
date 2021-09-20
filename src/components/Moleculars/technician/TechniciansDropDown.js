@@ -9,28 +9,30 @@ function classNames(...classes) {
 }
 
 export default function TechniciansDropDown(props) {
-    const [selected, setSelected] = useState({ name: 'Assign Lead Tech' });
+    const [selected, setSelected] = useState({ firstName: props.defaultMsg, lastname:''});
     const [technicianList, settechnicianList] = useState([]);
     var config = {
         headers: {
             'Authorization': 'Bearer ' + getCookie('token'),
         }
     }
+    
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}${props.url1}`, config)
             .then(function (response) {
-                // console.log(response.data);
+                console.log(response.data);
                 settechnicianList(response.data);
             })
         axios.get(`${process.env.REACT_APP_API_BASE_URL}${props.url2}${props.sectionName}`, config)
             .then(function (response) {
+                // console.log("set - "+ response.data.firstName);   
                 setSelected(response.data);
             })
-            .catch(function (error) {
-                // console.log(error.response.data);
-                // toast.error("Assign Tech Lead");
+            .catch(function(error){
+                // console.log("set ");  
+                console.log(error.response.data);     
             })
-    }, [])
+    }, [props.url2])
     useEffect(() => {
         // console.log(selected);
         axios.get(`${process.env.REACT_APP_API_BASE_URL}${props.url3}${selected.id}/${props.sectionName}`, config)

@@ -35,7 +35,7 @@ export default function AdminAsignTechnician(props) {
                             <div className="flex justify-center items-center mt-32 md:mt-16 md:justify-end md:mr-10"><AddSlotBtn /></div>
                             <div className="bg-white shadow-xl rounded-lg w-full px-8 py-12 mt-6 mb-6">
                                 <div className="flex justify-center items-center">
-                                    <TechniciansDropDown sectionName={name} url1="/admin/getstaff/3" url2="/admin/gettech/" url3="/admin/settech/"/>
+                                    <TechniciansDropDown sectionName={name} url1="/admin/getstaff/3" url2="/admin/gettech/" url3="/admin/settech/" defaultMsg="Assign Lead Tech"/>
                                 </div>
                                 <div className="flex flex-col justify-center items-center mt-6 sm:grid grid-cols-2 place-items-center lg:grid-cols-3 xl:grid-cols-4">
                                     {slotInfo.map(slot => <SlotNumberCard color={slot.slotStatus == 'AVAILABLE' ? "bg-green-500" : "bg-red-500"} slotName={slot.slotName} vNum={slot.slotStatus == 'AVAILABLE' ? "AVAILABLE" : slot.assignedVehicle} techName={slot.assignedTechnicianName == null ? "Technician Not Assigned" : slot.assignedTechnicianName} />)}
