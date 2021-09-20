@@ -9,7 +9,7 @@ export default function ItemContainer(props) {
                 <div className="flex flex-row w-10/12 items-center justify-between">
                     <div>
                         <h1 className="my-4 font-bold font-primary text-gray-400">{props.itemNo}</h1>
-                        <h1 className="my-4 font-bold font-primary text-gray-400">{props.repair}</h1>
+                        <h1 className="my-4 font-bold font-primary text-gray-400">{props.vehicle}</h1>
                         
                     </div>
                     <div>
