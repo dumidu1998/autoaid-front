@@ -39,7 +39,7 @@ export default function Dashboard() {
                 <div>
                     <SideNavBar />
                 </div>
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col xl:ml-40">
                     <TopContainer heading1="Dashboard" heading2="Stock Keeper" addnewbtntext="Add New" path="addnew" />
                     <div className="h-full w-FULL flex items-center justify-center mx-16 ">
                         <div className="h-full w-5/12 py-8">
