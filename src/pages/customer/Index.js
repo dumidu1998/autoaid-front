@@ -119,7 +119,7 @@ export default function Index() {
                             <HeadingPRimary heading="Vehicles" />
                             {vehicles.map((vehicle, index) => {
                                 return (
-                                    <Link to={`/customer/vehicle/${vehicle.vehicleId}`}>
+                                    <Link to={{ pathname: `/customer/vehicle`, state: vehicle.vehicleId }}>
                                         <VehicleContainer reg={vehicle.vehicleNumber} key={vehicle.vehicleId} time="200km / 3 Months" />
                                         {/* //TODO */}
                                     </Link>
@@ -132,6 +132,6 @@ export default function Index() {
                 </div>
             </div>
             <BottomNav />
-        </div>
+        </div >
     )
 }

@@ -6,7 +6,7 @@ import SideLink from '../../components/Atoms/customer/SideLink'
 import BottomNav from '../../components/Moleculars/customer/BottomNav'
 import TopNav from '../../components/Moleculars/customer/TopNav'
 import { useParams } from 'react-router'
-import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { getCookie } from '../../jsfunctions/cookies'
 import axios from 'axios'
 var config = {
@@ -16,8 +16,9 @@ var config = {
 }
 var d = new Date();
 export default function VehicleProfile() {
+    const location = useLocation();
     const history = useHistory();
-    const { vid } = useParams();
+    const vid = location.state;
     const [vehicleDetails, setvehicleDetails] = useState({ model: "12312", engineNo: "12312", chassisNo: "12312", vin: "12312", make: "", vehicleNumber: "" });
     const [vehicleSummary, setvehicleSummary] = useState({
         "total": 0.0,

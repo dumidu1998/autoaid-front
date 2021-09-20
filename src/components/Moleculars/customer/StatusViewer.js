@@ -23,10 +23,7 @@ export default function StatusViewer(props) {
                         <p className="font-primary text-white text-xs my-1 ml-6 text-center">{it}</p>
                     </div>
                 ))}
-
-
             </div>
-
             {/* web view */}
             <div className="md:flex flex-col items-center bg-forth-0 py-5 rounded-lg mb-5 shadow-xl hidden relative">
                 <h1 className=" font-secondary text-white text-lg">Current Progress</h1>
