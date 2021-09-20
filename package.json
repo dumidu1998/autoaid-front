@@ -38,6 +38,7 @@
     "react-search-field": "^2.0.1",
     "react-slideshow-image": "^3.4.6",
     "react-toastify": "^7.0.4",
+    "react-webcam": "^6.0.0",
     "reactjs-popup": "^2.0.5",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2",
     "web-vitals": "^1.0.1"
