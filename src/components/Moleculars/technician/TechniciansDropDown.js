@@ -17,12 +17,12 @@ export default function TechniciansDropDown(props) {
         }
     }
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstaff/3`, config)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}${props.url1}`, config)
             .then(function (response) {
                 // console.log(response.data);
                 settechnicianList(response.data);
             })
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/gettech/${props.sectionName}`, config)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}${props.url2}${props.sectionName}`, config)
             .then(function (response) {
                 setSelected(response.data);
             })
@@ -33,7 +33,7 @@ export default function TechniciansDropDown(props) {
     }, [])
     useEffect(() => {
         // console.log(selected);
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/settech/${selected.id}/${props.sectionName}`, config)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}${props.url3}${selected.id}/${props.sectionName}`, config)
         .then(function(response){
             console.log(response.data);
         })    
