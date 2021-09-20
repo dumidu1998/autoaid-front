@@ -28,7 +28,15 @@ export default function CheckList() {
     const [tools, settools] = useState(false)
     const [carpets, setcarpets] = useState(0)
     const [seatcovers, setseatcovers] = useState(0)
-    const [description, setdescription] = useState(' ')
+    const [description, setdescription] = useState(' ');
+    const [email, setemail] = useState('')
+    useEffect(() => {
+        //TODO pass repair ID
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/getemailbypairid/${"1"}`, config)
+            .then((res) => {
+                setemail(res.data);
+            })
+    }, [])
 
     function upload() {
         if (millage == '') {
@@ -60,14 +68,28 @@ export default function CheckList() {
             description: description
         }
 
-        console.log(data);
-
         db.collection('checklist').add(data).then(function (ref) {
-            console.log(ref.id);
             //TODO repair Id 
             axios.put(`${process.env.REACT_APP_API_BASE_URL}/advisor/addchecklist`, { repairId: 1, fbdocid: ref.id, repairType: serviceType == "REGULAR SERVICE" ? "RSERVICE" : serviceType, millage: millage }, config)
                 .then(e => {
-                    //TODO redirect
+                    axios.post('https://duminodemailer.herokuapp.com/autoaidchecklistemail', {
+                        email: email,
+                        stype: serviceType,
+                        millage: millage,
+                        img1: img1,
+                        img2: img2,
+                        img3: img3,
+                        img4: img4,
+                        doc: documents,
+                        swheel: spare,
+                        tools: tools,
+                        carpets: carpets,
+                        seatcovers: seatcovers,
+                        des: description
+                    }).then(e => {
+                        //TODO redirect
+                        toast.success('✅ Checklist Uploaded Successfully');
+                    })
 
                 }).catch(function (error) {
                     //
