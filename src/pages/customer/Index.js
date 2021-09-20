@@ -78,7 +78,7 @@ export default function Index() {
             <div className="flex flex-col items-center">
                 <TopNav />
                 <div className="w-10/12 justify-center">
-                    <div className="flex justify-center md:hidden">
+                    <div className="flex justify-center md:hidden my-5">
 
                         <Addnew txt="Book Now" />
                     </div>
