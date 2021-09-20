@@ -150,7 +150,7 @@ useEffect(() => {
                             <div className="w-full h-3/5 overflow-auto">
                                 <div className="h-auto z-20 ">
                                     <ul class={` ${show} `} >
-                                                {result.map(item => (<div className="mt-4 border-b-2 pr-9 pl-12 " onChange={showdetails} id={item.itemNo}>
+                                                {result.map(item => (<div className="mt-4 border-b-2 pr-9 pl-12 " >
                                                     {/* {item.itemName} */}
                                                      <ItemContainer3 key={item.itemNo} itemName={item.itemName} quantity={item.stock} itemNo={item.itemNo}/>
                                                                                                           
