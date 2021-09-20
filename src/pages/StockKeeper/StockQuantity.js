@@ -10,9 +10,10 @@ import ButtonProps from '../../components/Atoms/stockKeeper/ButtonProps'
 import axios from 'axios'
 import ButtonRedProps from '../../components/Atoms/stockKeeper/ButtonRedProps'
 import { getCookie } from '../../jsfunctions/cookies'
+import PopupItemDetails from '../../components/Moleculars/stockKeeper/PopupItemDetails'
 
 export default function StockQuantity() {
-    const [itemCategory, setitemCategory] = useState();
+    const [itemCategory, setitemCategory] = useState(0);
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
     const [output, setoutput] = useState({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:""});
@@ -22,6 +23,7 @@ export default function StockQuantity() {
             'Authorization': 'Bearer ' + getCookie('token'),
         }
     }
+
     function showdetails(id) {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
             .then(res => {
@@ -32,6 +34,7 @@ export default function StockQuantity() {
             }
             ).catch(err => {
                 console.log(err);
+                console.log("error showdetails");
             })
     }
 
@@ -46,6 +49,7 @@ export default function StockQuantity() {
             ).catch(err => {
                 console.log(err);
                 setresult([]);
+                console.log("error getByName");
             })
             // setshow("hidden");
             // setresult(res.data);
@@ -61,6 +65,7 @@ export default function StockQuantity() {
             ).catch(err => {
                 console.log(err);
                 setresult([]);
+                console.log("error search by name");
             })
     }
     
@@ -76,6 +81,7 @@ useEffect(() => {
             ).catch(err => {
                 console.log(err);
                 setresult([]);
+                console.log("error use effect");
             })
             // setshow("hidden");
             // setresult(res.data);
@@ -87,10 +93,16 @@ useEffect(() => {
 
 useEffect(() => {
     console.log(itemCategory);
+    console.log(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`);
     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`, config)
         .then(function (response) {
             console.log(response.data);
             setresult(response.data);
+            console.log("Response data printed");
+        }).catch(err => {
+            console.log(err);
+            setresult([]);
+            console.log("error use effect 2");
         })
 }, [itemCategory])
 
@@ -101,7 +113,9 @@ useEffect(() => {
                     <SideNavBar />
                 </div>
                 <div className="w-full flex flex-col xl:ml-40">
-                    <TopContainer heading1="Stock" heading2="Stock Keeper" addnewbtntext="Add New" path="addnew" />
+                        <div className="">
+                            <TopContainer heading1="Stock" heading2="Stock Keeper" addnewbtntext="Add New" path="addnew" />
+                        </div>
                     <div className="h-full flex items-center justify-center mx-2 ">
                         <div className="h-full w-10/12 py-8">
                             <div className=" flex">
@@ -110,6 +124,9 @@ useEffect(() => {
                                             <h1 className="font-primary mt-2 mb-4 text-xl font-semibold">Item Name</h1>
                                             <input type="text" name="item" id="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0 ml-10" onChange={getByName}
                                             />
+                                        </div>
+                                        <div>
+                                            {/* <PopupItemDetails/> */}
                                         </div>
                                         {/* <div className="h-auto z-20 ">
                                             <ul class={`bg-white border border-gray-100 w-full mt-12 ${show} `} >
@@ -133,10 +150,10 @@ useEffect(() => {
                             <div className="w-full h-3/5 overflow-auto">
                                 <div className="h-auto z-20 ">
                                     <ul class={` ${show} `} >
-                                                {result.map(item => (<div className="mt-4 border-b-2 pr-9 pl-12" onChange={showdetails} id={item.itemNo}>
+                                                {result.map(item => (<div className="mt-4 border-b-2 pr-9 pl-12 " >
                                                     {/* {item.itemName} */}
-                                                     <ItemContainer3 itemNo={item.itemName} quantity={item.stock} link={""} />
-                                                     
+                                                     <ItemContainer3 key={item.itemNo} itemName={item.itemName} quantity={item.stock} itemNo={item.itemNo}/>
+                                                                                                          
                                                 </div>
                                                 ))}
                                                 {(result.length == 0) ? ("Item Not found. Please Add New Item!") : ("")}
