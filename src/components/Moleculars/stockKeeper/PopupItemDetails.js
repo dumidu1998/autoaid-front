@@ -19,12 +19,12 @@ export default function PopupItemDetails(props) {
 	let [isOpen, setIsOpen] = useState(false);
 	const [value, onChange] = useState([]);
 	const [error, setError] = useState(false);
-    const [output, setoutput] = useState({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", categoryId: "", catName: "", buyingPrice: "", newStock: ""});
+    const [output, setoutput] = useState({ itemName: "", itemNo: "", stock: "", price: "", reorderLevel: "", categoryId: "", catName: ""});
     const [itemCategory, setitemCategory] = useState([]);
     const [selectedItemCategory, setSelectedItemCategory] = useState();
     const [show, setshow] = useState("hidden");
     const [selectedItem, setselectedItem] = useState(0);
-    const id = (props.itemNo);
+    // const id = (props.itemNo);
 
 	function closeModal() {
 		setIsOpen(false)
@@ -41,12 +41,16 @@ export default function PopupItemDetails(props) {
 	}
 
 	function submit() {
-        
+        console.log("Submit");
 	}
+useEffect(() => {
+	getdetails();
+	
+}, [props.itemNo])
 
     function getdetails() {
-        setselectedItem(id.target.id)
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
+        
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${props.itemNo}`)
             .then(res => {
                 // setshow("hidden");
                 // window.document.getElementById("name")=res.data.itemName;
@@ -63,7 +67,7 @@ export default function PopupItemDetails(props) {
 			<div className="">
 				<button
 					type="button"
-					onClick={getdetails}
+					onClick={getdetails} 
                     onClick={openModal}
 					className="p-2 rounded-lg shadow-lg bg-gradient-to-br bg-blue-700 m-3 flex items-center justify-center text-white font-semibold text-xl">
 					Update Details
@@ -103,7 +107,7 @@ export default function PopupItemDetails(props) {
 									as="h3"
 									className="text-2xl font-bold leading-6 text-primary-0 font-primary text-center"
 								>
-									Item Details {props.itemNo}
+									Item Details of {output.itemName}
 								</Dialog.Title>
 								<div className="my-5 text-left">
                                     
@@ -111,28 +115,16 @@ export default function PopupItemDetails(props) {
                                         enableReinitialize
                                         initialValues={output}
                                         onSubmit={async (values) => {
-                                            values.categoryId=selectedItemCategory.categoryId;
-                                            console.log(values);
-                                            var addedId;
-                                            axios.post(`${process.env.REACT_APP_API_BASE_URL}/inventory/item`, values, config)
-                                                .then((res) => {
-                                                    console.log(res.data);
-                                                    addedId = res.data.itemId;
-                                                    axios.post(`${process.env.REACT_APP_API_BASE_URL}/inventory/updateStock`, {
-                                                        itemNo: addedId,
-                                                        buyingPrice: values.buyingPrice,
-                                                        stock: values.stock
-                                                    }, config)
-                                                        .then((res) => {
-                                                            console.log(res.data);
-                                                        }).catch((err) => {
-                                                            console.log(err);
-                                                        })
-                                                    toast.success(res.data.name + " Added Successfully");
-                                                    setoutput({ name: "", itemNo: "", stock: "", price: "", reorderLevel: "", catName: "", buyingPrice: "" })
-                                                }).catch((err) => {
-                                                    console.log(err);
-                                                })
+											console.log(output);
+											axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/item`, values, config)
+												.then((res) => {
+													console.log(res.data);
+																		
+													toast.success(res.data.itemName + " Updated Successfully");
+												}).catch((err) => {
+													console.log(err);
+												})
+                                            
                                             //    alert(JSON.stringify(values, null, 2));
                                         }}
                                     >
@@ -148,22 +140,23 @@ export default function PopupItemDetails(props) {
                                                             <label htmlFor="itemNo" className="font-primary  text-md font-semibold  mt-3 z-10">Item Number</label>
                                                             <Field id="itemNo" name="itemNo" placeholder="" disabled className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
                                                             
-                                                            <label htmlFor="name" className="font-primary  text-md font-semibold  mt-3 z-10">Item Name</label>
-                                                            <Field id="name" name="name" placeholder="" disabled className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                                                            <label htmlFor="itemName" className="font-primary  text-md font-semibold  mt-3 z-10">Item Name</label>
+                                                            <Field id="itemName" name="itemName" placeholder="" disabled className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
                                                             <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
                                                             <Field id="stock" name="stock" placeholder="" disabled className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+
+															<label htmlFor="catName" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
+                                                            <Field id="catName" name="catName" placeholder="" disabled className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5"/>
+															{/* <div className=" ml-5 rounded-lg shadow-lg ">
+                                                                <DropdownMol data={itemCategory} set={setSelectedItemCategory} />
+                                                            </div> */}
 
                                                             <label htmlFor="price" className="font-primary  text-md font-semibold  mt-3">Selling Price</label>
                                                             <Field id="price" name="price" placeholder="Enter Buying Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                             <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
                                                             <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5"/>
-
-                                                            <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
-                                                            <div className=" ml-5 rounded-lg shadow-lg ">
-                                                                <DropdownMol data={itemCategory} set={setSelectedItemCategory} />
-                                                            </div>
                                                             
                                                         </div>
                                                     </div>
@@ -180,6 +173,16 @@ export default function PopupItemDetails(props) {
                                                 </div>
                                                 </div>
                                             </div> */}
+											<div className=" flex justify-center mt-10 mb-5">
+												<button
+													type="button"
+													className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+													onClick={submit}
+													// disabled={(!error) ? false : true}
+												>
+													Update Details
+												</button>
+											</div>
 
 
                                         </Form>
@@ -187,17 +190,8 @@ export default function PopupItemDetails(props) {
                                     </Formik>
                                     
 								</div>
-								{error}
-								<div className="mt-4 mb-5">
-									<button
-										type="button"
-										className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-										onClick={submit}
-										disabled={(!error) ? false : true}
-									>
-										Update Details
-									</button>
-								</div>
+								{/* {error} */}
+								
 							</div>
 						</Transition.Child>
 					</div>
