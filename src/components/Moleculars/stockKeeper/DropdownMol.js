@@ -7,11 +7,11 @@ function classNames(...classes) {
 }
 
 export default function DropdownMol(props) {
-    const [selected, setSelected] = useState({ categoryId: 0, categoryName: 'Select One' });
+    const [selected, setSelected] = useState({ categoryId: 0, categoryName: 'Select One'});
 
     useEffect(() => {
         props.set(selected);
-        console.log("test")
+        // console.log("test")
     }, [selected])
 
     return (

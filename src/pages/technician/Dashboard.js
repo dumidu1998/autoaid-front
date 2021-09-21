@@ -51,7 +51,6 @@ export default function Dashboard() {
                         <div className="w-11/12 mt-20">
                             <SubSectionHeading heading="Upcomming Repairs" />
                             {upComingRepairList.map(repair=><AppointmentContainer vehicleNo={repair.vehicleNumber} link={{ pathname: "summary", state: {repair: repair,section:sectionName}}}  />)}
-
                             {/* <AppointmentContainer vehicleNo="CAM - 4216" link={"summary"} />
                             <AppointmentContainer vehicleNo="KT - 0246" link={"viewService/" + "2"} />
                             <AppointmentContainer vehicleNo="CAA - 2216" link={"viewService/" + "3"} />
@@ -61,7 +60,7 @@ export default function Dashboard() {
                             <SubSectionHeading heading="Ongoing Appointment" />
 
                             <AppointmentContainer vehicleNo="CAM - 4216" link={"progress"} />
-                            <AppointmentContainer vehicleNo="CAP - 1246" link={"viewService/" + "4"} />
+                            <AppointmentContainer vehicleNo="CAP - 1246" link={"progress"} />
                         </div>
                     </div>
                 </div>

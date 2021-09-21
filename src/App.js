@@ -90,7 +90,7 @@ function App() {
 
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
-          <Route path="/customer/vehicle/:vid" exact component={VehicleDetails} />
+          <Route path="/customer/vehicle" exact component={VehicleDetails} />
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />
@@ -108,7 +108,7 @@ function App() {
           <Route path="/admin/reports" exact component={AdminReports} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
-          <Route path="/technician" exact component={Dashboard} />
+          {/* <Route path="/technician" exact component={Dashboard} /> */}
           <Route path="/technician/summary" exact component={ServiceSummary} />
           <Route path="/technician/progress" exact component={ServiceProgress} />
 
