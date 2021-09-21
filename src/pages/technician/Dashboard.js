@@ -57,7 +57,7 @@ export default function Dashboard() {
                             <AppointmentContainer vehicleNo="CAA - 2216" link={"viewService/" + "3"} />
                             <AppointmentContainer vehicleNo="CAP - 1246" link={"viewService/" + "4"} /> */}
                         </div>
-                        <div className="w-11/12 mt-24 lg:-mt-16 lg:ml-16">
+                        <div className="w-11/12 mt-24 lg:ml-16">
                             <SubSectionHeading heading="Ongoing Appointment" />
 
                             <AppointmentContainer vehicleNo="CAM - 4216" link={"progress"} />
