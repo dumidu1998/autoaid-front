@@ -13,26 +13,43 @@ export default function Dashboard() {
     const [show, setshow] = useState("hidden");
     const [request, setrequest] = useState([]);
 
-    useEffect(() => {
-    
-    
+    // useEffect(() => {
+    //     console.log("test")
+    //     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
+    //     .then(res => {
+    //         setrequest(res.data);
+    //         console.log(request);
+    //     }
+    //     ).catch(err => {
+    //         console.log(err);
+    //         setrequest([]);
+    //     })
+    // }, [])
+
+    function approve(id) {
+        
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${id.target.value}`)
+            .then(res => {
+                setresult(res.data);
+                console.log(res.data);
+            }
+            ).catch(err => {
+                console.log(err);
+                setresult([]);
+            })
+    }
+
+useEffect(() => {
+    console.log("test")
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
         .then(res => {
             setrequest(res.data);
-            
-            console.log(request);
+            console.log(res.data);
         }
         ).catch(err => {
             console.log(err);
             setrequest([]);
         })
-        
-
-
-}, [])
-
-useEffect(() => {
-    
     
     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
     .then(res => {
@@ -65,14 +82,28 @@ useEffect(() => {
                         <div className="h-full w-5/12 py-8">
                             <SubSectionHeading heading="Item Requests" />
                             <div className="w-full h-full overflow-y-auto">
-                                {request.map(item => (<div className="  ">
-                                                
+                                {request.map(item => (
                                                 <div className="">
-                                                    <ItemContainer itemNo={item.itemName} parts={item.quantity} vehicle={item.vehicleNumber} link={""} />
-                                                    {/* <LowQuantityItems itemNo={item.itemNo} itemName={item.itemName} stock={item.stock} color="text-red-600"/> */}
+                                                    <div className=" w-full h-36 shadow-lg bg-white mt-5 rounded-lg flex items-center justify-center">
+                                                        <div className="flex flex-row w-10/12 items-center justify-between">
+                                                            <div>
+                                                                <h1 className="my-4 font-bold font-primary text-lg text-black">{item.itemName}</h1>
+                                                                <h1 className="my-4 font-bold font-primary text-gray-400">{item.vehicleNumber}</h1>
+                                                            </div>
+                                                            <div>
+                                                                <h1 className="font-bold font-primary text-2xl text-black">{item.quantity}</h1>
+                                                            </div>
+                                                            <div className="">
+                                                                <div className="my-4 w-auto h-10 rounded-lg flex items-center justify-center bg-green-600 p-4">
+                                                                    <button className="text-lg font-primary font-medium text-white " type="submit">Accept</button>
+                                                                </div>
+                                                                <div className="my-4 w-auto h-10 rounded-lg flex items-center justify-center bg-red-600 p-4">
+                                                                    <button className="text-lg font-primary font-medium text-white " type="submit">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                                                                  
-                                            </div>
                                             ))}
                                 {/* <ItemContainer itemNo="Piston" parts="25" repair="2" link={""} />
                                 <ItemContainer itemNo="Brake Pad" link={""} />
