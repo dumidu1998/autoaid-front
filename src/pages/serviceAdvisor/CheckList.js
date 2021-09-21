@@ -15,6 +15,7 @@ var config = {
         'Authorization': 'Bearer ' + getCookie('token'),
     }
 }
+
 export default function CheckList() {
     const history = useHistory();
     const [repairID, setrepairID] = useState(0);
@@ -32,9 +33,8 @@ export default function CheckList() {
     const [description, setdescription] = useState(' ')
     const [email, setemail] = useState('')
 
-    const location=useLocation();
-    console.log("State"+location.state);
-    
+    const location = useLocation();
+
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/getemailbypairid/${location.state}`, config)
             .then((res) => {
@@ -91,8 +91,9 @@ export default function CheckList() {
                         des: description
                     }).then(e => {
                         //TODO redirect
-                        history.push('/serviceadvisor');
-                        toast.success('✅ Checklist Uploaded Successfully');
+                        // history.push('/serviceadvisor');
+                        toast.success('✅ Checklist Uploaded Successfully', { onClose: () => history.push('/serviceadvisor') });
+                        toast.success('✅ Repair Sucessfully Added');
                     })
 
                 }).catch(function (error) {

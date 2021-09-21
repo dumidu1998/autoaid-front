@@ -21,6 +21,7 @@ export default function Index() {
         "avgRep": 0,
         "activeRe": 0
     })
+    const [status, setstatus] = useState([]);
 
     var config = {
         headers: {
@@ -65,13 +66,27 @@ export default function Index() {
                 // always executed
 
             });
+
+        await axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/ongoingservices/${userId}`)
+            .then(function (response) {
+                // handle success
+                setstatus(response.data);
+                console.log(response.data);
+                // alert(response.data);
+
+            })
+            .catch(function (error) {
+                // handle error
+                // console.log(error.response.data);
+            })
+            .then(function () {
+                // always executed
+            });
     }
 
     useEffect(() => {
         submit();
     }, [])
-
-
 
     return (
         <div className="mb-44">
@@ -79,14 +94,14 @@ export default function Index() {
                 <TopNav />
                 <div className="w-10/12 justify-center">
                     <div className="flex justify-center md:hidden my-5">
-
                         <Addnew txt="Book Now" />
                     </div>
                     <div className="md:my-10">
-                        <StatusViewer />
+                        {status.map((item, index) =>
+                            <StatusViewer key={index} data={item} />
+                        )}
                     </div>
                     <div className="md:flex justify-center">
-
                         <div className="md:bg-white md:p-5 md:rounded-lg md:shadow-lg md:w-1/3 md:my-5 md:mx-5">
                             <div className="flex justify-between">
                                 <HeadingPRimary heading="Expenses" />
@@ -98,17 +113,15 @@ export default function Index() {
                                 <DetailsShowing data={expenses.avg} dataHeading="Avg. Expenditure/Month" />
                                 <DetailsShowing data={expenses.avgRep} dataHeading="Active Repairs" />
                                 <DetailsShowing data={expenses.activeRe} dataHeading="Avg. Repairs/ Month" />
-
                             </div>
-
                         </div>
                         <div className="flex flex-col justify-center md:bg-white md:p-5 md:rounded-lg md:shadow-lg md:w-1/3 md:my-5 md:mx-5 ">
                             <HeadingPRimary heading="Vehicles" />
                             {vehicles.map((vehicle, index) => {
-                                // console.log(course.title)
                                 return (
-                                    <Link to={`/customer/vehicle/${vehicle.vehicleId}`}>
+                                    <Link to={{ pathname: `/customer/vehicle`, state: vehicle.vehicleId }}>
                                         <VehicleContainer reg={vehicle.vehicleNumber} key={vehicle.vehicleId} time="200km / 3 Months" />
+                                        {/* //TODO */}
                                     </Link>
                                 );
                             })}
@@ -119,6 +132,6 @@ export default function Index() {
                 </div>
             </div>
             <BottomNav />
-        </div>
+        </div >
     )
 }
