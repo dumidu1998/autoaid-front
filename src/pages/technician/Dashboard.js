@@ -9,6 +9,7 @@ import axios from 'axios'
 export default function Dashboard() {
     const [sectionName, setsectionName] = useState();
     const [upComingRepairList, setupComingRepairList] = useState([])
+    const [ongoingList, setongoingList] = useState([]);
     const userId = getCookie('userId');
 
     var config = {
@@ -30,13 +31,22 @@ export default function Dashboard() {
     }, [])
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/technician/getUpcoming/${sectionName}`, config)
-        .then(function (response) {
-            console.log(response.data);
-            setupComingRepairList(response.data);
-        })
-        .catch(function (error) {
-            console.log(error.response.data);
-        })
+            .then(function (response) {
+                console.log(response.data);
+                setupComingRepairList(response.data);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            })
+
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/technician/ongoingrepairs/${userId}`, config)
+            .then(function (response) {
+                console.log(response.data);
+                setongoingList(response.data);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            })
     }, [sectionName])
 
     return (
@@ -50,7 +60,7 @@ export default function Dashboard() {
                     <div className="flex flex-col items-center justify-center mx-16 lg:flex-row">
                         <div className="w-11/12 mt-20">
                             <SubSectionHeading heading="Upcomming Repairs" />
-                            {upComingRepairList.map(repair=><AppointmentContainer vehicleNo={repair.vehicleNumber} link={{ pathname: "summary", state: {repair: repair,section:sectionName}}}  />)}
+                            {upComingRepairList.map(repair => <AppointmentContainer vehicleNo={repair.vehicleNumber} link={{ pathname: "summary", state: { repair: repair, section: sectionName } }} />)}
                             {/* <AppointmentContainer vehicleNo="CAM - 4216" link={"summary"} />
                             <AppointmentContainer vehicleNo="KT - 0246" link={"viewService/" + "2"} />
                             <AppointmentContainer vehicleNo="CAA - 2216" link={"viewService/" + "3"} />
@@ -58,9 +68,11 @@ export default function Dashboard() {
                         </div>
                         <div className="w-11/12 mt-24 lg:ml-16">
                             <SubSectionHeading heading="Ongoing Appointment" />
-
-                            <AppointmentContainer vehicleNo="CAM - 4216" link={"progress"} />
-                            <AppointmentContainer vehicleNo="CAP - 1246" link={"progress"} />
+                            {ongoingList.map(e =>
+                                <AppointmentContainer vehicleNo={e.vehicleNumber} link={{ pathname: "progress", state: { repair: e, sectionName: sectionName } }} />
+                            )}
+                            {/* <AppointmentContainer vehicleNo="CAM - 4216" link={"progress"} />
+                            <AppointmentContainer vehicleNo="CAP - 1246" link={"progress"} /> */}
                         </div>
                     </div>
                 </div>
