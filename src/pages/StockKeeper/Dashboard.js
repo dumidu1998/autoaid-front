@@ -95,10 +95,10 @@ useEffect(() => {
                                                             </div>
                                                             <div className="">
                                                                 <div className="my-4 w-auto h-10 rounded-lg flex items-center justify-center bg-green-600 p-4">
-                                                                    <button className="text-lg font-primary font-medium text-white " type="submit">Accept</button>
+                                                                    <button className="text-lg font-primary font-medium text-white " >Accept</button>
                                                                 </div>
                                                                 <div className="my-4 w-auto h-10 rounded-lg flex items-center justify-center bg-red-600 p-4">
-                                                                    <button className="text-lg font-primary font-medium text-white " type="submit">Reject</button>
+                                                                    <button className="text-lg font-primary font-medium text-white " >Reject</button>
                                                                 </div>
                                                             </div>
                                                         </div>
