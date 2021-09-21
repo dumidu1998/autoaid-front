@@ -47,6 +47,9 @@ import ItemRequest from './pages/serviceAdvisor/ItemRequest';
 import CashierVehicleHistoryList from './pages/cashier/CashierVehicleHistoryList';
 import AvehicleHistory from './pages/cashier/AvehicleHistory';
 import Error from './pages/Error';
+import InvoiceHistory from './pages/customer/InvoiceHistory';
+import PaymentInvoice from './pages/cashier/PaymentInvoice';
+import RepairInvoice from './pages/serviceAdvisor/RepairInvoice';
 
 
 
@@ -83,6 +86,7 @@ function App() {
           <Route path="/serviceadvisor/checklist" exact component={CheckList} />
           <Route path="/serviceadvisor/searchvehicle" exact component={SearchVehicle} />
           <Route path="/serviceadvisor/itemrequests" exact component={ItemRequest} />
+          <Route path="/serviceadvisor/invoice" exact component={RepairInvoice} />
 
           <Route path="/test" exact component={Test} />
           <Route path="/customer" exact component={Customer} />
@@ -92,6 +96,7 @@ function App() {
           <Route path="/customer/profile" exact component={Profile} />
           <Route path="/customer/charts" exact component={Charts} />
           <Route path="/customer/checklist" exact component={CheckListPage} />
+          <Route path="/customer/invoice" exact component={InvoiceHistory} />
 
 
           <Route path="/admin" exact component={AdminDashboard} />
@@ -115,6 +120,7 @@ function App() {
           <Route path="/cashier" exact component={CashierDashBoard} />
           <Route path="/cashier/history" exact component={CashierVehicleHistoryList} />
           <Route path="/cashier/vehicleinfo" exact component={AvehicleHistory} />
+          <Route path="/cashier/invoice" exact component={PaymentInvoice} />
 
         </Switch >
       </Router >
