@@ -101,7 +101,7 @@ function App() {
           <Route path="/admin/reports" exact component={AdminReports} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
-          <Route path="/technician" exact component={Dashboard} />
+          {/* <Route path="/technician" exact component={Dashboard} /> */}
           <Route path="/technician/summary" exact component={ServiceSummary} />
           <Route path="/technician/progress" exact component={ServiceProgress} />
 
