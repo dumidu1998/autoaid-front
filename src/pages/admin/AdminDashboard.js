@@ -34,7 +34,7 @@ export default function AdminDashboard() {
     }, [sectionName])
     return (
         <div className=" ">
-            <div className="md:ml-40"><AdminSideBar name="DashBoard " roleName="Admin"/></div>
+            <div className="md:ml-40 bg-Background-0"><AdminSideBar name="DashBoard " roleName="Admin"/></div>
             <div className="w-full absolute  bg-Background-0">
                 <div className="md:ml-40">
                 <div className="w-full mt-3 rounded-lg h-96 p-5 sm:-mt-12 xl:-mt-32">

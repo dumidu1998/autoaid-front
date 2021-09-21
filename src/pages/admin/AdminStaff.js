@@ -54,7 +54,7 @@ export default function AdminStaff() {
 
    return( 
       <div className="">
-         <div className="md:ml-40"><AdminSideBar name="Section Manage " roleName="Admin"/></div>
+         <div className="md:ml-40 bg-Background-0"><AdminSideBar name="Section Manage " roleName="Admin"/></div>
          <div className=" w-full absolute bg-Background-0">
             <div className="md:ml-40">
                <div className="">

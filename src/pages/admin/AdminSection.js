@@ -28,14 +28,14 @@ export default function AdminSection() {
     }, [])
     return (
         <div className="">
-            <div className="md:ml-40 "><AdminSideBar name="Section Manage " roleName="Admin" /></div>
+            <div className="md:ml-40 bg-Background-0"><AdminSideBar name="Section Manage " roleName="Admin" /></div>
             <div className=" w-full absolute  bg-Background-0 ">
                 <div className="md:ml-40">
                     <div className="font-primary text-xl font-medium ml-6 mt-8 md:text-2xl lg:text-3xl xl:text-4xl text-white">Sections</div>
+                    <div className="flex justify-center items-center mt-32 md:-mt-20 md:justify-end md:mr-10"><AddSectionBtn /></div>
                     <div className="px-3 md:px-8 -mt-24">
                         <div className="container mx-auto max-w-full">
                             <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
-                                <div className="flex justify-center items-center mt-32 md:mt-16 md:justify-end md:mr-10"><AddSectionBtn /></div>
                                 {sectionDetails.map(section =>
                                     <div className="flex flex-col  items-center ">
 
