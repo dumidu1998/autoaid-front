@@ -126,7 +126,7 @@ useEffect(() => {
 											axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/item`, values, config)
 												.then((res) => {
 													console.log(res.data);
-													toast.success(res.data.itemName + " Updated Successfully");
+													toast.success(values.itemName + " Updated Successfully");
 													history.push('stock');
 												}).catch((err) => {
 													console.log(err.response.data);
