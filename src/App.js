@@ -51,6 +51,7 @@ import InvoiceHistory from './pages/customer/InvoiceHistory';
 import PaymentInvoice from './pages/cashier/PaymentInvoice';
 import RepairInvoice from './pages/serviceAdvisor/RepairInvoice';
 import ForgetPassword from './pages/ForgetPassword';
+import ForgetPassCodeSubmit from './components/Atoms/ForgetPassCodeSubmit';
 
 
 
@@ -125,6 +126,7 @@ function App() {
           
           
           <Route path="/fpass" exact component={ForgetPassword} />
+          <Route path="/fpass/code" exact component={ForgetPassCodeSubmit} />
 
         </Switch >
       </Router >
