@@ -60,7 +60,7 @@ export default function Dashboard() {
                     <div className="flex flex-col items-center justify-center mx-16 lg:flex-row">
                         <div className="w-11/12 mt-20">
                             <SubSectionHeading heading="Upcomming Repairs" />
-                            {upComingRepairList.map(repair => <AppointmentContainer vehicleNo={repair.vehicleNumber} link={{ pathname: "summary", state: { repair: repair, section: sectionName } }} />)}
+                            {upComingRepairList.map(repair => <AppointmentContainer vehicleNo={repair.vehicleNumber} btnAct={repair.btnAct} link={{ pathname: "summary", state: { repair: repair, section: sectionName } }} />)}
                             {/* <AppointmentContainer vehicleNo="CAM - 4216" link={"summary"} />
                             <AppointmentContainer vehicleNo="KT - 0246" link={"viewService/" + "2"} />
                             <AppointmentContainer vehicleNo="CAA - 2216" link={"viewService/" + "3"} />
