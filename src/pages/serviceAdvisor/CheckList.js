@@ -225,7 +225,7 @@ export default function CheckList() {
                             </div>
                             <div className="w-full flex justify-center text-white">
                                 <button type="button" onClick={upload} className="w-52 h-10 bg-forth-0 rounded-md flex items-center justify-center hover:shadow-lg">
-                                    <h1 className=" font-primary">Proceed</h1>
+                                    <h1 className=" font-primary" onClick={()=>history.push('/serviceadvisor')}>Proceed</h1>
                                 </button>
                             </div>
                         </form>
