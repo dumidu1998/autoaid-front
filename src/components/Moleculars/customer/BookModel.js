@@ -86,14 +86,15 @@ export default function MyModal() {
 				setError(err.response.data);
 				console.log(err);
 			});
-		axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/vehiclesbyuserid/${userId}`, config)
+		axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/cusvehiclesbyuserid/${userId}`, config)
 			.then(function (response) {
 				// handle success
 				setvehicles(response.data);
+				console.log(response.data);
 			})
 			.catch(function (error) {
 				// handle error
-				console.log(error.response.data);
+				// console.log(error.response.data);
 			})
 
 	}, [])
