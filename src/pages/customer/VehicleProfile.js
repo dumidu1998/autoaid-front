@@ -104,17 +104,15 @@ export default function VehicleProfile() {
                     <table className="w-full table-auto">
                         <tbody>
                             {vehicleHistory.map((item, index) => (
-                                <tr className="border cursor-pointer" key={index} onClick={() => {
-                                    // history.push('/invoice/');
-                                    const win = window.open("/invoice", "_blank");
-                                    win.focus();
-                                }} >
-                                    <td className="p-2">{item.split(" ")[0]}</td>
-                                    <td >
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </td>
+                                <tr className="border cursor-pointer w-full" key={index}  >
+                                    <Link to={{ pathname: 'invoice', state: item.repairId }} className="w-96">
+                                        <td className="p-2 text-center">{item.date.split(" ")[0]}</td>
+                                        <td className=" pl-20 text-right" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </td>
+                                    </Link>
                                 </tr>
 
                             ))}
