@@ -4,7 +4,7 @@ import React from 'react'
 export default function Invoice() {
     return (
         <div className="w-screen flex flex-col items-center justify-center font-primary  ">
-                <div className="w-5/12 flex flex-col items-center justify-evenly bg-white shadow-lg p-5 rounded-lg relative ">
+                <div className="w-1/2 flex flex-col items-center justify-evenly bg-white shadow-lg p-5 rounded-lg relative ">
                     <div className="flex w-full justify-evenly items-baseline z-10 ">
                         <div className="space-y-3">
                             <h1 className="font-bold text-lg ">Invoice To :- </h1>
@@ -29,7 +29,7 @@ export default function Invoice() {
                         </div>
 
                     </div>
-                    <div className=" w-2/3 flex flex-col justify-center items-center my-10 z-10  p-5 backdrop-filter backdrop-blur-xl  ">
+                    <div className=" w-3/4 flex flex-col justify-center items-center my-10 z-10  p-5 backdrop-filter backdrop-blur-xl  ">
                         <table className="w-10/12 text-left">
                             <tr>
                                 <th></th>
