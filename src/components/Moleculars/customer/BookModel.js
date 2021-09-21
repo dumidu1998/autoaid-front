@@ -9,6 +9,7 @@ import { getCookie } from './../../../jsfunctions/cookies'
 import SlotDropDown from './SlotsDropDown';
 import AdvisorDown from './AdvisorDown';
 import VehicleDropDown from './VehicleDropDown';
+import { toast, ToastContainer } from 'react-toastify';
 
 const people = [
 	{ name: 'Wade Cooper' },
@@ -31,6 +32,8 @@ export default function MyModal() {
 	const [vehicles, setvehicles] = useState([])
 	const [selectedvehicle, setselectedvehicle] = useState({ vehicleNumber: "Select your Vehicle" });
 	const [error, setError] = useState(false);
+	const [newvehicle, setnewvehicle] = useState("hidden");
+	const [vName, setvName] = useState('')
 	function closeModal() {
 		setIsOpen(false)
 	}
@@ -86,14 +89,16 @@ export default function MyModal() {
 				setError(err.response.data);
 				console.log(err);
 			});
-		axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/vehiclesbyuserid/${userId}`, config)
+		axios.get(`${process.env.REACT_APP_API_BASE_URL}/customer/cusvehiclesbyuserid/${userId}`, config)
 			.then(function (response) {
 				// handle success
 				setvehicles(response.data);
+				setvehicles(e => ([...e, { vehicleNumber: "New Vehicle" }]));
+				console.log(response.data);
 			})
 			.catch(function (error) {
 				// handle error
-				console.log(error.response.data);
+				// console.log(error.response.data);
 			})
 
 	}, [])
@@ -110,26 +115,68 @@ export default function MyModal() {
 			});
 	}, [selectedtimeSlot])
 
-	function submit() {
-		var datatosend = {
-			date: selecteddate,
-			slotId: selectedtimeSlot.appointmentSlotId,
-			staffId: selectedadvisor.id,
-			vehicleId: selectedvehicle.vehicleId
+	useEffect(() => {
+		console.log(selectedvehicle);
+		if (selectedvehicle.vehicleNumber == "New Vehicle") setnewvehicle("block");
+		else {
+			setnewvehicle("hidden");
 		}
-		axios.post(`${process.env.REACT_APP_API_BASE_URL}/appointment/addappointment`, datatosend, config)
-			.then((res) => {
-				setselectedtimeSlot({ appointmentSlotId: 0, slotTime: "Select a Time" });
-				alert("Appointment Placed Sucessfully!!");
-				closeModal();
-			})
-			.catch((err) => {
-				alert("Error Occured! Try Again!");
-			});
+
+	}, [selectedvehicle])
+
+	function submit() {
+		if (newvehicle == "hidden") {
+			var datatosend = {
+				date: selecteddate,
+				slotId: selectedtimeSlot.appointmentSlotId,
+				staffId: selectedadvisor.id,
+				vehicleId: selectedvehicle.vehicleId
+			}
+			axios.post(`${process.env.REACT_APP_API_BASE_URL}/appointment/addappointment`, datatosend, config)
+				.then((res) => {
+					setselectedtimeSlot({ appointmentSlotId: 0, slotTime: "Select a Time" });
+					setvName('');
+					closeModal();
+					toast.success("Appointment Placed Sucessfully!!");
+				})
+				.catch((err) => {
+					alert("Error Occured! Try Again!");
+				});
+		} else if (newvehicle == "block") {
+			var datatosend = {
+				date: selecteddate,
+				slotId: selectedtimeSlot.appointmentSlotId,
+				staffId: selectedadvisor.id,
+				vNo: vName,
+				userid: userId
+			}
+			axios.post(`${process.env.REACT_APP_API_BASE_URL}/appointment/addappointmentwithvehicle`, datatosend, config)
+				.then((res) => {
+					setvName('');
+					setselectedtimeSlot({ appointmentSlotId: 0, slotTime: "Select a Time" });
+					closeModal();
+					toast.success("Appointment Placed Sucessfully!!");
+				})
+				.catch((err) => {
+					alert("Error Occured! Try Again!");
+				});
+		}
 	}
 
 	return (
 		<>
+			<ToastContainer
+				position="bottom-right"
+				autoClose={3000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+
+			/>
 			<div className="">
 				<button
 					type="button"
@@ -196,7 +243,7 @@ export default function MyModal() {
 											<div className="mt-5">
 												<h1 className="font-primary  text-md font-semibold "> Vehicle No</h1>
 												<VehicleDropDown data={vehicles} set={setselectedvehicle} />
-												{/* <TechniciansDropDown /> */}
+												<input type="text" name="name" className={`rounded-lg shadow-lg h-10 w-64 my-2 ml-1 ${newvehicle}`} value={vName} onChange={e => setvName(e.target.value)} />
 											</div>
 											<div className="mt-5">
 												<h1 className="font-primary  text-md font-semibold"> Service Advisor</h1>
