@@ -6,7 +6,7 @@ import SideLink from '../../components/Atoms/customer/SideLink'
 import BottomNav from '../../components/Moleculars/customer/BottomNav'
 import TopNav from '../../components/Moleculars/customer/TopNav'
 import { useParams } from 'react-router'
-import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { getCookie } from '../../jsfunctions/cookies'
 import axios from 'axios'
 var config = {
@@ -16,8 +16,9 @@ var config = {
 }
 var d = new Date();
 export default function VehicleProfile() {
+    const location = useLocation();
     const history = useHistory();
-    const { vid } = useParams();
+    const vid = location.state;
     const [vehicleDetails, setvehicleDetails] = useState({ model: "12312", engineNo: "12312", chassisNo: "12312", vin: "12312", make: "", vehicleNumber: "" });
     const [vehicleSummary, setvehicleSummary] = useState({
         "total": 0.0,
@@ -103,17 +104,15 @@ export default function VehicleProfile() {
                     <table className="w-full table-auto">
                         <tbody>
                             {vehicleHistory.map((item, index) => (
-                                <tr className="border cursor-pointer" key={index} onClick={() => {
-                                    // history.push('/invoice/');
-                                    const win = window.open("/invoice", "_blank");
-                                    win.focus();
-                                }} >
-                                    <td className="p-2">{item.split(" ")[0]}</td>
-                                    <td >
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </td>
+                                <tr className="border cursor-pointer w-full" key={index}  >
+                                    <Link to={{ pathname: 'invoice', state: item.repairId }} className="w-96">
+                                        <td className="p-2 text-center">{item.date.split(" ")[0]}</td>
+                                        <td className=" pl-20 text-right" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </td>
+                                    </Link>
                                 </tr>
 
                             ))}
