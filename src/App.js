@@ -46,6 +46,7 @@ import CheckListPage from './pages/customer/CheckListPage';
 import ItemRequest from './pages/serviceAdvisor/ItemRequest';
 import CashierVehicleHistoryList from './pages/cashier/CashierVehicleHistoryList';
 import AvehicleHistory from './pages/cashier/AvehicleHistory';
+import Error from './pages/Error';
 
 
 
@@ -70,6 +71,7 @@ function App() {
           <Route path="/bar" exact component={DoughnutChart} />
           <Route path="/pie" exact component={BarChart} />
           <Route path="/invoice" exact component={Invoice} />
+          <Route path="/error" exact component={Error} />
 
           <Route path="/serviceadvisor" exact component={Service} />
           {/* <Route path="/serviceadvisor/addnew" exact component={AddNew} /> */}
@@ -101,7 +103,7 @@ function App() {
           <Route path="/admin/reports" exact component={AdminReports} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
-          <Route path="/technician" exact component={Dashboard} />
+          {/* <Route path="/technician" exact component={Dashboard} /> */}
           <Route path="/technician/summary" exact component={ServiceSummary} />
           <Route path="/technician/progress" exact component={ServiceProgress} />
 
