@@ -33,7 +33,19 @@ const [changed, setchanged] = useState(true);
             .then(res => {
                 console.log(res.data);
                 setchanged(!changed);
-                toast.success(" Aprroved Successfully");
+                toast.success(" Approved Successfully");
+            }
+            ).catch(err => {
+                console.log(err);
+            })
+    }
+    function refer(e) {
+        console.log(e);
+        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/referItemRequest/${e}`)
+            .then(res => {
+                console.log(res.data);
+                setchanged(!changed);
+                toast.success(" Referred Successfully");
             }
             ).catch(err => {
                 console.log(err);
@@ -99,7 +111,7 @@ useEffect(() => {
                                                                     <button className="text-lg font-primary font-medium text-white" onClick={()=>approve(item.requestId)} >Accept</button>
                                                                 </div>
                                                                 <div className="my-4 w-auto h-10 rounded-lg flex items-center justify-center bg-red-600 p-4">
-                                                                    <button className="text-lg font-primary font-medium text-white">Reject</button>
+                                                                    <button className="text-lg font-primary font-medium text-white" onClick={()=>refer(item.requestId)}>Refer to Admin</button>
                                                                 </div>
                                                             </div>
                                                         </div>
