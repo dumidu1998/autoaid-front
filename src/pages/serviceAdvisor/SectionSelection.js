@@ -11,7 +11,7 @@ import SelectionSectionNavbarMolecular from '../../components/Moleculars/service
 import SideNav from '../../components/Moleculars/serviceAdvisor/sideNav'
 import axios from 'axios'
 import { getCookie } from '../../jsfunctions/cookies'
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import { useLocation, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { toast } from 'react-toastify'
 
 
@@ -21,7 +21,8 @@ export default function SectionSelection() {
     const [repairList, setrepairList] = useState([]);
     const [totalTime, settotalTime] = useState(0);
     const [estimatedPrice, setestimatedPrice] = useState(0);
-    const repairId=0;
+    // const repairId=0;
+    const history = useHistory();
 
     const location = useLocation();
     // console.log(location.state);
@@ -31,39 +32,49 @@ export default function SectionSelection() {
             'Authorization': 'Bearer ' + getCookie('token'),
         }
     }
-    function proceedRepair(){
+    function proceedRepair() {
         //Add Repair
-        axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/addRepair`,{
-            "paymentType":"ONLINE",
-            "userId":location.state.userId,
-            "vin":location.state.vin
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/addRepair`, {
+            "paymentType": "ONLINE",
+            "userId": location.state.userId,
+            "vin": location.state.vin
         }, config)
-        .then(function(response){
-            console.log(response.data);
-            console.log(repairList);
-            
-            //Then add service entries
-            axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/add service entries`, {
-                "userId": location.state.userId,
-                "repairId": response.data,
-                "serviceEntryInstances": repairList
-            }, config)
-                .then(function (res) {
-                    console.log(res.data);
+            .then(function (response) {
+                console.log(response.data);
+                toast.success('✔ Repair Added Successfully');
+                // Then add service entries
+                axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/add service entries`, {
+                    "userId": location.state.userId,
+                    "repairId": response.data,
+                    "serviceEntryInstances": repairList
+                }, config)
+                    .then(function (res) {
+                        toast.success('✔ Entries Added Successfully');
+                        console.log(res.data);
+                        axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/nextslot/${response.data}`, config)
+                            .then(function (nextSlotResponse) {
+                                console.log(nextSlotResponse.data);
+                                history.push({
+                                    pathname: '/serviceadvisor/checklist',
+                                    state: response.data
+                                    // pass vin to update
+                                });
+                            })
+                            .catch(function (error) {
+                                console.log(error.nextSlotResponse.data);
+                                toast.error('❌' + error.nextSlotResponse.data);
+                            })
 
-                })
-            toast.success('✔ Repair Added Successfully');
+                    })
+                
 
-        })
-        // console.log(location.state);  
-        // console.log("proceed");        
-        // console.log(repairList);
-        // console.log(repairId);
-        
+            })
+
     }
-    function inspectionOnly(){
+    
+    function inspectionOnly() {
         console.log("Redirect to cashier");
-        
+
     }
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/getSubCategories/${sectionName}`, config)
@@ -91,7 +102,7 @@ export default function SectionSelection() {
                             <div>
                                 {subCatDetails.map(subCat => <SectionItems estimatedPrice={estimatedPrice} setestimatedPrice={setestimatedPrice}
                                     totalTime={totalTime} settotalTime={settotalTime} setrepairList={setrepairList} repairList={repairList}
-                                    subCat={subCat}/>)}
+                                    subCat={subCat} />)}
                             </div>
                         </div>
                         <div className=" w-full xl:w-80 2xl:w-96 mb-12 bg-white shadow-xl rounded-lg mt-12 p-8 xl:ml-12 xl:mb-0">
@@ -99,8 +110,8 @@ export default function SectionSelection() {
                             <div className="mt-6 mb-4">
 
                                 {repairList.map(addedRepair => <SelectedServiceActivitiesSVAD addedRepair={addedRepair}
-                                    repairList={repairList} setrepairList={setrepairList} totalTime={[totalTime,settotalTime]} 
-                                    estimatedPrice={[estimatedPrice,setestimatedPrice]} />)}
+                                    repairList={repairList} setrepairList={setrepairList} totalTime={[totalTime, settotalTime]}
+                                    estimatedPrice={[estimatedPrice, setestimatedPrice]} />)}
 
                                 <div className="border-b-2 mt-4"></div>
                             </div>

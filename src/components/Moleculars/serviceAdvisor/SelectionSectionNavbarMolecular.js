@@ -8,7 +8,7 @@ export default function SelectionSectionNavbarMolecular(props) {
         { id: 2, value: "Wheel Alignment" },
         { id: 3, value: "Service" },
         { id: 4, value: "Express Maintainance" },
-        { id: 5, value: "Truck and Bus" },
+        { id: 5, value: "Washing" },
       
     ])
 
