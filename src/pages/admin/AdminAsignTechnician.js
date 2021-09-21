@@ -26,7 +26,7 @@ export default function AdminAsignTechnician(props) {
     }, [])
     return (
         <div className="">
-            <div className="md:ml-40 "><AdminSideBar name="Slot Manage " roleName="Admin" /></div>
+            <div className="md:ml-40 bg-Background-0"><AdminSideBar name="Slot Manage " roleName="Admin" /></div>
             <div className=" w-full absolute  bg-Background-0 ">
                 <div className="md:ml-40">
                     <div className="font-primary text-xl font-medium ml-12   mt-8 md:text-2xl lg:text-3xl xl:text-4xl">{name}</div>

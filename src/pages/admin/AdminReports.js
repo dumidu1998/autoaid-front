@@ -10,7 +10,7 @@ import TableViewTwoPrecentage from '../../components/Organs/admin/TableViewTwoPr
 export default function AdminReports() {
     return (
         <div className="">
-            <div className="md:ml-40 "><AdminSideBar name="Reports" roleName="Admin"/></div>
+            <div className="md:ml-40 bg-Background-0"><AdminSideBar name="Reports" roleName="Admin"/></div>
             <div className=" w-full absolute bg-Background-0 ">
                 <div className="md:ml-40 ">
                     {/* <div className="font-primary text-xl font-medium ml-6 mt-8 md:text-2xl lg:text-3xl xl:text-4xl">Sections</div> */}
