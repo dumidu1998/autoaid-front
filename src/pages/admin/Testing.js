@@ -258,13 +258,15 @@ import PopUp from '../../components/Atoms/admin/PopUp'
  
  export default function Testing() {
    return (
-     <div>
+     <div className="flex justify-center items-center h-screen w-full">
        <PopUp 
           clickbtnName="click" 
           clickbtnColor="bg-Secondary-0" 
           Heading1="Are you sure ?" 
-          popUpBtnOne="yes" 
-          popUpBtnOneColor="bg-blue-500"/>
+          popUpBtnOne="Yes" 
+          popUpBtnOneColor="bg-red-600"
+          popUpBtnTwo="No" 
+          popUpBtnTwoColor="bg-green-600"/>
      </div>
    )
  }
