@@ -8,7 +8,7 @@ export default function StaffManageIdStatusPropilePicRow(props) {
     const [nextId, setnextId] = useState();
     const [activateBtnHide, setactivateBtnHide] = useState('hidden')
     const [activatedBtn, setActivatedBtn] = useState('ACTIVATE');
-
+    
     var getid = () => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getnextstaffid`)
             .then(function (response) {
@@ -50,7 +50,7 @@ export default function StaffManageIdStatusPropilePicRow(props) {
         <div className=" flex flex-col items-center relative xl:grid grid-cols-3 place-items-center mr-3">
             <div className="grid grid-cols-1  place-items-center lg:mr-20 ">
                 <div className=" mb-6 xl:mb-0 lg:ml-16 xl:ml-0">
-                    <StaffManageIdDisplay id={nextId} />
+                    {/* <StaffManageIdDisplay id={nextId} /> */}
                 </div>
                 <div className="md:hidden mt-4 mb-4">
                     <div className={activateBtnHide}>
