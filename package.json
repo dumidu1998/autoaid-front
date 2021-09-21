@@ -15,7 +15,7 @@
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cardon": "^1.0.2",
     "chart.js": "^3.5.0",
     "firebase": "^8.6.3",
