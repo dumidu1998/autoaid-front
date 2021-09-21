@@ -146,7 +146,7 @@ useEffect(() => {
                                 <CategorySelectNavBarMol itemCategory={itemCategory} setitemCategory={setitemCategory} />
                             </div>
                             
-                            <div className="font-primary text-xl text-white">Stock Items</div>
+                            <div className="ml-2 font-semibold text-xl text-white">Stock Items</div>
                             <div className="w-full h-full overflow-auto">
                                 <div className="h-auto z-20 ">
                                     <div className="flex justify-evenly mr-60 pr-9 pl-5 text-white font-semibold">
