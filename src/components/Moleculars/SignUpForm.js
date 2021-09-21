@@ -35,7 +35,7 @@ export default function SignUpForm(props) {
                         {/* <FormInput lable=" Tel. No." value={props.contactNo} /> */}
                         <h1 className="font-primary  text-md">  Mobile No.</h1>
                         <input type="tel" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.contactno}
-                            onChange={(event) => props.onChangecontact(event.target.value)} placeholder="0766344989 / +94766344989" />
+                            onChange={(event) => props.onChangecontact(event.target.value)} placeholder="0766341959" />
                     </div>
 
                 </div>
@@ -63,8 +63,6 @@ export default function SignUpForm(props) {
                         <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.address2}
                             onChange={(event) => props.onChangeaddress2(event.target.value)} />
                     </div>
-                    {/* //TODO Address line to database and below city */}
-
 
                 </div>
                 <div className="lg:flex mt-7">
