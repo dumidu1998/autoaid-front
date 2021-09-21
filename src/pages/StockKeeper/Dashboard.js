@@ -6,13 +6,14 @@ import ItemContainer from '../../components/Atoms/stockKeeper/ItemContainer'
 import SubSectionHeading from '../../components/Atoms/serviceStation/SubSectionHeading'
 import LowQuantityItems from '../../components/Atoms/stockKeeper/LowQuantityItems'
 import { getCookie } from '../../jsfunctions/cookies'
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Dashboard() {
     const [output, setoutput] = useState({itemName:"",itemNo:"",stock:"",price:"",reorderLevel:""});
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
     const [request, setrequest] = useState([]);
-
+const [changed, setchanged] = useState(true);
     // useEffect(() => {
     //     console.log("test")
     //     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
@@ -26,16 +27,16 @@ export default function Dashboard() {
     //     })
     // }, [])
 
-    function approve(id) {
-        
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${id.target.value}`)
+    function approve(e) {
+        console.log(e);
+        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${e}`)
             .then(res => {
-                setresult(res.data);
                 console.log(res.data);
+                setchanged(!changed);
+                toast.success(" Aprroved Successfully");
             }
             ).catch(err => {
                 console.log(err);
-                setresult([]);
             })
     }
 
@@ -68,7 +69,7 @@ useEffect(() => {
 
 
 
-}, [])
+}, [changed])
 
     return (
         <div className="h-full w-full relative bg-Background-0">
@@ -95,16 +96,16 @@ useEffect(() => {
                                                             </div>
                                                             <div className="">
                                                                 <div className="my-4 w-auto h-10 rounded-lg flex items-center justify-center bg-green-600 p-4">
-                                                                    <button className="text-lg font-primary font-medium text-white " >Accept</button>
+                                                                    <button className="text-lg font-primary font-medium text-white" onClick={()=>approve(item.requestId)} >Accept</button>
                                                                 </div>
                                                                 <div className="my-4 w-auto h-10 rounded-lg flex items-center justify-center bg-red-600 p-4">
-                                                                    <button className="text-lg font-primary font-medium text-white " >Reject</button>
+                                                                    <button className="text-lg font-primary font-medium text-white">Reject</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            ))}
+                                ))}
                                 {/* <ItemContainer itemNo="Piston" parts="25" repair="2" link={""} />
                                 <ItemContainer itemNo="Brake Pad" link={""} />
                                 <ItemContainer itemNo="Cluch Pad" link={""} />
@@ -159,6 +160,18 @@ useEffect(() => {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                        position="bottom-right"
+                        autoClose={3000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+
+                    />
         </div>
     )
 
