@@ -40,7 +40,7 @@ export default function Login() {
                     case 'CUSTOMER':
                         history.push('/customer');
                         break;
-                    case 'TECHNICIAN':
+                    case 'LEAD_TECHNICIAN':
                         history.push('/technician/dashboard');
                         break;
                     case 'STOCK_KEEPER':
