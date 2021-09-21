@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./PopUp.css";
+import "../../../App.css";
+import PopBtnOne from "./PopBtnOne";
 
 export default function PopUp(props) {
   const [modal, setModal] = useState(false);
@@ -25,14 +26,20 @@ export default function PopUp(props) {
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content rounded-xl bg-red-400">
-            <h2 className="font-primary text-lg font-medium">{props.Heading1}</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-              perferendis suscipit officia recusandae, eveniet quaerat assumenda
-              id fugit, dignissimos maxime non natus placeat illo iusto!
-              Sapiente dolorum id maiores dolores?
-            </p>
-            <button className="close-modal -mt-9  -mr-8 w-20 h-20 text-sm" onClick={toggleModal}>
+            <div>
+              <h2 className="font-primary text-lg font-medium">{props.Heading1}</h2>
+            </div>
+            <div className="flex justify-center items-center mt-8 mb-8">
+              <div className=" w-full">
+                <div>
+                    <PopBtnOne popUpBtnOne={props.popUpBtnOne} popUpBtnOneColor={props.popUpBtnOneColor}/>
+                </div>
+                <div>
+
+                </div>
+              </div>
+            </div>
+            <button className="close-modal -mt-9  -mr-8 w-16 h-16 text-sm" onClick={toggleModal}>
               <img src="https://img.icons8.com/fluency/96/000000/close-window.png"/>
             </button>
           </div>
