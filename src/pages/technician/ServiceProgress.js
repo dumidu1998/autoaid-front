@@ -26,17 +26,18 @@ export default function ServiceProgress() {
 
     
 	let [isOpen, setIsOpen] = useState(false);
+
     return (
 
         <div className="relative bg-Background-0 h-full lg:h-screen">
             <div className="flex flex-col items-center ">
-                <TopContainerVNo heading1="KT-0246" />
+                <TopContainerVNo heading1="KT-0246" link="dashboard" />
                 <div className="flex  flex-col lg:flex-row w-11/12 justify-center items-center">
                     <div>
-                        {/* <ProgressMainContainer repair={location.state.repair} sectionName={location.state.sectionName}/> */}
+                        <ProgressMainContainer repair={location.state.repair} sectionName={location.state.sectionName} />
                     </div>
                     <div className="flex flex-col items-center">
-                        <SummaryRightContainer />
+                        <SummaryRightContainer repairid={location.state.repair.repairId} />
                         <PauseBtn txt={"Pause"} />
                         <div className="flex ">
                             <AddnewWithIcon txt={"Add New"} />
