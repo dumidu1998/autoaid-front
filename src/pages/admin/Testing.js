@@ -216,6 +216,9 @@
 import ModalCard from "./ModalCard";
 import React from "react";
 import { Button, Grid, TextField } from "@material-ui/core";
+import Popup from "reactjs-popup";
+import PopUp from "../../components/Atoms/admin/PopUp";
+
 
 export default function Testing() {
   const [result, setResult] = React.useState();
@@ -246,6 +249,7 @@ export default function Testing() {
       <br />
       Custom Alert Card result is:
       {result == null ? "empty" : result ? "Yes" : "No"}
+      <PopUp/>
     </div>
   );
 }
