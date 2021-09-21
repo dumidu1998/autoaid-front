@@ -147,7 +147,7 @@ useEffect(() => {
                             </div>
                             
                             <div className="font-primary text-xl">Stock Items</div>
-                            <div className="w-full h-3/5 overflow-auto">
+                            <div className="w-full h-full overflow-auto">
                                 <div className="h-auto z-20 ">
                                     <ul class={` ${show} `} >
                                                 {result.map(item => (<div className="mt-4 border-b-2 pr-9 pl-12 " >
