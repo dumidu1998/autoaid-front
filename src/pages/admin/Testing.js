@@ -259,7 +259,12 @@ import PopUp from '../../components/Atoms/admin/PopUp'
  export default function Testing() {
    return (
      <div>
-       <PopUp clickbtnName="click" clickbtnColor="bg-Secondary-0" Heading1="Are you sure ?"/>
+       <PopUp 
+          clickbtnName="click" 
+          clickbtnColor="bg-Secondary-0" 
+          Heading1="Are you sure ?" 
+          popUpBtnOne="yes" 
+          popUpBtnOneColor="bg-blue-500"/>
      </div>
    )
  }
