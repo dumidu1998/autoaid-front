@@ -12,10 +12,12 @@ import VehicleDropDown from '../customer/VehicleDropDown';
 import { ToastContainer, toast } from 'react-toastify';
 import { Formik, Field, Form } from 'formik';
 import DropdownMol from './DropdownMol';
+import { useHistory } from 'react-router';
 
 
 var userId = getCookie('userId');
 export default function PopupItemDetails(props) {
+	const history=useHistory();
 	let [isOpen, setIsOpen] = useState(false);
 	const [value, onChange] = useState([]);
 	const [error, setError] = useState(false);
@@ -49,11 +51,13 @@ useEffect(() => {
 }, [props.itemNo])
 
     function getdetails() {
+		console.log("popup"+props.itemNo);
         
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${props.itemNo}`)
             .then(res => {
                 // setshow("hidden");
                 // window.document.getElementById("name")=res.data.itemName;
+				console.log(res.data);
                 setoutput(res.data);
                 console.log(output);
             }
@@ -116,13 +120,16 @@ useEffect(() => {
                                         initialValues={output}
                                         onSubmit={async (values) => {
 											console.log(values);
+											console.log(values.itemNo);
+											// values.itemId=output.itemNo;
+											// values.categoryId = output.categoryId;
 											axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/item`, values, config)
 												.then((res) => {
 													console.log(res.data);
-																		
 													toast.success(res.data.itemName + " Updated Successfully");
+													history.push('stock');
 												}).catch((err) => {
-													console.log(err);
+													console.log(err.response.data);
 												})
                                             
                                             //    alert(JSON.stringify(values, null, 2));
@@ -175,6 +182,7 @@ useEffect(() => {
                                             </div> */}
 											<div className=" flex justify-center mt-10 mb-5">
 												<button
+													onClick={closeModal}
 													type="button"
 													className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 " type="submit">
 													Update Details
