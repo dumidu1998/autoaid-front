@@ -121,7 +121,6 @@ export default function Index() {
                                 return (
                                     <Link to={{ pathname: `/customer/vehicle`, state: vehicle.vehicle.vehicleId }}>
                                         <VehicleContainer reg={vehicle.vehicle.vehicleNumber} key={vehicle.vehicle.vehicleId} time={vehicle.nextService === '- -' ? 'In 6 Months' : `${vehicle.nextService} km / 6 Months`} />
-                                        {/* //TODO */}
                                     </Link>
                                 );
                             })}
