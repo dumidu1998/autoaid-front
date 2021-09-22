@@ -13,7 +13,14 @@ export default function Dashboard() {
     const [result, setresult] = useState([]);
     const [show, setshow] = useState("hidden");
     const [request, setrequest] = useState([]);
-const [changed, setchanged] = useState(true);
+    const [changed, setchanged] = useState(true);
+
+    var config={
+        header:{
+            'Authorization': 'Bearer ' + getCookie('token'),
+        }
+    }
+
     // useEffect(() => {
     //     console.log("test")
     //     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
@@ -29,7 +36,7 @@ const [changed, setchanged] = useState(true);
 
     function approve(e) {
         console.log(e);
-        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${e}`)
+        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${e}`, config)
             .then(res => {
                 console.log(res.data);
                 setchanged(!changed);
@@ -41,7 +48,7 @@ const [changed, setchanged] = useState(true);
     }
     function refer(e) {
         console.log(e);
-        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/referItemRequest/${e}`)
+        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/referItemRequest/${e}`, config)
             .then(res => {
                 console.log(res.data);
                 setchanged(!changed);
@@ -54,7 +61,7 @@ const [changed, setchanged] = useState(true);
 
 useEffect(() => {
     console.log("test")
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`, config)
         .then(res => {
             setrequest(res.data);
             console.log(res.data);
@@ -64,7 +71,7 @@ useEffect(() => {
             setrequest([]);
         })
     
-    axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`, config)
     .then(res => {
         setresult(res.data);
         setshow("block");

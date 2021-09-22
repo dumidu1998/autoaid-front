@@ -25,7 +25,7 @@ export default function StockQuantity() {
     }
 
     function showdetails(id) {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`, config)
             .then(res => {
                 setshow("hidden");
                 // window.document.getElementById("name")=res.data.itemName;
@@ -40,7 +40,7 @@ export default function StockQuantity() {
 
     function getByName(e) {
         if (e.target.value == "") {
-            axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`, config)
             .then(res => {
                 setresult(res.data);
                 setshow("block");
@@ -56,7 +56,7 @@ export default function StockQuantity() {
             // setshow("block");
             return;
         }
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembyname/${e.target.value}`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembyname/${e.target.value}`, config)
             .then(res => {
                 setresult(res.data);
                 setshow("block");
@@ -72,7 +72,7 @@ export default function StockQuantity() {
 useEffect(() => {
     
     
-            axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`, config)
             .then(res => {
                 setresult(res.data);
                 setshow("block");
@@ -93,7 +93,7 @@ useEffect(() => {
 
 useEffect(() => {
     console.log(itemCategory);
-    console.log(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`);
+    // console.log(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`, config);
     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembycategory/${itemCategory}`, config)
         .then(function (response) {
             console.log(response.data);
