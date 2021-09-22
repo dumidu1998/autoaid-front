@@ -73,7 +73,7 @@ export default function ServiceProgress() {
 
 	function submit(e) {
 		e.preventDefault();
-		if (selectedItem.itemName != '' && specialstat) {
+		if (selectedItem.itemName != '' && !specialstat) {
 
 			if (selectedqty == 0) {
 				toast.error('❌ Enter Valid Quantity');
@@ -113,6 +113,8 @@ export default function ServiceProgress() {
 					setSelectedItem({ itemName: '' });
 					setSelectedId(0);
 					setsearch('');
+					setspecialName('');
+					setspecialqty(1);
 					setspecialstat(false);
 				}).catch(err => { })
 		}
@@ -225,7 +227,7 @@ export default function ServiceProgress() {
 																	</li>
 
 																))}
-																{(result.length == 0) ? (<div>Item Not found. <button className=" px-3 py-2 float-right bg-Secondary-0 rounded-lg text-white font-bold" onClick={showSpecial}>Request Speical Item</button></div>) : ("")}
+																{(result.length == 0) ? (<div>Item Not found. <button className="my-1 px-3 py-2 float-right bg-Secondary-0 rounded-lg text-white font-bold" onClick={showSpecial}>Request Speical Item</button></div>) : ("")}
 															</ul>
 														</div>
 													</div>
