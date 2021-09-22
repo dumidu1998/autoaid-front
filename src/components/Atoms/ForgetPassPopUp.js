@@ -4,6 +4,7 @@ import { Formik, Field, Form } from 'formik';
 import ForgetPassEmailBtn from "./admin/ForgetPassEmailBtn";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+import { getCookie } from '../../jsfunctions/cookies'
 
 function randomString(len, an) {
     an = an && an.toLowerCase();
@@ -35,9 +36,22 @@ export default function ForgetPassPopUp(props) {
     useEffect(() => {
         setrealcode(randomString(6, "n"))
     }, [])
+    const [value, setvalue] = useState(false);
 
-    const onClickSubmit = (e) => {
+        var config = {
+            headers: {
+                'Authorization': 'Bearer ' + getCookie('token'),
+            }
+        }
+        const onClickSubmit = (e) => {
         e.preventDefault();
+        console.log(emaill);
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/auth/checkemail/${emaill}`,config).then(res=>{
+            setvalue(res.data);
+            console.log(res.data);
+        })
+        if (value === false) { toast.error('❌ Email not found'); return 0 }
+        if (value === true) {
         axios.post('https://duminodemailer.herokuapp.com/autoaidresetpwd', {
             email: emaill,
             code: readcode
@@ -45,6 +59,7 @@ export default function ForgetPassPopUp(props) {
             setEmail("hidden");
             setCode("block");
         })
+    }
 
     }
     const onClickCode = (e) => {
@@ -156,8 +171,8 @@ export default function ForgetPassPopUp(props) {
                                             <div className="flex justify-between items-center mt-3 ">
                                                 <form onSubmit={onClickCode}>
                                                     <input type="text" id="code1" name="code1" placeholder="Verification Code" className=" ml-2 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" value={codee} onChange={e => setcodee(e.target.value)} required />
-                                                    <input type="text" id="code2" name="code2" placeholder="New Password" className=" ml-2 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" pattern="[a-zA-Z0-9]{5,}" title="Password Should at least 5 Characters!" value={newpwd} onChange={e => setnewpwd(e.target.value)} required />
-                                                    <input type="text" id="code3" name="code3" placeholder="Confirm New Password" className=" ml-2 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" value={cnewpwd} onChange={e => setcnewpwd(e.target.value)} required />
+                                                    <input type="password" id="code2" name="code2" placeholder="New Password" className=" ml-2 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" pattern="[a-zA-Z0-9]{5,}" title="Password Should at least 5 Characters!" value={newpwd} onChange={e => setnewpwd(e.target.value)} required />
+                                                    <input type="password" id="code3" name="code3" placeholder="Confirm New Password" className=" ml-2 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" value={cnewpwd} onChange={e => setcnewpwd(e.target.value)} required />
                                                     <br /><button className="text-white font-primary font-medium bg-green-600 px-6 py-1 mt-3 mx-12  rounded-lg shadow-xl mr-6">Submit</button>
 
                                                 </form>

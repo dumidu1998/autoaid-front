@@ -42,7 +42,7 @@ export default function AdminSideBarIcons({ showSidebar, setShowSidebar }) {
                 {/* <div > */}
             
             
-                    <div className="relative mt-24 h-screen ">
+                    <div className="relative -mt-32 h-screen">
                         <Link to="/admin/"> 
                             <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg  m-10 rounded-lg mt-24 hover:text-black">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-Secondary-0  hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
