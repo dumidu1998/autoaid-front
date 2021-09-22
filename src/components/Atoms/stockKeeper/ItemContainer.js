@@ -3,6 +3,20 @@ import ButtonProps from './ButtonProps'
 import ButtonSecond from './ButtonSecond'
 
 export default function ItemContainer(props) {
+
+    // function approve(id) {
+        
+    //     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${id.target.value}`)
+    //         .then(res => {
+    //             setresult(res.data);
+    //             console.log(res.data);
+    //         }
+    //         ).catch(err => {
+    //             console.log(err);
+    //             setresult([]);
+    //         })
+    // }
+
     return (
         <div>
             <div className=" w-full h-36 shadow-lg bg-white mt-5 rounded-lg flex items-center justify-center">
