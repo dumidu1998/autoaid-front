@@ -24,26 +24,32 @@ export default function VehicleInfoPopUp(props) {
       <button onClick={toggleModal} className={btnStyle}>{props.clickbtnName}</button>
 
       {modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
+        <div className="modal font-primary ">
+          <div onClick={toggleModal} className="overlay "></div>
           <div className="modal-content rounded-xl bg-red-400">
-            <div className="mt-8">
+            <div className="mt-8 ">
               <h2 className="font-primary text-lg font-medium">{props.Heading1}</h2>
             </div>
             <div className=" bg-Background-0 rounded-lg mb-3 font-primary font-md">
             <div className="flex flex-col justify-center items-center p-8">
-                <div className="bg-white shadow-xl rounded-xl w-48 h-12 flex justify-center items-center mt-3 p-3">
-                Vin: <span className="text-green-700 ml-2">{props.vin}</span>
+              <div className="flex space-x-3">
+                  <div className="bg-white shadow-xl rounded-xl w-64 h-12 flex justify-center items-center mt-3 p-3">
+                    Vin: <span className="text-green-700 ml-2">{props.vin}</span>
+                  </div>
+                  <div className="bg-white shadow-xl rounded-xl w-64 h-12 flex justify-center items-center mt-3 p-3">
+                    Repair Stat: <span className="text-green-700 ml-2">{props.repairStatus}</span>
+                  </div>
+
+              </div>
+              <div className="flex space-x-3">
+                <div className="bg-white shadow-xl rounded-xl w-64 h-12 flex justify-center items-center mt-3 p-3">
+                  Customer: <span className="text-green-700 ml-2">{props.customerName}</span>
                 </div>
-                <div className="bg-white shadow-xl rounded-xl w-48 h-12 flex justify-center items-center mt-3 p-3">
-                Repair Stat: <span className="text-green-700 ml-2">{props.repairStatus}</span>
+                <div className="bg-white shadow-xl rounded-xl w-64 h-12 flex justify-center items-center mt-3 p-3">
+                  Contact: <span className="text-green-700 ml-2">{props.contactNo}</span>
                 </div>
-                <div className="bg-white shadow-xl rounded-xl w-48 h-12 flex justify-center items-center mt-3 p-3">
-                Customer: <span className="text-green-700 ml-2">{props.customerName}</span>
-                </div>
-                <div className="bg-white shadow-xl rounded-xl w-48 h-12 flex justify-center items-center mt-3 p-3">
-                Contact: <span className="text-green-700 ml-2">{props.contactNo}</span>
-                </div>
+
+              </div>
             </div>
             </div>
             <button className="close-modal -mt-9  -mr-8 w-16 h-16 text-sm" onClick={toggleModal}>

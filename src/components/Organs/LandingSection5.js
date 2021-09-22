@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../Atoms/Button'
+import ButtonPrimary from '../Atoms/ButtonPrimary'
 import SectionHeading from '../Atoms/SectionHeading'
 
 export default function LandingSection5() {
@@ -26,7 +27,7 @@ export default function LandingSection5() {
                             </ul>
                         </div>
                         <div className="text-white mt-10">
-                            <Button txt="Book Now"/>
+                            <ButtonPrimary txt="Book Now"/>
 
                         </div>
                     </div>
