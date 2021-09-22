@@ -91,9 +91,7 @@ useEffect(() => {
     }, [changed])
 
     return (
-
         <div className="h-screen w-full relative bg-Background-0">
-
             <div className="flex">
                 <div>
                     <SideNavBar />
@@ -104,6 +102,7 @@ useEffect(() => {
                         <div className="h-full w-5/12 py-8">
                             <SubSectionHeading heading="Item Requests" />
                             <div className="w-full h-full overflow-y-auto">
+                                
                                 {request.map(item => (
                                     <div className="">
                                         <div className=" w-full h-36 shadow-lg bg-white mt-5 rounded-lg flex items-center justify-center">
