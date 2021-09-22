@@ -91,7 +91,7 @@ useEffect(() => {
     }, [changed])
 
     return (
-        <div className="h-full w-full relative bg-Background-0">
+        <div className="h-screen w-full relative bg-Background-0">
             <div className="flex">
                 <div>
                     <SideNavBar />
