@@ -10,6 +10,7 @@ import axios from 'axios';
 import TopNav from '../../components/Moleculars/customer/TopNav'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { getCookie } from '../../jsfunctions/cookies'
+import Charts from './Charts'
 
 
 export default function Index() {
@@ -36,7 +37,7 @@ export default function Index() {
             .then(function (response) {
                 // handle success
                 setvehicles(response.data);
-                console.log(vehicles);
+                console.log(response.data.vehicle.vin);
                 // alert(response.data);
 
             })
@@ -87,6 +88,7 @@ export default function Index() {
     useEffect(() => {
         submit();
     }, [])
+    const [nulldata, setnulldata] = useState({vehicleNumber:'',estTime:'',repairId:'',queued:[],ongoing:[],completed:[],repairId:''})
 
     return (
         <div className="mb-44">
@@ -97,10 +99,12 @@ export default function Index() {
                         <Addnew txt="Book Now" />
                     </div>
                     <div className="md:my-10">
-                        {status.map((item, index) =>
+                        {status.length==0?<StatusViewer data={nulldata} />:
+                        status.map((item, index) =>
                             <StatusViewer key={index} data={item} />
                         )}
                     </div>
+                    <Charts/>
                     <div className="md:flex justify-center">
                         <div className="md:bg-white md:p-5 md:rounded-lg md:shadow-lg md:w-1/3 md:my-5 md:mx-5">
                             <div className="flex justify-between">
@@ -119,7 +123,7 @@ export default function Index() {
                             <HeadingPRimary heading="Vehicles" />
                             {vehicles.map((vehicle, index) => {
                                 return (
-                                    <Link to={{ pathname: `/customer/vehicle`, state: vehicle.vehicle.vehicleId }}>
+                                    <Link to={{ pathname: vehicle.vehicle.vin==null?'':`/customer/vehicle`, state: vehicle.vehicle.vehicleId }}>
                                         <VehicleContainer reg={vehicle.vehicle.vehicleNumber} key={vehicle.vehicle.vehicleId} time={vehicle.nextService === '- -' ? 'In 6 Months' : `${vehicle.nextService} km / 6 Months`} />
                                     </Link>
                                 );

@@ -7,8 +7,8 @@ export default function BarChart() {
             data={ {
                 labels: ['jan', 'Feb', 'May', 'june', 'july', 'Aug'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: '# expenses',
+                    data: [1200, 19000, 300, 500, 2000, 300],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

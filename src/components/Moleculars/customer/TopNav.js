@@ -25,7 +25,7 @@ export default function TopNav() {
                     </div>
                     <div className="text-white flex items-center">
                         <BookModel/>
-                        <button onClick={clearCookies} className="bg-red-400 text-white"><Link to="/"> Log Out </Link></button>
+                        <button onClick={clearCookies} className="bg-primary-0 p-3 rounded-lg text-white"><Link to="/"> Log Out </Link></button>
                     </div>
 
                 </div>

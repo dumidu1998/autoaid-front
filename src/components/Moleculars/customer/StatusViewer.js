@@ -28,7 +28,10 @@ export default function StatusViewer(props) {
             {/* web view */}
             <div className="md:flex flex-col items-center bg-forth-0 py-5 rounded-lg mb-5 shadow-xl hidden relative">
                 <h1 className=" font-secondary text-white text-lg">Current Progress</h1>
+                {
+                    props.data.vehicleNumber==""?<p className="font-primary text-primary-0 text-2xl my-1">No Service On Action</p>:
                 <p className="font-primary text-white text-xs my-1">{props.data.vehicleNumber}</p>
+                }
                 <h1 className="font-primary text-white text-sm font-semibold">Est. Time : {format(props.data.estTime)}hr</h1>
                 <div className="w-10/12 flex items-start justify-between">
                     <div className="flex flex-col items-center">
@@ -70,7 +73,10 @@ export default function StatusViewer(props) {
                         ))}
 
                     </div>
-                    <Link to={{ pathname: "customer/checklist", state: props.data.repairId }} className="absolute top-2 right-5 font-primary text-xs text-Secondary-0">View Check List</Link>
+                    {
+                        props.data.vehicleNumber==""?"":
+                    <Link to={{  pathname: "customer/checklist", state: props.data.repairId }} className="absolute top-2 right-5 font-primary text-xs text-Secondary-0">View Check List</Link>
+                    }
                 </div>
                 <div className="flex justify-between w-full">
 

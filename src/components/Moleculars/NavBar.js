@@ -14,9 +14,7 @@ export default function NavBar() {
                 </div>
 
                 <div className="text-white md:flex items-center justify-center hidden ">
-                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">Home</h1>
-                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">Pricing</h1>
-                    <h1 className="m-4 font-primary text-semibold text-transparent bg-clip-text bg-gradient-to-br from-white to-white hover:from-Secondary-0 hover:to-primary-0 cursor-pointer">About</h1>
+                    
                     <div className="m-4">
                         <Link to="/login">
                             

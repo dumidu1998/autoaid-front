@@ -25,7 +25,7 @@ export default function Charts() {
 
     return (
         <div>
-            <TopNav/>
+          
             <div className="flex justify-evenly items-center my-10">
                 <div className=" w-80 h-80 bg-white p-5 rounded-lg shadow-lg">
                     <DoughnutChart/>
