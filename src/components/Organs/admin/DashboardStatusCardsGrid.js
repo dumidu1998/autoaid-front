@@ -9,7 +9,7 @@ var config = {
     }
 }
 export default function DashboardStatusCardsGrid() {
-    const [data, setdata] = useState({})
+    const [data, setdata] = useState({ usergrow: 100, repairgrow: 150, newUsers: 150, newRepairs: 150, sales: 150, emps: 520 })
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/getstatistics`, config).then(res => {
             setdata(res.data);
