@@ -5,6 +5,7 @@ import InvoiceCashier from '../../components/Moleculars/InvoiceCashier'
 import { useLocation } from 'react-router'
 import axios from 'axios';
 import { getCookie } from '../../jsfunctions/cookies'
+import { ToastContainer, toast } from 'react-toastify';
 
 var config={
     header:{
@@ -24,6 +25,19 @@ export default function PaymentInvoice() {
         })
     }, [])
 
+    function SubmitData(){
+        axios.put(`${process.env.REACT_APP_API_BASE_URL}/cashier/updateStatusPaid`, {
+            repairId: location.state,
+            amount: data.amount
+        }, config)
+            .then((res) => {
+                console.log(res.data);
+                toast.success(res.data);
+            }).catch((err) => {
+                console.log(err);
+            })
+    }
+
     return (
         <div className="">
             <div className="md:ml-40 "><CashierSideBar name="DashBoard" roleName="Cashier"/></div>
@@ -35,8 +49,22 @@ export default function PaymentInvoice() {
                         <InvoiceCashier data={data}/>
                         
 
-                        <ButtonRedProps name="Paid" />
+                        <button onClick={SubmitData} className="w-24 h-10 rounded-lg bg-red-700 flex items-center justify-center">
+                            <h1 className="text-lg font-primary font-medium text-white">Paid</h1>
+                        </button>
                     </div>
+                    <ToastContainer
+                        position="bottom-right"
+                        autoClose={3000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+
+                    />
                 </div>
             </div>
         </div>
