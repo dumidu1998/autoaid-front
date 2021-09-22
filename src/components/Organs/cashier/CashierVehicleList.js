@@ -1,6 +1,7 @@
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
+import { Link } from 'react-router-dom';
 
 export default function CashierVehicleList(props) {
 
@@ -54,7 +55,11 @@ export default function CashierVehicleList(props) {
                                     {repair.contactNo}
                                 </td>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
-                                    <button class=" bg-blue-700 rounded text-white p-2 pl-4 pr-4 ml-2 ">Continue</button>
+                                    <Link to={{ pathname: "/cashier/invoice", state: repair.repairId }}>
+                                         <button className=" bg-blue-700 rounded text-white p-2 pl-4 pr-4 ml-2 ">
+                                        Continue
+                                        </button> 
+                                        </Link>
                                 </td>
                                 {/* <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     {vehicle.amount}
