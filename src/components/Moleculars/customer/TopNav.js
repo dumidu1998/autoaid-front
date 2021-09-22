@@ -2,9 +2,18 @@ import React from 'react'
 import ButtonHover from '../../Atoms/ButtonHover'
 import Addnew from '../../Atoms/serviceStation/Addnew'
 import BookModel from './BookModel'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { eraseCookie } from '../../../jsfunctions/cookies';
 
 
 export default function TopNav() {
+    function clearCookies(){
+        eraseCookie('username');
+        eraseCookie('userId');
+        eraseCookie('email');
+        eraseCookie('token');
+        eraseCookie('userType');
+    }
     return (
         <div>
             <div className=" w-screen p-2 shadow-lg md:flex items-center justify-center hidden">
@@ -16,7 +25,7 @@ export default function TopNav() {
                     </div>
                     <div className="text-white flex items-center">
                         <BookModel/>
-                        <ButtonHover txt="Contact Us"/>
+                        <button onClick={clearCookies} className="bg-red-400 text-white"><Link to="/"> Log Out </Link></button>
                     </div>
 
                 </div>
