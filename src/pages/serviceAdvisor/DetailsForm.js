@@ -17,6 +17,7 @@ import VehicleListComponent from '../../components/Atoms/serviceStation/VehicleL
 export default function DetailsForm() {
 
     const [contactNo, setcontactNo] = useState('');
+    const [disable, setdisable] = useState(true);
     const [customerDetails, setcustomerDetails] = useState('');
     const [vehicleNumbers, setvehicleNumbers] = useState('');
     const userId=getCookie('userId');
@@ -52,6 +53,7 @@ export default function DetailsForm() {
                     // handle error
                     console.log(error.response.data);
                     toast.error(error.response.data);
+                    setdisable(false);
                     setcustomerDetails({
                         firstName: '',
                         lastName: '',
@@ -104,8 +106,10 @@ export default function DetailsForm() {
                                     axios.post(`${process.env.REACT_APP_API_BASE_URL}/advisor/customer/addNew`, values, config)
                                         .then(function (response) {
                                             console.log(response.data);
-                                            history.push('/serviceadvisor/addvehicle',
-                                                { state: contactNo }
+                                            history.push({
+                                                pathname: '/serviceadvisor/addvehicle',
+                                                state: { contact:contactNo }
+                                            }
                                             );
                                         })
                                 }
@@ -119,17 +123,17 @@ export default function DetailsForm() {
                                                 <div className="flex flex-col mr-12 ml-4 w-1/2">
                                                     <Field id="contactNo" name="contactNo" className=" hidden" />
                                                     <label htmlFor="firstName" className="font-primary  text-md font-semibold  mt-3">First Name</label>
-                                                    <Field id="firstName" required name="firstName" placeholder="Jane Irish" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                    <Field id="firstName" required name="firstName" placeholder="Jane Irish" disabled={disable} className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                     <label htmlFor="address" className="font-primary  text-md font-semibold  mt-3">Address</label>
-                                                    <Field id="address" required name="address" placeholder="1/d, Negombo,Colombo" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                    <Field id="address" required name="address" placeholder="1/d, Negombo,Colombo" disabled={disable} className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                 </div>
                                                 <div className="flex flex-col md:ml-20 lg:ml-28 xl:ml-32 w-1/2">
                                                     <label htmlFor="lastName" className="font-primary  text-md font-semibold  mt-3">Last Name</label>
-                                                    <Field id="lastName" required name="lastName" placeholder="Jane" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
+                                                    <Field id="lastName" required name="lastName" placeholder="Jane" disabled={disable} className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
                                                     <label htmlFor="city" className="font-primary  text-md font-semibold  mt-3">City</label>
-                                                    <Field id="city" required name="city" placeholder="Colombo" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
+                                                    <Field id="city" required name="city" placeholder="Colombo" disabled={disable} className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                 </div>
                                             </div>
                                         </div>

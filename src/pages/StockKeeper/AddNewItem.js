@@ -41,7 +41,7 @@ export default function AddNewItem() {
 
     function showdetails(id) {
         setselectedItem(id.target.id)
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`, config)
             .then(res => {
                 setshow("hidden");
                 // window.document.getElementById("name")=res.data.itemName;
@@ -59,7 +59,7 @@ export default function AddNewItem() {
             setshow("hidden");
             return;
         }
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembyname/${e.target.value}`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembyname/${e.target.value}`, config)
             .then(res => {
                 setresult(res.data);
                 setshow("block");
@@ -85,7 +85,7 @@ export default function AddNewItem() {
     // }
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/categories`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/categories`, config)
             .then(function (response) {
                 console.log(response.data);
                 setitemCategory(response.data);
@@ -126,7 +126,7 @@ export default function AddNewItem() {
                             <div className="lg:flex mt-5 h-20">
                                 <div className=" float-left">
                                     {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
-                                    <h1 className="font-primary  text-md font-semibold">Item Name</h1>
+                                    <h1 className="font-primary text-white text-md font-semibold">Item Name</h1>
                                     <input type="text" name="item" id="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0" onChange={getByName}
                                     />
                                     <div className="bg-white block ">
@@ -170,17 +170,17 @@ export default function AddNewItem() {
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
 
-                                                        <label htmlFor="itemNo" className="font-primary  text-md font-semibold  mt-3">Item Number</label>
+                                                        <label htmlFor="itemNo" className="font-primary  text-md font-semibold text-white mt-3">Item Number</label>
                                                         <Field id="itemNo" name="itemNo" placeholder="Enter Item Number" disabled className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
-                                                        <label htmlFor="price" className="font-primary  text-md font-semibold  mt-3">Selling Price</label>
+                                                        <label htmlFor="price" className="font-primary  text-md font-semibold text-white mt-3">Selling Price</label>
                                                         <Field id="price" name="price" placeholder="Enter Selling Price" disabled className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                     <div className="flex flex-col ml-40 w-1/2">
-                                                        <label htmlFor="catName" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
+                                                        <label htmlFor="catName" className="font-primary  text-md font-semibold text-white mt-3 z-10">Category</label>
                                                         <Field id="catName" name="catName" placeholder="Enter Category Id" disabled className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5"/>
 
-                                                        <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
+                                                        <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold text-white mt-3">Reorder Level</label>
                                                         <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" disabled className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                 </div>
@@ -195,11 +195,11 @@ export default function AddNewItem() {
                                             <div className="flex flex-col items-center overflow-auto ">
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
-                                                        <label htmlFor="buyingPrice" className="font-primary  text-md font-semibold  mt-3">Buying Price</label>
+                                                        <label htmlFor="buyingPrice" className="font-primary  text-md font-semibold text-white mt-3">Buying Price</label>
                                                         <Field id="buyingPrice" name="buyingPrice" placeholder="Enter Buying Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                     <div className="flex flex-col ml-40 w-1/2">
-                                                        <label htmlFor="newStock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
+                                                        <label htmlFor="newStock" className="font-primary  text-md font-semibold text-white mt-3">Stock</label>
                                                         <Field id="newStock" name="newStock" placeholder="Enter New Stock Number" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
                                                     </div>
                                                 </div>
@@ -251,27 +251,27 @@ export default function AddNewItem() {
                                                 <div className="flex flex-row">
                                                     <div className="flex flex-col mr-12 ml-4 w-1/2 ">
 
-                                                        <label htmlFor="name" className="font-primary  text-md font-semibold  mt-3 z-10">Item Name</label>
+                                                        <label htmlFor="name" className="font-primary text-white text-md font-semibold  mt-3 z-10">Item Name</label>
                                                         <Field id="name" name="name" placeholder="Enter Item" className=" ml-5 rounded-lg shadow-lg w-60 h-10  mt-2 pl-5" />
 
-                                                        <label htmlFor="price" className="font-primary  text-md font-semibold  mt-3">Selling Price</label>
+                                                        <label htmlFor="price" className="font-primary text-white text-md font-semibold  mt-3">Selling Price</label>
                                                         <Field id="price" name="price" placeholder="Enter Selling Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
-                                                        <label htmlFor="buyingPrice" className="font-primary  text-md font-semibold  mt-3">Buying Price</label>
+                                                        <label htmlFor="buyingPrice" className="font-primary text-white text-md font-semibold  mt-3">Buying Price</label>
                                                         <Field id="buyingPrice" name="buyingPrice" placeholder="Enter Buying Price" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                     </div>
                                                     <div className="flex flex-col ml-40 w-1/2">
 
-                                                        <label htmlFor="reorderLevel" className="font-primary  text-md font-semibold  mt-3">Reorder Level</label>
+                                                        <label htmlFor="reorderLevel" className="font-primary text-white text-md font-semibold  mt-3">Reorder Level</label>
                                                         <Field id="reorderLevel" name="reorderLevel" placeholder="Enter Reorder Level" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5"/>
 
-                                                        <label htmlFor="categoryId" className="font-primary  text-md font-semibold  mt-3 z-10">Category</label>
+                                                        <label htmlFor="categoryId" className="font-primary text-white text-md font-semibold  mt-3 z-10">Category</label>
                                                         <div className=" ml-5 rounded-lg shadow-lg ">
                                                             <DropdownMol data={itemCategory} set={setSelectedItemCategory} />
                                                         </div>
                                                         
-                                                        <label htmlFor="stock" className="font-primary  text-md font-semibold  mt-3">Stock</label>
+                                                        <label htmlFor="stock" className="font-primary text-white text-md font-semibold  mt-3">Stock</label>
                                                         <Field id="stock" name="stock" placeholder="Enter Stock" className=" ml-5 mt-2 rounded-lg shadow-lg w-60 h-10 pl-5" />
 
                                                     </div>
@@ -280,7 +280,7 @@ export default function AddNewItem() {
 
                                         </div>
                                         <div className="flex items-center justify-center " >
-                                            <div className="w-min h-10 rounded-lg flex items-center justify-center p-4 bg-green-700 mt-6 ">
+                                            <div className="w-min h-10 rounded-lg flex items-center justify-center p-4 bg-green-600 mt-6 ">
                                                 <button className="text-lg font-primary font-medium text-white" type="submit">Add</button>
                                             </div>
                                             {/* <div className="mx-4">

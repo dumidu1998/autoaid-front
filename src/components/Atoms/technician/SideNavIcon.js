@@ -1,7 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import Button from '@material-tailwind/react/Button';
+import { eraseCookie } from '../../../jsfunctions/cookies';
 export default function sideNavIcon({ showSidebar, setShowSidebar }) {
+    function clearCookies(){
+        eraseCookie('username');
+        eraseCookie('userId');
+        eraseCookie('email');
+        eraseCookie('token');
+        eraseCookie('userType');
+    }
     return (
         <div className="flex justify-start ">
         {/* <div className="bg-black shadow-lg w-40 h-screen"> */}
@@ -68,7 +76,8 @@ export default function sideNavIcon({ showSidebar, setShowSidebar }) {
 
                             </div>
                         </Link>
-                        <Link to="/login">
+                        <button onClick={clearCookies}>
+                        <Link to="/">
                             <div className="flex flex-col items-center justify-center w-20 h-20 hover:shadow-lg m-10 absolute bottom-10 rounded-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-300 hover:text-primary-0" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
@@ -77,6 +86,7 @@ export default function sideNavIcon({ showSidebar, setShowSidebar }) {
 
                             </div>
                         </Link>
+                        </button>
                     </div>
                 </div>
     </div>
