@@ -49,6 +49,8 @@ export default function StaffManageForm(props) {
                                 history.push("/admin/staff");
                             })
                             .catch(function (error) {
+                                console.log("error");
+                                
                                 console.log(error.response.data);
                                 alert("error Occured. Please Check data again");
                             });
