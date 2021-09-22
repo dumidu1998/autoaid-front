@@ -27,7 +27,7 @@ export default function SignUpForm(props) {
                     <div className="">
                         {/* <FormInput lable=" Email " id="email" value={props.email} /> */}
                         <h1 className="font-primary  text-md">  Email</h1>
-                        <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.email}
+                        <input type="email" name="name" className=" rounded-lg shadow-lg h-10 w-60 float-right" value={props.email}
                             onChange={(event) => props.onChangeemail(event.target.value)} />
 
                     </div>
