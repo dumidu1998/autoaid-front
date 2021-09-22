@@ -32,7 +32,7 @@ export default function AdminSection() {
             <div className=" w-full absolute  bg-Background-0 ">
                 <div className="md:ml-40">
                     <div className="font-primary text-xl font-medium ml-6 mt-8 md:text-2xl lg:text-3xl xl:text-4xl text-white">Sections</div>
-                    <div className="flex justify-center items-center mt-20 md:-mt-16 lg:md-20 md:justify-end md:mr-10"><AddSectionBtn /></div>
+                    {/* <div className="flex justify-center items-center mt-20 md:-mt-16 lg:md-20 md:justify-end md:mr-10"><AddSectionBtn /></div> */}
                     <div className="px-3 md:px-8 -mt-24">
                         <div className="container mx-auto max-w-full">
                             <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
@@ -52,11 +52,11 @@ export default function AdminSection() {
                                                 </div>
                                             </div>
                                             <div className="mt-8 flex justify-center items-center">
-                                                <Link to={{ pathname: "/admin/technician/asign", state: { name: section.sectionName } }}>
+                                                <Link to={{ pathname: "/admin/technician/asign", state: { name: section.sectionName, secid: section.sectionId } }}>
                                                     <GoBtn btnName="More.." />
                                                 </Link>
                                             </div>
-                                            <div className="mt-8 flex justify-center items-center"><StatusBtn btnName="Deactivate" /></div>
+                                            {/* <div className="mt-8 flex justify-center items-center"><StatusBtn btnName="Deactivate" /></div> */}
                                         </div>
                                     </div>
                                 )}
