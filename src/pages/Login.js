@@ -9,6 +9,7 @@ import '../jsfunctions/cookies.js';
 import { setCookie } from '../jsfunctions/cookies.js';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { Link } from 'react-router-dom';
+import ForgetPassPopUp from '../components/Atoms/ForgetPassPopUp';
 export default function Login() {
 
     const history = useHistory();
@@ -92,9 +93,15 @@ export default function Login() {
                         </div>
                     </div>
                     <div className="text-center">
+                        <ForgetPassPopUp Heading1="Registered Email"
+                            clickbtnName="Forgot Password?"
+                            clickbtnFontColor="text-blue-500"
+                            Heading2="Check your Email"
+                            clickbtnName="Forget Password"
+                            clickbtnFontColor="text-blue-500" />
                         <h1 className="font-primary font-light text-sm">Don't Have an Account <br />
                             <Link to="/signup" >
-                                <span className="text-blue-900 font-normal cursor-pointer"> Sign Up</span>
+                                <span className="text-blue-900 font-normal cursor-pointer hover:underline"> Sign Up</span>
                             </Link>
                         </h1>
                     </div>
