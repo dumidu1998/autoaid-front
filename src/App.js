@@ -74,6 +74,7 @@ function App() {
       {/* <NavBar/> */}
       <Router>
         <Switch>
+          
           <Route path="/" exact component={Landing} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
@@ -134,6 +135,7 @@ function App() {
           
           <Route path="/fpass" exact component={ForgetPassword} />
           <Route path="/fpass/code" exact component={ForgetPassCodeSubmit} />
+          <Route path="" exact component={Error} />
 
         </Switch >
       </Router >
