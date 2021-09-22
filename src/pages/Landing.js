@@ -8,6 +8,7 @@ import LandingSection5 from '../components/Organs/LandingSection5';
 import LandingSection6 from '../components/Organs/LandingSection6';
 import CallContainer from '../components/Atoms/CallContainer';
 import NavBar from '../components/Moleculars/NavBar';
+import Footer from '../components/Organs/Footer';
 
 export default function Landing() {
     return (
@@ -16,11 +17,11 @@ export default function Landing() {
             <Header/>
             <LandingSection2/>
             <LandingSection3/>
-            <LandingSection4/>
+            {/* <LandingSection4/> */}
             <LandingSection5/>
             <LandingSection6/>
             <CallContainer/>
-            
+            <Footer/>
         </div>
     )
 } 
