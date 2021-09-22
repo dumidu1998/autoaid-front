@@ -54,6 +54,7 @@ import ForgetPassword from './pages/ForgetPassword';
 import ForgetPassCodeSubmit from './components/Atoms/ForgetPassCodeSubmit';
 import CustomerDetails from './pages/admin/CustomerDetails';
 import ItemsAprove from './pages/admin/ItemsAprove';
+import PaymentInvoiceView from './pages/cashier/PaymentInvoiceView';
 
 
 
@@ -129,6 +130,7 @@ function App() {
           <Route path="/cashier/history" exact component={CashierVehicleHistoryList} />
           <Route path="/cashier/vehicleinfo" exact component={AvehicleHistory} />
           <Route path="/cashier/invoice" exact component={PaymentInvoice} />
+          <Route path="/cashier/invoiceView" exact component={PaymentInvoiceView} />
           
           
           <Route path="/fpass" exact component={ForgetPassword} />

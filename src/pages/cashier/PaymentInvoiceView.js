@@ -12,7 +12,7 @@ var config={
         'Authorization': 'Bearer ' + getCookie('token'),
     }
 }
-export default function PaymentInvoice() {
+export default function PaymentInvoiceView() {
 
     const [data, setdata] = useState({ invoiceDate: '123 123', services: [], materials: [], amount: 0 });
     const location = useLocation();
@@ -49,9 +49,9 @@ export default function PaymentInvoice() {
                         <InvoiceCashier data={data}/>
                         
 
-                        <button onClick={SubmitData} className="w-24 h-10 rounded-lg bg-red-700 flex items-center justify-center">
+                        {/* <button onClick={SubmitData} className="w-24 h-10 rounded-lg bg-red-700 flex items-center justify-center">
                             <h1 className="text-lg font-primary font-medium text-white">Paid</h1>
-                        </button>
+                        </button> */}
                     </div>
                     <ToastContainer
                         position="bottom-right"
