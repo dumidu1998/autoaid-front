@@ -4,19 +4,7 @@ import CardBody from '@material-tailwind/react/CardBody';
 
 export default function CashierVehicleList(props) {
 
-    // function customer({vehicle.ve}) {
-    //     console.log(e);
-    //     axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${v}`, config)
-    //         .then(res => {
-    //             console.log(res.data);
-    //             setchanged(!changed);
-    //             toast.success(" Approved Successfully");
-    //         }
-    //         ).catch(err => {
-    //             console.log(err);
-    //         })
-    // }
-
+    
     return (
         <Card className="mb-12">
             <CardHeader className="bg-gradient-to-r from-red-400 to-yellow-500" contentPosition="none">
@@ -33,10 +21,10 @@ export default function CashierVehicleList(props) {
                                     Vehicle Number
                                 </th>
                                 <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-bold font-primary text-center">
-                                    Contact Number
+                                    Customer Name
                                 </th>
                                 <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-bold font-primary text-center">
-                                    Customer Name
+                                    Contact Number
                                 </th>
                                 <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-bold font-primary text-center">
                                     
@@ -53,17 +41,17 @@ export default function CashierVehicleList(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {props.vehicleList.map(vehicle=>
+                            {props.repairList.map(repair=>
 
                             <tr className="font-primary ">
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
-                                    {vehicle.vehicleNumber}
+                                    {repair.vehicleNumber}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
-                                    {vehicle.vehicleNumber}
+                                    {repair.name}
                                 </th>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
-                                    {vehicle.repairAddedDate}
+                                    {repair.contactNo}
                                 </td>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                                     <button class=" bg-blue-700 rounded text-white p-2 pl-4 pr-4 ml-2 ">Continue</button>

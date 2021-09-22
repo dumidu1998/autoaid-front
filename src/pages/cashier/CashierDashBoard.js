@@ -16,7 +16,7 @@ import { ToastContainer } from 'react-toastify'
 import CashierVehicleList from '../../components/Organs/cashier/CashierVehicleList'
 
 export default function CashierDashBoard() {
-    const [vehicleList, setvehicleList] = useState([]);
+    const [repairList, setrepairList] = useState([]);
     const [resetTable, setresetTable] = useState(true);
     const userId=getCookie('userId');
     var config = {
@@ -25,10 +25,10 @@ export default function CashierDashBoard() {
         }
     }
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/getAllRepairs/${userId}`, config)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/cashier/getAllRepairs`, config)
             .then(function (response) {
                 console.log(response.data);
-                setvehicleList(response.data);
+                setrepairList(response.data);
             })
             .catch(function (error) {
                 console.log(error.response.data);
@@ -42,10 +42,10 @@ export default function CashierDashBoard() {
                 <div className="flex flex-row md:ml-40">
                         <div className="container mx-auto max-w-full overflow-hidden">
                             <div className="mt-10 mb-12">
-                                <SearchBarVehicle resetTable={resetTable} setresetTable={setresetTable}  vehicleList={vehicleList} setvehicleList={setvehicleList}/>
+                                <SearchBarVehicle resetTable={resetTable} setresetTable={setresetTable}  vehicleList={repairList} setvehicleList={setrepairList}/>
                             </div>
                             <div className=" mb-8 w-11/12 grid grid-cols-1 place-items-center mt-20 ml-3 lg:ml-12 xl:ml-14">
-                                <CashierVehicleList vehicleList={vehicleList}/>
+                                <CashierVehicleList repairList={repairList}/>
                             </div>
                         </div>
                     
