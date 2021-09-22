@@ -148,11 +148,12 @@ useEffect(() => {
                             
                             <div className="ml-2 font-semibold text-xl text-white">Stock Items</div>
                             <div className="w-full h-full overflow-auto">
-                                <div className="h-auto z-20 ">
                                     <div className="flex justify-evenly mr-60 pr-9 pl-5 text-white font-semibold">
                                         <h1 className="mr-20">Part Name  </h1>
                                         <h1 className="ml-20 mr-20">Quantity Available </h1>
                                     </div>
+                                <div className="h-72 z-20 overflow-y-auto">
+                                    
                                     
                                     <ul class={` ${show} `} >
                                                 {result.map(item => (<div className="mt-4 pr-9 pl-12 " >
