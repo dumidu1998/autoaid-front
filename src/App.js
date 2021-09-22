@@ -52,6 +52,7 @@ import PaymentInvoice from './pages/cashier/PaymentInvoice';
 import RepairInvoice from './pages/serviceAdvisor/RepairInvoice';
 import ForgetPassword from './pages/ForgetPassword';
 import ForgetPassCodeSubmit from './components/Atoms/ForgetPassCodeSubmit';
+import CustomerDetails from './pages/admin/CustomerDetails';
 
 
 
@@ -108,6 +109,7 @@ function App() {
           <Route path="/admin/test" exact component={Testing} />
           <Route path="/admin/technician/asign" exact component={AdminAsignTechnician} />
           <Route path="/admin/reports" exact component={AdminReports} />
+          <Route path="/admin/customers" exact component={CustomerDetails} />
 
           <Route path="/technician/dashboard" exact component={Dashboard} />
           {/* <Route path="/technician" exact component={Dashboard} /> */}
