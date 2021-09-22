@@ -19,7 +19,7 @@ import ServiceProgress from './pages/technician/ServiceProgress';
 import RepairHistory from './pages/customer/RepairHistory'
 import Expenses from './pages/customer/Expenses'
 import Profile from './pages/customer/Profile'
-import AddNew from './pages/serviceAdvisor/AddNew'
+// import AddNew from './pages/serviceAdvisor/AddNew'
 import AdminSection from './pages/admin/AdminSection';
 import Testing from './pages/admin/Testing';
 import DetailsForm from './pages/serviceAdvisor/DetailsForm';

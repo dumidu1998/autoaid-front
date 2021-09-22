@@ -41,7 +41,7 @@ export default function AddNewItem() {
 
     function showdetails(id) {
         setselectedItem(id.target.id)
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itembyid/${id.target.id}`, config)
             .then(res => {
                 setshow("hidden");
                 // window.document.getElementById("name")=res.data.itemName;
@@ -59,7 +59,7 @@ export default function AddNewItem() {
             setshow("hidden");
             return;
         }
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembyname/${e.target.value}`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/searchitembyname/${e.target.value}`, config)
             .then(res => {
                 setresult(res.data);
                 setshow("block");
@@ -85,7 +85,7 @@ export default function AddNewItem() {
     // }
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/categories`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/categories`, config)
             .then(function (response) {
                 console.log(response.data);
                 setitemCategory(response.data);

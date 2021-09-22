@@ -37,14 +37,13 @@ export default function SearchVehicle() {
                     <SideNav />
                 </div>
                 <div className="w-full flex flex-col xl:ml-40">
-                    <AdminTopBar name="Vehicle Info" roleName="Service Advisor" />
+                    <AdminTopBar name="Repair Info" roleName="Service Advisor" />
                     <div className="container mx-auto max-w-full overflow-hidden">
                         <div className="mt-20 mb-12">
                             <SearchBarVehicle resetTable={resetTable} setresetTable={setresetTable}  vehicleList={vehicleList} setvehicleList={setvehicleList}/>
                         </div>
                         <div className="mb-8 w-11/12 grid grid-cols-1 place-items-center mt-32 ml-3 lg:ml-12 xl:ml-14">
                             <VehicleListTable vehicleList={vehicleList}/>
-                            {/* {vehicleList.find()} */}
                         </div>
                     </div>
                 </div>

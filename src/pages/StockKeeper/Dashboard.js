@@ -14,6 +14,14 @@ export default function Dashboard() {
     const [show, setshow] = useState("hidden");
     const [request, setrequest] = useState([]);
     const [changed, setchanged] = useState(true);
+
+
+    var config={
+        header:{
+            'Authorization': 'Bearer ' + getCookie('token'),
+        }
+    }
+
     // useEffect(() => {
     //     console.log("test")
     //     axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
@@ -29,7 +37,7 @@ export default function Dashboard() {
 
     function approve(e) {
         console.log(e);
-        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${e}`)
+        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/approveItemRequest/${e}`, config)
             .then(res => {
                 console.log(res.data);
                 setchanged(!changed);
@@ -41,7 +49,7 @@ export default function Dashboard() {
     }
     function refer(e) {
         console.log(e);
-        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/referItemRequest/${e}`)
+        axios.put(`${process.env.REACT_APP_API_BASE_URL}/inventory/referItemRequest/${e}`, config)
             .then(res => {
                 console.log(res.data);
                 setchanged(!changed);
@@ -52,34 +60,33 @@ export default function Dashboard() {
             })
     }
 
-    useEffect(() => {
-        console.log("test")
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`)
-            .then(res => {
-                setrequest(res.data);
-                console.log(res.data);
-            }
-            ).catch(err => {
-                console.log(err);
-                setrequest([]);
-            })
 
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`)
-            .then(res => {
-                setresult(res.data);
-                setshow("block");
-                console.log(result);
-            }
-            ).catch(err => {
-                console.log(err);
-                setresult([]);
-                console.log("error use effect");
-            })
-        // setshow("hidden");
-        // setresult(res.data);
-        // setshow("block");
-
-
+useEffect(() => {
+    console.log("test")
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/itemRequestAll`, config)
+        .then(res => {
+            setrequest(res.data);
+            console.log(res.data);
+        }
+        ).catch(err => {
+            console.log(err);
+            setrequest([]);
+        })
+    
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/inventory/items`, config)
+    .then(res => {
+        setresult(res.data);
+        setshow("block");
+        console.log(result);
+    }
+    ).catch(err => {
+        console.log(err);
+        setresult([]);
+        console.log("error use effect");
+    })
+    // setshow("hidden");
+    // setresult(res.data);
+    // setshow("block");
 
     }, [changed])
 
