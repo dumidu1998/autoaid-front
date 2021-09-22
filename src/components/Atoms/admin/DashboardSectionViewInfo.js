@@ -51,7 +51,7 @@ import VehicleInfoPopUp from './VehicleInfoPopUp'
    return (
      <div>
        <VehicleInfoPopUp 
-          clickbtnName="click" 
+          clickbtnName="Vehicle Info" 
           clickbtnColor="bg-Secondary-0" 
           Heading1="" 
           popUpBtnOne="Yes" 
