@@ -59,7 +59,7 @@ export default function AdminDashboard() {
                             <DashboardStatusCardsGrid />
                         </div>
                     </div>
-                    <div className=" hidden  sm:flex justify-center w-full sm:mt-44 md:mt-44 lg:mt-12 xl:mt-2 mb-2">
+                    <div className=" hidden  sm:flex justify-center w-full sm:mt-44 md:mt-44 lg:mt-32 xl:mt-16 mb-2">
                         <div className=" w-96 h-20 flex justify-center items-center">
                             <div className="bg-white   rounded-xl shadow-2xl font-primary text-xl p-4 w-96">
                                 <Clock timezone={'Asia/Colombo'} format="dddd, Do, MMMM, YYYY  " />

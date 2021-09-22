@@ -37,7 +37,8 @@ export default function AdminAsignTechnician(props) {
                                 <AddSlotBtn secid={location.state.secid} added={setadded} />
                             </div>
                             <div className="bg-white shadow-xl rounded-lg w-full px-8 py-12 mt-6 mb-6">
-                                <div className="flex justify-center items-center">
+                                <div className="flex flex-col justify-center items-center font-primary">
+                                    <p className="font-medium text-lg mb-4">Asgigned Lead Technician</p>
                                     <TechniciansDropDown sectionName={name} url1="/admin/getstaff/3" url2="/admin/gettech/" url3="/admin/settech/" defaultMsg="Assign Lead Tech" />
                                 </div>
                                 <div className="flex flex-col justify-center items-center mt-6 sm:grid grid-cols-2 place-items-center lg:grid-cols-3 xl:grid-cols-4">
