@@ -105,7 +105,7 @@ export default function Index() {
                         <div className="md:bg-white md:p-5 md:rounded-lg md:shadow-lg md:w-1/3 md:my-5 md:mx-5">
                             <div className="flex justify-between">
                                 <HeadingPRimary heading="Expenses" />
-                                <SideLink name="View Details" />
+                                <SideLink name="View Details" link="/customer/details" />
                             </div>
                             <div className="flex flex-wrap justify-between my-5">
                                 <DetailsShowing data={expenses.total} dataHeading="Total Expenditure" />

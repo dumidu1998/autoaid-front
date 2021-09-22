@@ -97,9 +97,9 @@ function App() {
           <Route path="/customer/vehicle/history" exact component={RepairHistory} />
           <Route path="/customer/vehicle/expenses" exact component={Expenses} />
           <Route path="/customer/profile" exact component={Profile} />
-          <Route path="/customer/charts" exact component={Charts} />
           <Route path="/customer/checklist" exact component={CheckListPage} />
           <Route path="/customer/invoice" exact component={InvoiceHistory} />
+          <Route path="/customer/details" exact component={Charts} />
 
 
           <Route path="/admin" exact component={AdminDashboard} />

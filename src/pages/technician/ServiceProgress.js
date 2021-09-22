@@ -225,7 +225,7 @@ export default function ServiceProgress() {
 																	</li>
 
 																))}
-																{(result.length == 0) ? (<div>Item Not found. <button className=" float-right bg-indigo-300" onClick={showSpecial}>Request Speical Item</button></div>) : ("")}
+																{(result.length == 0) ? (<div>Item Not found. <button className=" px-3 py-2 float-right bg-Secondary-0 rounded-lg text-white font-bold" onClick={showSpecial}>Request Speical Item</button></div>) : ("")}
 															</ul>
 														</div>
 													</div>
