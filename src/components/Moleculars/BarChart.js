@@ -29,7 +29,7 @@ export default function BarChart() {
                 }]
             }}
             width={500}
-            height={400}
+            height={320}
             options={{ maintainAspectRatio: false }}/>
         </div>
     )
