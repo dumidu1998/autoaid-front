@@ -25,7 +25,7 @@ export default function SectionSelection() {
     const history = useHistory();
 
     const location = useLocation();
-    // console.log(location.state);
+    console.log(location.state);
 
     var config = {
         headers: {
@@ -57,11 +57,10 @@ export default function SectionSelection() {
                                 history.push({
                                     pathname: '/serviceadvisor/checklist',
                                     state: response.data
-                                    // pass vin to update
                                 });
                             })
                             .catch(function (error) {
-                                console.log(error.nextSlotResponse.data);
+                                // console.log(error.nextSlotResponse.data);
                                 toast.error('❌' + error.nextSlotResponse.data);
                             })
 

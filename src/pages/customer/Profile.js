@@ -6,6 +6,7 @@ import TopNav from '../../components/Moleculars/customer/TopNav'
 import { Dialog, Transition } from '@headlessui/react'
 import axios from 'axios'
 import { getCookie } from '../../jsfunctions/cookies'
+import { toast } from 'react-toastify'
 
 
 
@@ -24,6 +25,7 @@ export default function Profile() {
 
     const userId = getCookie('userId');
     const userName=getCookie('username');
+    const userType=getCookie('userType');
      
     var config = {
         headers: {
@@ -58,6 +60,24 @@ export default function Profile() {
         setIsOpenp(true)
     }
     function closeModalBio() {
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/customer/update/user`, {
+            "userId": userId,
+            "firstName": firstname,
+            "lastName": lastname,
+            "address": address,
+            "email": email,
+            "city": city,
+            "contactNo": contactno,
+            "userType": userType
+        }, config)
+            .then((res) => {
+                console.log(res.data);
+                toast.success(res.data)
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        
         setIsOpenbio(false)
     }
 
@@ -269,6 +289,11 @@ export default function Profile() {
                                                 <div>
                                                     <p className="font-semibold text-sm my-3">Phone No 1</p>
                                                     <input type="tel" pattern="^((?:\+94|94)|0)(\d{9})$" value={contactno} onChange={e => setcontactno(e.target.value)} />
+
+                                                </div>
+                                                <div>
+                                                    <p className="font-semibold text-sm my-3">Email</p>
+                                                    <input type="tel" pattern="^((?:\+94|94)|0)(\d{9})$" value={email} onChange={e => setemail(e.target.value)} />
 
                                                 </div>
                                             </div>
