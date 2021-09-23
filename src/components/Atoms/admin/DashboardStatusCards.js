@@ -13,6 +13,7 @@ export default function DashboardStatusCards({
     percentage,
     percentageColor,
     date,
+    show,
 }) {
     return (
         <div className="px-4 mb-10 ">
@@ -23,8 +24,9 @@ export default function DashboardStatusCards({
                     </CardHeader>
                     <CardStatus title={title} amount={amount} className="font-primary" />
                 </CardRow>
-
+                <div className={show}>
                 <CardStatusFooter className="font-primary justify-center" amount={percentage + " %"} color={percentageColor} date={date}></CardStatusFooter>
+                </div>
             </Card>
         </div>
     )
