@@ -25,7 +25,7 @@ export default function SummaryRightContainer(props) {
             })
             .catch(function (error) {
                 // handle error
-                // console.log(error.response.data);
+                console.log(error.response.data);
             })
 
     }, [props.repairid])
