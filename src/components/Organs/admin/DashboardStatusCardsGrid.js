@@ -22,35 +22,39 @@ export default function DashboardStatusCardsGrid() { ///////////wada krne nttm h
                 <div className="grid grid-cols-1 mb-4 mt-64 w-auto md:mt-32 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:mt-12 xl:mt-32">
                     <DashboardStatusCards
                         icon="https://img.icons8.com/pastel-glyph/64/000000/website--v2.png"
-                        title="Web Traffic"
+                        title="User Growth Rate"
                         amount={data.newUsers}
                         percentage={data.usergrow} //users growth rate
                         percentageColor="green"
                         date="Since last month"
-                    />
-                    <DashboardStatusCards
-                        icon="https://img.icons8.com/ios/50/000000/add-administrator.png"
-                        title="New Users"
-                        amount={data.newRepairs}
-                        percentage={data.repairgrow} //repair growth rate
-                        percentageColor="red"
-                        date="Since last week"
+                        show="block"
                     />
                     <DashboardStatusCards
                         icon="https://img.icons8.com/ios/50/000000/sales-performance.png"
                         title="Sales"
                         amount={data.sales}
-                        percentage="1.10"
-                        percentageColor="orange"
-                        date="Since yesterday"
+                        show="hidden"
+                        // percentage="1.10"
+                        // percentageColor="orange"
+                        // date="Since yesterday"
                     />
                     <DashboardStatusCards
                         icon="https://img.icons8.com/ios/50/000000/work.png"
-                        title="Performance"
+                        title="Total Employee"
                         amount={data.emps} //total employees
-                        percentage="12"
-                        percentageColor="green"
-                        date="Since last month"
+                        show="hidden"
+                        // percentage="12"
+                        // percentageColor="green"
+                        // date="Since last month"
+                    />
+                    <DashboardStatusCards
+                        icon="https://img.icons8.com/ios/50/000000/add-administrator.png"
+                        title="Repaire Groth Rate"
+                        amount={data.newRepairs}
+                        percentage={data.repairgrow} //repair growth rate
+                        percentageColor="red"
+                        date="Since last week"
+                        show="block"
                     />
                 </div>
             </div>
