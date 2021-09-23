@@ -42,7 +42,7 @@ export default function AdminAsignTechnician(props) {
                                     <TechniciansDropDown sectionName={name} url1="/admin/getstaff/3" url2="/admin/gettech/" url3="/admin/settech/" defaultMsg="Assign Lead Tech" />
                                 </div>
                                 <div className="flex flex-col justify-center items-center mt-6 sm:grid grid-cols-2 place-items-center lg:grid-cols-3 xl:grid-cols-4">
-                                    {slotInfo.map(slot => <SlotNumberCard color={slot.slotStatus == 'AVAILABLE' ? "bg-green-500" : "bg-red-500"} slotName={slot.slotName} vNum={slot.slotStatus == 'AVAILABLE' ? "AVAILABLE" : slot.slotStatus == 'NOTAVAILABLE' ? "NOT AVAILABLE" : slot.assignedVehicle} techName={slot.assignedTechnicianName == null ? "Technician Not Assigned" : slot.assignedTechnicianName} />)}
+                                    {slotInfo.map(slot => <SlotNumberCard added={added} setadded={setadded} color={slot.slotStatus == 'AVAILABLE' ? "bg-green-500" : "bg-red-500"} slotName={slot.slotName} vNum={slot.slotStatus == 'AVAILABLE' ? "AVAILABLE" : slot.slotStatus == 'NOTAVAILABLE' ? "NOT AVAILABLE" : slot.assignedVehicle} techName={slot.assignedTechnicianName == null ? "Technician Not Assigned" : slot.assignedTechnicianName} />)}
                                 </div>
 
                             </div>

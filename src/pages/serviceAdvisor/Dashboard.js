@@ -61,7 +61,8 @@ export default function Dashboard() {
                                         state: {
                                             contact: upcomingAppointments[0].contactNo,
                                             update: "update",
-                                            vin: upcomingAppointments[0].vin
+                                            vin: upcomingAppointments[0].vin,
+                                            vehicleNumber: upcomingAppointments[0].vehicleNumber
                                         }}
                                         // console.log("vin"+upcomingAppointments[0].vin)
                                         
@@ -84,7 +85,8 @@ export default function Dashboard() {
                                         state: {
                                             contact: upcomingAppointments[0].contactNo,
                                             update: "update",
-                                            vin: upcomingAppointments[0].vin
+                                            vin: upcomingAppointments[0].vin,
+                                            vehicleNumber: upcomingAppointments[0].vehicleNumber
                                         }
                                     }: { pathname: '/serviceadvisor/section/selection',
                                             state: {

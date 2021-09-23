@@ -21,11 +21,13 @@ export default function AddNewVehicleForm() {
     const [disable, setdisable] = useState(false);
     const [addOrUpdate, setaddOrUpdate] = useState('Add');
     const [addBtnStyle, setaddBtnStyle] = useState("w-36 h-12 mb-12 mt-4  bg-blue-600 rounded-md flex items-center justify-center hover:shadow-lg");
-
+    const userId=getCookie('userId');
     const location = useLocation();
-    console.log(location.state.update);
-    console.log(location.state.contact);
-    console.log("vin " + location.state.vin);
+    // console.log(location.state.update);
+    // console.log(location.state.contact);
+    // console.log("vin " + location.state.vin);
+    // console.log("vehicleNumber" +location.state.vehicleNumber);
+
 
     var config = {
         headers: {
@@ -50,7 +52,23 @@ export default function AddNewVehicleForm() {
                     setdisable(true);
 
                 })
-        } else {
+        }else if(location.state.vehicleNumber != null){
+            console.log("vehicleNumber 2");
+            
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/advisor/getvehicle/${location.state.vehicleNumber}`, config)
+                .then(function (response) {
+                    console.log(response.data);
+                    setvehicleDetails(response.data);
+                    toast.dark('🚫 Need to update details');
+                    setdisable(false);
+
+                })
+                .catch(function(error){
+                    console.log(error.response.data);
+                    
+                })
+        } 
+        else{
             setvehicleDetails({
                 vin: '',
                 vehicleNumber: '',
@@ -75,7 +93,7 @@ export default function AddNewVehicleForm() {
                 <div className="w-full flex flex-col xl:ml-40 ">
                     {/* <TopContainer heading1="Dashboard" heading2="Service Advisor" addnewbtntext="Add New"/> */}
                     {/* <AdminTopBar name="Vehicle Registration" roleName="Service Advisor" /> */}
-                    <BackTopBar link="/serviceadvisor/detailsform" heading1="dddd eedf eeexx" />
+                    <BackTopBar link="/serviceadvisor/detailsform" heading1="Vehicle Info" />
                     <div className="mt-16">
                         <Formik
                             enableReinitialize
@@ -90,8 +108,23 @@ export default function AddNewVehicleForm() {
                                             toast.success(response.data, { onClose: () => history.push('/serviceadvisor/detailsform') });
                                         })
                                 } else if (addOrUpdate == "Update") {
-                                    //To Do
-                                    console.log("Update back end");
+                                    // console.log("Update back end");
+                                    await new Promise((r) => setTimeout(r, 500));
+                                    axios.put(`${process.env.REACT_APP_API_BASE_URL}/advisor/vehicle/update`, values, config)
+                                        .then(function (response) {
+                                            console.log(response.data);
+                                            toast.success(response.data, {
+                                                onClose: () => history.push({
+                                                    pathname: '/serviceadvisor/section/selection',
+                                                    state: {
+                                                        vehicleNo: values.vehicleNumber,
+                                                        vin: values.vin,
+                                                        userId: userId
+                                                    }
+                                                })
+                                            });
+                                        })
+            
                                 }
 
                             }
