@@ -44,7 +44,7 @@ export default function ServiceSummary() {
                         <SummaryMainContainer repair={repair} sectionName={section} />
                     </div>
                     <div className="flex flex-col items-center ">
-                        <SummaryRightContainer />
+                        <SummaryRightContainer repairid={repair.repairId} />
                         <button onClick={startRepair}><Addnew txt={"Start"} path={{
                             pathname: "progress",
                             state: {
