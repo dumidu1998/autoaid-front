@@ -9,6 +9,7 @@ docker run -e MYSQL_ROOT_PASSWORD=root -d --name mariadb --restart unless-stoppe
 docker run --name myadmin -d --link mariadb:db -p 8899:80 --restart unless-stopped phpmyadmin/phpmyadmin
 docker run --name api -d --link mariadb -p 9009:9000  --restart unless-stopped dumidu1998/autoaid_api:latest
 docker run --name front -d --restart unless-stopped -p 3000:3000 dumidu1998/autoaid_front
+docker exec -i mariadb mysql -uroot -proot autoaid < data.sql
 
 echo "AutoAid Setup Successfull!! visit your ip address with port 3000 to access the application. eg http://178.12.123.12:3000"
 echo "Spring Boot API is running on the port 9009. eg http://178.12.123.12:9009"
