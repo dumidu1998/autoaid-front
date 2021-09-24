@@ -61,9 +61,9 @@ INSERT INTO `sub_category` (`sub_cat_id`, `sub_cat_name`, `time`, `section_id`) 
 
 
 INSERT INTO `user_data` (`id`, `address`, `city`, `contact_no`, `email`, `password`, `user_name`, `user_status`, `user_type`) VALUES
-(1, '111,pallewela', 'Veyangoda', '0712408356', 'banuka@gmail.com', '$2a$10$M10odShy/tQzOEg4NcPkduBdd2fzLYe8uPixfTxmql1fuHre.HelC', 'banuka', 'ACTIVATED', 'CUSTOMER'),
-(3, 'Wataddara', 'Veyangoda', '0778337436', 'hasa@gmail.com', '$2a$10$RNAO6j5bt7wa3ehmpe.BSOk8zSI9VxbiBo49vjr457BX/N520f3Ky', 'Hasa96', 'ACTIVATED', 'ADMIN'),
-(5, '313,old town', 'Anuradhapura', '766344989', 'dumi@gmail.com', '$2a$10$fyJayeg3JrzU/IknvZ/vIuZ3.7t03xaLhr9ZOFwE6iJHlf8/4uvt2', 'dumi', 'ACTIVATED', 'LEAD_TECHNICIAN'),
+(1, '111,pallewela', 'Veyangoda', '0712408356', 'customer@gmail.com', '$2a$10$M10odShy/tQzOEg4NcPkduBdd2fzLYe8uPixfTxmql1fuHre.HelC', 'Customer', 'ACTIVATED', 'CUSTOMER'),
+(3, 'Wataddara', 'Veyangoda', '0778337436', 'admin@gmail.com', '$2a$10$RNAO6j5bt7wa3ehmpe.BSOk8zSI9VxbiBo49vjr457BX/N520f3Ky', 'Admin', 'ACTIVATED', 'ADMIN'),
+(5, '313,old town', 'Anuradhapura', '766344989', 'technician@gmail.com', '$2a$10$fyJayeg3JrzU/IknvZ/vIuZ3.7t03xaLhr9ZOFwE6iJHlf8/4uvt2', 'Technician', 'ACTIVATED', 'LEAD_TECHNICIAN'),
 (7, '53,newtown', 'Anuradhapura', '764229830', 'manthi@gmail.com', '$2a$10$2mgs23156slY0/my3283zeQe1HWJUID/SEJUQC.0l6x4jI/blaMI6', 'manthila', 'ACTIVATED', 'LEAD_TECHNICIAN'),
 (9, '151,kiridiwela', 'Gampaha', '719494502', 'thnula@gmail.com', '$2a$10$tuxjLARORQMnOTzfkDKGXOFWV/5XRisWkpk3mDaL9DsK0PohFAxse', 'thanula', 'ACTIVATED', 'LEAD_TECHNICIAN'),
 (11, '35,town', 'moratuwa', '774678712', 'dare@gmail.com', '$2a$10$zezWhmnSO4vlcI/9SDzscOI5Hz/gd5qePVQ234yNtGsZLbUS8q6EC', 'darshana', 'ACTIVATED', 'LEAD_TECHNICIAN'),
@@ -73,10 +73,10 @@ INSERT INTO `user_data` (`id`, `address`, `city`, `contact_no`, `email`, `passwo
 (19, '56,walpola', 'Ragama', '726063810', 'sanoj@gmail.com', '$2a$10$3NuUfDeD3yRMZcQ4CFKXCuOzP2kKwYbRuaJOch6AGwytvryywx4sm', 'sanoj', 'ACTIVATED', 'TECHNICIAN'),
 (21, '50,negomboRd', 'Katunayake', '774860582', 'nipuna@gmail.com', '$2a$10$zALiCHP.2AGAIRxSAY4tSeVoUPFkEu5zIn6WraK4dEAHl9mQaswxe', 'nipuna', 'ACTIVATED', 'TECHNICIAN'),
 (23, '20,batuwatta', 'Ragama', '783611056', 'hashen@gmail.com', '$2a$10$9ErwcHoU58FWq.05HVz.VeESxnkrk6jCdyWaKeZCBsTenZbv.4aQ.', 'hashen', 'ACTIVATED', 'TECHNICIAN'),
-(25, '20,weragampita', 'Mathara', '702324901', 'sasi@gmail.com', '$2a$10$kkWmFfwNV6E6XeFSE8Pcd..Jz/5/FW7ABdeymd6JGGL6ZIM7CSs6G', 'sasindu', 'ACTIVATED', 'SERVICE_ADVISOR'),
+(25, '20,weragampita', 'Mathara', '702324901', 'advisor@gmail.com', '$2a$10$kkWmFfwNV6E6XeFSE8Pcd..Jz/5/FW7ABdeymd6JGGL6ZIM7CSs6G', 'ServiceAdvisor', 'ACTIVATED', 'SERVICE_ADVISOR'),
 (27, '36,pinnagolla', 'Nittabuwa', '775668256', 'isuru@gmai.com', '$2a$10$yvMGQX4omk7TPSGp/BfbfOdC9z7FQ3UtBKXK/KTrBew56LXjwqIIK', 'isuru', 'ACTIVATED', 'SERVICE_ADVISOR'),
-(29, '15,newtown', 'Anuradhapura', '712007319', 'mali@gmail.com', '$2a$10$Y4c.Zvl2EBmidPWfhtYcoe0aLxgESbtP9grJ/fcDiOeawnJxRtXju', 'malitha', 'ACTIVATED', 'STOCK_KEEPER'),
-(31, '11,ibbagamuawa', 'Kurunegala', '710157140', 'shehan@gmail.com', '$2a$10$BnVVVqBjZ/RItdkn2o08FuH7I9rQJpfiNcSEgoV3VbWI/uhXHXqW2', 'shehan', 'ACTIVATED', 'CASHIER');
+(29, '15,newtown', 'Anuradhapura', '712007319', 'skeeper@gmail.com', '$2a$10$Y4c.Zvl2EBmidPWfhtYcoe0aLxgESbtP9grJ/fcDiOeawnJxRtXju', 'StockKeeper', 'ACTIVATED', 'STOCK_KEEPER'),
+(31, '11,ibbagamuawa', 'Kurunegala', '710157140', 'cashier@gmail.com', '$2a$10$BnVVVqBjZ/RItdkn2o08FuH7I9rQJpfiNcSEgoV3VbWI/uhXHXqW2', 'Cashier', 'ACTIVATED', 'CASHIER');
 
 
 INSERT INTO `vehicle` (`vehicle_id`, `chassis_no`, `engine_no`, `make`, `model`, `vehicle_number`, `vin`, `customer_customer_id`) VALUES
