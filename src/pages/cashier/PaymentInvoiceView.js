@@ -40,7 +40,7 @@ export default function PaymentInvoiceView() {
 
     return (
         <div className="">
-            <div className="md:ml-40 "><CashierSideBar name="DashBoard" roleName="Cashier"/></div>
+            <div className="md:ml-40 "><CashierSideBar name="Invoice View" roleName="Cashier"/></div>
             <div className=" w-full bg-Background-0 absolute  py-5">
                 <div className="md:ml-40 ">
                     {/* <div className="font-primary text-xl font-medium ml-6 mt-8 md:text-2xl lg:text-3xl xl:text-4xl">Sections</div> */}

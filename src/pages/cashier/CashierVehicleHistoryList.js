@@ -37,7 +37,7 @@ useEffect(() => {
 }, [resetTable])
 return (
     <div>
-        <div className="md:ml-40 bg-Background-0"><CashierSideBar name="DashBoard" roleName="Cashier"/></div>
+        <div className="md:ml-40 bg-Background-0"><CashierSideBar name="History" roleName="Cashier"/></div>
         <div className="w-full absolute bg-Background-0 h-screen">
         <div className=" bg-Background-0  h-screen ">
             <div className="flex flex-row md:ml-40">
