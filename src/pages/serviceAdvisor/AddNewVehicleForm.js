@@ -23,10 +23,10 @@ export default function AddNewVehicleForm() {
     const [addBtnStyle, setaddBtnStyle] = useState("w-36 h-12 mb-12 mt-4  bg-blue-600 rounded-md flex items-center justify-center hover:shadow-lg");
     const userId=getCookie('userId');
     const location = useLocation();
-    // console.log(location.state.update);
-    // console.log(location.state.contact);
-    // console.log("vin " + location.state.vin);
-    // console.log("vehicleNumber" +location.state.vehicleNumber);
+    console.log(location.state.update);
+    console.log(location.state.contact);
+    console.log("vin " + location.state.vin);
+    console.log("vehicleNumber" +location.state.vehicleNumber);
 
 
     var config = {
