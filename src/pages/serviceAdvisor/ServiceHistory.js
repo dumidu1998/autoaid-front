@@ -23,9 +23,9 @@ export default function ServiceHistory() {
                             <ServiceHistoryNavBar/>
                         </div>
                         <div>
-                           <ServiceHistoryCards name="Engine Pistone change" price="2500"/>
+                           <ServiceHistoryCards name="Engine Pistone change">
                            <ServiceHistoryCards name="Radiator Effect" price="3000"/>
-                           <ServiceHistoryCards name="Noice in the Engine" price="9500"/>
+                           <ServiceHistoryCards name="Noice in the Engine" price="10000"/>
                         </div>
                     </div>
                     <div className="w-5/6 bg-white shadow-xl rounded-lg mt-12  mr-20  p-8 px-16">
