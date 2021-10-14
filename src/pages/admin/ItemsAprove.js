@@ -27,7 +27,7 @@ export default function ItemsAprove() {
 
     return (
         <div className="">
-            <div className="md:ml-40 bg-Background-0"><AdminSideBar name="Items Aprove" roleName="Admin" /></div>
+            <div className="md:ml-40 bg-Background-0 h-full"><AdminSideBar name="Items Aprove" roleName="Admin" /></div>
             <div className=" w-full absolute  bg-Background-0 h-full">
                 <div className="md:ml-40">
                     <div className="flex flex-col items-center my-10 mr-24 font-primary ml-20 mt-32" >

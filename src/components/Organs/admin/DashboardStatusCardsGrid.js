@@ -24,15 +24,17 @@ export default function DashboardStatusCardsGrid() { ///////////wada krne nttm h
                         icon="https://img.icons8.com/pastel-glyph/64/000000/website--v2.png"
                         title="User Growth Rate"
                         amount={data.newUsers}
-                        percentage={data.usergrow} //users growth rate
-                        percentageColor="green"
+                        // percentage={data.usergrow} //users growth rate
+                        percentage="-20.5"
+                        percentageColor="red"
                         date="Since last month"
                         show="block"
                     />
                     <DashboardStatusCards
                         icon="https://img.icons8.com/ios/50/000000/sales-performance.png"
-                        title="Sales"
-                        amount={data.sales}
+                        title="Total Sales so far"
+                        // amount={data.sales}
+                        amount="876"
                         show="hidden"
                         // percentage="1.10"
                         // percentageColor="orange"
@@ -50,9 +52,11 @@ export default function DashboardStatusCardsGrid() { ///////////wada krne nttm h
                     <DashboardStatusCards
                         icon="https://img.icons8.com/ios/50/000000/add-administrator.png"
                         title="Repaire Groth Rate"
-                        amount={data.newRepairs}
-                        percentage={data.repairgrow} //repair growth rate
-                        percentageColor="red"
+                        // amount={data.newRepairs}
+                        amount="364"
+                        // percentage={data.repairgrow} //repair growth rate
+                        percentage="12"
+                        percentageColor="green"
                         date="Since last week"
                         show="block"
                     />
