@@ -11,7 +11,9 @@
 }
 
 /* popUp */
-
+.reactCalendarStylesNew{
+  border: 10 !important;
+}
 
 
 .modal, .overlay {
