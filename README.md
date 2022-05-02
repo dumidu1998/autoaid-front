@@ -3,6 +3,10 @@
 
 ## Smart Repair and Service Station Management System
 
+## Contributors 
+<a href="https://github.com/dumidu1998/autoaid-front/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dumidu1998/autoaid-front" />
+</a>
 
 ## Demo - [autoaid.xyz](http://autoaid.xyz)
 
@@ -10,7 +14,4 @@
 
 ## Back end - https://github.com/dumidu1998/autoaid-API Developed with Spring Boot
 
-<a href="https://github.com/dumidu1998/autoaid-front/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dumidu1998/autoaid-front" />
-</a>
 
