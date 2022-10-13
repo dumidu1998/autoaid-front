@@ -101,6 +101,7 @@ export default function Login() {
                             clickbtnFontColor="text-blue-500" />
                         <h1 className="font-primary font-light text-sm">Don't Have an Account <br />
                             <Link to="/signup" >
+                                //change color for this
                                 <span className="text-blue-900 font-normal cursor-pointer hover:underline"> Sign Up</span>
                             </Link>
                         </h1>
