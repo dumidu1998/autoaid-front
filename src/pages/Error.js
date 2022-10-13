@@ -6,7 +6,7 @@ export default function Error() {
     return (
         <div className="flex items-center justify-center font-primary">
             <div>
-                <p className="my-5 font-semibold">Sorry! This page is not Available Please head back to our home Page</p>
+                <p className="my-5 font-semibold">Sorry! Page is not Available</p>
             <Link to="/" >
                 <ButtonHover txt="Home" />
             </Link>
