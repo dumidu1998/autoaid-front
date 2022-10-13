@@ -33,6 +33,7 @@ export default function AddNew() {
                             <div className="">
                                 {/* <FormInput lable=" First Name" value={props.firstname} onchange={props.onchangefirstname}/> */}
                                 <h1 className="font-primary  text-md font-semibold">  First Name</h1>
+                                //name field changes
                                 <input type="text" name="name" className=" rounded-lg shadow-lg h-10 w-96 float-right border-0"
                                     />
                             </div>
