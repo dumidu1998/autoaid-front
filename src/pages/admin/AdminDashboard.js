@@ -88,7 +88,7 @@ export default function AdminDashboard() {
                                     {/* <DashBoardTransactionOrgan price="3260" number="CAZ-4079" />
                                     <DashBoardTransactionOrgan price="1400" number="ABC-6839" />
                                     <DashBoardTransactionOrgan price="1050" number="45-4502" /> */}
-
+                                    // New line added
                                     <DashBoardTransactionOrgan price={transactionsTotal} number="TOTAL" />
                                     {/* <DashBoardTransactionOrgan price="3260" number="CAZ-4079"/>
                                                 <DashBoardTransactionOrgan price="1400" number="ABC-6839"/>
