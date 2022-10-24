@@ -9,6 +9,7 @@ export default function DashBoardVehicleInfoCard(props) {
             <DashboardSectionViewInfo repair={props.repair}/>
             <div className="ml-4">
                 <span>{props.repair.vehicleNumber}</span>
+                <span>{props.vehicleNumber}</span>
             </div>
         </div>
     )

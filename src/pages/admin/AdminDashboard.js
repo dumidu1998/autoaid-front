@@ -76,6 +76,9 @@ export default function AdminDashboard() {
                                 <DashBoardVehicleInfoSectionHeadingMolecular sectionName={sectionName} setsectionName={setsectionName} />
                                 <div className="bg-white overflow-auto w-full h-64 mt-6">
                                     {ongoingRepair.map(repair => <DashBoardVehicleInfoCard repair={repair} />)}
+                                    <DashBoardVehicleInfoCard vehicleNumber="CAZ-4079" repair=""/>
+                                    <DashBoardVehicleInfoCard vehicleNumber="69-56089" repair=""/>
+                                   
                                     {/* <DashBoardSectionDetails /> */}
                                 </div>
                             </div>
