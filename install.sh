@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Hello Welcome to autoaid Installer"
+echo "Hello Welcome to autoaid Installer v 1.0"
 sudo apt update
 sudo apt install -y docker.io
 docker volume create portainer_data
